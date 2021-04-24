@@ -29,7 +29,7 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
     height: 100%;
     font-size: 20px;
     font-weight: 500;
-    // background-color: ${({ selected, theme }) => (selected ? theme.bg1 : theme.primary1)};
+    background: rgba(255, 255, 255, -0.9);
     // color: ${({ selected, theme }) => (selected ? theme.text1 : theme.white)};
     // border-radius: ${({ theme }) => theme.borderRadius};
     // box-shadow: ${({ selected }) => (selected ? 'none' : '0px 6px 10px rgba(0, 0, 0, 0.075)')};
@@ -105,6 +105,23 @@ const StyledBalanceMax = styled.button`
   `};
 `
 
+const InputGroupStyle: any = {
+    background: "rgba(255, 255, 255, 0.1)",
+    borderRadius: '0.25rem',
+    margin: '0.5rem',
+    paddingTop: '0.5rem',
+}
+
+const InputTextStyle: any = {
+    outline: "none",
+    background: "transparent !important",
+    border: "none",
+    width: "100%",
+    padding: "0.5rem 0",
+    fontSize: "120%",
+    color: "#d5d5d5",
+}
+
 interface CurrencyInputPanelProps {
     value: string
     onUserInput: (value: string) => void
@@ -158,7 +175,7 @@ export default function CurrencyInputPanel({
     }, [setModalOpen])
 
     return (
-        <div id={id} className="rounded bg-dark-800 p-5">
+        <div id={id} style={ InputGroupStyle } className="rounded p-5">
             <div
                 className="flex flex-col space-y-3 sm:space-y-0 sm:flex-row justify-between"
                 // hideInput={hideInput}
@@ -273,7 +290,7 @@ export default function CurrencyInputPanel({
                         </>
                     )} */}
                 </div>
-                <div className="flex items-center rounded bg-dark-900 space-x-3 p-3 w-full sm:w-3/5">
+                <div style={InputTextStyle} className="flex items-center rounded space-x-3 p-3 w-full sm:w-3/5">
                     {!hideInput && (
                         <>
                             {account && currency && showMaxButton && label !== 'To' && (

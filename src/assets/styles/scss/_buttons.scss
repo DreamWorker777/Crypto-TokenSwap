@@ -1,0 +1,61 @@
+button,
+.btn {
+  font-family: $font-serif;
+  padding: $spacing * 2 $spacing * 4;
+  outline: none;
+  background-color: $white;
+  border: solid 1px $gray-4;
+  display: inline-block;
+}
+
+button:not(:disabled),
+.btn:not(:disabled) {
+  cursor: pointer;
+}
+
+button:disabled,
+.btn:disabled,
+.btn.disabled {
+  opacity: 0.5;
+}
+
+button:active,
+.btn:active {
+  background-color: $gray-5;
+}
+
+.btn-round {
+  border-radius: 20px;
+  border-width: 2.5px;
+}
+
+.btn-sm {
+  padding: $spacing $spacing * 2;
+}
+
+.btn-lg {
+  padding: $spacing * 4 $spacing * 8;
+}
+
+.btn-primary {
+  background-color: $color-primary;
+}
+
+.btn-secondary {
+  background-color: $color-secondary;
+}
+
+.btn-blue {
+  background-color: $blue;
+  color: $light;
+}
+
+.btn-blue:active {
+  background-color: lighten($blue, 5%);
+}
+
+.btn-transparent {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: $white;
+}

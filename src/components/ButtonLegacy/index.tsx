@@ -44,27 +44,22 @@ const sheen = keyframes`{
 }`
 
 export const ButtonPrimary = styled(Base)`
-  /* background-color: ${({ theme }) => theme.primary1}; */
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 110%;
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
   overflow:hidden;
-  background: linear-gradient(to right, #0094ec , #f537c3);
   background-origin: border-box;
   color: white;
   &:focus {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
-    /*background: ${({ theme }) => darken(0.05, theme.primary1)};*/
-    background: linear-gradient(to right, #0094ec , #f537c3);
   }
   &:active {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.1, theme.primary1)};
-    /*background: ${({ theme }) => darken(0.1, theme.primary1)};*/
-    background: linear-gradient(to right, #0094ec , #f537c3);
   }
   &:disabled {
     pointer-events: none;
-    background: ${({ theme, altDisabledStyle, disabled }) =>
-        altDisabledStyle ? (disabled ? theme.bg3 : theme.primary1) : theme.bg3};
-    color: ${({ theme, altDisabledStyle, disabled }) =>
-        altDisabledStyle ? (disabled ? theme.text3 : 'white') : theme.text3};
     cursor: auto;
     box-shadow: none;
     border: 1px solid transparent;
@@ -72,8 +67,6 @@ export const ButtonPrimary = styled(Base)`
     opacity: ${({ altDisabledStyle }) => (altDisabledStyle ? '0.5' : '1')};
   }
   &:hover {
-    /*background: ${({ theme }) => darken(0.05, theme.primary1)};*/
-    background: linear-gradient(to right, #0094ec , #f537c3);
     background-origin: border-box;
     &::after {
       animation: ${sheen} 0.5s forwards;
@@ -87,30 +80,23 @@ export const ButtonPrimary = styled(Base)`
     right: -50%;
     bottom: -50%;
     left: -130%;
-    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255,255,255,0.5) 50%, rgba(229, 172, 142, 0));
     transform: rotateZ(60deg) translate(-5em, 7.5em);
   }
 `
 
 export const ButtonPrimaryNormal = styled(Base)`
-    background-color: ${({ theme }) => theme.primary1};
-    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 110%;
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
     &:focus {
         box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
-        background-color: ${({ theme }) => darken(0.05, theme.primary1)};
-    }
-    &:hover {
-        background-color: ${({ theme }) => darken(0.05, theme.primary1)};
     }
     &:active {
         box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.1, theme.primary1)};
-        background-color: ${({ theme }) => darken(0.1, theme.primary1)};
     }
     &:disabled {
-        background-color: ${({ theme, altDisabledStyle, disabled }) =>
-            altDisabledStyle ? (disabled ? theme.bg3 : theme.primary1) : theme.bg3};
-        color: ${({ theme, altDisabledStyle, disabled }) =>
-            altDisabledStyle ? (disabled ? theme.text3 : 'white') : theme.text3};
         cursor: auto;
         box-shadow: none;
         border: 1px solid transparent;
@@ -120,26 +106,23 @@ export const ButtonPrimaryNormal = styled(Base)`
 `
 
 export const ButtonLight = styled(Base)`
-    background-color: ${({ theme }) => theme.primary5};
-    color: ${({ theme }) => theme.primaryText1};
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 110%;
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
     font-size: 16px;
     font-weight: 500;
     &:focus {
         box-shadow: 0 0 0 1pt ${({ theme, disabled }) => !disabled && darken(0.03, theme.primary5)};
-        background-color: ${({ theme, disabled }) => !disabled && darken(0.03, theme.primary5)};
-    }
-    &:hover {
-        background-color: ${({ theme, disabled }) => !disabled && darken(0.03, theme.primary5)};
     }
     &:active {
         box-shadow: 0 0 0 1pt ${({ theme, disabled }) => !disabled && darken(0.05, theme.primary5)};
-        background-color: ${({ theme, disabled }) => !disabled && darken(0.05, theme.primary5)};
     }
     :disabled {
         opacity: 0.4;
         :hover {
             cursor: auto;
-            background-color: ${({ theme }) => theme.primary5};
             box-shadow: none;
             border: 1px solid transparent;
             outline: none;

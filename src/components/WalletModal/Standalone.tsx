@@ -336,7 +336,7 @@ export default function WalletStandalone({
                     </HeaderRow>
                 ) : (
                     <HeaderRow>
-                        <HoverText>Connect to a wallet</HoverText>
+                        <HoverText>Connect to your wallet</HoverText>
                     </HeaderRow>
                 )}
                 <ContentWrapper>

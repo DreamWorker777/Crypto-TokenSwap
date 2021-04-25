@@ -56,33 +56,55 @@ const Web3StatusError = styled(Web3StatusGeneric)`
         background-color: ${({ theme }) => darken(0.1, theme.red1)};
     }
 `
-
 const Web3StatusConnect = styled(Web3StatusGeneric)<{ faded?: boolean }>`
-    background-color: ${({ theme }) => theme.primary4};
-    border: none;
-    color: ${({ theme }) => theme.primaryText1};
-    font-weight: 500;
+    font-family: Kanit, Avenir, Helvetica, Arial, sans-serif;
+    padding: 0.4rem 0.8rem;
+    outline: none;
+    background-color: white;
+    border: solid 1px #919193;
+    display: inline-block;
+    border-radius: 20px;
+    border-width: 2.5px;
+    color: black;
 
-    :hover,
-    :focus {
-        border: 1px solid ${({ theme }) => darken(0.05, theme.primary4)};
-        color: ${({ theme }) => theme.primaryText1};
+    :hover{
+        font-family: Kanit, Avenir, Helvetica, Arial, sans-serif;
+        padding: 0.4rem 0.8rem;
+        outline: none;
+        background-color: white;
+        border: solid 1px #919193;
+        display: inline-block;
+        border-radius: 20px;
+        border-width: 2.5px;
+        color: black;
     }
-
-    ${({ faded }) =>
-        faded &&
-        css`
-            background-color: ${({ theme }) => theme.primary5};
-            border: 1px solid ${({ theme }) => theme.primary5};
-            color: ${({ theme }) => theme.primaryText1};
-
-            :hover,
-            :focus {
-                border: 1px solid ${({ theme }) => darken(0.05, theme.primary4)};
-                color: ${({ theme }) => darken(0.05, theme.primaryText1)};
-            }
-        `}
 `
+// const Web3StatusConnect = styled(Web3StatusGeneric)<{ faded?: boolean }>`
+//     background-color: ${({ theme }) => theme.primary4};
+//     border: none;
+//     color: ${({ theme }) => theme.primaryText1};
+//     font-weight: 500;
+
+//     :hover,
+//     :focus {
+//         border: 1px solid ${({ theme }) => darken(0.05, theme.primary4)};
+//         color: ${({ theme }) => theme.primaryText1};
+//     }
+
+//     ${({ faded }) =>
+//         faded &&
+//         css`
+//             background-color: ${({ theme }) => theme.primary5};
+//             border: 1px solid ${({ theme }) => theme.primary5};
+//             color: ${({ theme }) => theme.primaryText1};
+
+//             :hover,
+//             :focus {
+//                 border: 1px solid ${({ theme }) => darken(0.05, theme.primary4)};
+//                 color: ${({ theme }) => darken(0.05, theme.primaryText1)};
+//             }
+//         `}
+// `
 
 const Web3StatusConnected = styled(Web3StatusGeneric)<{ pending?: boolean }>`
     background-color: ${({ pending, theme }) => (pending ? theme.primary1 : theme.bg2)};
@@ -107,7 +129,7 @@ const Text = styled.p`
     text-overflow: ellipsis;
     white-space: nowrap;
     margin: 0 0.5rem 0 0.25rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     width: fit-content;
     font-weight: 500;
 `
@@ -215,7 +237,7 @@ function Web3StatusInner() {
     } else {
         return (
             <Web3StatusConnect id="connect-wallet" onClick={toggleWalletModal} faded={!account}>
-                <Text>{t('Connect to a wallet')}</Text>
+                <Text>{t('Connect to your wallet')}</Text>
             </Web3StatusConnect>
         )
     }

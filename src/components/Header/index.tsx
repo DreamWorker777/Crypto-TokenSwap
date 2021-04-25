@@ -1,7 +1,9 @@
 import { ChainId, Currency } from '@sushiswap/sdk'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import Logo from '../../assets/images/logo.png'
+import Logo from '../../assets/images/logo_shiba_swap.png'
+import GreenUp from '../../assets/images/green_up.png'
+import GreenFuel from '../../assets/images/green_fuel.png'
 import { useActiveWeb3React } from '../../hooks'
 import { useETHBalances } from '../../state/wallet/hooks'
 import { ReactComponent as Burger } from '../../assets/images/burger.svg'
@@ -19,18 +21,27 @@ export default function Header(): JSX.Element {
     const { t } = useTranslation()
 
     const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
+    const TokensButton = [
+        { TokenName: "SHIB",       Amount: "$0.00"   },
+        { TokenName: "LEASH",      Amount: "$0.00"   },
+        { TokenName: "BONE",       Amount: "$0.00"   }
+    ];
 
+    
     return (
         <Disclosure as="nav" className="w-screen bg-transparent gradiant-border-bottom z-10">
             {({ open }) => (
                 <>
-                    <div className="px-4 py-1.5">
-                        <div className="flex items-center justify-between h-16">
+                    <div style={{padding: "1rem",background: "#131825"}}>
+                        <div className="flex items-center justify-between h-3">
                             <div className="flex items-center">
-                                <div className="flex-shrink-0">
-                                    <img src={Logo} alt="Sushi" className="h-10 w-auto" />
+                                <div className="flex-shrink-0 m-l-1 nav-left-bar">
+                                    <img src={Logo} alt="Sushi" className="h-10 w-auto logo-name" />
+                                    <span className="logo-text">SHIBASWAP</span>
                                 </div>
-                                <div className="hidden sm:block sm:ml-4">
+                                <button className="btn btn-blue btn-round bold nav-tvl-btn" type="button"> TVL ... </button>
+
+                                {/* <div className="hidden sm:block sm:ml-4">
                                     <div className="flex space-x-2">
                                         <NavLink id={`swap-nav-link`} to={'/swap'}>
                                             {t('swap')}
@@ -78,10 +89,35 @@ export default function Header(): JSX.Element {
                                         )}
                                     </div>
                                 </div>
+                            */}
                             </div>
 
-                            <div className="flex flex-row items-center justify-center w-full p-4 fixed left-0 bottom-0 bg-dark-1000 lg:relative lg:p-0 lg:bg-transparent">
+                            <div className="flex flex-row items-center justify-center w-full p-4 fixed left-0 lg:relative lg:p-0 lg:bg-transparent">
                                 <div className="flex items-center justify-between sm:justify-end space-x-2 w-full">
+                                {                
+                                    TokensButton.map((t,key)=>(
+                                        <div className="nav-prices" key={key}>
+                                        <button
+                                            type="button"
+                                            className="btn btn-transparent btn-round"
+                                        >
+                                            
+                                            <span className="token">
+                                                <span className="p-t-label"> {t.TokenName} </span>
+                                                <span className="p-t-price">{t.Amount}</span>
+                                               
+                                            </span>
+                                            <span className="indicator" style={{marginRight: '-1rem'}}>
+                                                    <img src={GreenUp} alt="GreenUp" style={{marginTop: "0.15rem"}}></img>
+                                                </span>
+                                                <span className="p-value">14%</span>  
+                                                                                      
+                                        </button>
+                                    </div>
+                                    ))
+                                }
+                                <button type="button" className="btn circle-button mr-4 nav-price-alert-btn">$</button>
+                          
                                     {chainId && chainId === ChainId.MAINNET && library && library.provider.isMetaMask && (
                                         <>
                                             <div
@@ -190,17 +226,17 @@ export default function Header(): JSX.Element {
                                     <MoreMenu />
                                 </div>
                             </div>
-                            <div className="-mr-2 flex sm:hidden">
+                            {/* <div className="-mr-2 flex sm:hidden"> */}
                                 {/* Mobile menu button */}
-                                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-high-emphesis focus:outline-none">
+                                {/* <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-high-emphesis focus:outline-none">
                                     <span className="sr-only">Open main menu</span>
                                     {open ? (
                                         <X title="Close" className="block h-6 w-6" aria-hidden="true" />
                                     ) : (
                                         <Burger title="Burger" className="block h-6 w-6" aria-hidden="true" />
                                     )}
-                                </Disclosure.Button>
-                            </div>
+                                </Disclosure.Button> */}
+                            {/* </div> */}
                         </div>
                     </div>
 

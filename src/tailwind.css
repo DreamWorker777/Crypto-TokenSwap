@@ -32,8 +32,12 @@ input:focus {
   border-right-width: 3px;
   max-height: 36.8px;
 }
+.token{
+  line-height: 19px;
+}
 .p-t-label {
   color: #d5d5d5 !important;
+  font-family: 'Metric - Semibold';
 }
 
 .p-t-price {
@@ -42,6 +46,7 @@ input:focus {
   max-width: 3.125rem;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: 'Metric - Semibold';
 }
 
 .p-value {
@@ -87,6 +92,8 @@ input:focus {
   background: "#131825";
   border-color: transparent !important;
   font-weight: bold;
+  font-family: 'Metric - Bold';
+
 }
 .n-color-black {
   background-color: transparent !important;
@@ -100,6 +107,7 @@ input:focus {
   font-size: 2rem;
   align-self: center;
   font-family: Kanit, Avenir, Helvetica, Arial, sans-serif;
+  
 }
 .logo-name {
   margin-right: 0.5rem;
@@ -114,6 +122,7 @@ input:focus {
   padding-top: 0.5rem !important;
   padding-bottom: 0.3rem !important;
   font-size: 1rem;
+  font-family: 'Metric - Bold'!important;
 }
 .nav-left-bar {
   text-decoration: none;

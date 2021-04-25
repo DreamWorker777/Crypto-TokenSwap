@@ -132,6 +132,7 @@ const Text = styled.p`
     font-size: 0.8rem;
     width: fit-content;
     font-weight: 500;
+    font-family: 'Metric - Semibold'
 `
 
 const NetworkIcon = styled(Activity)`

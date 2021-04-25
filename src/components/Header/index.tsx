@@ -118,7 +118,7 @@ export default function Header(): JSX.Element {
                                 }
                                 <button type="button" className="btn circle-button mr-4 nav-price-alert-btn">$</button>
                           
-                                    {chainId && chainId === ChainId.MAINNET && library && library.provider.isMetaMask && (
+                                    {/* {chainId && chainId === ChainId.MAINNET && library && library.provider.isMetaMask && (
                                         <>
                                             <div
                                                 className="hidden sm:inline-block rounded-md bg-dark-900 hover:bg-dark-800 p-0.5 cursor-pointer"
@@ -205,22 +205,22 @@ export default function Header(): JSX.Element {
                                                 />
                                             </div>
                                         </>
-                                    )}
-                                    {library && library.provider.isMetaMask && (
+                                    )} */}
+                                    {/* {library && library.provider.isMetaMask && (
                                         <div className="hidden sm:inline-block">
                                             <Web3Network />
                                         </div>
-                                    )}
+                                    )} */}
 
                                     <div className="w-auto flex items-center rounded bg-dark-900 hover:bg-dark-800 p-0.5 whitespace-nowrap text-sm font-bold cursor-pointer select-none pointer-events-auto">
-                                        {account && chainId && userEthBalance && (
+                                        {/* {account && chainId && userEthBalance && (
                                             <>
                                                 <div className="py-2 px-3 text-primary text-bold">
                                                     {userEthBalance?.toSignificant(4)}{' '}
                                                     {Currency.getNativeCurrencySymbol(chainId)}
                                                 </div>
                                             </>
-                                        )}
+                                        )} */}
                                         <Web3Status />
                                     </div>
                                     <MoreMenu />

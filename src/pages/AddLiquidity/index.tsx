@@ -39,6 +39,8 @@ import { ConfirmAddModalBottom } from './ConfirmAddModalBottom'
 import { PoolPriceBar } from './PoolPriceBar'
 import Alert from '../../components/Alert'
 import { Helmet } from 'react-helmet'
+import '../../assets/styles/liquidity.scss'
+import BoneImage from '../../assets/images/dig_icon.svg'
 
 export default function AddLiquidity({
     match: {
@@ -320,48 +322,34 @@ export default function AddLiquidity({
 
     return (
         <>
-            <Helmet>
-                <title>Add Liquidity | Sushi</title>
-            </Helmet>
-            <div className="bg-dark-900 w-full max-w-2xl rounded">
-                <AddRemoveTabs creating={isCreate} adding={true} />
-                <Wrapper>
-                    <TransactionConfirmationModal
-                        isOpen={showConfirm}
-                        onDismiss={handleDismissConfirmation}
-                        attemptingTxn={attemptingTxn}
-                        hash={txHash}
-                        content={() => (
-                            <ConfirmationModalContent
-                                title={noLiquidity ? 'You are creating a pool' : 'You will receive'}
-                                onDismiss={handleDismissConfirmation}
-                                topContent={modalHeader}
-                                bottomContent={modalBottom}
-                            />
-                        )}
-                        pendingText={pendingText}
-                    />
-                    <AutoColumn gap="20px">
-                        {noLiquidity ||
-                            (isCreate ? (
-                                <Alert
-                                    message="When creating a pair you are the first liquidity provider. The ratio of tokens you add will set the price of this pool. Once you are happy with the rate, click supply to review."
-                                    type="information"
-                                />
-                            ) : (
-                                <Alert
-                                    showIcon={false}
-                                    message={
-                                        <>
-                                            <b>Tip:</b> When you add liquidity, you will receive pool tokens
-                                            representing your position. These tokens automatically earn fees
-                                            proportional to your share of the pool, and can be redeemed at any time.
-                                        </>
-                                    }
-                                    type="information"
-                                />
-                            ))}
-                        <CurrencyInputPanel
+            <div className="w-full max-w-2xl">
+            <div className="dig">
+                    <div className="wrapper">
+                    <div className="dig--inner">
+                        <div className="left">
+                            <div className="inner">
+                                <div className="top">
+                                <div className="top-left">
+                                    <div className="title">DIG</div>
+                                    <div className="description">Get BONES in our Liquidity Pool</div>
+                                    <div className="mt-5">
+                                    </div>
+                                </div>
+
+                                <div className="top-right">
+                                    <img
+                                    src={BoneImage}
+                                    width="42"
+                                    height="42"
+                                    />
+                                </div>
+                                </div>
+
+                                <div className="bottom mt-10">
+                                <div className="swaparea">
+                                <div className="subtitle">+Liquidity</div>
+
+                                <CurrencyInputPanel
                             value={formattedAmounts[Field.CURRENCY_A]}
                             onUserInput={onFieldAInput}
                             onMax={() => {
@@ -409,6 +397,10 @@ export default function AddLiquidity({
                                     </LightCard>
                                 </>
                             )}
+
+                        <hr />
+
+                        <div className="prices p-3">Prices and pool share</div>
 
                         {addIsUnsupported ? (
                             <ButtonPrimary disabled={true}>
@@ -477,8 +469,15 @@ export default function AddLiquidity({
                                 </ButtonError>
                             </AutoColumn>
                         )}
-                    </AutoColumn>
-                </Wrapper>
+
+                                    
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </div>
             {!addIsUnsupported ? (
                 pair && !noLiquidity && pairState !== PairState.INVALID ? (

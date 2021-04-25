@@ -1,38 +1,16 @@
 import React, { FunctionComponent } from 'react' // importing FunctionComponent
 import styled from 'styled-components'
 
-export const size = {
-  mobileS: '320px',
-  mobileM: '375px',
-  mobileL: '425px',
-  tablet: '768px',
-  laptop: '1024px',
-  laptopL: '1440px',
-  desktop: '2560px'
-}
-
-export const device = {
-  mobileS: `(max-width: ${size.mobileS})`,
-  mobileM: `(max-width: ${size.mobileM})`,
-  mobileL: `(max-width: ${size.mobileL})`,
-  tablet: `(max-width: ${size.tablet})`,
-  laptop: `(max-width: ${size.laptop})`,
-  laptopL: `(max-width: ${size.laptopL})`,
-  desktop: `(max-width: ${size.desktop})`,
-  desktopL: `(max-width: ${size.desktop})`
-}
-
 const CardWrapper = styled.div`
     width: 100%;
     height: 14rem;
-    background-color: #1B1E29;
+    background-color: #1b1e29;
     box-shadow: 0 0 9px 4px rgba(0, 0, 0, 0.3);
     border-radius: 1rem;
     position: relative;
     :hover {
         box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.45);
         background-color: #262936;
-        opacity: 0.5;
     }
 `
 const CardHeader = styled.header`
@@ -41,24 +19,25 @@ const CardHeader = styled.header`
     padding-left: 1rem;
     padding-right: 1rem;
 `
-const CardHeading = styled.h1`
+export const CardHeading = styled.h1`
     font-size: 2.3rem;
     text-align: left;
     font-weight: 700;
     color: #d5d5d5;
     margin: 0;
-    font-family: Metric;
+    font-family: Metric - Regular;
     line-height: 1.5rem;
     padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
 `
 
-const CardsubTitle = styled.p`
-    font-size: 0.9rem;
+export const CardsubTitle = styled.p`
+    font-size: 0.8rem;
     text-align: left;
     font-weight: 500;
     color: #d5d5d5;
     margin: 0;
-    font-family: Metric;
+    font-family: Metric - Regular;
 `
 
 const CardDesc = styled.p`
@@ -69,7 +48,7 @@ const CardDesc = styled.p`
     margin: 0;
     margin-top: 1.4rem;
     margin-bottom: 5rem;
-    font-family: Metric;
+    font-family: Metric - Regular;
 `
 const Button = styled.a<{ disabled: boolean }>`
     background-color: #383648;
@@ -92,19 +71,20 @@ const Button = styled.a<{ disabled: boolean }>`
       color: #939395;
   `}
 `
-const Row = styled.div`
+export const Row = styled.div`
     display: flex;
     margin: 0;
     width: 100%;
     justify-content: space-between;
 `
 
-const Col = styled.div`
+export const Col = styled.div`
     display: flex;
     flex-direction: column;
+    padding-right: 0.3rem;
 `
 
-const ImageDiv = styled.div`
+export const ImageDiv = styled.div`
     box-shadow: inset 0 0 9px rgba(13, 13, 13, 0.8);
     border-radius: 10px;
     padding: 0.5rem;
@@ -124,23 +104,23 @@ type CardProps = {
 }
 
 export const Card: FunctionComponent<CardProps> = ({ name, url, subTitle, desc, buttonText, disabled, icon }) => (
-        <CardWrapper>
-            <CardHeader>
-                <Row>
-                    <Col>
-                      <CardHeading>{name}</CardHeading>
-                      <CardsubTitle>{subTitle}</CardsubTitle>
-                    </Col>
-                    <Col>
-                      <ImageDiv>
-                          <Image height={40} width={40} src={icon} />
-                      </ImageDiv>
-                    </Col>
-                </Row>
-                <CardDesc>{desc}</CardDesc>
-                <Button href={url} disabled={disabled}>
-                  {buttonText}
-                </Button>
-            </CardHeader>
-        </CardWrapper>
+    <CardWrapper>
+        <CardHeader>
+            <Row>
+                <Col>
+                    <CardHeading>{name}</CardHeading>
+                    <CardsubTitle>{subTitle}</CardsubTitle>
+                </Col>
+                <Col>
+                    <ImageDiv>
+                        <Image height={40} width={40} src={icon} />
+                    </ImageDiv>
+                </Col>
+            </Row>
+            <CardDesc>{desc}</CardDesc>
+            <Button href={url} disabled={disabled}>
+                {buttonText}
+            </Button>
+        </CardHeader>
+    </CardWrapper>
 )

@@ -8,17 +8,20 @@
 @media (min-width:576px) {
   .container {
   max-width: 100%;
+  width: 100%;
   padding: 1rem;
 }
 }@media (min-width:768px) {
   .container {
   max-width: 720px;
   padding: 1rem;
+  width: 100%;
 }
 }@media (min-width:992px) {
   .container {
   max-width: 960px;
   padding: 1rem;
+  width: 100%;
 }
 }@media (min-width:1200px) {
   .container {
@@ -984,4 +987,24 @@
 }
 .ml-auto, .mx-auto {
   margin-left: auto!important;
+}
+.text-justify {
+  text-align: justify!important;
+}
+.text-nowrap {
+  white-space: nowrap!important;
+}
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.text-left {
+  text-align: left!important;
+}
+.text-right {
+  text-align: right!important;
+}
+.text-center {
+  text-align: center!important;
 }

@@ -46,6 +46,7 @@ import Vesting from './Vesting'
 import Yield from './Yield'
 import ReactGA from 'react-ga'
 import Home from './Home'
+import Bury from './Bury'
 
 function App(): JSX.Element {
     const { chainId } = useActiveWeb3React()
@@ -110,6 +111,7 @@ function App(): JSX.Element {
                             {/* Pages */}
                             {chainId === ChainId.MAINNET && <Route exact strict path="/stake" component={SushiBar} />}
                             <Route exact strict path="/" component={Home} />
+                            <Route exact strict path="/bury" component={Bury} />
                             <Route exact path="/sushibar" render={() => <Redirect to="/stake" />} />
                             <Route exact strict path="/swap" component={Swap} />
                             <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />

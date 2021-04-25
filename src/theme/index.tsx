@@ -235,18 +235,16 @@ const breatheAnimation = keyframes`
 export const ThemedGlobalStyle = createGlobalStyle`
 html {
   color: ${({ theme }) => theme.text1};
-  /*background-color: ${({ theme }) => theme.bg2};*/
-  background-color: #0D0415;
+  /*background-color: ${({ theme }) => theme.bg2};
+  background-color: #0D0415;*/
 }
 
 body {
-  min-height: 100vh;
-  background-position: 0 -30vh;
+  // min-height: 100vh;
+  // background-position: 0 -30vh;
   background-repeat: no-repeat;
+  background-size: cover;
   background-image: ${({ theme }) =>
-      `radial-gradient(50% 50% at 50% 50%, ${transparentize(0.9, '#27b0e6')} 0%, ${transparentize(
-          1,
-          '#27b0e6'
-      )} 100%)`};
-  }
+    `url('/images/background.png')`};
+}
 `

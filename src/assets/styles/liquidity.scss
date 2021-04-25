@@ -14,7 +14,7 @@
 
 .wrapper {
   flex-direction: row;
-  padding: 0 2rem;
+  // padding: 0 2rem;
   max-width: 600px;
   margin: 0 auto;
 
@@ -90,6 +90,40 @@
       margin: 15px 0;
     }
 
+    .poolPriceBar{
+      border-radius: 1rem;
+      background-color: #171a23;
+      padding-bottom: 17px;
+      margin: 0.5rem;
+      margin-top: 3rem;
+      color: #d5d5d5;
+      font-family: Metric;
+      font-size: 16px;
+      font-weight: 500;
+      font-style: normal;
+      line-height: normal;
+      text-align: left;
+      letter-spacing: 0.08px;
+    }
+
+    .liquidityWalletButton{
+      border-radius: 1rem;
+      border: 3px solid #d5d5d5;
+      background-color: #dddddd;
+      opacity: 0.82;
+      color: #1c2d41;
+      font-family: "Metric-Semibold";
+      font-size: 22px;
+      font-weight: 400;
+      font-style: normal;
+      letter-spacing: normal;
+      line-height: normal;
+      text-align: center;
+      margin: 0.5rem;
+      padding: 15px 0;
+      cursor: pointer;
+    }
+
     .top {
       display: flex;
       flex-direction: row;
@@ -130,12 +164,12 @@
   }
 }
 
-@include md {
-  .wrapper {
-    width: 70%;
-    padding: 0;
-  }
-}
+// @include md {
+//   .wrapper {
+//     width: 70%;
+//     padding: 0;
+//   }
+// }
 
 @include lg {
   .dig {

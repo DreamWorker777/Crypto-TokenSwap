@@ -45,13 +45,18 @@ const sheen = keyframes`{
 
 export const ButtonPrimary = styled(Base)`
   border: none;
-  border-radius: 0.25rem;
-  font-size: 110%;
+  border-radius: 0.5rem;
   background: rgba(255, 255, 255, 0.8);
-  color: black;
+  color: #1c2d41;
+  font-family: "Metric-Semibold";
+  font-size: 22px;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  text-align: center;
   overflow:hidden;
   background-origin: border-box;
-  color: white;
   &:focus {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
   }
@@ -89,7 +94,17 @@ export const ButtonPrimaryNormal = styled(Base)`
     border-radius: 0.25rem;
     font-size: 110%;
     background: rgba(255, 255, 255, 0.8);
-    color: black;
+    color: #1c2d41;
+    font-family: "Metric-Semibold";
+    font-size: 22px;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    text-align: center;
+    font-style: normal;
+    letter-spacing: 0.11px;
+    line-height: normal;
     &:focus {
         box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
     }
@@ -110,9 +125,17 @@ export const ButtonLight = styled(Base)`
     border-radius: 0.25rem;
     font-size: 110%;
     background: rgba(255, 255, 255, 0.8);
-    color: black;
-    font-size: 16px;
-    font-weight: 500;
+    color: #1c2d41;
+    font-family: "Metric-Semibold";
+    font-size: 22px;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    text-align: center;
+    font-style: normal;
+    letter-spacing: 0.11px;
+    line-height: normal;
     &:focus {
         box-shadow: 0 0 0 1pt ${({ theme, disabled }) => !disabled && darken(0.03, theme.primary5)};
     }

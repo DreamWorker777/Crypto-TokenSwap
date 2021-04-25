@@ -68,6 +68,7 @@ const Aligner = styled.span`
 const StyledDropDown = styled(DropDown)<{ selected: boolean }>`
     margin: 0 0.25rem 0 0.5rem;
     height: 35%;
+    color: white;
 
     path {
         stroke: ${({ selected, theme }) => (selected ? theme.text1 : theme.white)};
@@ -247,7 +248,7 @@ export default function CurrencyInputPanel({
                             ) : (
                                 <div className="flex flex-1 flex-col items-start justify-center mx-3.5">
                                     {label && (
-                                        <div className="text-xs text-secondary font-medium whitespace-nowrap">
+                                        <div className="text-xs text-secondary font-medium whitespace-nowrap label-style">
                                             {label}
                                         </div>
                                     )}
@@ -256,7 +257,7 @@ export default function CurrencyInputPanel({
                                             className="token-symbol-container"
                                             active={Boolean(currency && currency.symbol)}
                                         > */}
-                                        <div className="text-lg md:text-2xl font-bold">
+                                        <div style={{fontFamily:"Metric - Bold"}} className="text-lg md:text-2xl font-bold token-style">
                                             {(currency && currency.symbol && currency.symbol.length > 20
                                                 ? currency.symbol.slice(0, 4) +
                                                   '...' +

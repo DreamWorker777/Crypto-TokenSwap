@@ -35,6 +35,9 @@ const StyledInput = styled.input<{ error?: boolean; fontSize?: string; align?: s
 
   ::placeholder {
     color: ${({ theme }) => theme.text4};
+    font-family: "Metric - Semibold";
+    color: white;
+    font-size: 30px;
   }
 `
 

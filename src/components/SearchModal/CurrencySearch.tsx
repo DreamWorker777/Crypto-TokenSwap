@@ -180,11 +180,12 @@ export function CurrencySearch({
                     />
                 </Row>
                 {showCommonBases && (
-                    <CommonBases
-                        chainId={chainId}
-                        onSelect={handleCurrencySelect}
-                        selectedCurrency={selectedCurrency}
-                    />
+                    ''
+                    // <CommonBases
+                    //     chainId={chainId}
+                    //     onSelect={handleCurrencySelect}
+                    //     selectedCurrency={selectedCurrency}
+                    // />
                 )}
             </PaddedColumn>
             <Separator />
@@ -224,7 +225,7 @@ export function CurrencySearch({
                     </TYPE.main>
                 </Column>
             )}
-            <Footer>
+            {/* <Footer>
                 <Row justify="center">
                     <ButtonText onClick={showManageView} color={theme.blue1} className="list-token-manage-button">
                         <RowFixed>
@@ -235,7 +236,7 @@ export function CurrencySearch({
                         </RowFixed>
                     </ButtonText>
                 </Row>
-            </Footer>
+            </Footer> */}
         </ContentWrapper>
     )
 }

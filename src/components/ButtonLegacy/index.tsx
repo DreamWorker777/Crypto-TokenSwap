@@ -48,7 +48,7 @@ export const ButtonPrimary = styled(Base)`
   border-radius: 0.5rem;
   background: rgba(255, 255, 255, 0.8);
   color: #1c2d41;
-  font-family: "Metric-Semibold";
+  font-family: "Metric - Bold";
   font-size: 22px;
   font-weight: 600;
   font-style: normal;

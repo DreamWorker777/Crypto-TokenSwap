@@ -320,6 +320,7 @@ export default function AddLiquidity({
 
     const addIsUnsupported = useIsTransactionUnsupported(currencies?.CURRENCY_A, currencies?.CURRENCY_B)
 
+
     return (
         <>
             <div className="w-full max-w-2xl">
@@ -332,6 +333,7 @@ export default function AddLiquidity({
                                 <div className="top-left">
                                     <div className="title">DIG</div>
                                     <div className="description">Get BONES in our Liquidity Pool</div>
+                                    <div className="read-more">Read more about providing liquidity</div>
                                     <div className="mt-5">
                                     </div>
                                 </div>
@@ -402,7 +404,7 @@ export default function AddLiquidity({
                                             <TYPE.main mb="4px">Unsupported Asset</TYPE.main>
                                         </ButtonPrimary>
                                     ) : !account ? (
-                                        <div className="liquidityWalletButton" onClick={toggleWalletModal}>Connect Wallet</div>
+                                        <ButtonPrimary className="liquidityWalletButton" onClick={toggleWalletModal}>Connect Wallet</ButtonPrimary>
                                     ) : (
                                         <AutoColumn gap={'md'}>
                                             {(approvalA === ApprovalState.NOT_APPROVED ||
@@ -473,7 +475,17 @@ export default function AddLiquidity({
                     </div>
                     </div>
                 </div>
+
+                <div className="data-container">
+                    <div className="graph-container">
+
+                    </div>
+                    <div className="total-container">
+
+                    </div>
+                </div>
             </div>
+            
             {!addIsUnsupported ? (
                 pair && !noLiquidity && pairState !== PairState.INVALID ? (
                     <div className="w-full max-w-2xl flex flex-col mt-4">

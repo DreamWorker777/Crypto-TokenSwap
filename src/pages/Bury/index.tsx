@@ -60,7 +60,7 @@ export default function Bury() {
                                 name="APY"
                                 percentage="0.00%"
                                 value="0,00000"
-                                buttonText="Stake Shib"
+                                buttonText="Shib"
                                 disabled={false}
                                 icon="/images/dig_icon.svg"
                             />
@@ -71,7 +71,7 @@ export default function Bury() {
                                 name="APY"
                                 percentage="0.00%"
                                 value="0,00000"
-                                buttonText="Stake Leash"
+                                buttonText="Leash"
                                 disabled={false}
                                 icon="/images/bury_icon.svg"
                             />
@@ -82,7 +82,7 @@ export default function Bury() {
                                 name="APY"
                                 percentage="0.00%"
                                 value="0,00000"
-                                buttonText="Stake Bone"
+                                buttonText="Bone"
                                 disabled={false}
                                 icon="/images/fetch_icon.svg"
                             />
@@ -93,7 +93,7 @@ export default function Bury() {
                                 name="APY"
                                 percentage="0.00%"
                                 value="0,00000"
-                                buttonText="Coming Soon"
+                                buttonText="Soon"
                                 disabled={true}
                                 icon="/images/question-mark.png"
                             />

@@ -25,7 +25,7 @@ export const CardHeading = styled.h1`
     font-weight: 700;
     color: #d5d5d5;
     margin: 0;
-    font-family: Metric - Regular;
+    font-family: "Metric - Bold";
     line-height: 1.5rem;
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
@@ -37,7 +37,7 @@ export const CardsubTitle = styled.p`
     font-weight: 500;
     color: #d5d5d5;
     margin: 0;
-    font-family: Metric - Regular;
+    font-family: "Metric - Bold";
 `
 
 const CardDesc = styled.p`
@@ -48,7 +48,7 @@ const CardDesc = styled.p`
     margin: 0;
     margin-top: 1.4rem;
     margin-bottom: 5rem;
-    font-family: Metric - Regular;
+    font-family: "Metric - Bold";
 `
 const Button = styled.a<{ disabled: boolean }>`
     background-color: #383648;

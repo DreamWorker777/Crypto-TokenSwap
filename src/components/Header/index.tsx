@@ -35,10 +35,12 @@ export default function Header(): JSX.Element {
                     <div style={{padding: "1rem",background: "#131825"}}>
                         <div className="flex items-center justify-between h-3">
                             <div className="flex items-center">
-                                <div className="flex-shrink-0 m-l-1 nav-left-bar">
-                                    <img src={Logo} alt="Sushi" className="h-10 w-auto logo-name" />
-                                    <span className="logo-text">SHIBASWAP</span>
-                                </div>
+                                {/* <div > */}
+                                    <a href="/" className="flex-shrink-0 m-l-1 nav-left-bar">
+                                        <img src={Logo} alt="Sushi" className="h-10 w-auto logo-name" />
+                                        <span className="logo-text">SHIBASWAP</span>
+                                    </a>
+                                {/* </div> */}
                                 <button className="btn btn-blue btn-round bold nav-tvl-btn" type="button"> TVL ... </button>
 
                                 {/* <div className="hidden sm:block sm:ml-4">
@@ -116,7 +118,7 @@ export default function Header(): JSX.Element {
                                     </div>
                                     ))
                                 }
-                                <button type="button" className="btn circle-button mr-4 nav-price-alert-btn">$</button>
+                                <button type="button" className="btn circle-button mr-4 nav-price-alert-btn"><p style={{lineHeight: "1rem"}}>$</p></button>
                           
                                     {/* {chainId && chainId === ChainId.MAINNET && library && library.provider.isMetaMask && (
                                         <>

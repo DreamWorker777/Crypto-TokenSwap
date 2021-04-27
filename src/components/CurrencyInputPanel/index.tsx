@@ -237,7 +237,7 @@ export default function CurrencyInputPanel({
                             ) : (
                                 <div className="bg-dark-700 rounded" style={{ maxWidth: 54, maxHeight: 54 }}>
                                     <div style={{ width: 54, height: 54 }}>
-                                        <Lottie animationData={selectCoinAnimation} autoplay loop />
+                                        <img src="/images/coin-icon.png" />
                                     </div>
                                 </div>
                             )}
@@ -266,8 +266,9 @@ export default function CurrencyInputPanel({
                                                       currency.symbol.length
                                                   )
                                                 : currency?.getSymbol(chainId)) || (
-                                                <div className="bg-transparent hover:bg-primary border border-low-emphesis rounded-full py-1 px-2 text-secondary text-xs font-medium mt-1 whitespace-nowrap ">
+                                                <div className="bg-transparent border border-low-emphesis rounded-full py-1 px-0 text-secondary text-xs font-medium mt-1 whitespace-nowrap row" style={{border: 0, fontFamily:"Metric - Bold"}}>
                                                     {t('selectToken')}
+                                                    <img src="/images/drop-down.png" style={{height: "0.7rem",paddingTop: "0.2rem", paddingLeft: "0.3rem"}}/>
                                                 </div>
                                             )}
                                         </div>

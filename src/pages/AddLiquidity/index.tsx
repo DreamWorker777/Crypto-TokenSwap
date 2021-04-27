@@ -460,7 +460,7 @@ export default function AddLiquidity({
                                                     !!parsedAmounts[Field.CURRENCY_B]
                                                 }
                                             >
-                                                <Text fontSize={20} fontWeight={500}>
+                                                <Text fontSize={25} fontWeight={500}>
                                                     {error ?? 'Supply'}
                                                 </Text>
                                             </ButtonError>

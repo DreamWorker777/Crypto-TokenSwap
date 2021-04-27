@@ -109,7 +109,7 @@ function App(): JSX.Element {
                             <Route exact strict path="/saave" component={Saave} />
 
                             {/* Pages */}
-                            {chainId === ChainId.MAINNET && <Route exact strict path="/stake" component={SushiBar} />}
+                            {(chainId === ChainId.MAINNET || chainId === ChainId.KOVAN) && <Route exact strict path="/stake" component={SushiBar} />}
                             <Route exact strict path="/" component={Home} />
                             <Route exact strict path="/bury" component={Bury} />
                             <Route exact path="/sushibar" render={() => <Redirect to="/stake" />} />

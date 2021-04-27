@@ -1,5 +1,5 @@
 import { Paper } from 'kashi'
-import React, {useContext} from 'react'
+import React, {useContext, useState, useEffect, useCallback} from 'react'
 import { useActiveWeb3React } from '../../hooks'
 import AppBody from '../AppBody'
 import SushiDepositPanel from './SushiDepositPanel'
@@ -11,6 +11,12 @@ import { TYPE, ExternalLink } from '../../theme'
 import { transparentize } from 'polished'
 import closeLogo from "../../assets/images/X.png";
 import styled, { ThemeContext } from 'styled-components'
+import useTokenBalance from 'sushi-hooks/useTokenBalance'
+import { formatFromBalance, formatToBalance } from '../../utils'
+//
+// import SaaveHeader from './SushiBarHeader'
+import { Wrapper } from '../../components/swap/styleds'
+import useSushiBar from 'hooks/useSushiBar'
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 420px;
@@ -266,6 +272,56 @@ export default function SushiBar() {
   const { account } = useActiveWeb3React()
   //const darkMode = useDarkModeManager()
 
+  const shibaBalanceBigInt = useTokenBalance('0x328d0a5C7342a4e1FAb26aBbD0a1aC10B82Abe5E');
+  const shibaBalanceValue = parseFloat(formatFromBalance(shibaBalanceBigInt?.value, shibaBalanceBigInt?.decimals));
+  const decimals = shibaBalanceBigInt?.decimals;
+  //console.log("shibaBalance",shibaBalanceValue, typeof(shibaBalanceValue));
+ 
+  
+  const [isStakeSelected, setIsStakeSelected] = useState(true);
+  const [activePercent, setActivePercent] = useState("");
+  const [shibaBalance, setShibaBalance] = useState(0);
+  const [input, setInput] = useState(0);
+
+  function handleStakeSelect(selectedKey:string){
+    setIsStakeSelected(selectedKey === "Stake");
+  }
+
+  function handlePercentSelect(selectedPercentKey: string){
+    setActivePercent(selectedPercentKey);
+
+    let percentVal = parseFloat(selectedPercentKey)*shibaBalanceValue/100;
+    setInput(percentVal);
+  }
+
+  function handleInputChange(event:any){
+    setInput(event.target.value);
+  }
+
+  useEffect(() => {
+
+    setShibaBalance(shibaBalanceValue);
+    
+  }, [shibaBalance]);
+
+  const { allowance, approve, enter } = useSushiBar()
+
+  const [requestedApproval, setRequestedApproval] = useState(false)
+  const handleApprove = useCallback(async () => {
+    try {
+        setRequestedApproval(true)
+        const txHash = await approve()
+        // user rejected tx or didn't go thru
+        if (!txHash) {
+            setRequestedApproval(false)
+        }
+    } catch (e) {
+        console.log(e)
+    }
+  }, [approve, setRequestedApproval])
+
+
+
   return (
     <>
       <BurySection>
@@ -289,25 +345,27 @@ export default function SushiBar() {
       <StakeSection>
 
 
-      <StakeButton>Unstake</StakeButton>
-      <StakeButton style={{color: "#fea31c"}}>Stake</StakeButton>
+      <StakeButton onClick={()=>{handleStakeSelect("Unstake")}} style={{color: !isStakeSelected?"#fea31c":""}}>Unstake</StakeButton>
+      <StakeButton onClick={()=>{handleStakeSelect("Stake")}} style={{color: isStakeSelected?"#fea31c":""}}>Stake</StakeButton>
       <br></br>
       <PercentContainer>
-      <Percent style={{float:'left'}}>Available: 0.0000000000</Percent>
-      <Percent>100%</Percent>
-      <Percent>75%</Percent>
-      <Percent>50%</Percent>
-      <Percent>25%</Percent>
+      <Percent style={{float:'left'}}>Available: {shibaBalanceValue}</Percent>
+      <Percent style={{color: (activePercent === "100")?"#fea31c":""}} onClick={()=>{handlePercentSelect("100")}}>100%</Percent>
+      <Percent style={{color: (activePercent === "75")?"#fea31c":""}} onClick={()=>{handlePercentSelect("75")}}>75%</Percent>
+      <Percent style={{color: (activePercent === "50")?"#fea31c":""}} onClick={()=>{handlePercentSelect("50")}}>50%</Percent>
+      <Percent style={{color: (activePercent === "25")?"#fea31c":""}} onClick={()=>{handlePercentSelect("25")}}>25%</Percent>
       </PercentContainer>
 
       <Input
         className="recipient-address-input"
-        type="text"
+        type="number"
         placeholder="Type an amount to stake"
+        onChange={(event)=>{handleInputChange(event)}}
+        value={input}
       />
 
       <StakeMainButton>
-        <TYPE.white fontWeight={700} color={"black"}>Stake</TYPE.white>
+        <TYPE.white fontWeight={700} color={"black"} onClick={()=>{handleApprove()}}>{isStakeSelected ? "Stake": "Unstake"}</TYPE.white>
       </StakeMainButton>
 
       <ClaimContainer>

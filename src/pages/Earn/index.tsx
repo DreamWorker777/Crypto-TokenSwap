@@ -1,4 +1,4 @@
-import { JSBI } from '@sushiswap/sdk'
+import { JSBI } from '@shibaswap/sdk'
 import React from 'react'
 import styled from 'styled-components'
 import { OutlineCard } from '../../components/Card'

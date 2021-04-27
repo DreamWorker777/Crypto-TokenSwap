@@ -9,8 +9,19 @@ import {
     ROUTER_ADDRESS,
     SUSHI_ADDRESS,
     TIMELOCK_ADDRESS,
-    WETH
-} from '@sushiswap/sdk'
+    WETH,
+    SHIBASWAP_ROUTER_ADDRESS,
+    SHIBASWAP_FACTORY_ADDRESS,
+    SHIBASWAP_SHIB_TOKEN_ADDRESS,
+    SHIBASWAP_BONE_TOKEN_ADDRESS,
+    SHIBASWAP_LEASH_TOKEN_ADDRESS,
+    SHIBASWAP_TREAT_TOKEN_ADDRESS,
+    SHIBASWAP_BURY_SHIB_ADDRESS,
+    SHIBASWAP_BURY_BONE_ADDRESS,
+    SHIBASWAP_BURY_LEASH_ADDRESS,
+    SHIBASWAP_BURY_TREAT_ADDRESS,
+    SHIBASWAP_TOPDOG_ADDRESS
+} from '@shibaswap/sdk'
 import { abi as UNI_ABI } from '@uniswap/governance/build/Uni.json'
 import { abi as STAKING_REWARDS_ABI } from '@uniswap/liquidity-staker/build/StakingRewards.json'
 import { abi as MERKLE_DISTRIBUTOR_ABI } from '@uniswap/merkle-distributor/build/MerkleDistributor.json'
@@ -56,6 +67,21 @@ import TIMELOCK_ABI from '../constants/abis/timelock.json'
 import { V1_EXCHANGE_ABI, V1_FACTORY_ABI, V1_FACTORY_ADDRESSES } from '../constants/v1'
 import { getContract } from '../utils'
 import { useActiveWeb3React } from './index'
+
+import SHIBASWAP_TOPDOG_ABI from '../constants/abis/shibaswap_topdog.json'
+import SHIBASWAP_ROUTER_ABI from '../constants/abis/shibaswap_uniswapv2router02.json'
+import SHIBASWAP_FACTORY_ABI from '../constants/abis/shibaswap_uniswapv2factory.json'
+
+import SHIBASWAP_BURY_SHIB_ABI from '../constants/abis/shibaswap_buryshib.json'
+import SHIBASWAP_BURY_LEASH_ABI from '../constants/abis/shibaswap_buryleash.json'
+import SHIBASWAP_BURY_BONE_ABI from '../constants/abis/shibaswap_burybone.json'
+import SHIBASWAP_BURY_TREAT_ABI from '../constants/abis/shibaswap_burytreat.json'
+
+// These will change from erc20.json to the actual ones in mainnet only needed if they are not standard ERC20
+import SHIBASWAP_SHIB_TOKEN_ABI from '../constants/abis/shibaswap_erc20.json'
+import SHIBASWAP_LEASH_TOKEN_ABI from '../constants/abis/shibaswap_erc20.json'
+import SHIBASWAP_BONE_TOKEN_ABI from '../constants/abis/shibaswap_erc20.json'
+import SHIBASWAP_TREAT_TOKEN_ABI from '../constants/abis/shibaswap_erc20.json'
 
 // returns null on errors
 export function useContract(address: string | undefined, ABI: any, withSignerIfPossible = true): Contract | null {
@@ -267,4 +293,70 @@ export function useDashboard2Contract(): Contract | null {
         }
     }
     return useContract(address, DASHBOARD2_ABI, false)
+}
+
+//Equivalent to MasterChef
+export function useShibaSwapTopDogContract(withSignerIfPossible?: boolean): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    return useContract(chainId && SHIBASWAP_TOPDOG_ADDRESS[chainId], SHIBASWAP_TOPDOG_ABI, withSignerIfPossible)
+}
+
+// UniswapRouter
+export function useShibaSwapRouterContract(): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    return useContract(chainId && SHIBASWAP_ROUTER_ADDRESS[chainId], SHIBASWAP_ROUTER_ABI, false)
+}
+
+// UniswapFactory
+export function useShibaSwapFactoryContract(): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    return useContract(chainId && SHIBASWAP_FACTORY_ADDRESS[chainId], SHIBASWAP_FACTORY_ABI, false)
+}
+
+// Sushi Bar equivalent
+export function useShibaSwapBuryBoneContract(withSignerIfPossible?: boolean): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    return useContract(chainId && SHIBASWAP_BURY_BONE_ADDRESS[chainId], SHIBASWAP_BURY_BONE_ABI, withSignerIfPossible)
+}
+
+// Sushi Bar equivalent
+export function useShibaSwapBuryLeashContract(withSignerIfPossible?: boolean): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    return useContract(chainId && SHIBASWAP_BURY_LEASH_ADDRESS[chainId], SHIBASWAP_BURY_LEASH_ABI, withSignerIfPossible)
+}
+
+// Sushi Bar equivalent
+export function useShibaSwapBuryShibContract(withSignerIfPossible?: boolean): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    return useContract(chainId && SHIBASWAP_BURY_SHIB_ADDRESS[chainId], SHIBASWAP_BURY_SHIB_ABI, withSignerIfPossible)
+}
+
+// Sushi Bar equivalent
+export function useShibaSwapTreatContract(withSignerIfPossible?: boolean): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    return useContract(chainId && SHIBASWAP_BURY_TREAT_ADDRESS[chainId], SHIBASWAP_BURY_TREAT_ABI, withSignerIfPossible)
+}
+
+// Shib Token
+export function useShibaSwapShibTokenContract(withSignerIfPossible = true): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    return useContract(chainId && SHIBASWAP_SHIB_TOKEN_ADDRESS[chainId], SHIBASWAP_SHIB_TOKEN_ABI, withSignerIfPossible)
+}
+
+// Leash Token
+export function useShibaSwapLeashTokenContract(withSignerIfPossible = true): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    return useContract(chainId && SHIBASWAP_LEASH_TOKEN_ADDRESS[chainId], SHIBASWAP_LEASH_TOKEN_ABI, withSignerIfPossible)
+}
+
+// Bone Token
+export function useShibaSwapBoneTokenContract(withSignerIfPossible = true): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    return useContract(chainId && SHIBASWAP_BONE_TOKEN_ADDRESS[chainId], SHIBASWAP_BONE_TOKEN_ABI, withSignerIfPossible)
+}
+
+// Treat Token
+export function useShibaSwapTreatTokenContract(withSignerIfPossible = true): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    return useContract(chainId && SHIBASWAP_TREAT_TOKEN_ADDRESS[chainId], SHIBASWAP_TREAT_TOKEN_ABI, withSignerIfPossible)
 }

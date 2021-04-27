@@ -1,7 +1,7 @@
 {
-  "name": "@sushiswap/interface",
-  "description": "SushiSwap Interface",
-  "homepage": "https://app.sushi.com",
+  "name": "@shibaswap/interface",
+  "description": "ShibaSwap Interface",
+  "homepage": "https://app.shibaswap.com",
   "private": true,
   "lint-staged": {
       "*.{js,jsx,ts,tsx}": [
@@ -144,7 +144,9 @@
       "typescript": "^3.8.3",
       "use-count-up": "^2.2.5",
       "wcag-contrast": "^3.0.0",
-      "node-sass": "^5.0.0"
+      "node-sass": "^5.0.0",
+      "@shibaswap/default-token-list": "0.0.3",
+      "@shibaswap/sdk": "^0.0.4"
   },
   "resolutions": {
       "@walletconnect/web3-provider": "1.1.1-alpha.0"

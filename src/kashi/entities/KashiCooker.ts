@@ -1,6 +1,6 @@
 import { defaultAbiCoder } from '@ethersproject/abi'
 import { BigNumber, BigNumberish } from '@ethersproject/bignumber'
-import { ChainId, WETH } from '@sushiswap/sdk'
+import { ChainId, WETH } from '@shibaswap/sdk'
 import { Contract, ethers } from 'ethers'
 import { toElastic, ZERO } from 'kashi/functions'
 import { toShare } from 'kashi/functions/bentobox'

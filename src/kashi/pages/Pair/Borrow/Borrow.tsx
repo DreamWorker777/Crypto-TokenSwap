@@ -1,4 +1,4 @@
-import { Token, TokenAmount, WETH } from '@sushiswap/sdk'
+import { Token, TokenAmount, WETH } from '@shibaswap/sdk'
 import { Input as NumericalInput } from 'components/NumericalInput'
 import QuestionHelper from 'components/QuestionHelper'
 import { useActiveWeb3React } from 'hooks'

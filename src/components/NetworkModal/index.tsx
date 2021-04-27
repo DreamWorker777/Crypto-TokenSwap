@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/sdk'
+import { ChainId } from '@shibaswap/sdk'
 import { useActiveWeb3React } from 'hooks'
 import React from 'react'
 import { ApplicationModal } from '../../state/application/actions'

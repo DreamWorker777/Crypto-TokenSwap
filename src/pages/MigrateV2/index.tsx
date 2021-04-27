@@ -1,6 +1,6 @@
 import { AddressZero } from '@ethersproject/constants'
 import { formatUnits, parseUnits } from '@ethersproject/units'
-import { JSBI } from '@sushiswap/sdk'
+import { JSBI } from '@shibaswap/sdk'
 import { useSushiRollContract } from 'hooks/useContract'
 import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { ChevronRight } from 'react-feather'

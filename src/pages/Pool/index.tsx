@@ -1,4 +1,4 @@
-import { ChainId, JSBI, Pair } from '@sushiswap/sdk'
+import { ChainId, JSBI, Pair } from '@shibaswap/sdk'
 import { transparentize } from 'polished'
 import React, { useContext, useMemo } from 'react'
 import { Link } from 'react-router-dom'

@@ -1,4 +1,4 @@
-import { Pair } from '@sushiswap/sdk'
+import { Pair } from '@shibaswap/sdk'
 import { darken } from 'polished'
 import React from 'react'
 import { useTranslation } from 'react-i18next'

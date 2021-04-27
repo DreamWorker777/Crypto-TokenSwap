@@ -1,4 +1,4 @@
-import { ChainId, Currency, ETHER, Token } from '@sushiswap/sdk'
+import { ChainId, Currency, ETHER, Token } from '@shibaswap/sdk'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import AvalancheLogo from '../../assets/images/avalanche-logo.png'

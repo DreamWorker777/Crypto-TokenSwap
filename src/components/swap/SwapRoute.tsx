@@ -1,4 +1,4 @@
-import { Trade } from '@sushiswap/sdk'
+import { Trade } from '@shibaswap/sdk'
 import { useActiveWeb3React } from 'hooks'
 import React, { Fragment, memo, useContext } from 'react'
 import { ChevronRight } from 'react-feather'

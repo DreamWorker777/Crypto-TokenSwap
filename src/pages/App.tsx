@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/sdk'
+import { ChainId } from '@shibaswap/sdk'
 import React, { Suspense, useEffect, useRef } from 'react'
 import { Redirect, Route, Switch, useLocation } from 'react-router-dom'
 import Header from '../components/Header'

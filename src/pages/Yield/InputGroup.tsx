@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { MASTERCHEF_ADDRESS, Token, TokenAmount } from '@sushiswap/sdk'
+import { MASTERCHEF_ADDRESS, Token, TokenAmount } from '@shibaswap/sdk'
 import { Input as NumericalInput } from 'components/NumericalInput'
 import { Fraction } from '../../entities'
 import { ethers } from 'ethers'

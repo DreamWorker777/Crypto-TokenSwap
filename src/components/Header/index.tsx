@@ -1,4 +1,4 @@
-import { ChainId, Currency } from '@sushiswap/sdk'
+import { ChainId, Currency } from '@shibaswap/sdk'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import Logo from '../../assets/images/logo_shiba_swap.png'

@@ -1,4 +1,4 @@
-import { Pair } from '@sushiswap/sdk'
+import { Pair } from '@shibaswap/sdk'
 import { Input as NumericalInput } from 'components/NumericalInput'
 import { RowBetween } from 'components/Row'
 import { useActiveWeb3React } from 'hooks'

@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from '@sushiswap/sdk'
+import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from '@shibaswap/sdk'
 import { LightGreyCard } from 'components/Card'
 import QuestionHelper from 'components/QuestionHelper'
 import useTheme from 'hooks/useTheme'

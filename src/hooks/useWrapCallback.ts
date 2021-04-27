@@ -1,4 +1,4 @@
-import { Currency, ETHER, WETH, currencyEquals } from '@sushiswap/sdk'
+import { Currency, ETHER, WETH, currencyEquals } from '@shibaswap/sdk'
 import { useMemo } from 'react'
 import { tryParseAmount } from '../state/swap/hooks'
 import { useTransactionAdder } from '../state/transactions/hooks'

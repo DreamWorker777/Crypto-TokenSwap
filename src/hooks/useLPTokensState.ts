@@ -1,4 +1,4 @@
-import { ChainId, Token, TokenAmount } from '@sushiswap/sdk'
+import { ChainId, Token, TokenAmount } from '@shibaswap/sdk'
 import { FACTORY_ADDRESS as UNI_FACTORY_ADDRESS } from '@uniswap/sdk'
 import { useDashboard2Contract, useDashboardContract, useUniV2FactoryContract } from 'hooks/useContract'
 import { useCallback, useEffect, useRef, useState } from 'react'

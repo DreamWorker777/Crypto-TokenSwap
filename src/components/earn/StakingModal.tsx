@@ -1,5 +1,5 @@
 import { TransactionResponse } from '@ethersproject/providers'
-import { Pair, TokenAmount } from '@sushiswap/sdk'
+import { Pair, TokenAmount } from '@shibaswap/sdk'
 import { splitSignature } from 'ethers/lib/utils'
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'

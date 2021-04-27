@@ -1,4 +1,4 @@
-import { Currency, Pair } from '@sushiswap/sdk'
+import { Currency, Pair } from '@shibaswap/sdk'
 import { darken } from 'polished'
 import React, { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'

@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { TokenAmount } from '@sushiswap/sdk'
+import { TokenAmount } from '@shibaswap/sdk'
 import { ButtonPrimary } from 'components/ButtonLegacy'
 import { LightCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'

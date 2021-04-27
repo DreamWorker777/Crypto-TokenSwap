@@ -1,4 +1,4 @@
-import { ETHER, JSBI, TokenAmount } from '@sushiswap/sdk'
+import { ETHER, JSBI, TokenAmount } from '@shibaswap/sdk'
 import { useActiveWeb3React } from 'hooks'
 import React from 'react'
 import styled from 'styled-components'

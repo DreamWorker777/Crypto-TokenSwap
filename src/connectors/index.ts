@@ -1,5 +1,5 @@
 import { Web3Provider } from '@ethersproject/providers'
-import { ChainId } from '@sushiswap/sdk'
+import { ChainId } from '@shibaswap/sdk'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { LatticeConnector } from '@web3-react/lattice-connector'
 import { PortisConnector } from '@web3-react/portis-connector'

@@ -1,5 +1,5 @@
-import DEFAULT_TOKEN_LIST from '@sushiswap/default-token-list'
-import { ChainId, Token } from '@sushiswap/sdk'
+import DEFAULT_TOKEN_LIST from '@shibaswap/default-token-list'
+import { ChainId, Token } from '@shibaswap/sdk'
 import { Tags, TokenInfo, TokenList } from '@uniswap/token-lists'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'

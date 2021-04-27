@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { WETH } from '@sushiswap/sdk'
+import { WETH } from '@shibaswap/sdk'
 import { ethers } from 'ethers'
 import { useCallback } from 'react'
 import { useActiveWeb3React, useBentoBoxContract } from '.'

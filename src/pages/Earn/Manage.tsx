@@ -1,4 +1,4 @@
-import { ETHER, JSBI, TokenAmount } from '@sushiswap/sdk'
+import { ETHER, JSBI, TokenAmount } from '@shibaswap/sdk'
 import React, { useCallback, useState } from 'react'
 import { Link, RouteComponentProps } from 'react-router-dom'
 import styled from 'styled-components'

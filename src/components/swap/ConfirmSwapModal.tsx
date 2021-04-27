@@ -1,4 +1,4 @@
-import { currencyEquals, Trade } from '@sushiswap/sdk'
+import { currencyEquals, Trade } from '@shibaswap/sdk'
 import React, { useCallback, useMemo } from 'react'
 import { useActiveWeb3React } from '../../hooks'
 import TransactionConfirmationModal, {

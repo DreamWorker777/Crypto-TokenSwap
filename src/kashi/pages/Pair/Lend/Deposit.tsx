@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Token, TokenAmount, WETH } from '@sushiswap/sdk'
+import { Token, TokenAmount, WETH } from '@shibaswap/sdk'
 import { Input as NumericalInput } from 'components/NumericalInput'
 import { useActiveWeb3React } from 'hooks'
 import { ApprovalState, useApproveCallback } from 'hooks/useApproveCallback'

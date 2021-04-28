@@ -216,6 +216,21 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
     }
 }
 
+//mapping allowed pars for liquidity
+export const MAPPED_PAIRS: any = {
+    "ETH": ["SHIB", "SUSHI", "UNI", "SNX", "MEME", "GRT", "LEASH", "XFUND", "BONE"],
+    "SHIB": ["ETH"],
+    "SUSHI": ["ETH"],
+    "UNI": ["ETH"],
+    "SNX": ["ETH"],
+    "MEME": ["ETH"],
+    "GRT": ["ETH"],
+    "LEASH": ["ETH"],
+    "XFUND": ["ETH"],
+    "BONE": ["ETH"],
+
+}
+
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
     ...WRAPPED_NATIVE_ONLY,
@@ -229,7 +244,8 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     ...WRAPPED_NATIVE_ONLY,
     [ChainId.MAINNET]: [...WRAPPED_NATIVE_ONLY[ChainId.MAINNET], DAI, USDC, USDT, WBTC],
     [ChainId.FANTOM]: [...WRAPPED_NATIVE_ONLY[ChainId.FANTOM], FANTOM.DAI, FANTOM.USDC, FANTOM.WBTC, FANTOM.WETH],
-    [ChainId.BSC]: [...WRAPPED_NATIVE_ONLY[ChainId.BSC], BSC.DAI, BSC.USD, BSC.USDC, BSC.USDT, BSC.BTCB]
+    [ChainId.BSC]: [...WRAPPED_NATIVE_ONLY[ChainId.BSC], BSC.DAI, BSC.USD, BSC.USDC, BSC.USDT, BSC.BTCB],
+    [ChainId.KOVAN]: [...WRAPPED_NATIVE_ONLY[ChainId.BSC],]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {

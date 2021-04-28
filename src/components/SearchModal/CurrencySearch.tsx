@@ -1,3 +1,4 @@
+import { MAPPED_PAIRS } from '../../constants'
 import { Currency, ETHER, Token } from '@shibaswap/sdk'
 import useDebounce from 'hooks/useDebounce'
 import { useOnClickOutside } from 'hooks/useOnClickOutside'
@@ -10,6 +11,7 @@ import { useTranslation } from 'react-i18next'
 import AutoSizer from 'react-virtualized-auto-sizer'
 import { FixedSizeList } from 'react-window'
 import { Text } from 'rebass'
+import { Field } from 'state/mint/actions'
 import styled from 'styled-components'
 import { useActiveWeb3React } from '../../hooks'
 import { useAllTokens, useFoundOnInactiveList, useIsUserAddedToken, useToken } from '../../hooks/Tokens'
@@ -23,6 +25,7 @@ import { filterTokens, useSortedTokensByQuery } from './filtering'
 import ImportRow from './ImportRow'
 import { useTokenComparator } from './sorting'
 import { PaddedColumn, SearchInput, Separator } from './styleds'
+import { toElastic } from 'kashi/functions'
 
 const ContentWrapper = styled(Column)`
     width: 100%;
@@ -50,6 +53,8 @@ interface CurrencySearchProps {
     showManageView: () => void
     showImportView: () => void
     setImportToken: (token: Token) => void
+    currenciesAB?: { [field in Field]?: Currency },
+    type?: Field,
 }
 
 export function CurrencySearch({
@@ -61,7 +66,9 @@ export function CurrencySearch({
     isOpen,
     showManageView,
     showImportView,
-    setImportToken
+    setImportToken,
+    currenciesAB,
+    type
 }: CurrencySearchProps) {
     const { t } = useTranslation()
     const { chainId } = useActiveWeb3React()
@@ -73,13 +80,19 @@ export function CurrencySearch({
     const [searchQuery, setSearchQuery] = useState<string>('')
     const debouncedQuery = useDebounce(searchQuery, 200)
     const [invertSearchOrder] = useState<boolean>(false)
+    const requiredTokens = ["ETH","SHIB", "LEASH", "BONE", "WBTC", "SUSHI", "UNI", "LINK", "DAI", "XFUND", "SNX", "MEME", "GRT", "USDC"];
+    const oldTokens = useAllTokens()
+    console.log(oldTokens);
+    const allTokens = Object.values(oldTokens).filter((value) => {
+        return requiredTokens.includes(value.symbol as string) && value      
+    });
 
-    const allTokens = useAllTokens()
-
+    console.log(allTokens)
     // if they input an address, use it
     const isAddressSearch = isAddress(debouncedQuery)
     const searchToken = useToken(debouncedQuery)
     const searchTokenIsAdded = useIsUserAddedToken(searchToken)
+
 
     useEffect(() => {
         if (isAddressSearch) {
@@ -106,7 +119,32 @@ export function CurrencySearch({
         return filteredTokens.sort(tokenComparator)
     }, [filteredTokens, tokenComparator])
 
-    const filteredSortedTokens = useSortedTokensByQuery(sortedTokens, debouncedQuery)
+    const fs = useSortedTokensByQuery(sortedTokens, debouncedQuery)
+    console.log(fs);
+    const filteredSortedTokens = fs.filter((token)=>{
+        if(type==Field.CURRENCY_A){
+            console.log("First IF")
+             if (currenciesAB != undefined && currenciesAB[Field.CURRENCY_B]){
+                const ind = currenciesAB[Field.CURRENCY_B]?.symbol;
+                return MAPPED_PAIRS[ind?ind:'']?
+                    MAPPED_PAIRS[ind?ind:''].includes(token.symbol) : 
+                    false
+                 }
+                return true;
+        }
+
+        if(type===Field.CURRENCY_B) {
+            if (currenciesAB != undefined && currenciesAB[Field.CURRENCY_A]){
+                console.log("Second IF")
+                const ind = currenciesAB[Field.CURRENCY_A]?.symbol;
+                console.log("IND: "+ind);
+                console.log(MAPPED_PAIRS[ind ? ind : '']);
+                console.log("TOKEN: "+token.symbol)
+                console.log(ind === token.symbol)
+                return ind === token.symbol ? true : false;
+            }
+        }
+    })
 
     const handleCurrencySelect = useCallback(
         (currency: Currency) => {
@@ -180,12 +218,12 @@ export function CurrencySearch({
                     />
                 </Row>
                 {showCommonBases && (
-                    ''
-                    // <CommonBases
-                    //     chainId={chainId}
-                    //     onSelect={handleCurrencySelect}
-                    //     selectedCurrency={selectedCurrency}
-                    // />
+                    
+                    <CommonBases
+                        chainId={chainId}
+                        onSelect={handleCurrencySelect}
+                        selectedCurrency={selectedCurrency}
+                    />
                 )}
             </PaddedColumn>
             <Separator />

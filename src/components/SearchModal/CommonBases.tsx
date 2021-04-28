@@ -55,7 +55,7 @@ export default function CommonBases({
                         {Currency.getNativeCurrencySymbol(chainId)}
                     </Text>
                 </BaseWrapper>
-                {(chainId ? SUGGESTED_BASES[chainId] : []).map((token: Token) => {
+                {/* {(chainId ? SUGGESTED_BASES[chainId] : []).map((token: Token) => {
                     const selected = selectedCurrency instanceof Token && selectedCurrency.address === token.address
                     return (
                         <BaseWrapper
@@ -69,7 +69,7 @@ export default function CommonBases({
                             </Text>
                         </BaseWrapper>
                     )
-                })}
+                })} */}
             </AutoRow>
         </AutoColumn>
     )

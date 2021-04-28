@@ -17,6 +17,8 @@ import CurrencySearchModal from '../SearchModal/CurrencySearchModal'
 import Button from '../Button'
 import selectCoinAnimation from '../../assets/animation/select-coin.json'
 import Lottie from 'lottie-react'
+import { Field } from 'state/mint/actions'
+
 
 const InputRow = styled.div<{ selected: boolean }>`
     ${({ theme }) => theme.flexRowNoWrap}
@@ -137,6 +139,8 @@ interface CurrencyInputPanelProps {
     pair?: Pair | null
     hideInput?: boolean
     otherCurrency?: Currency | null
+    currenciesAB?: { [field in Field]?: Currency },
+    type?: Field,
     id: string
     showCommonBases?: boolean
     customBalanceText?: string
@@ -158,6 +162,8 @@ export default function CurrencyInputPanel({
     pair = null, // used for double token logo
     hideInput = false,
     otherCurrency,
+    currenciesAB,
+    type,
     id,
     showCommonBases,
     customBalanceText,
@@ -331,6 +337,8 @@ export default function CurrencyInputPanel({
                     selectedCurrency={currency}
                     otherSelectedCurrency={otherCurrency}
                     showCommonBases={showCommonBases}
+                    currenciesAB={currenciesAB}
+                    type={type}
                 />
             )}
         </div>

@@ -2,6 +2,7 @@ import { Currency, Token } from '@shibaswap/sdk'
 import { TokenList } from '@uniswap/token-lists'
 import usePrevious from 'hooks/usePrevious'
 import React, { useCallback, useEffect, useState } from 'react'
+import { Field } from 'state/mint/actions'
 import useLast from '../../hooks/useLast'
 import Modal from '../Modal'
 import { CurrencySearch } from './CurrencySearch'
@@ -15,7 +16,9 @@ interface CurrencySearchModalProps {
     selectedCurrency?: Currency | null
     onCurrencySelect: (currency: Currency) => void
     otherSelectedCurrency?: Currency | null
-    showCommonBases?: boolean
+    showCommonBases?: boolean,
+    currenciesAB?: { [field in Field]?: Currency },
+    type?: Field,
 }
 
 export enum CurrencyModalView {
@@ -31,7 +34,9 @@ export default function CurrencySearchModal({
     onCurrencySelect,
     selectedCurrency,
     otherSelectedCurrency,
-    showCommonBases = false
+    showCommonBases = false,
+    currenciesAB,
+    type
 }: CurrencySearchModalProps) {
     const [modalView, setModalView] = useState<CurrencyModalView>(CurrencyModalView.manage)
     const lastOpen = useLast(isOpen)
@@ -68,6 +73,8 @@ export default function CurrencySearchModal({
         <Modal isOpen={isOpen} onDismiss={onDismiss} maxHeight={80} minHeight={minHeight} padding={1}>
             {modalView === CurrencyModalView.search ? (
                 <CurrencySearch
+                    currenciesAB={currenciesAB}
+                    type={type}
                     isOpen={isOpen}
                     onDismiss={onDismiss}
                     onCurrencySelect={handleCurrencySelect}

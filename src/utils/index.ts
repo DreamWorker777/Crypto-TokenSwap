@@ -3,12 +3,24 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { AddressZero } from '@ethersproject/constants'
 import { Contract } from '@ethersproject/contracts'
 import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
-import { ChainId, Currency, CurrencyAmount, ETHER, JSBI, Percent, ROUTER_ADDRESS, Token } from '@shibaswap/sdk'
+import {
+    ChainId,
+    Currency,
+    CurrencyAmount,
+    ETHER,
+    JSBI,
+    Percent,
+    ROUTER_ADDRESS,
+    SHIBASWAP_ROUTER_ADDRESS,
+    Token
+} from '@shibaswap/sdk'
 import { abi as IUniswapV2Router02ABI } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 import { ethers } from 'ethers'
 import Numeral from 'numeral'
 import { Fraction } from '../entities'
 import { TokenAddressMap } from '../state/lists/hooks'
+import SHIBASWAP_ROUTER_ABI from '../constants/abis/shibaswap_uniswapv2router02.json'
+
 
 export const formatFromBalance = (value: BigNumber | undefined, decimals = 18): string => {
     if (value) {
@@ -496,6 +508,13 @@ export function getRouterAddress(chainId?: ChainId) {
     return ROUTER_ADDRESS[chainId]
 }
 
+export function getShibaSwapRouterAddress(chainId?: ChainId) {
+    if (!chainId) {
+        throw Error(`Undefined 'chainId' parameter '${chainId}'.`)
+    }
+    return SHIBASWAP_ROUTER_ADDRESS[chainId]
+}
+
 // account is optional
 export function getRouterContract(chainId: number, library: Web3Provider, account?: string): Contract {
     return getContract(getRouterAddress(chainId), IUniswapV2Router02ABI, library, account)
@@ -508,4 +527,9 @@ export function escapeRegExp(string: string): string {
 export function isTokenOnList(defaultTokens: TokenAddressMap, currency?: Currency): boolean {
     if (currency === ETHER) return true
     return Boolean(currency instanceof Token && defaultTokens[currency.chainId]?.[currency.address])
+}
+
+
+export function getShibaSwapRouterContract(chainId: number, library: Web3Provider, account?: string): Contract {
+    return getContract(getShibaSwapRouterAddress(chainId), SHIBASWAP_ROUTER_ABI, library, account)
 }

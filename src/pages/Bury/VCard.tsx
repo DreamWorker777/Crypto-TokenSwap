@@ -1,4 +1,5 @@
-import React, { FunctionComponent } from 'react' // importing FunctionComponent
+import React, { FunctionComponent, useState } from 'react' // importing FunctionComponent
+import { Redirect } from "react-router-dom";
 import styled from 'styled-components'
 
 const CardWrapper = styled.div`
@@ -102,6 +103,10 @@ type CardProps = {
     buttonText: string
     disabled: boolean
     icon: string
+    tokenAddress: string
+    buryTokenAddress: string
+    tokenType: string
+    history: any
 }
 
 const InnerDiv = styled.div`
@@ -151,21 +156,56 @@ const Button = styled.a<{ disabled: boolean }>`
   `}
 `
 
-export const VCard: FunctionComponent<CardProps> = ({ name, percentage, value, buttonText, disabled, icon, url }) => (
-    <CardWrapper>
-        <CardHeader>
-            <Image src={icon} />
-            <InnerDiv>
-                <P1>{name}</P1>
-                <P2>{percentage}</P2>
-                <P3>Total staked</P3>
-                <P4>{value}</P4>
-                <div style={{ textAlign: 'center' }}>
-                  <Button href={url} disabled={disabled}>
-                    {buttonText}
-                  </Button>
-                </div>
-            </InnerDiv>
-        </CardHeader>
-    </CardWrapper>
-)
+
+
+
+export const VCard: FunctionComponent<CardProps> = ({ name, percentage, value, buttonText, disabled, icon, url, tokenAddress, buryTokenAddress, tokenType, history }) => {
+    
+    const [redirect, setRedirect] = useState(false);
+
+    const handleBuryButtonClick = (tokenAddress:string, buryTokenAddress:string, tokenType:string) => {
+        //console.log("tokenAddress", tokenAddress, "buryTokenAddress", buryTokenAddress, "tokenType", tokenType);
+        setRedirect(true);
+    }
+
+   
+    if(redirect){
+        history.push("/bury")
+        return(
+            <Redirect
+            to={{
+              pathname: "/stake",
+              state: { 
+                tokenAddress:tokenAddress,
+                buryTokenAddress: buryTokenAddress,
+                tokenType: tokenType,
+                
+              },
+            }}
+          />
+        )
+    }
+
+
+    return (
+
+        <CardWrapper>
+            <CardHeader>
+                <Image src={icon} />
+                <InnerDiv>
+                    <P1>{name}</P1>
+                    <P2>{percentage}</P2>
+                    <P3>Total staked</P3>
+                    <P4>{value}</P4>
+                    <div style={{ textAlign: 'center', cursor: 'pointer' }}>
+                      <Button onClick={()=>{handleBuryButtonClick(tokenAddress, buryTokenAddress, tokenType)}} disabled={disabled}>
+                        {buttonText}
+                      </Button>
+                    </div>
+                </InnerDiv>
+            </CardHeader>
+        </CardWrapper>
+    
+    )
+    
+}

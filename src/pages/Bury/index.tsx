@@ -3,6 +3,9 @@ import { AutoColumn } from '../../components/Column'
 import { VCard } from './VCard'
 import styled from 'styled-components'
 import { CardHeading, Col, CardsubTitle } from '../Home/Card'
+import {ChainId, SHIBASWAP_SHIB_TOKEN_ADDRESS, SHIBASWAP_BONE_TOKEN_ADDRESS, SHIBASWAP_LEASH_TOKEN_ADDRESS, SHIBASWAP_BURY_BONE_ADDRESS, SHIBASWAP_BURY_SHIB_ADDRESS, SHIBASWAP_BURY_LEASH_ADDRESS} from '@shibaswap/sdk'
+import { useActiveWeb3React } from '../../hooks'
+
 const PageWrapper = styled(AutoColumn)`
     max-width: 100%;
     width: 100%;
@@ -34,7 +37,9 @@ const Row = styled.div`
     padding: 0 0 1rem 0;
 `
 
-export default function Bury() {
+export default function Bury(props:any) {
+    
+    const { chainId } = useActiveWeb3React()
     return (
         <PageWrapper gap="lg" justify="center">
             <div
@@ -56,44 +61,60 @@ export default function Bury() {
                     <div className="row" style={{paddingTop: "1rem",paddingBottom: "1rem"}}>
                         <div className="col-12 col-md-6 col-lg-3">
                             <VCard
+                                {...props}
                                 url="/stake"
                                 name="APY"
                                 percentage="0.00%"
                                 value="0,00000"
                                 buttonText="Shib"
+                                tokenAddress={(SHIBASWAP_SHIB_TOKEN_ADDRESS && chainId)? SHIBASWAP_SHIB_TOKEN_ADDRESS[chainId] : ""}
+                                buryTokenAddress={(SHIBASWAP_BURY_SHIB_ADDRESS && chainId) ? SHIBASWAP_BURY_SHIB_ADDRESS[chainId] :""}
+                                tokenType="Shib"
                                 disabled={false}
                                 icon="/images/dig_icon.svg"
                             />
                         </div>
                         <div className="col-12 col-md-6 col-lg-3">
                             <VCard
+                                {...props}
                                 url="/stake"
                                 name="APY"
                                 percentage="0.00%"
                                 value="0,00000"
                                 buttonText="Leash"
+                                tokenAddress={(SHIBASWAP_LEASH_TOKEN_ADDRESS && chainId)? SHIBASWAP_LEASH_TOKEN_ADDRESS[chainId] : ""}
+                                buryTokenAddress={(SHIBASWAP_BURY_LEASH_ADDRESS && chainId) ? SHIBASWAP_BURY_LEASH_ADDRESS[chainId] :""}
+                                tokenType="Leash"
                                 disabled={false}
                                 icon="/images/bury_icon.svg"
                             />
                         </div>
                         <div className="col-12 col-md-6 col-lg-3">
                             <VCard
+                                {...props}
                                 url="/stake"
                                 name="APY"
                                 percentage="0.00%"
                                 value="0,00000"
                                 buttonText="Bone"
+                                tokenAddress={(SHIBASWAP_BONE_TOKEN_ADDRESS && chainId)? SHIBASWAP_BONE_TOKEN_ADDRESS[chainId] : ""}
+                                buryTokenAddress={(SHIBASWAP_BURY_BONE_ADDRESS && chainId) ? SHIBASWAP_BURY_BONE_ADDRESS[chainId] :""}
+                                tokenType="Bone"
                                 disabled={false}
                                 icon="/images/fetch_icon.svg"
                             />
                         </div>
                         <div className="col-12 col-md-6 col-lg-3">
                             <VCard
+                                {...props}
                                 url="/stake"
                                 name="APY"
                                 percentage="0.00%"
                                 value="0,00000"
                                 buttonText="Soon"
+                                tokenAddress={""}
+                                buryTokenAddress={""}
+                                tokenType=""
                                 disabled={true}
                                 icon="/images/question-mark.png"
                             />

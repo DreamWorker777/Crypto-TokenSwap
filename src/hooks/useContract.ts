@@ -83,6 +83,7 @@ import SHIBASWAP_LEASH_TOKEN_ABI from '../constants/abis/shibaswap_erc20.json'
 import SHIBASWAP_BONE_TOKEN_ABI from '../constants/abis/shibaswap_erc20.json'
 import SHIBASWAP_TREAT_TOKEN_ABI from '../constants/abis/shibaswap_erc20.json'
 
+import SHIBASWAP_ERC20 from '../constants/abis/shibaswap_erc20.json'
 // returns null on errors
 export function useContract(address: string | undefined, ABI: any, withSignerIfPossible = true): Contract | null {
     const { library, account } = useActiveWeb3React()
@@ -359,4 +360,38 @@ export function useShibaSwapBoneTokenContract(withSignerIfPossible = true): Cont
 export function useShibaSwapTreatTokenContract(withSignerIfPossible = true): Contract | null {
     const { chainId } = useActiveWeb3React()
     return useContract(chainId && SHIBASWAP_TREAT_TOKEN_ADDRESS[chainId], SHIBASWAP_TREAT_TOKEN_ABI, withSignerIfPossible)
+}
+
+export function useShibaSwapTokenContract(tokenAddress?: string, withSignerIfPossible?: boolean): Contract | null {
+    return useContract(tokenAddress, SHIBASWAP_ERC20, withSignerIfPossible)
+}
+
+export function useShibaSwapBuryTokenContract(tokenType?: string, withSignerIfPossible?: boolean): Contract | null{
+    const { chainId } = useActiveWeb3React()
+    
+    let buryAddress : string;
+    let buryAbi : any;
+
+    switch(tokenType){
+        case 'SHIB':
+            buryAddress = SHIBASWAP_BURY_SHIB_ADDRESS[chainId ?? 1];
+            buryAbi = SHIBASWAP_BURY_SHIB_ABI;
+            break;
+        case 'LEASH':
+            buryAddress = SHIBASWAP_BURY_LEASH_ADDRESS[chainId ?? 1];
+            buryAbi = SHIBASWAP_BURY_LEASH_ABI;
+            break;
+        case 'BONE':
+            buryAddress = SHIBASWAP_BURY_BONE_ADDRESS[chainId ?? 1];
+            buryAbi = SHIBASWAP_BURY_BONE_ABI;
+            break;
+        default:
+            buryAddress = SHIBASWAP_BURY_SHIB_ADDRESS[chainId ?? 1];
+            buryAbi = SHIBASWAP_BURY_SHIB_ABI;
+            break;
+        
+    } 
+
+    
+    return useContract(chainId && buryAddress, buryAbi, withSignerIfPossible)
 }

@@ -16,7 +16,10 @@ import { formatFromBalance, formatToBalance } from '../../utils'
 //
 // import SaaveHeader from './SushiBarHeader'
 import { Wrapper } from '../../components/swap/styleds'
-import useSushiBar from 'hooks/useSushiBar'
+
+import StakeDepositPanel from './StakeDepositPanel'
+import BuryWithdrawlPanel from './BuryWithdrawlPanel'
+
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 420px;
@@ -106,14 +109,6 @@ const StakeSection = styled.div`
   }
 `;
 
-// const ButtonContainer = styled.div`
-//   display: block;
-//   width:auto;
-//   heigth: auto;
-//   margin-bottom: 15px;
-//   border: 2px solid white;
-// `;
-
 const StakeButton = styled.div`
   font-weight: 500;
   font-style: normal;
@@ -123,62 +118,6 @@ const StakeButton = styled.div`
   margin: 10px 10px;
   cursor: pointer;
 `
-const PercentContainer = styled.div`
-  width:95%;
-  height:auto;
-  // border:2px solid white;
-  display:inline-block;
-  margin:auto;
-  margin-left:10px;
-  margin-top:20px;
-  padding-left:10px;
-  padding-right: 10px;
-
-  @media (max-width: 500px) {
-    text-align: center;
-    display: block;
-  }
-`;
-
-const Percent = styled.div`
-  color: white;
-  margin: 5px;
-  display: inline-block;
-  float:right;
-  cursor: pointer;
-  font-style: Metric - Regular;
-  @media (max-width: 500px) {
-    text-align: center;
-    display: block;
-  }
-`;
-
-const Input = styled.input<{ error?: boolean }>`
-  width:90%;
-  height:60px;
-  margin: auto;
-  margin-top: 20px;
-  box-shadow: inset 0 0 7px 1px rgba(0, 0, 0, 0.45);
-  border-radius: 10px;
-  background-color: #161825;
-  opacity: 0.76;
-  border-color: #161825;
-  
-`;
-
-const StakeMainButton = styled.div`
-  width:90%;
-  height:60px;
-  margin: auto;
-  margin-top: 20px;
-  border-radius: 10px;
-  background-color: #d5d5d5;
-  text-align: center;
-  color: #292c37;
-  line-height: 60px;
-  cursor: pointer;
-`;
-
 const ClaimContainer = styled.div`
   width:90%;
   height:200px;
@@ -221,13 +160,6 @@ const ClaimFirstSection = styled.div`
   }
 `;
 
-const ClaimBorder = styled.div`
-  width: 0%;
-  height: 109px;
-  background-color: #d5d5d5;
-  opacity: 0.15;
-`;
-
 const ClaimSecondSection = styled.div`
   display: inline-block;
   width: 40%;
@@ -267,60 +199,23 @@ const ClaimButton = styled.div`
   }
 `;
 
-export default function SushiBar() {
+
+export default function SushiBar(props:any) {
+  
   const theme = useContext(ThemeContext)
   const { account } = useActiveWeb3React()
   //const darkMode = useDarkModeManager()
 
-  const shibaBalanceBigInt = useTokenBalance('0x328d0a5C7342a4e1FAb26aBbD0a1aC10B82Abe5E');
-  const shibaBalanceValue = parseFloat(formatFromBalance(shibaBalanceBigInt?.value, shibaBalanceBigInt?.decimals));
-  const decimals = shibaBalanceBigInt?.decimals;
-  //console.log("shibaBalance",shibaBalanceValue, typeof(shibaBalanceValue));
- 
-  
+  let state = props.location.state;
+  let tokenType = state && state.tokenType;
+  let tokenAddress = state && state.tokenAddress;
+  let buryTokenAddress = state && state.buryTokenAddress;
+
   const [isStakeSelected, setIsStakeSelected] = useState(true);
-  const [activePercent, setActivePercent] = useState("");
-  const [shibaBalance, setShibaBalance] = useState(0);
-  const [input, setInput] = useState(0);
 
   function handleStakeSelect(selectedKey:string){
     setIsStakeSelected(selectedKey === "Stake");
   }
-
-  function handlePercentSelect(selectedPercentKey: string){
-    setActivePercent(selectedPercentKey);
-
-    let percentVal = parseFloat(selectedPercentKey)*shibaBalanceValue/100;
-    setInput(percentVal);
-  }
-
-  function handleInputChange(event:any){
-    setInput(event.target.value);
-  }
-
-  useEffect(() => {
-
-    setShibaBalance(shibaBalanceValue);
-    
-  }, [shibaBalance]);
-
-  const { allowance, approve, enter } = useSushiBar()
-
-  const [requestedApproval, setRequestedApproval] = useState(false)
-  const handleApprove = useCallback(async () => {
-    try {
-        setRequestedApproval(true)
-        const txHash = await approve()
-        // user rejected tx or didn't go thru
-        if (!txHash) {
-            setRequestedApproval(false)
-        }
-    } catch (e) {
-        console.log(e)
-    }
-  }, [approve, setRequestedApproval])
-
-
 
   return (
     <>
@@ -344,30 +239,23 @@ export default function SushiBar() {
 
       <StakeSection>
 
-
       <StakeButton onClick={()=>{handleStakeSelect("Unstake")}} style={{color: !isStakeSelected?"#fea31c":""}}>Unstake</StakeButton>
       <StakeButton onClick={()=>{handleStakeSelect("Stake")}} style={{color: isStakeSelected?"#fea31c":""}}>Stake</StakeButton>
       <br></br>
-      <PercentContainer>
-      <Percent style={{float:'left'}}>Available: {shibaBalanceValue}</Percent>
-      <Percent style={{color: (activePercent === "100")?"#fea31c":""}} onClick={()=>{handlePercentSelect("100")}}>100%</Percent>
-      <Percent style={{color: (activePercent === "75")?"#fea31c":""}} onClick={()=>{handlePercentSelect("75")}}>75%</Percent>
-      <Percent style={{color: (activePercent === "50")?"#fea31c":""}} onClick={()=>{handlePercentSelect("50")}}>50%</Percent>
-      <Percent style={{color: (activePercent === "25")?"#fea31c":""}} onClick={()=>{handlePercentSelect("25")}}>25%</Percent>
-      </PercentContainer>
 
-      <Input
-        className="recipient-address-input"
-        type="number"
-        placeholder="Type an amount to stake"
-        onChange={(event)=>{handleInputChange(event)}}
-        value={input}
-      />
-
-      <StakeMainButton>
-        <TYPE.white fontWeight={700} color={"black"} onClick={()=>{handleApprove()}}>{isStakeSelected ? "Stake": "Unstake"}</TYPE.white>
-      </StakeMainButton>
-
+       { 
+       isStakeSelected ?
+        <StakeDepositPanel
+          tokenType={tokenType}
+          tokenAddress={tokenAddress}
+        />
+        :
+        <BuryWithdrawlPanel
+          tokenType={tokenType}
+          tokenAddress={buryTokenAddress}
+        />
+       }
+      
       <ClaimContainer>
         <ClaimFirstSection>
           <div style={{paddingLeft:"15px"}}> 
@@ -397,6 +285,71 @@ export default function SushiBar() {
 
       </BurySection>
 
+      {/* <PageWrapper>
+    <VoteCard>
+    <CardSection>
+    <AutoColumn gap="md">
+    <RowBetween>
+    <TYPE.white fontWeight={600} color={theme.text1}>
+    SushiBar: Make SUSHI work for you
+    </TYPE.white>
+    </RowBetween>
+    <RowBetween>
+    <div>
+    <TYPE.white fontSize={14} color={theme.text2} style={{ paddingBottom: '10px' }}>
+    {`Stake your SUSHI into xSUSHI for ~15% APY. No impermanent loss, no loss of governance rights. Continuously compounding.`}
+    </TYPE.white>
+    <TYPE.white fontSize={14} color={theme.text2} style={{ paddingBottom: '10px' }}>
+    {`xSUSHI automatically earn fees (0.05% of all swaps, including multichain swaps) proportional to your share of the SushiBar.`}
+    </TYPE.white>
+    </div>
+    </RowBetween>
+    <ExternalLink
+    style={{ color: 'white', textDecoration: 'underline' }}
+    target="_blank"
+    href="https://analytics.sushi.com/bar"
+    >
+    <TYPE.white fontSize={14} color={theme.text1}>
+    View SushiBar Stats <span style={{ fontSize: '11px' }}>넇</span>
+    </TYPE.white>
+    </ExternalLink>
+    {account && (
+    <ExternalLink
+    style={{ color: 'white', textDecoration: 'underline' }}
+    target="_blank"
+    href={'http://analytics.sushi.com/users/' + account}
+    >
+    <TYPE.white fontSize={14} color={theme.text1}>
+    View your SushiBar Portfolio <span style={{ fontSize: '11px' }}>넇</span>
+    </TYPE.white>
+    </ExternalLink>
+    )}
+    </AutoColumn>
+    </CardSection>
+    </VoteCard>
+    <AppBody>
+    <Wrapper id="swap-page">
+    <AutoColumn style={{ paddingBottom: '10px' }}>
+    <SushiDepositPanel
+    label={''}
+    disableCurrencySelect={true}
+    customBalanceText={'Available to deposit: '}
+    id="stake-liquidity-token"
+    buttonText="Deposit"
+    cornerRadiusBottomNone={true}
+    />
+    <XSushiWithdrawlPanel
+    label={''}
+    disableCurrencySelect={true}
+    customBalanceText={'Available to withdraw: '}
+    id="withdraw-liquidity-token"
+    buttonText="Withdraw"
+    cornerRadiusTopNone={true}
+    />
+    </AutoColumn>
+    </Wrapper>
+    </AppBody>
+    </PageWrapper> */}
 
       
     </>

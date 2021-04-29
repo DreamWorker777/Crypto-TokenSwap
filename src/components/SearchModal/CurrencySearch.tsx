@@ -21,7 +21,7 @@ import Column from '../Column'
 import Row, { RowBetween, RowFixed } from '../Row'
 import CommonBases from './CommonBases'
 import CurrencyList from './CurrencyList'
-import { filterTokens, useSortedTokensByQuery } from './filtering'
+import { filterTokens, useSortedTokensByQuery, filterLiquidityPairs } from './filtering'
 import ImportRow from './ImportRow'
 import { useTokenComparator } from './sorting'
 import { PaddedColumn, SearchInput, Separator } from './styleds'
@@ -106,7 +106,7 @@ export function CurrencySearch({
 
     const showETH: boolean = useMemo(() => {
         const s = debouncedQuery.toLowerCase().trim()
-        return s === '' || s === 'e' || s === 'et' || s === 'eth'
+        return filterLiquidityPairs(type, currenciesAB, "ETH") && (s === '' || s === 'e' || s === 'et' || s === 'eth')
     }, [debouncedQuery])
 
     const tokenComparator = useTokenComparator(invertSearchOrder)
@@ -120,30 +120,8 @@ export function CurrencySearch({
     }, [filteredTokens, tokenComparator])
 
     const fs = useSortedTokensByQuery(sortedTokens, debouncedQuery)
-    console.log(fs);
     const filteredSortedTokens = fs.filter((token)=>{
-        if(type==Field.CURRENCY_A){
-            console.log("First IF")
-             if (currenciesAB != undefined && currenciesAB[Field.CURRENCY_B]){
-                const ind = currenciesAB[Field.CURRENCY_B]?.symbol;
-                return MAPPED_PAIRS[ind?ind:'']?
-                    MAPPED_PAIRS[ind?ind:''].includes(token.symbol) : 
-                    false
-                 }
-                return true;
-        }
-
-        if(type===Field.CURRENCY_B) {
-            if (currenciesAB != undefined && currenciesAB[Field.CURRENCY_A]){
-                console.log("Second IF")
-                const ind = currenciesAB[Field.CURRENCY_A]?.symbol;
-                console.log("IND: "+ind);
-                console.log(MAPPED_PAIRS[ind ? ind : '']);
-                console.log("TOKEN: "+token.symbol)
-                console.log(ind === token.symbol)
-                return ind === token.symbol ? true : false;
-            }
-        }
+        return filterLiquidityPairs(type, currenciesAB, token.symbol)
     })
 
     const handleCurrencySelect = useCallback(
@@ -231,7 +209,7 @@ export function CurrencySearch({
                 <Column style={{ padding: '20px 0', height: '100%' }}>
                     <ImportRow token={searchToken} showImportView={showImportView} setImportToken={setImportToken} />
                 </Column>
-            ) : filteredSortedTokens?.length > 0 || filteredInactiveTokens?.length > 0 ? (
+            ) : filteredSortedTokens?.length > 0 || filteredInactiveTokens?.length > 0 || showETH ? (
                 <div style={{ flex: '1' }}>
                     <AutoSizer disableWidth>
                         {({ height }) => (

@@ -1,5 +1,8 @@
 import { Token } from '@shibaswap/sdk'
+import { Currency } from '@uniswap/sdk'
+import { MAPPED_PAIRS } from '../../constants'
 import { useMemo } from 'react'
+import { Field } from 'state/mint/actions'
 import { isAddress } from '../../utils'
 
 export function filterTokens(tokens: Token[], search: string): Token[] {
@@ -67,4 +70,23 @@ export function useSortedTokensByQuery(tokens: Token[] | undefined, searchQuery:
 
         return [...exactMatches, ...symbolSubtrings, ...rest]
     }, [tokens, searchQuery])
+}
+
+export function filterLiquidityPairs(type?: Field, currenciesAB?: { [field in Field]?: Currency }, symbol:any=''){
+    if(type==Field.CURRENCY_A){
+        if (currenciesAB != undefined && currenciesAB[Field.CURRENCY_B]){
+           const ind = currenciesAB[Field.CURRENCY_B]?.symbol;
+           return MAPPED_PAIRS[ind?ind:'']?
+               MAPPED_PAIRS[ind?ind:''].includes(symbol) : 
+               false
+            }
+           return true;
+   }
+   if (currenciesAB != undefined && currenciesAB[Field.CURRENCY_A]){
+       const ind = currenciesAB[Field.CURRENCY_A]?.symbol;
+       return MAPPED_PAIRS[ind?ind:'']?
+           MAPPED_PAIRS[ind?ind:''].includes(symbol) : 
+           false
+        }
+       return true;
 }

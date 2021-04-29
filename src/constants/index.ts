@@ -227,8 +227,7 @@ export const MAPPED_PAIRS: any = {
     "GRT": ["ETH"],
     "LEASH": ["ETH"],
     "XFUND": ["ETH"],
-    "BONE": ["ETH"],
-
+    "BONE": ["ETH"]
 }
 
 // used for display in the default list when adding liquidity

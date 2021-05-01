@@ -2,6 +2,7 @@ import React from 'react'
 import { AutoColumn } from '../../components/Column'
 import { Card } from './Card'
 import styled from 'styled-components'
+import Footer from '../../components/Footer'
 
 const PageWrapper = styled(AutoColumn)`
     max-width: 100%;
@@ -18,12 +19,12 @@ const Col = styled.div<{ size: any }>`
 export default function Home() {
     return (
         <PageWrapper gap="lg" justify="center">
-            <div className="container my-auto pb-20">
+            <div className="container my-auto pb-10">
                 <div className="row">
                     <div className="col-12 col-md-6 col-lg-4">
                         <Card
                             name="DIG"
-                            url="/add/ETH"
+                            url="/pool"
                             subTitle="There are tons on BONES under the ground"
                             desc="Provide liqiudity to earn BONES."
                             buttonText="Farm BONES"
@@ -45,11 +46,11 @@ export default function Home() {
                     <div className="col-12 col-md-6 col-lg-4">
                         <Card
                             name="FETCH"
-                            url="/#"
+                            url="/retrieve"
                             subTitle="Swap your tokens"
                             desc="Swap tokens for other tokens."
-                            buttonText="Locked"
-                            disabled={true}
+                            buttonText="Fetch"
+                            disabled={false}
                             icon="/images/fetch_icon.svg"
                         />
                     </div>
@@ -86,8 +87,9 @@ export default function Home() {
                             icon="/images/nfts_icon.svg"
                         />
                     </div>
-                </div>
+                </div>                
             </div>
+            <Footer />
         </PageWrapper>
     )
 }

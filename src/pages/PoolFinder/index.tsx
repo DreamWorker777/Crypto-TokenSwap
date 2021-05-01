@@ -82,12 +82,12 @@ export default function PoolFinder() {
             <Helmet>
                 <title>Find Pool | Sushi</title>
             </Helmet>
-            <AppBody>
+            <AppBody className="alert-container">
                 <FindPoolTabs />
                 <AutoColumn style={{ padding: '1rem' }} gap="md">
                     <BlueCard>
                         <AutoColumn gap="10px">
-                            <TYPE.link fontWeight={400} color={'primaryText1'}>
+                            <TYPE.link fontWeight={400} color="#ffb73c">
                                 <b>Tip:</b> Use this tool to find pairs that don&apos;t automatically appear in the
                                 interface.
                             </TYPE.link>

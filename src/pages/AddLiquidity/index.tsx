@@ -43,6 +43,7 @@ import '../../assets/styles/liquidity.scss'
 import BoneImage from '../../assets/images/dig_icon.svg'
 import { constants } from 'os'
 import {getShibaSwapRouterAddress, getShibaSwapRouterContract} from "../../utils"
+import Settings from "../../components/Settings"
 
 export default function AddLiquidity({
     match: {
@@ -132,7 +133,6 @@ export default function AddLiquidity({
         if (!chainId || !library || !account) return
         const router = getShibaSwapRouterContract(chainId, library, account)
         const val = JSON.stringify(router);
-        console.log("Router: "+val)
         const { [Field.CURRENCY_A]: parsedAmountA, [Field.CURRENCY_B]: parsedAmountB } = parsedAmounts
         if (!parsedAmountA || !parsedAmountB || !currencyA || !currencyB || !deadline) {
             return
@@ -150,9 +150,7 @@ export default function AddLiquidity({
         if (currencyA === ETHER || currencyB === ETHER) {
             const tokenBIsETH = currencyB === ETHER
             estimate = router.estimateGas.addLiquidityETH
-            console.log("Estimate1: "+estimate)
             method = router.addLiquidityETH
-            console.log("Method1: "+method)
             args = [
                 wrappedCurrency(tokenBIsETH ? currencyA : currencyB, chainId)?.address ?? '', // token
                 (tokenBIsETH ? parsedAmountA : parsedAmountB).raw.toString(), // token desired
@@ -164,9 +162,7 @@ export default function AddLiquidity({
             value = BigNumber.from((tokenBIsETH ? parsedAmountB : parsedAmountA).raw.toString())
         } else {
             estimate = router.estimateGas.addLiquidity
-            console.log("Estimate2: "+estimate)
             method = router.addLiquidity
-            console.log("Method2: "+method)
             args = [
                 wrappedCurrency(currencyA, chainId)?.address ?? '',
                 wrappedCurrency(currencyB, chainId)?.address ?? '',
@@ -187,7 +183,6 @@ export default function AddLiquidity({
                     ...(value ? { value } : {}),
                     gasLimit: calculateGasMargin(estimatedGasLimit)
                 }).then(response => {
-                    console.log(response);
                     setAttemptingTxn(false)
 
                     addTransaction(response, {
@@ -352,15 +347,17 @@ export default function AddLiquidity({
                                 <div className="inner">
                                     <div className="top">
                                         <div className="top-left">
-                                            <div className="title">DIG</div>
+                                        <div className="row">
+                                            <img src={BoneImage} width="42" height="42" />
+                                            <div className="title pl-5">DIG</div>
+                                        </div>
                                             <div className="description">Get BONES in our Liquidity Pool</div>
                                             <div className="read-more">Read more about providing liquidity</div>
                                             <div className="mt-5"></div>
                                         </div>
 
-                                        <div className="top-right">
-                                            <img src={BoneImage} width="42" height="42" />
-                                        </div>
+                                       
+                                        <Settings />
                                     </div>
 
                                     <div className="bottom mt-10">
@@ -530,7 +527,7 @@ export default function AddLiquidity({
                     <div className="w-full max-w-2xl flex flex-col mt-4">
                         <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
                     </div>
-                ) : null
+                ) : null        
             ) : (
                 <UnsupportedCurrencyFooter
                     show={addIsUnsupported}

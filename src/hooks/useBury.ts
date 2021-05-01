@@ -12,8 +12,6 @@ const useBury = (props:any) => {
     const { account } = useActiveWeb3React()
     const addTransaction = useTransactionAdder()
 
-    console.log("props4", props);
-
     let tokenType = props.tokenType? props.tokenType.toUpperCase() : "SHIB";
     let tokenAddress = props.tokenAddress;
 

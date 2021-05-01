@@ -82,12 +82,10 @@ export function CurrencySearch({
     const [invertSearchOrder] = useState<boolean>(false)
     const requiredTokens = ["ETH","SHIB", "LEASH", "BONE", "WBTC", "SUSHI", "UNI", "LINK", "DAI", "XFUND", "SNX", "MEME", "GRT", "USDC"];
     const oldTokens = useAllTokens()
-    console.log(oldTokens);
     const allTokens = Object.values(oldTokens).filter((value) => {
         return requiredTokens.includes(value.symbol as string) && value      
     });
 
-    console.log(allTokens)
     // if they input an address, use it
     const isAddressSearch = isAddress(debouncedQuery)
     const searchToken = useToken(debouncedQuery)
@@ -173,7 +171,7 @@ export function CurrencySearch({
     // if no results on main list, show option to expand into inactive
     const inactiveTokens = useFoundOnInactiveList(debouncedQuery)
     const filteredInactiveTokens: Token[] = useSortedTokensByQuery(inactiveTokens, debouncedQuery)
-
+        console.log(filteredSortedTokens);
     return (
         <ContentWrapper>
             <PaddedColumn gap="16px">

@@ -4,6 +4,10 @@
 
 @tailwind utilities;
 
+* {
+  font-family: 'Metric - Regular';
+}
+
 button:focus {
   outline: none !important;
 }
@@ -33,7 +37,7 @@ input:focus {
   max-height: 36.8px;
 }
 .token{
-  line-height: 19px;
+  line-height: 1.5rem !important;
 }
 .p-t-label {
   color: #d5d5d5 !important;

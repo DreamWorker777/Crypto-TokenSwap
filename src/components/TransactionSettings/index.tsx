@@ -40,7 +40,9 @@ const Option = styled(FancyButton)<{ active: boolean }>`
     :hover {
         cursor: pointer;
     }
-    background-color: ${({ active, theme }) => active && theme.primary1};
+    line-height: 1.3rem;
+    font-family: 'Metric - SemiBold';
+    background-color: ${({ active, theme }) => active && '#ffb73c'};
     color: ${({ active, theme }) => (active ? theme.white : theme.text1)};
 `
 
@@ -62,7 +64,7 @@ const OptionCustom = styled(FancyButton)<{ active?: boolean; warning?: boolean }
     position: relative;
     padding: 0 0.75rem;
     flex: 1;
-    border: ${({ theme, active, warning }) => active && `1px solid ${warning ? theme.red1 : theme.primary1}`};
+    border: ${({ theme, active, warning }) => active && `1px solid ${warning ? theme.red1 : '#ffb73c'}`};
     :hover {
         border: ${({ theme, active, warning }) =>
             active && `1px solid ${warning ? darken(0.1, theme.red1) : darken(0.1, theme.primary1)}`};
@@ -184,7 +186,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
                         warning={!slippageInputIsValid}
                         tabIndex={-1}
                     >
-                        <RowBetween>
+                        <RowBetween style={{lineHeight: '1.3rem'}}>
                             {!!slippageInput &&
                             (slippageError === SlippageError.RiskyLow || slippageError === SlippageError.RiskyHigh) ? (
                                 <SlippageEmojiContainer>
@@ -204,7 +206,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
                                 onChange={e => parseCustomSlippage(e.target.value)}
                                 color={!slippageInputIsValid ? 'red' : ''}
                             />
-                            %
+                            <span style={{lineHeight: '1rem', fontSize: '1rem', paddingTop: '0.2rem', paddingLeft: '0.2rem'}}>%</span>
                         </RowBetween>
                     </OptionCustom>
                 </RowBetween>

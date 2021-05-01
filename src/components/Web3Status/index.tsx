@@ -57,14 +57,13 @@ const Web3StatusError = styled(Web3StatusGeneric)`
     }
 `
 const Web3StatusConnect = styled(Web3StatusGeneric)<{ faded?: boolean }>`
-    font-family: Kanit, Avenir, Helvetica, Arial, sans-serif;
     padding: 0.4rem 0.8rem;
     outline: none;
     background-color: white;
     border: solid 1px #919193;
     display: inline-block;
     border-radius: 20px;
-    border-width: 2.5px;
+    border-width: 1px;
     color: black;
 
     :hover{
@@ -238,7 +237,7 @@ function Web3StatusInner() {
     } else {
         return (
             <Web3StatusConnect id="connect-wallet" onClick={toggleWalletModal} faded={!account}>
-                <Text>{t('Connect to your wallet')}</Text>
+                <p style={{lineHeight: '1rem', paddingTop: '0.2rem'}}>Connect to your wallet</p>
             </Web3StatusConnect>
         )
     }

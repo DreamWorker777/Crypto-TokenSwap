@@ -112,7 +112,7 @@ type CardProps = {
 const InnerDiv = styled.div`
     border-radius: 0.6rem;
     background-color: #292c37;
-    padding: 1rem;
+    padding: 0.5rem;
     height: 11.5rem;
 `
 const P1 = styled.p`
@@ -143,7 +143,8 @@ const Button = styled.a<{ disabled: boolean }>`
     color: #292c37;
     border-radius: 0.6rem;
     font-weight: bold;
-    padding: 0.5rem 1.3rem;
+    padding: 0.5rem;
+    padding-top: 0.7rem !important;
     margin: auto;
     text-align: center;
     :hover {
@@ -164,7 +165,6 @@ export const VCard: FunctionComponent<CardProps> = ({ name, percentage, value, b
     const [redirect, setRedirect] = useState(false);
 
     const handleBuryButtonClick = (tokenAddress:string, buryTokenAddress:string, tokenType:string) => {
-        //console.log("tokenAddress", tokenAddress, "buryTokenAddress", buryTokenAddress, "tokenType", tokenType);
         setRedirect(true);
     }
 

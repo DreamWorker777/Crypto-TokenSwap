@@ -218,13 +218,13 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
                         >
                             {showMore ? (
                                 <>
-                                    Manage
-                                    <ChevronUp size="20" style={{ marginLeft: '10px' }} />
+                                    <span className="text-white">Manage</span>
+                                    <ChevronUp size="20" className="text-white" style={{ marginLeft: '10px' }} />
                                 </>
                             ) : (
                                 <>
-                                    Manage
-                                    <ChevronDown size="20" style={{ marginLeft: '10px' }} />
+                                    <span className="text-white">Manage</span>
+                                    <ChevronDown size="20" className="text-white" style={{ marginLeft: '10px' }} />
                                 </>
                             )}
                         </ButtonEmpty>
@@ -319,6 +319,15 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
                                 >
                                     Add
                                 </ButtonPrimaryNormal>
+                                {/* <a href = {`/add/${currencyId(currency0)}/${currencyId(currency1)}`} 
+                                style={{ fontSize: "1rem", backgroundColor: '#d5d5d5'
+                                    color: #292c37;
+                                    border-radius: 0.6rem;
+                                    font-weight: bold;
+                                    padding: 0.5rem;
+                                    margin: auto;
+                                    text-align: center;}}
+                                >Add</a> */}
                                 <ButtonPrimaryNormal
                                     padding="8px"
                                     borderRadius="8px"

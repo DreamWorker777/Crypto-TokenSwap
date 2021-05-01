@@ -73,9 +73,9 @@ export function FindPoolTabs() {
     return (
         <Tabs>
             <RowBetween style={{ padding: '1rem 1rem 0 1rem' }}>
-                <HistoryLink to="/pool">
+                {/* <HistoryLink to="/pool">
                     <StyledArrowLeft />
-                </HistoryLink>
+                </HistoryLink> */}
                 <ActiveText>Import Pool</ActiveText>
                 <Settings />
             </RowBetween>

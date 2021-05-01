@@ -319,7 +319,7 @@ export default function AccountDetails({
                                         </WalletAction>
                                     )}
                                     <WalletAction
-                                        style={{ fontSize: '.825rem', fontWeight: 400 }}
+                                        style={{ fontSize: '.825rem', fontWeight: 400, color: '#ffa409', border: '1px solid #ffa409' }}
                                         onClick={() => {
                                             openOptions()
                                         }}

@@ -64,7 +64,6 @@ const ModalContentWrapper = styled.div`
     align-items: center;
     justify-content: center;
     padding: 2rem 0;
-    background-color: ${({ theme }) => theme.bg2};
     border-radius: 10px;
 `
 
@@ -101,10 +100,10 @@ export default function SettingsTab() {
         <StyledMenu ref={node}>
             <Modal isOpen={showConfirmation} onDismiss={() => setShowConfirmation(false)} maxHeight={100}>
                 <ModalContentWrapper>
-                    <AutoColumn gap="lg">
-                        <RowBetween style={{ padding: '0 2rem' }}>
+                    <AutoColumn gap="lg" className="alert-container">
+                        <RowBetween style={{ padding: '0.4rem 2rem' }}>
                             <div />
-                            <Text fontWeight={500} fontSize={20}>
+                            <Text fontWeight={500} fontSize={20} style={{lineHeight: '1rem', paddingTop: '1rem'}}>
                                 Are you sure?
                             </Text>
                             <StyledCloseIcon onClick={() => setShowConfirmation(false)} />
@@ -119,6 +118,7 @@ export default function SettingsTab() {
                                 ONLY USE THIS MODE IF YOU KNOW WHAT YOU ARE DOING.
                             </Text>
                             <ButtonError
+                            style={{backgroundColor: '#ffa409', border: '3px solid #ffa409'}}
                                 error={true}
                                 padding={'12px'}
                                 onClick={() => {

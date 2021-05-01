@@ -136,9 +136,9 @@ export default function Pool() {
                 <title>Pool | Sushi</title>
             </Helmet>
             <PageWrapper>
-                <SwapPoolTabs active={'pool'} />
                 <Alert
                     title="Liquidity provider rewards"
+                    className="alert-container"
                     message={
                         <>
                             <p className="text-gray-500">
@@ -161,20 +161,37 @@ export default function Pool() {
                                 </TYPE.mediumHeader>
                             </HideSmall>
                             <ButtonRow>
-                                <ResponsiveButtonSecondary as={Link} padding="6px 8px" to="/create/ETH">
-                                    Create a pair
-                                </ResponsiveButtonSecondary>
-                                <ResponsiveButtonPrimary
-                                    id="join-pool-button"
-                                    as={Link}
-                                    padding="6px 8px"
-                                    borderRadius="10px"
-                                    to="/add/ETH"
+                                <a
+                                    href="/create/ETH"
+                                    style={{
+                                        fontSize: '1rem',
+                                        backgroundColor: 'transparent',
+                                        color: '#d5d5d5',
+                                        borderRadius: '0.6rem',
+                                        border: '#d5d5d5 2px solid',
+                                        fontWeight: 'bold',
+                                        padding: '0.5rem',
+                                        margin: 'auto',
+                                        textAlign: 'center'
+                                    }}
                                 >
-                                    <Text fontWeight={500} fontSize={16}>
-                                        Add Liquidity
-                                    </Text>
-                                </ResponsiveButtonPrimary>
+                                    Create a Pair
+                                </a>
+                                <a
+                                    href="/add/ETH"
+                                    style={{
+                                        fontSize: '1rem',
+                                        backgroundColor: '#d5d5d5',
+                                        color: '#292c37',
+                                        borderRadius: '0.6rem',
+                                        fontWeight: 'bold',
+                                        padding: '0.5rem',
+                                        margin: 'auto',
+                                        textAlign: 'center'
+                                    }}
+                                >
+                                    Add Liquidity
+                                </a>
                             </ButtonRow>
                         </TitleRow>
 
@@ -192,14 +209,6 @@ export default function Pool() {
                             </EmptyProposals>
                         ) : allV2PairsWithLiquidity?.length > 0 || stakingPairs?.length > 0 ? (
                             <>
-                                {/* <ButtonSecondary>
-                  <RowBetween>
-                    <ExternalLink href={'https://uniswap.info/account/' + account}>
-                      Account analytics and accrued fees
-                    </ExternalLink>
-                    <span> ↗</span>
-                  </RowBetween>
-                </ButtonSecondary> */}
                                 {v2PairsWithoutStakedAmount.map(v2Pair => (
                                     <FullPositionCard key={v2Pair.liquidityToken.address} pair={v2Pair} />
                                 ))}
@@ -229,14 +238,6 @@ export default function Pool() {
                                     {hasV1Liquidity ? 'Migrate now.' : 'Import it.'}
                                 </StyledInternalLink>
                             </Text>
-                            {chainId === ChainId.MAINNET && (
-                                <Text textAlign="center" fontSize={14} style={{ padding: '.5rem 0 .5rem 0' }}>
-                                    Have Liquidity on Uniswap?{' '}
-                                    <StyledInternalLink id="migrate-pool-link" to={'/migrate/v2'}>
-                                        Migrate Now.
-                                    </StyledInternalLink>
-                                </Text>
-                            )}
                         </AutoColumn>
                     </AutoColumn>
                 </AutoColumn>

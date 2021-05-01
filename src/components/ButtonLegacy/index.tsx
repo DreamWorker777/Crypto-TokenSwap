@@ -56,6 +56,8 @@ export const ButtonPrimary = styled(Base)`
   line-height: normal;
   text-align: center;
   overflow:hidden;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   background-origin: border-box;
   &:focus {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};

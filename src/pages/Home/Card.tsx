@@ -61,6 +61,7 @@ const Button = styled.a<{ disabled: boolean }>`
     line-height: normal;
     text-align: center;
     padding: 0.5rem 2.75rem;
+    padding-top: 0.8rem !important;
     line-height: normal;
     position: absolute;
     bottom: 0.6rem;

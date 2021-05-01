@@ -47,6 +47,8 @@ import Yield from './Yield'
 import ReactGA from 'react-ga'
 import Home from './Home'
 import Bury from './Bury'
+import Retrieve from './Retrieve'
+import { RedirectOldRetrievePathStructure } from './Retrieve/redirects'
 
 function App(): JSX.Element {
     const { chainId } = useActiveWeb3React()
@@ -73,10 +75,10 @@ function App(): JSX.Element {
                 </div>
                 <div
                     ref={bodyRef}
-                    className="flex flex-col flex-1 items-center justify-start w-screen h-full overflow-y-auto overflow-x-hidden z-0 pt-4 sm:pt-8 px-4 md:pt-10 pb-20"
+                    className="flex flex-col flex-1 items-center justify-start w-screen h-full overflow-y-auto overflow-x-hidden z-0 pt-4 sm:pt-8 px-4 md:pt-10 pb-4"
                 >
                     <Popups />
-                    <Polling />
+                    {/* <Polling /> */}
                     <Web3ReactManager>
                         <Switch>
                             <PublicRoute exact path="/connect" component={Connect} />
@@ -109,8 +111,14 @@ function App(): JSX.Element {
                             <Route exact strict path="/saave" component={Saave} />
 
                             {/* Pages */}
-                            {(chainId === ChainId.MAINNET || chainId === ChainId.KOVAN) && <Route exact strict path="/stake" component={SushiBar} />}
                             <Route exact strict path="/" component={Home} />
+                            <Route exact strict path="/retrieve" component={Retrieve} />
+                            <Route
+                                exact
+                                strict
+                                path="/retrieve/:currencyIdA"
+                                component={RedirectOldRetrievePathStructure}
+                            />
                             <Route exact strict path="/bury" component={Bury} />
                             <Route exact path="/sushibar" render={() => <Redirect to="/stake" />} />
                             <Route exact strict path="/swap" component={Swap} />
@@ -167,6 +175,7 @@ function App(): JSX.Element {
                         </Switch>
                     </Web3ReactManager>
                 </div>
+                
             </div>
         </Suspense>
     )

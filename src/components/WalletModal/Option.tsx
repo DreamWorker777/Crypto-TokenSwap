@@ -31,7 +31,7 @@ const OptionCardLeft = styled.div`
 `
 
 const OptionCardClickable = styled(OptionCard as any)<{ clickable?: boolean }>`
-    background: #131825
+    background: #101218
     margin-top: 0;
     &:hover {
         cursor: ${({ clickable }) => (clickable ? 'pointer' : '')};

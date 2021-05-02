@@ -44,51 +44,51 @@ const sheen = keyframes`{
 }`
 
 export const ButtonPrimary = styled(Base)`
-  border: none;
-  border-radius: 0.5rem;
-  background: rgba(255, 255, 255, 0.8);
-  color: #1c2d41;
-  font-family: "Metric - Bold";
-  font-size: 22px;
-  font-weight: 600;
-  font-style: normal;
-  letter-spacing: normal;
-  line-height: normal;
-  text-align: center;
-  overflow:hidden;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  background-origin: border-box;
-  &:focus {
-    box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
-  }
-  &:active {
-    box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.1, theme.primary1)};
-  }
-  &:disabled {
-    pointer-events: none;
-    cursor: auto;
-    box-shadow: none;
-    border: 1px solid transparent;
-    outline: none;
-    opacity: ${({ altDisabledStyle }) => (altDisabledStyle ? '0.5' : '1')};
-  }
-  &:hover {
+    border: none;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    color: #1c2d41;
+    font-family: 'Metric - Bold';
+    font-size: 22px;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     background-origin: border-box;
-    &::after {
-      animation: ${sheen} 0.5s forwards;
+    &:focus {
+        box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
     }
-  }
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    bottom: -50%;
-    left: -130%;
-    transform: rotateZ(60deg) translate(-5em, 7.5em);
-  }
+    &:active {
+        box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.1, theme.primary1)};
+    }
+    &:disabled {
+        pointer-events: none;
+        cursor: auto;
+        box-shadow: none;
+        border: 1px solid transparent;
+        outline: none;
+        opacity: ${({ altDisabledStyle }) => (altDisabledStyle ? '0.5' : '1')};
+    }
+    &:hover {
+        background-origin: border-box;
+        &::after {
+            animation: ${sheen} 0.5s forwards;
+        }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        bottom: -50%;
+        left: -130%;
+        transform: rotateZ(60deg) translate(-5em, 7.5em);
+    }
 `
 
 export const ButtonPrimaryNormal = styled(Base)`
@@ -97,7 +97,7 @@ export const ButtonPrimaryNormal = styled(Base)`
     font-size: 110%;
     background: rgba(255, 255, 255, 0.8);
     color: #1c2d41;
-    font-family: "Metric-Semibold";
+    font-family: 'Metric-Semibold';
     font-size: 22px;
     font-weight: 600;
     font-style: normal;
@@ -128,7 +128,7 @@ export const ButtonLight = styled(Base)`
     font-size: 110%;
     background: rgba(255, 255, 255, 0.8);
     color: #1c2d41;
-    font-family: "Metric-Semibold";
+    font-family: 'Metric-Semibold';
     font-size: 22px;
     font-weight: 600;
     font-style: normal;
@@ -254,6 +254,7 @@ export const ButtonOutlined = styled(Base)`
     }
     &:active {
         box-shadow: 0 0 0 1px ${({ theme }) => theme.bg4};
+        background-color: ${({ theme }) => darken(0.5, theme.primary1)};
     }
     &:disabled {
         opacity: 50%;

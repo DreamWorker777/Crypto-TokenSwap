@@ -133,7 +133,7 @@ export default function Pool() {
     return (
         <>
             <Helmet>
-                <title>Pool | Sushi</title>
+                <title>Pool | Shiba</title>
             </Helmet>
             <PageWrapper>
                 <Alert
@@ -171,6 +171,8 @@ export default function Pool() {
                                         border: '#d5d5d5 2px solid',
                                         fontWeight: 'bold',
                                         padding: '0.5rem',
+                                        paddingTop: '0.8rem',
+                                        lineHeight: '1rem',
                                         margin: 'auto',
                                         textAlign: 'center'
                                     }}
@@ -186,6 +188,8 @@ export default function Pool() {
                                         borderRadius: '0.6rem',
                                         fontWeight: 'bold',
                                         padding: '0.5rem',
+                                        paddingTop: '0.8rem',
+                                        lineHeight: '1rem',
                                         margin: 'auto',
                                         textAlign: 'center'
                                     }}

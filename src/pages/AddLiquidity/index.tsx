@@ -49,7 +49,7 @@ import { Helmet } from 'react-helmet'
 import '../../assets/styles/liquidity.scss'
 import BoneImage from '../../assets/images/dig_icon.svg'
 import { constants } from 'os'
-import Settings from "../../components/Settings"
+import Settings from '../../components/Settings'
 
 export default function AddLiquidity({
     match: {
@@ -130,15 +130,21 @@ export default function AddLiquidity({
     )
 
     // check whether the user has approved the router on the tokens
-    const [approvalA, approveACallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_A], getShibaSwapRouterAddress(chainId))
-    const [approvalB, approveBCallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_B], getShibaSwapRouterAddress(chainId))
+    const [approvalA, approveACallback] = useApproveCallback(
+        parsedAmounts[Field.CURRENCY_A],
+        getShibaSwapRouterAddress(chainId)
+    )
+    const [approvalB, approveBCallback] = useApproveCallback(
+        parsedAmounts[Field.CURRENCY_B],
+        getShibaSwapRouterAddress(chainId)
+    )
 
     const addTransaction = useTransactionAdder()
 
     async function onAdd() {
         if (!chainId || !library || !account) return
         const router = getShibaSwapRouterContract(chainId, library, account)
-        const val = JSON.stringify(router);
+        const val = JSON.stringify(router)
         const { [Field.CURRENCY_A]: parsedAmountA, [Field.CURRENCY_B]: parsedAmountB } = parsedAmounts
         if (!parsedAmountA || !parsedAmountB || !currencyA || !currencyB || !deadline) {
             return
@@ -353,15 +359,16 @@ export default function AddLiquidity({
                                 <div className="inner">
                                     <div className="top">
                                         <div className="top-left">
-                                        <div className="row">
-                                            <img src={BoneImage} width="42" height="42" />
-                                            <div className="title pl-5">DIG</div>
-                                        </div>
+                                            <div className="row">
+                                                <img src={BoneImage} width="42" height="42" />
+                                                <div className="title pl-5" style={{ margin: 'auto' }}>
+                                                    DIG
+                                                </div>
+                                            </div>
                                             <div className="description">Get BONES in our Liquidity Pool</div>
                                             <div className="read-more">Read more about providing liquidity</div>
                                             <div className="mt-5"></div>
                                         </div>
-
 
                                         <Settings />
                                     </div>

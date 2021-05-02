@@ -6,13 +6,14 @@ import {
     useActiveWeb3React,
     useShibaSwapUniV2FetchContract,
     useShibaSwapSushiFetchContract,
-    useSushiRollContract
+    useSushiRollContract,
+    useTokenFetch
 } from '../hooks'
 import LPToken from '../types/LPToken'
 
-const useShibaFetch = () => {
+const useShibaFetch = (tokenFetchKey:string) => {
     const { library, account } = useActiveWeb3React()
-    const shibaFetch = useShibaSwapUniV2FetchContract()
+    const shibaFetch = useTokenFetch(tokenFetchKey);
     const ttl = 60 * 20
 
     const migrate = useCallback(

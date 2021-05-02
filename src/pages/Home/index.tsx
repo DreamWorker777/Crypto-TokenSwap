@@ -46,7 +46,7 @@ export default function Home() {
                     <div className="col-12 col-md-6 col-lg-4">
                         <Card
                             name="FETCH"
-                            url="/retrieve"
+                            url="/fetch"
                             subTitle="Swap your tokens"
                             desc="Swap tokens for other tokens."
                             buttonText="Fetch"

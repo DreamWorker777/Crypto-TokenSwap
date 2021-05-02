@@ -90,6 +90,7 @@ import SHIBASWAP_BONE_TOKEN_ABI from '../constants/abis/shibaswap_erc20.json'
 import SHIBASWAP_TREAT_TOKEN_ABI from '../constants/abis/shibaswap_erc20.json'
 
 import SHIBASWAP_ERC20 from '../constants/abis/shibaswap_erc20.json'
+
 // returns null on errors
 export function useContract(address: string | undefined, ABI: any, withSignerIfPossible = true): Contract | null {
     const { library, account } = useActiveWeb3React()
@@ -254,6 +255,30 @@ export function useUniV2FactoryContract(): Contract | null {
     return useContract(UNI_FACTORY_ADDRESS, UNI_FACTORY_ABI, false)
 }
 
+export function useFetchFactoryToken(tokenFetchKey:string){
+
+    const { chainId } = useActiveWeb3React()
+    let factoryAbi : any;
+    let address : string | undefined;
+
+    switch(tokenFetchKey){
+        case "unifetch" :
+            address = UNI_FACTORY_ADDRESS
+            factoryAbi = UNI_FACTORY_ABI;
+            break;
+
+        case "sushifetch" :
+            address = chainId && FACTORY_ADDRESS[chainId]
+            factoryAbi = FACTORY_ABI;
+            break;
+
+        default:
+            break;
+    }
+
+    return useContract(address,factoryAbi,false);
+}
+
 export function useSushiRollContract(): Contract | null {
     const { chainId } = useActiveWeb3React()
     let address: string | undefined
@@ -268,6 +293,57 @@ export function useSushiRollContract(): Contract | null {
         }
     }
     return useContract(address, SUSHIROLL_ABI, true)
+}
+
+export function fetchUniNetworkAddress(chainId:ChainId | undefined){
+    switch (chainId) {
+        case ChainId.MAINNET:
+            return ''
+            
+        case ChainId.KOVAN:
+            return '0x7803a532dadE25d89116bfd995850dc0d3c59EC9'
+            
+        default:
+            return undefined
+    }
+}
+
+export function fetchSushiNetworkAddress(chainId:ChainId | undefined){
+    switch (chainId) {
+        case ChainId.MAINNET:
+            return ''
+            
+        case ChainId.KOVAN:
+            return '0x0c7d4ABd92eAAA91Caf8447666D7244B6474ca89'
+            
+        default:
+            return undefined
+    }
+}
+
+export function useTokenFetch(tokenFetchKey:string){
+    const { chainId } = useActiveWeb3React()
+    let address: string | undefined
+    let swapFetchAbi : any;
+
+    if(chainId){
+        switch(tokenFetchKey){
+            case "unifetch" :
+                address = fetchUniNetworkAddress(chainId);
+                swapFetchAbi = SHIBASWAP_UNI_FETCH_ABI;
+                break;
+
+            case "sushifetch" :
+                address = fetchSushiNetworkAddress(chainId);
+                swapFetchAbi = SHIBASWAP_SUSHI_FETCH_ABI;
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    return useContract(address, swapFetchAbi, true)
 }
 
 export function useShibaSwapUniV2FetchContract(): Contract | null {
@@ -312,6 +388,9 @@ export function useDashboardContract(): Contract | null {
                 break
             case ChainId.ROPSTEN:
                 address = '0xC95678C10CB8b3305b694FF4bfC14CDB8aD3AB35'
+                break
+            case ChainId.KOVAN:
+                address = '0x7803a532dadE25d89116bfd995850dc0d3c59EC9'
                 break
         }
     }
@@ -366,6 +445,9 @@ export function useDashboard2Contract(): Contract | null {
                 break
             case ChainId.ROPSTEN:
                 address = '0xbB7091524A6a42228E396480C9C43f1C4f6c50e2'
+                break
+            case ChainId.KOVAN:
+                address = '0x0c7d4ABd92eAAA91Caf8447666D7244B6474ca89'
                 break
         }
     }
@@ -471,3 +553,4 @@ export function useShibaSwapBuryTokenContract(tokenType?: string, withSignerIfPo
     
     return useContract(chainId && buryAddress, buryAbi, withSignerIfPossible)
 }
+

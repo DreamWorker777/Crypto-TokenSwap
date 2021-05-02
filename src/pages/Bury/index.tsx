@@ -62,7 +62,7 @@ export default function Bury(props:any) {
                         <div className="col-12 col-md-6 col-lg-3">
                             <VCard
                                 {...props}
-                                url="/stake"
+                                url="/stake/shib"
                                 name="APY"
                                 percentage="0.00%"
                                 value="0,00000"
@@ -77,7 +77,7 @@ export default function Bury(props:any) {
                         <div className="col-12 col-md-6 col-lg-3">
                             <VCard
                                 {...props}
-                                url="/stake"
+                                url="/stake/leash"
                                 name="APY"
                                 percentage="0.00%"
                                 value="0,00000"
@@ -92,7 +92,7 @@ export default function Bury(props:any) {
                         <div className="col-12 col-md-6 col-lg-3">
                             <VCard
                                 {...props}
-                                url="/stake"
+                                url="/stake/bone"
                                 name="APY"
                                 percentage="0.00%"
                                 value="0,00000"

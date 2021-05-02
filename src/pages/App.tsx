@@ -103,7 +103,7 @@ function App(): JSX.Element {
                             <Route exact strict path="/yield" component={Yield} />
                             <Route exact strict path="/vesting" component={Vesting} />
                             {(chainId === ChainId.MAINNET || chainId === ChainId.KOVAN) && (
-                                <Route exact strict path="/migrate/v2" component={MigrateV2} />
+                                <Route exact strict path="/fetch" component={MigrateV2} />
                             )}
 
                             {/* Tools */}
@@ -121,6 +121,8 @@ function App(): JSX.Element {
                             />
                             <Route exact strict path="/bury" component={Bury} />
                             <Route exact path="/sushibar" render={() => <Redirect to="/stake" />} />
+                            <Route exact path="/stake/:tokenName" component={SushiBar} />
+                            <Route exact strict path="/stake" component={SushiBar} />
                             <Route exact strict path="/swap" component={Swap} />
                             <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
                             <Route exact strict path="/send" component={RedirectPathToSwapOnly} />

@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import useSushiBar from 'hooks/useSushiBar'
 import useTokenBalance from 'sushi-hooks/useTokenBalance'
+import useShibaSwapTokenBalance from 'shiba-hooks/useShibaSwapTokenBalance'
 import { formatFromBalance, formatToBalance } from '../../utils'
 import { TYPE } from '../../theme'
 
@@ -80,7 +81,7 @@ export default function StakeDepositPanel(props:any){
     let tokenAddress = props.tokenAddress;
 
     //Token Balance
-    const shibaBalanceBigInt = useTokenBalance(tokenAddress ? tokenAddress : '');
+    const shibaBalanceBigInt = useShibaSwapTokenBalance(tokenAddress ? tokenAddress : '');
     const shibaBalanceValue = parseFloat(formatFromBalance(shibaBalanceBigInt?.value, shibaBalanceBigInt?.decimals));
     const decimals = shibaBalanceBigInt?.decimals;
 
@@ -89,7 +90,7 @@ export default function StakeDepositPanel(props:any){
     const {allowance, approve, enter} = useBury({tokenType,tokenAddress});
 
     const [activePercent, setActivePercent] = useState("");
-    const [input, setInput] = useState('0');
+    const [input, setInput] = useState("");
   
     //Token
     const [requestedApproval, setRequestedApproval] = useState(false)
@@ -136,7 +137,7 @@ export default function StakeDepositPanel(props:any){
 
             <Input
                 className="recipient-address-input"
-                type="text"
+                type="number"
                 placeholder="Type an amount to stake"
                 onChange={(event)=>{handleInputChange(event)}}
                 onClick={()=>handleInputClick()}

@@ -18,10 +18,11 @@ export interface MigrateState extends LPTokensState {
     isMigrationPending: boolean
 }
 
-const useMigrateState: () => MigrateState = () => {
+const useMigrateState: (tokenFetchKey:string, fetchTokenAddress:string) => MigrateState = (tokenFetchKey:string, fetchTokenAddress:string) => {
+
     const { library, account } = useActiveWeb3React()
-    const state = useLPTokensState()
-    const { migrate, migrateWithPermit } = useShibaFetch()
+    const state = useLPTokensState(tokenFetchKey,fetchTokenAddress)
+    const { migrate, migrateWithPermit } = useShibaFetch(tokenFetchKey)
     const [mode, setMode] = useState<MigrateMode>()
     const [amount, setAmount] = useState('')
     const addTransaction = useTransactionAdder()

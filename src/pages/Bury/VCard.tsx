@@ -174,7 +174,7 @@ export const VCard: FunctionComponent<CardProps> = ({ name, percentage, value, b
         return(
             <Redirect
             to={{
-              pathname: "/stake",
+              pathname: url,
               state: { 
                 tokenAddress:tokenAddress,
                 buryTokenAddress: buryTokenAddress,
@@ -195,10 +195,10 @@ export const VCard: FunctionComponent<CardProps> = ({ name, percentage, value, b
                 <InnerDiv>
                     <P1>{name}</P1>
                     <P2>{percentage}</P2>
-                    <P3>Total staked</P3>
+                    <P3>{value?"Total staked":<br></br>}</P3>
                     <P4>{value}</P4>
                     <div style={{ textAlign: 'center', cursor: 'pointer' }}>
-                      <Button onClick={()=>{handleBuryButtonClick(tokenAddress, buryTokenAddress, tokenType)}} disabled={disabled}>
+                      <Button onClick={()=>{handleBuryButtonClick(tokenAddress,buryTokenAddress,tokenType)}} disabled={disabled}>
                         {buttonText}
                       </Button>
                     </div>

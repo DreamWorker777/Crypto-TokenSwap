@@ -1,11 +1,8 @@
-import { ChainId, Token, TokenAmount } from '@shibaswap/sdk'
-import { FACTORY_ADDRESS as UNI_FACTORY_ADDRESS } from '@uniswap/sdk'
+import { ChainId, Token, TokenAmount} from '@shibaswap/sdk'
 import {
-    useDashboard2Contract,
-    useDashboardContract,
     useShibaSwapDashboard1Contract,
     useShibaSwapDashboard2Contract,
-    useUniV2FactoryContract
+    useFetchFactoryToken,
 } from 'hooks/useContract'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useActiveWeb3React } from '../hooks'
@@ -24,20 +21,18 @@ export interface LPTokensState {
     updatingLPTokens: boolean
 }
 
-const useLPTokensState = () => {
+const useLPTokensState = (tokenFetchKey:string,fetchTokenAddress:string) => {
     const { account, chainId } = useActiveWeb3React()
-    const factoryContract = useUniV2FactoryContract()
+    const factoryContract = useFetchFactoryToken(tokenFetchKey);
+
     const shibaDashboard1Contract = useShibaSwapDashboard1Contract()
     const shibaDashboard2Contract = useShibaSwapDashboard2Contract()
 
-    const dashboardContract = useDashboardContract()
-    const dashboard2Contract = useDashboard2Contract()
     const [lpTokens, setLPTokens] = useState<LPToken[]>([])
     const [selectedLPToken, setSelectedLPToken] = useState<LPToken>()
     const [selectedLPTokenAllowed, setSelectedLPTokenAllowed] = useState(false)
     const [loading, setLoading] = useState(true)
     const updatingLPTokens = useRef(false)
-
     const updateLPTokens = useCallback(async () => {
         updatingLPTokens.current = true
         try {
@@ -51,7 +46,7 @@ const useLPTokensState = () => {
                     pages.map(page =>
                         shibaDashboard1Contract?.findPairs(
                             account,
-                            UNI_FACTORY_ADDRESS,
+                            fetchTokenAddress,
                             page,
                             Math.min(page + LP_TOKENS_LIMIT, length.toNumber())
                         )

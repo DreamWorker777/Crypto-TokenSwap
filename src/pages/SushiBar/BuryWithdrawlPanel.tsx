@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import useSushiBar from 'hooks/useSushiBar'
 import useTokenBalance from 'sushi-hooks/useTokenBalance'
+import useShibaSwapTokenBalance from 'shiba-hooks/useShibaSwapTokenBalance'
 import { formatFromBalance, formatToBalance } from '../../utils'
 import { TYPE } from '../../theme'
 
@@ -82,7 +83,7 @@ export default function BuryWithdrawlPanel(props:any){
     let tokenAddress = props.tokenAddress;
 
     //Token Balance
-    const buryBalanceBigInt = useTokenBalance(tokenAddress ? tokenAddress : '');
+    const buryBalanceBigInt = useShibaSwapTokenBalance(tokenAddress ? tokenAddress : '');
     const buryBalanceValue = parseFloat(formatFromBalance(buryBalanceBigInt?.value, buryBalanceBigInt?.decimals));
     const decimals = buryBalanceBigInt?.decimals;
 
@@ -92,7 +93,7 @@ export default function BuryWithdrawlPanel(props:any){
 
     const [activePercent, setActivePercent] = useState("");
     const [shibaBalance, setShibaBalance] = useState(0);
-    const [input, setInput] = useState('0');
+    const [input, setInput] = useState("");
   
     //Token
     const [requestedApproval, setRequestedApproval] = useState(false)
@@ -141,7 +142,7 @@ export default function BuryWithdrawlPanel(props:any){
             <Input
                 className="recipient-address-input"
                 //type="number"
-                type="text"
+                type="number"
                 pattern="^[0-9]*[.,]?[0-9]*$"
                 placeholder="Type an amount to stake"
                 onChange={(event)=>{handleInputChange(event)}}

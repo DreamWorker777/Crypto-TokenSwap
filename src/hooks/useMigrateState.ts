@@ -4,6 +4,7 @@ import { useActiveWeb3React } from '../hooks'
 import { useIsTransactionPending, useTransactionAdder } from '../state/transactions/hooks'
 import useLPTokensState, { LPTokensState } from './useLPTokensState'
 import useSushiRoll from './useSushiRoll'
+import useShibaFetch from "./useShibaFetch";
 
 export type MigrateMode = 'permit' | 'approve'
 
@@ -20,7 +21,7 @@ export interface MigrateState extends LPTokensState {
 const useMigrateState: () => MigrateState = () => {
     const { library, account } = useActiveWeb3React()
     const state = useLPTokensState()
-    const { migrate, migrateWithPermit } = useSushiRoll()
+    const { migrate, migrateWithPermit } = useShibaFetch()
     const [mode, setMode] = useState<MigrateMode>()
     const [amount, setAmount] = useState('')
     const addTransaction = useTransactionAdder()
@@ -39,7 +40,7 @@ const useMigrateState: () => MigrateState = () => {
             const func = mode === 'approve' ? migrate : migrateWithPermit
             const tx = await func(state.selectedLPToken, units)
 
-            addTransaction(tx, { summary: `Migrate Uniswap ${state.selectedLPToken.symbol} liquidity to Sushiswap` })
+            addTransaction(tx, { summary: `Migrate Uniswap ${state.selectedLPToken.symbol} liquidity to Shibaswap` })
             setPendingMigrationHash(tx.hash)
 
             await tx.wait()

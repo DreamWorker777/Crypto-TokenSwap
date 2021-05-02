@@ -1,7 +1,7 @@
 import { AddressZero } from '@ethersproject/constants'
 import { formatUnits, parseUnits } from '@ethersproject/units'
 import { JSBI } from '@shibaswap/sdk'
-import { useSushiRollContract } from 'hooks/useContract'
+import {useShibaSwapUniV2FetchContract, useSushiRollContract} from 'hooks/useContract'
 import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { ChevronRight } from 'react-feather'
 import { Text } from 'rebass'
@@ -180,7 +180,8 @@ const MigrateModeSelect = ({ state }: { state: MigrateState }) => {
 const MigrateButtons = ({ state }: { state: MigrateState }) => {
     const [error, setError] = useState<MetamaskError>({})
     const sushiRollContract = useSushiRollContract()
-    const [approval, approve] = useApproveCallback(state.selectedLPToken?.balance, sushiRollContract?.address)
+    const shibaSwapUniV2FetchContract = useShibaSwapUniV2FetchContract()
+    const [approval, approve] = useApproveCallback(state.selectedLPToken?.balance, shibaSwapUniV2FetchContract?.address)
     const noLiquidityTokens = !!state.selectedLPToken?.balance && state.selectedLPToken?.balance.equalTo(ZERO)
     const isButtonDisabled = !state.amount
 

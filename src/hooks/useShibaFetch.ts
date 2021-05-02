@@ -2,17 +2,22 @@ import { signERC2612Permit } from 'eth-permit'
 import { ethers } from 'ethers'
 import { useCallback } from 'react'
 import ReactGA from 'react-ga'
-import { useActiveWeb3React, useSushiRollContract } from '../hooks'
+import {
+    useActiveWeb3React,
+    useShibaSwapUniV2FetchContract,
+    useShibaSwapSushiFetchContract,
+    useSushiRollContract
+} from '../hooks'
 import LPToken from '../types/LPToken'
 
-const useSushiRoll = () => {
+const useShibaFetch = () => {
     const { library, account } = useActiveWeb3React()
-    const sushiRoll = useSushiRollContract()
+    const shibaUniV2Fetch = useShibaSwapUniV2FetchContract()
     const ttl = 60 * 20
 
     const migrate = useCallback(
         async (lpToken: LPToken, amount: ethers.BigNumber) => {
-            if (sushiRoll) {
+            if (shibaUniV2Fetch) {
                 const deadline = Math.floor(new Date().getTime() / 1000) + ttl
                 const args = [
                     lpToken.tokenA.address,
@@ -23,8 +28,8 @@ const useSushiRoll = () => {
                     deadline
                 ]
 
-                const gasLimit = await sushiRoll.estimateGas.migrate(...args)
-                const tx = sushiRoll.migrate(...args, {
+                const gasLimit = await shibaUniV2Fetch.estimateGas.migrate(...args)
+                const tx = shibaUniV2Fetch.migrate(...args, {
                     gasLimit: gasLimit.mul(120).div(100)
                 })
 
@@ -37,18 +42,18 @@ const useSushiRoll = () => {
                 return tx
             }
         },
-        [sushiRoll, ttl]
+        [shibaUniV2Fetch, ttl]
     )
 
     const migrateWithPermit = useCallback(
         async (lpToken: LPToken, amount: ethers.BigNumber) => {
-            if (account && sushiRoll) {
+            if (account && shibaUniV2Fetch) {
                 const deadline = Math.floor(new Date().getTime() / 1000) + ttl
                 const permit = await signERC2612Permit(
                     library,
                     lpToken.address,
                     account,
-                    sushiRoll.address,
+                    shibaUniV2Fetch.address,
                     amount.toString(),
                     deadline
                 )
@@ -64,21 +69,21 @@ const useSushiRoll = () => {
                     permit.s
                 ]
 
-                const gasLimit = await sushiRoll.estimateGas.migrateWithPermit(...args)
-                const tx = await sushiRoll.migrateWithPermit(...args, {
+                const gasLimit = await shibaUniV2Fetch.estimateGas.migrateWithPermit(...args)
+                const tx = await shibaUniV2Fetch.migrateWithPermit(...args, {
                     gasLimit: gasLimit.mul(120).div(100)
                 })
 
                 ReactGA.event({
                     category: 'Migrate',
-                    action: 'Uniswap->Sushiswap',
+                    action: 'Uniswap->Shibaswap',
                     label: 'migrateWithPermit'
                 })
 
                 return tx
             }
         },
-        [account, library, sushiRoll, ttl]
+        [account, library, shibaUniV2Fetch, ttl]
     )
 
     return {
@@ -87,4 +92,4 @@ const useSushiRoll = () => {
     }
 }
 
-export default useSushiRoll
+export default useShibaFetch

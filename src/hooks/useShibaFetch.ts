@@ -12,12 +12,12 @@ import LPToken from '../types/LPToken'
 
 const useShibaFetch = () => {
     const { library, account } = useActiveWeb3React()
-    const shibaUniV2Fetch = useShibaSwapUniV2FetchContract()
+    const shibaFetch = useShibaSwapUniV2FetchContract()
     const ttl = 60 * 20
 
     const migrate = useCallback(
         async (lpToken: LPToken, amount: ethers.BigNumber) => {
-            if (shibaUniV2Fetch) {
+            if (shibaFetch) {
                 const deadline = Math.floor(new Date().getTime() / 1000) + ttl
                 const args = [
                     lpToken.tokenA.address,
@@ -28,8 +28,8 @@ const useShibaFetch = () => {
                     deadline
                 ]
 
-                const gasLimit = await shibaUniV2Fetch.estimateGas.migrate(...args)
-                const tx = shibaUniV2Fetch.migrate(...args, {
+                const gasLimit = await shibaFetch.estimateGas.migrate(...args)
+                const tx = shibaFetch.migrate(...args, {
                     gasLimit: gasLimit.mul(120).div(100)
                 })
 
@@ -42,18 +42,18 @@ const useShibaFetch = () => {
                 return tx
             }
         },
-        [shibaUniV2Fetch, ttl]
+        [shibaFetch, ttl]
     )
 
     const migrateWithPermit = useCallback(
         async (lpToken: LPToken, amount: ethers.BigNumber) => {
-            if (account && shibaUniV2Fetch) {
+            if (account && shibaFetch) {
                 const deadline = Math.floor(new Date().getTime() / 1000) + ttl
                 const permit = await signERC2612Permit(
                     library,
                     lpToken.address,
                     account,
-                    shibaUniV2Fetch.address,
+                    shibaFetch.address,
                     amount.toString(),
                     deadline
                 )
@@ -69,8 +69,8 @@ const useShibaFetch = () => {
                     permit.s
                 ]
 
-                const gasLimit = await shibaUniV2Fetch.estimateGas.migrateWithPermit(...args)
-                const tx = await shibaUniV2Fetch.migrateWithPermit(...args, {
+                const gasLimit = await shibaFetch.estimateGas.migrateWithPermit(...args)
+                const tx = await shibaFetch.migrateWithPermit(...args, {
                     gasLimit: gasLimit.mul(120).div(100)
                 })
 
@@ -83,7 +83,7 @@ const useShibaFetch = () => {
                 return tx
             }
         },
-        [account, library, shibaUniV2Fetch, ttl]
+        [account, library, shibaFetch, ttl]
     )
 
     return {

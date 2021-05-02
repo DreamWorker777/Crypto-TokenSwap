@@ -145,7 +145,7 @@
       "use-count-up": "^2.2.5",
       "wcag-contrast": "^3.0.0",
       "node-sass": "^5.0.0",
-      "@shibaswap/default-token-list": "0.0.3",
+      "@shibaswap/default-token-list": "0.0.5",
       "@shibaswap/sdk": "^0.0.4"
   },
   "resolutions": {

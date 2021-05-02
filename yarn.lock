@@ -2710,10 +2710,10 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@shibaswap/default-token-list@0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@shibaswap/default-token-list/-/default-token-list-0.0.3.tgz#e6b93be6bd31e0e422fbbf2ad897055b967e8c7f"
-  integrity sha512-WPIKUEQ0PA2zqnYaC5CBiNfEQLtCyQQT2UoUYdBVhR0Dw0Zm/WuOJBVqspPOWct9bHnZqZKqgXYOmSH6bZTTug==
+"@shibaswap/default-token-list@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@shibaswap/default-token-list/-/default-token-list-0.0.5.tgz#f3be6e2b0481681ddf72b541488c3293b7cc5ce1"
+  integrity sha512-83q55fxd6Pn+DYo5UgmsnWcfwSFOa5GkDwbad82wEDNlKSHoxg+SKc98N0AkQ6AUkQwuapcfCRYNFiawgkeLUA==
 
 "@shibaswap/sdk@^0.0.4":
   version "0.0.4"

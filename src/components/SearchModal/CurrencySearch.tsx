@@ -80,7 +80,7 @@ export function CurrencySearch({
     const [searchQuery, setSearchQuery] = useState<string>('')
     const debouncedQuery = useDebounce(searchQuery, 200)
     const [invertSearchOrder] = useState<boolean>(false)
-    const requiredTokens = ["ETH","SHIB", "LEASH", "BONE", "WBTC", "SUSHI", "UNI", "LINK", "DAI", "XFUND", "SNX", "MEME", "GRT", "USDC"];
+    const requiredTokens = ["ETH","SHIB", "LEASH", "BONE", "WBTC", "SUSHI", "UNI", "LINK", "DAI", "XFUND", "SNX", "MEME", "GRT", "USDC", "SUSDC", "SWBTC", "SDAI" ];
     const oldTokens = useAllTokens()
     const allTokens = Object.values(oldTokens).filter((value) => {
         return requiredTokens.includes(value.symbol as string) && value      

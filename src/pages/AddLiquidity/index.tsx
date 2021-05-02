@@ -29,7 +29,14 @@ import { useDerivedMintInfo, useMintActionHandlers, useMintState } from '../../s
 import { useTransactionAdder } from '../../state/transactions/hooks'
 import { useIsExpertMode, useUserSlippageTolerance } from '../../state/user/hooks'
 import { TYPE } from '../../theme'
-import { calculateGasMargin, calculateSlippageAmount, getRouterAddress, getRouterContract } from '../../utils'
+import {
+    calculateGasMargin,
+    calculateSlippageAmount,
+    getRouterAddress,
+    getRouterContract,
+    getShibaSwapRouterAddress,
+    getShibaSwapRouterContract
+} from '../../utils'
 import { currencyId } from '../../utils/currencyId'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { wrappedCurrency } from '../../utils/wrappedCurrency'
@@ -42,7 +49,6 @@ import { Helmet } from 'react-helmet'
 import '../../assets/styles/liquidity.scss'
 import BoneImage from '../../assets/images/dig_icon.svg'
 import { constants } from 'os'
-import {getShibaSwapRouterAddress, getShibaSwapRouterContract} from "../../utils"
 import Settings from "../../components/Settings"
 
 export default function AddLiquidity({
@@ -356,7 +362,7 @@ export default function AddLiquidity({
                                             <div className="mt-5"></div>
                                         </div>
 
-                                       
+
                                         <Settings />
                                     </div>
 
@@ -527,7 +533,7 @@ export default function AddLiquidity({
                     <div className="w-full max-w-2xl flex flex-col mt-4">
                         <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
                     </div>
-                ) : null        
+                ) : null
             ) : (
                 <UnsupportedCurrencyFooter
                     show={addIsUnsupported}

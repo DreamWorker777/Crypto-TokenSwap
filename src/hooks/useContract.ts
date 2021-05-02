@@ -22,6 +22,9 @@ import {
     SHIBASWAP_BURY_TREAT_ADDRESS,
     SHIBASWAP_TOPDOG_ADDRESS
 } from '@shibaswap/sdk'
+import SHIBASWAP_UNI_FETCH_ABI from '../constants/abis/ShibaUniFetch.json';
+import SHIBASWAP_SUSHI_FETCH_ABI from '../constants/abis/ShibaSushiFetch.json';
+
 import { abi as UNI_ABI } from '@uniswap/governance/build/Uni.json'
 import { abi as STAKING_REWARDS_ABI } from '@uniswap/liquidity-staker/build/StakingRewards.json'
 import { abi as MERKLE_DISTRIBUTOR_ABI } from '@uniswap/merkle-distributor/build/MerkleDistributor.json'
@@ -53,6 +56,9 @@ import BAR_ABI from '../constants/abis/bar.json'
 import BENTOBOX_ABI from '../constants/abis/bentobox.json'
 import CHAINLINK_ORACLE_ABI from '../constants/abis/chainlink-oracle.json'
 import DASHBOARD_ABI from '../constants/abis/dashboard.json'
+import SHIBA_DASHBOARD1_ABI from '../constants/abis/shibadashboard1.json'
+import SHIBA_DASHBOARD2_ABI from '../constants/abis/shibadashboard2.json'
+
 import DASHBOARD2_ABI from '../constants/abis/dashboard2.json'
 import FACTORY_ABI from '../constants/abis/factory.json'
 import KASHIPAIR_ABI from '../constants/abis/kashipair.json'
@@ -264,6 +270,38 @@ export function useSushiRollContract(): Contract | null {
     return useContract(address, SUSHIROLL_ABI, true)
 }
 
+export function useShibaSwapUniV2FetchContract(): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    let address: string | undefined
+    if (chainId) {
+        switch (chainId) {
+            case ChainId.MAINNET:
+                address = ''
+                break
+            case ChainId.KOVAN:
+                address = '0x7803a532dadE25d89116bfd995850dc0d3c59EC9'
+                break
+        }
+    }
+    return useContract(address, SHIBASWAP_UNI_FETCH_ABI, true)
+}
+
+export function useShibaSwapSushiFetchContract(): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    let address: string | undefined
+    if (chainId) {
+        switch (chainId) {
+            case ChainId.MAINNET:
+                address = ''
+                break
+            case ChainId.KOVAN:
+                address = '0x0c7d4ABd92eAAA91Caf8447666D7244B6474ca89'
+                break
+        }
+    }
+    return useContract(address, SHIBASWAP_SUSHI_FETCH_ABI, true)
+}
+
 export function useDashboardContract(): Contract | null {
     const { chainId } = useActiveWeb3React()
     let address: string | undefined
@@ -278,6 +316,44 @@ export function useDashboardContract(): Contract | null {
         }
     }
     return useContract(address, DASHBOARD_ABI, false)
+}
+
+export function useShibaSwapDashboard1Contract(): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    let address: string | undefined
+    if (chainId) {
+        switch (chainId) {
+            case ChainId.MAINNET:
+                address = ''
+                break
+            case ChainId.ROPSTEN:
+                address = ''
+                break
+            case ChainId.KOVAN:
+                address = '0xF3B45F125F7F5570138E7adF5d123c0d06482998'
+                break
+        }
+    }
+    return useContract(address, SHIBA_DASHBOARD1_ABI, false)
+}
+
+export function useShibaSwapDashboard2Contract(): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    let address: string | undefined
+    if (chainId) {
+        switch (chainId) {
+            case ChainId.MAINNET:
+                address = ''
+                break
+            case ChainId.ROPSTEN:
+                address = ''
+                break
+            case ChainId.KOVAN:
+                address = '0x8fA6D9a17dBe609A96Ee936F48c7f41e2A247b17'
+                break
+        }
+    }
+    return useContract(address, SHIBA_DASHBOARD2_ABI, false)
 }
 
 export function useDashboard2Contract(): Contract | null {

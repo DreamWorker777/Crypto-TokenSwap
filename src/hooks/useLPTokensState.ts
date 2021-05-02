@@ -1,6 +1,12 @@
 import { ChainId, Token, TokenAmount } from '@shibaswap/sdk'
 import { FACTORY_ADDRESS as UNI_FACTORY_ADDRESS } from '@uniswap/sdk'
-import { useDashboard2Contract, useDashboardContract, useUniV2FactoryContract } from 'hooks/useContract'
+import {
+    useDashboard2Contract,
+    useDashboardContract,
+    useShibaSwapDashboard1Contract,
+    useShibaSwapDashboard2Contract,
+    useUniV2FactoryContract
+} from 'hooks/useContract'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useActiveWeb3React } from '../hooks'
 import LPToken from '../types/LPToken'
@@ -21,6 +27,9 @@ export interface LPTokensState {
 const useLPTokensState = () => {
     const { account, chainId } = useActiveWeb3React()
     const factoryContract = useUniV2FactoryContract()
+    const shibaDashboard1Contract = useShibaSwapDashboard1Contract()
+    const shibaDashboard2Contract = useShibaSwapDashboard2Contract()
+
     const dashboardContract = useDashboardContract()
     const dashboard2Contract = useDashboard2Contract()
     const [lpTokens, setLPTokens] = useState<LPToken[]>([])
@@ -40,7 +49,7 @@ const useLPTokensState = () => {
             const userLP = (
                 await Promise.all(
                     pages.map(page =>
-                        dashboardContract?.findPairs(
+                        shibaDashboard1Contract?.findPairs(
                             account,
                             UNI_FACTORY_ADDRESS,
                             page,
@@ -51,7 +60,7 @@ const useLPTokensState = () => {
             ).flat()
 
             const tokenDetails = (
-                await dashboardContract?.getTokenInfo(
+                await shibaDashboard1Contract?.getTokenInfo(
                     Array.from(new Set(userLP.reduce((a: any, b: any) => a.push(b.token, b.token0, b.token1) && a, [])))
                 )
             ).reduce((acc: any, cur: any) => {
@@ -60,14 +69,14 @@ const useLPTokensState = () => {
             }, {})
 
             const balances = (
-                await dashboardContract?.findBalances(
+                await shibaDashboard1Contract?.findBalances(
                     account,
                     userLP.map(pair => pair.token)
                 )
             ).map((el: any) => el.balance)
 
             const userLPDetails = (
-                await dashboard2Contract?.getPairsFull(
+                await shibaDashboard2Contract?.getPairsFull(
                     account,
                     userLP.map(pair => pair.token)
                 )
@@ -113,20 +122,20 @@ const useLPTokensState = () => {
             setLoading(false)
             updatingLPTokens.current = false
         }
-    }, [factoryContract, dashboardContract, account, dashboard2Contract, chainId])
+    }, [factoryContract, shibaDashboard1Contract, account, shibaDashboard2Contract, chainId])
 
     useEffect(() => {
         if (
             account &&
             factoryContract &&
-            dashboard2Contract &&
-            dashboardContract &&
+            shibaDashboard2Contract &&
+            shibaDashboard1Contract &&
             chainId &&
             !updatingLPTokens.current
         ) {
             updateLPTokens()
         }
-    }, [account, dashboard2Contract, dashboardContract, factoryContract, chainId, updateLPTokens])
+    }, [account, shibaDashboard2Contract, shibaDashboard1Contract, factoryContract, chainId, updateLPTokens])
 
     return {
         updateLPTokens,

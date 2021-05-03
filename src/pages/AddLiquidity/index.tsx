@@ -32,8 +32,6 @@ import { TYPE } from '../../theme'
 import {
     calculateGasMargin,
     calculateSlippageAmount,
-    getRouterAddress,
-    getRouterContract,
     getShibaSwapRouterAddress,
     getShibaSwapRouterContract
 } from '../../utils'

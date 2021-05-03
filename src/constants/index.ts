@@ -219,18 +219,18 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 //mapping allowed pars for liquidity
 export const MAPPED_PAIRS: any = {
     "ETH": ["SHIB", "SUSHI", "UNI", "SNX", "MEME", "GRT", "LEASH", "XFUND", "BONE", "SDAI", "SUSDT", "SWBTC"],
-    "SHIB": ["ETH","SDAI", "SUSDT", "SWBTC"],
+    "SHIB": ["ETH"],
     "SUSHI": ["ETH"],
     "UNI": ["ETH"],
     "SNX": ["ETH"],
     "MEME": ["ETH"],
     "GRT": ["ETH"],
-    "LEASH": ["ETH","SDAI", "SUSDT", "SWBTC"],
+    "LEASH": ["ETH"],
     "XFUND": ["ETH"],
-    "BONE": ["ETH","SDAI", "SUSDT", "SWBTC"],
-    "SDAI" : ["SUSDT", "SWBTC", "ETH"],
-    "SUSDT" : ["SDAI", "SWBTC", "ETH"],
-    "SWBTC" : ["SDAI", "SUSDT", "ETH"]
+    "BONE": ["ETH"],
+    "SDAI" : ["ETH"],
+    "SUSDT" : ["ETH"],
+    "SWBTC" : ["ETH"]
 }
 
 // used for display in the default list when adding liquidity

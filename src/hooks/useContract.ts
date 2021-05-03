@@ -3,10 +3,10 @@ import SUSHIROLL_ABI from '@sushiswap/core/abi/SushiRoll.json'
 import {
     BAR_ADDRESS,
     ChainId,
-    FACTORY_ADDRESS,
+    SUSHI_FACTORY_ADDRESS,
     MAKER_ADDRESS,
     MASTERCHEF_ADDRESS,
-    ROUTER_ADDRESS,
+    SUSHI_ROUTER_ADDRESS,
     SUSHI_ADDRESS,
     TIMELOCK_ADDRESS,
     WETH,
@@ -60,7 +60,7 @@ import SHIBA_DASHBOARD1_ABI from '../constants/abis/shibadashboard1.json'
 import SHIBA_DASHBOARD2_ABI from '../constants/abis/shibadashboard2.json'
 
 import DASHBOARD2_ABI from '../constants/abis/dashboard2.json'
-import FACTORY_ABI from '../constants/abis/factory.json'
+import SUSHI_FACTORY_ABI from '../constants/abis/factory.json'
 import KASHIPAIR_ABI from '../constants/abis/kashipair.json'
 import MAKER_ABI from '../constants/abis/maker.json'
 import MASTERCHEF_ABI from '../constants/abis/masterchef.json'
@@ -204,12 +204,12 @@ export function useMasterChefContract(withSignerIfPossible?: boolean): Contract 
 
 export function useFactoryContract(): Contract | null {
     const { chainId } = useActiveWeb3React()
-    return useContract(chainId && FACTORY_ADDRESS[chainId], FACTORY_ABI, false)
+    return useContract(chainId && SUSHI_FACTORY_ADDRESS[chainId], SUSHI_FACTORY_ABI, false)
 }
 
 export function useRouterContract(): Contract | null {
     const { chainId } = useActiveWeb3React()
-    return useContract(chainId && ROUTER_ADDRESS[chainId], ROUTER_ABI, false)
+    return useContract(chainId && SUSHI_ROUTER_ADDRESS[chainId], ROUTER_ABI, false)
 }
 
 export function useSushiBarContract(withSignerIfPossible?: boolean): Contract | null {
@@ -268,8 +268,8 @@ export function useFetchFactoryToken(tokenFetchKey:string){
             break;
 
         case "sushifetch" :
-            address = chainId && FACTORY_ADDRESS[chainId]
-            factoryAbi = FACTORY_ABI;
+            address = chainId && SUSHI_FACTORY_ADDRESS[chainId]
+            factoryAbi = SUSHI_FACTORY_ABI;
             break;
 
         default:

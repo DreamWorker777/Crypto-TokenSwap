@@ -10,7 +10,7 @@ import {
     ETHER,
     JSBI,
     Percent,
-    ROUTER_ADDRESS,
+    SUSHI_ROUTER_ADDRESS,
     SHIBASWAP_ROUTER_ADDRESS,
     Token
 } from '@shibaswap/sdk'
@@ -505,7 +505,7 @@ export function getRouterAddress(chainId?: ChainId) {
     if (!chainId) {
         throw Error(`Undefined 'chainId' parameter '${chainId}'.`)
     }
-    return ROUTER_ADDRESS[chainId]
+    return SUSHI_ROUTER_ADDRESS[chainId]
 }
 
 export function getShibaSwapRouterAddress(chainId?: ChainId) {

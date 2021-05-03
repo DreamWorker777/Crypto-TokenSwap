@@ -341,7 +341,10 @@ const MigrateV2 = () => {
             width: auto;
             height: auto;
             margin: 0;
-            margintop: '30px';
+            margintop: '50px';
+        }
+        @media(max-width: 500px){
+            width: 100%;
         }
     `
     return (
@@ -408,6 +411,9 @@ const MigrateV2Sushi = () => {
             width: auto;
             height: auto;
             margin: 0;
+        }
+        @media(max-width: 500px){
+            width: 100%;
         }
     `
 
@@ -482,6 +488,9 @@ const MigrateParent = () => {
         @media (max-width: 1000px) {
             height: auto;
         }
+        @media(max-width: 500px){
+            width: 100%;
+        }
     `
 
     const MigrationBlock = styled.div`
@@ -497,25 +506,44 @@ const MigrateParent = () => {
     `
     const HeaderSection = styled.div`
         display: inline-block;
-        float: left;
-        vertical-align: middle;
+        width: 100%;
         text-align: center;
         @media (max-width: 1000px) {
-            //margin-bottom : 30px;
             text-align: center;
         }
     `
+
+    const BackArrowSection = styled.div`
+        display: inline-block;
+        width: 10%;
+        height: 100%;
+        float:left;
+    `;
+
+    const TitleSection = styled.div`
+        display: inline-block;
+        width: 70%;
+        float:center;
+        padding-right:60px;
+    `;
+
+
     return (
         <MigrateSection>
             <HeaderSection>
+                <BackArrowSection>
                 <BackArrow to="/" />
+                </BackArrowSection>
+                
+                <TitleSection>
                 <TYPE.white
-                    style={{ display: 'inline-block', fontSize: '30px',  textAlign: 'center', marginLeft:'25vw'}}
                     fontWeight={700}
+                    fontSize={"30px"}
                     fontFamily={'Metric - Bold'}
                 >
                     Migrate your LP tokens
                 </TYPE.white>
+                </TitleSection>
             </HeaderSection>
             <div style={{ height: '20px' }}></div>
             <br></br>

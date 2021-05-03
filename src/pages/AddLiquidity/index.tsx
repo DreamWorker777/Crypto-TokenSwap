@@ -433,7 +433,6 @@ export default function AddLiquidity({
                                                 </ButtonPrimary>
                                             ) : !account ? (
                                                 <ButtonPrimary
-                                                    className="liquidityWalletButton"
                                                     onClick={toggleWalletModal}
                                                 >
                                                     Connect Wallet

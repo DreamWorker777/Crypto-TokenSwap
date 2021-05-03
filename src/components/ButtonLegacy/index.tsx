@@ -57,6 +57,7 @@ export const ButtonPrimary = styled(Base)`
     text-align: center;
     overflow: hidden;
     margin-top: 1rem;
+    padding-top: 1.3rem;
     margin-bottom: 1rem;
     background-origin: border-box;
     &:focus {

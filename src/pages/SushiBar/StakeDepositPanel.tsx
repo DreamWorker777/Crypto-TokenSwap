@@ -37,6 +37,7 @@ const Percent = styled.div`
   float:right;
   cursor: pointer;
   font-style: Metric - Regular;
+  font-size: 18px;
   @media (max-width: 500px) {
     text-align: center;
     display: block;
@@ -148,7 +149,7 @@ export default function StakeDepositPanel(props:any){
             {
             !allowance || Number(allowance) === 0 ? 
                 <ButtonSelect disabled={requestedApproval} onClick={()=>{handleApprove()}}>  
-                    <TYPE.white fontWeight={700} color={"black"}>Approve</TYPE.white>
+                    <TYPE.white fontWeight={700} fontSize={"21px"} color={"black"}>Approve</TYPE.white>
                 </ButtonSelect>
             :
             <ButtonSelect 
@@ -168,7 +169,7 @@ export default function StakeDepositPanel(props:any){
                   setPendingTx(false)
                 }}
             >
-                <TYPE.white fontWeight={700} color={"black"}>Stake</TYPE.white>
+                <TYPE.white fontWeight={700} fontSize={"21px"} color={"black"}>Stake</TYPE.white>
               </ButtonSelect> 
             }
             </div>   

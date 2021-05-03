@@ -33,6 +33,7 @@ import RemoveLiquidity from './RemoveLiquidity'
 import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
 import Saave from './Saave'
 import SushiBar from './SushiBar'
+import Bonefolio from './Bonefolio'
 import Swap from './Swap'
 import {
     RedirectHashRoutes,
@@ -123,6 +124,7 @@ function App(): JSX.Element {
                             <Route exact path="/sushibar" render={() => <Redirect to="/stake" />} />
                             <Route exact path="/stake/:tokenName" component={SushiBar} />
                             <Route exact strict path="/stake" component={SushiBar} />
+                            <Route exact strict path="/bonefolio" component={Bonefolio} />
                             <Route exact strict path="/swap" component={Swap} />
                             <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
                             <Route exact strict path="/send" component={RedirectPathToSwapOnly} />

@@ -8,7 +8,7 @@ import { Text } from 'rebass'
 import styled, { ThemeContext } from 'styled-components'
 import Circle from '../../assets/images/blue-loader.svg'
 import { ButtonConfirmed } from '../../components/ButtonLegacy'
-import { LightCard } from '../../components/Card'
+import { LightCard, LightCardCustom } from '../../components/Card'
 import { AutoColumn } from '../../components/Column'
 import DoubleCurrencyLogo from '../../components/DoubleLogo'
 import { Input as NumericalInput } from '../../components/NumericalInput'
@@ -66,14 +66,14 @@ const AmountInput = ({ state }: { state: MigrateState }) => {
     return (
         <>
             <TYPE.mediumHeader style={{ justifySelf: 'flex-start' }}>Amount of Tokens</TYPE.mediumHeader>
-            <LightCard>
+            <LightCardCustom>
                 <FixedHeightRow>
                     <NumericalInput value={state.amount} onUserInput={val => state.setAmount(val)} />
-                    <MaxButton onClick={onPressMax} width="10px">
+                    <MaxButton style={{backgroundColor:"#292c37", color:"white", borderColor:"white"}} onClick={onPressMax} width="10px">
                         MAX
                     </MaxButton>
                 </FixedHeightRow>
-            </LightCard>
+            </LightCardCustom>
             <Border />
         </>
     )
@@ -88,11 +88,20 @@ interface PositionCardProps {
     isSushi?: boolean
 }
 
+export const AppBodySection = styled.div`
+    
+    box-shadow: 0 0 9px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #292c37;
+    width: 90%;
+    margin: auto;
+`;
+
 const LPTokenSelect = ({ lpToken, onClick, onDismiss, isSelected, updating, isSushi }: PositionCardProps) => {
     const theme = useContext(ThemeContext)
 
     return (
-        <LightCard>
+        <LightCardCustom>
             <AutoColumn gap="12px">
                 <FixedHeightRow>
                     <RowFixed onClick={() => onClick(lpToken)}>
@@ -127,7 +136,7 @@ const LPTokenSelect = ({ lpToken, onClick, onDismiss, isSelected, updating, isSu
                     )}
                 </FixedHeightRow>
             </AutoColumn>
-        </LightCard>
+        </LightCardCustom>
     )
 }
 
@@ -153,7 +162,7 @@ const MigrateModeSelect = ({ state }: { state: MigrateState }) => {
             {items.reduce((acc: any, { key, text, description }: any) => {
                 if (state.mode === undefined || key === state.mode)
                     acc.push(
-                        <LightCard key={key}>
+                        <LightCardCustom key={key}>
                             <AutoColumn gap="12px">
                                 <RowFixed>
                                     <AutoRow onClick={() => state.setMode(key)}>
@@ -171,7 +180,7 @@ const MigrateModeSelect = ({ state }: { state: MigrateState }) => {
                                     )}
                                 </RowFixed>
                             </AutoColumn>
-                        </LightCard>
+                        </LightCardCustom>
                     )
                 return acc
             }, [])}
@@ -212,7 +221,7 @@ const MigrateButtons = ({ state, isSushi }: { state: MigrateState, isSushi: bool
 
     return (
         <AutoColumn gap="20px">
-            <LightCard>
+            <LightCardCustom>
                 <AutoRow style={{ flex: '1', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
                     <TYPE.body fontSize=".875rem" fontWeight={500}>
                         {state.selectedLPToken.symbol}
@@ -269,7 +278,7 @@ const MigrateButtons = ({ state, isSushi }: { state: MigrateState, isSushi: bool
                         {error.message}
                     </TYPE.body>
                 )}
-            </LightCard>
+            </LightCardCustom>
             <TYPE.darkGray fontSize="0.75rem" textAlign="center">
                 {`Your ${isSushi?"Sushiswap":"Uniswap"} ${state.selectedLPToken.tokenA.symbol}/${state.selectedLPToken.tokenB.symbol} liquidity will become Shibaswap ${state.selectedLPToken.tokenA.symbol}/${state.selectedLPToken.tokenB.symbol} liquidity.`}
             </TYPE.darkGray>
@@ -337,6 +346,7 @@ const MigrateV2 = () => {
         display: 'inline-block';
         width: '45%';
         margintop: '30px';
+        //border: 2px solid white;
         @media (max-width: 1000px) {
             width: auto;
             height: auto;
@@ -347,6 +357,7 @@ const MigrateV2 = () => {
             width: 100%;
         }
     `
+ 
     return (
         <>
             <MigrateUniBlock style={{ marginRight: '20px' }}>
@@ -354,32 +365,32 @@ const MigrateV2 = () => {
                     <title>Migrate | Sushi</title>
                     <meta name="description" content="Migrate Uniswap LP tokens to Shiba LP tokens" />
                 </Helmet>
-                <AppBody style={{ padding: 24 }}>
+                <AppBodySection style={{ padding: 24}}>
                     <AutoColumn gap="16px">
                         <AutoRow style={{ alignItems: 'center', justifyContent: 'space-between' }} gap="8px">
                             {/* <BackArrow to="/pool" /> */}
-                            <TYPE.mediumHeader>Migrate Uniswap Liquidity</TYPE.mediumHeader>
+                            <TYPE.mediumHeader style={{fontSize:"30px"}} fontWeight="700">Migrate Uniswap Liquidity</TYPE.mediumHeader>
                             <div>
                                 <QuestionHelper text="Migrate your Uniswap LP tokens to ShibaSwap LP tokens." />
                             </div>
                         </AutoRow>
-                        <TYPE.darkGray style={{ marginBottom: 8, fontWeight: 400 }}>
+                        <TYPE.white style={{ marginBottom: 8, fontWeight: 400 }}>
                             For each pool shown below, click migrate to remove your liquidity from Uniswap and deposit
                             it into Shibaswap.
-                        </TYPE.darkGray>
+                        </TYPE.white>
 
                         {!account ? (
-                            <LightCard padding="40px">
+                            <LightCardCustom padding="40px">
                                 <TYPE.body color={theme.text3} textAlign="center">
                                     Connect to a wallet to view your V2 liquidity.
                                 </TYPE.body>
-                            </LightCard>
+                            </LightCardCustom>
                         ) : state.loading ? (
-                            <LightCard padding="40px">
+                            <LightCardCustom padding="40px">
                                 <TYPE.body color={theme.text3} textAlign="center">
                                     <Dots>Loading</Dots>
                                 </TYPE.body>
-                            </LightCard>
+                            </LightCardCustom>
                         ) : (
                             <>
                                 <MigrateModeSelect state={state} />
@@ -389,7 +400,7 @@ const MigrateV2 = () => {
                             </>
                         )}
                     </AutoColumn>
-                </AppBody>
+                </AppBodySection>
                 <br></br>
                 
             </MigrateUniBlock>
@@ -424,32 +435,32 @@ const MigrateV2Sushi = () => {
                     <title>Migrate | Sushi</title>
                     <meta name="description" content="Migrate Sushiswap LP tokens to Shiba LP tokens" />
                 </Helmet>
-                <AppBody style={{ padding: 24 }}>
+                <AppBodySection style={{ padding: 24 }}>
                     <AutoColumn gap="16px">
                         <AutoRow style={{ alignItems: 'center', justifyContent: 'space-between' }} gap="8px">
                             
-                            <TYPE.mediumHeader>Migrate Sushiswap Liquidity</TYPE.mediumHeader>
+                            <TYPE.mediumHeader fontSize="30px" fontWeight="700">Migrate Sushiswap Liquidity</TYPE.mediumHeader>
                             <div>
                                 <QuestionHelper text="Migrate your Sushiswap LP tokens to ShibaSwap LP tokens." />
                             </div>
                         </AutoRow>
-                        <TYPE.darkGray style={{ marginBottom: 8, fontWeight: 400 }}>
+                        <TYPE.white style={{ marginBottom: 8, fontWeight: 400 }}>
                             For each pool shown below, click migrate to remove your liquidity from Sushiswap and deposit
                             it into Shibaswap.
-                        </TYPE.darkGray>
+                        </TYPE.white>
 
                         {!account ? (
-                            <LightCard padding="40px">
+                            <LightCardCustom padding="40px">
                                 <TYPE.body color={theme.text3} textAlign="center">
                                     Connect to a wallet to view your V2 liquidity.
                                 </TYPE.body>
-                            </LightCard>
+                            </LightCardCustom>
                         ) : state.loading ? (
-                            <LightCard padding="40px">
+                            <LightCardCustom padding="40px">
                                 <TYPE.body color={theme.text3} textAlign="center">
                                     <Dots>Loading</Dots>
                                 </TYPE.body>
-                            </LightCard>
+                            </LightCardCustom>
                         ) : (
                             <>
                                 <MigrateModeSelect state={state} />
@@ -459,7 +470,7 @@ const MigrateV2Sushi = () => {
                             </>
                         )}
                     </AutoColumn>
-                </AppBody>
+                </AppBodySection>
             </MigrateSushiBlock>
         </>
     )
@@ -468,7 +479,7 @@ const MigrateV2Sushi = () => {
 const MigrateParent = () => {
     const MigrateSection = styled.div`
         display: block;
-        width: auto;
+        width: 80%;
         //border: 2px solid white;
         padding-top: 50px;
         padding-left: 30px;
@@ -508,6 +519,7 @@ const MigrateParent = () => {
         display: inline-block;
         width: 100%;
         text-align: center;
+        //border: 2px solid white;
         @media (max-width: 1000px) {
             text-align: center;
         }
@@ -522,31 +534,62 @@ const MigrateParent = () => {
 
     const TitleSection = styled.div`
         display: inline-block;
-        width: 70%;
-        float:center;
-        padding-right:60px;
+        width: auto;
+        float:left;
+        //padding-right:60px;
+        //border: 2px solid white;
     `;
+
+    const CardHeading = styled.h1`
+        display: inline-block;
+        font-size: 40px;
+        text-align: left;
+        font-weight: 700;
+        color: #d5d5d5;
+        margin: 0;
+        font-family: "Metric - Bold";
+        line-height: 2.5rem;
+        padding-top: 1.4rem;
+        padding-bottom: 0.4rem;
+    `
+
+    const ImageDiv = styled.div`
+        display: inline-block;
+        float:  right;
+        box-shadow: inset 0 0 9px rgba(13, 13, 13, 0.8);
+        border-radius: 10px;
+        padding: 0.5rem;
+        background: transparent;
+    `
+
+    const Image = styled.img``
 
 
     return (
         <MigrateSection>
             <HeaderSection>
-                <BackArrowSection>
+                {/* <BackArrowSection>
                 <BackArrow to="/" />
-                </BackArrowSection>
+                </BackArrowSection> */}
                 
                 <TitleSection>
-                <TYPE.white
+                {/* <TYPE.white
                     fontWeight={700}
                     fontSize={"30px"}
                     fontFamily={'Metric - Bold'}
                 >
                     Migrate your LP tokens
-                </TYPE.white>
+                </TYPE.white> */}
+                <CardHeading>FETCH</CardHeading>
+                
                 </TitleSection>
+                <ImageDiv>
+                    <Image height={40} width={40} src={"/images/fetch_icon.svg"} />
+                </ImageDiv>
+                
             </HeaderSection>
             <div style={{ height: '20px' }}></div>
-            <br></br>
+            
             <MigrationBlock>
                 <MigrateV2 />
                 <MigrateV2Sushi />

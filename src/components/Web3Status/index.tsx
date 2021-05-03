@@ -110,6 +110,7 @@ const Web3StatusConnected = styled(Web3StatusGeneric)<{ pending?: boolean }>`
     border: 1px solid ${({ pending, theme }) => (pending ? theme.primary1 : theme.bg3)};
     color: ${({ pending, theme }) => (pending ? theme.white : theme.text1)};
     font-weight: 500;
+    font-family: Metric - Semibold;
     :hover,
     :focus {
         background-color: ${({ pending, theme }) =>
@@ -237,7 +238,7 @@ function Web3StatusInner() {
     } else {
         return (
             <Web3StatusConnect id="connect-wallet" onClick={toggleWalletModal} faded={!account}>
-                <p style={{lineHeight: '1rem', paddingTop: '0.2rem'}}>Connect to your wallet</p>
+                <p style={{fontWeight:"bolder",lineHeight: '1rem', paddingTop: '0.2rem'}}>Connect to your wallet</p>
             </Web3StatusConnect>
         )
     }

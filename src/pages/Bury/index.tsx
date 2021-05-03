@@ -11,6 +11,7 @@ const PageWrapper = styled(AutoColumn)`
     width: 100%;
     justify-items: flex-start;
     height: 100%;
+    
 `
 const ImageDiv = styled.div`
   box-shadow: inset 0 0 9px rgba(13, 13, 13, 0.43);
@@ -28,6 +29,8 @@ const InnerDiv = styled.div`
     //     rgba(17, 20, 27, 0.33) 31%,
     //     rgba(17, 20, 27, 0.5) 100%
     // );
+
+    
 `
 const Row = styled.div`
     display: flex;
@@ -44,13 +47,13 @@ export default function Bury(props:any) {
         <PageWrapper gap="lg" justify="center">
             <div
                 className="container pb-5 m-auto bury-container"
-                style={{ backgroundColor: '#101218', padding: '1rem' }}
+                style={{ padding: '1rem' }}
             >
                 <InnerDiv>
                     <Row>
                         <Col>
                             <CardHeading>BURY</CardHeading>
-                            <CardsubTitle>Shibas love to bury what they have found</CardsubTitle>
+                            <CardsubTitle>Shibas love to bury what they have found!</CardsubTitle>
                         </Col>
                         <Col>
                             <ImageDiv>

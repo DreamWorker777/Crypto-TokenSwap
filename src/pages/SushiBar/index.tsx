@@ -93,7 +93,7 @@ const BoxSection = styled.div`
 `;
 
 const StakeSection = styled.div`
-  width: 60%;
+  width: 70%;
   height: auto;
   margin: auto;
   margin-top: 30px;
@@ -110,8 +110,10 @@ const StakeSection = styled.div`
 `;
 
 const StakeButton = styled.div`
-  font-weight: 500;
+  font-weight: 700;
   font-style: normal;
+  font-size: 18px;
+  font-family: Metric - Bold;
   letter-spacing: 0.1px;
   line-height: normal;
   float:right;
@@ -120,7 +122,7 @@ const StakeButton = styled.div`
 `
 const ClaimContainer = styled.div`
   width:90%;
-  height:200px;
+  height:150px;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -168,7 +170,8 @@ const ClaimSecondSection = styled.div`
   float:right;
   text-align: left;
   margin-top:20px;
-  border-left: 0.5px solid #d5d5d5;
+  //border-left: 0.5px solid #d5d5d5;
+  border-left: 1px solid rgba(255, 255, 255, .2);
 
   @media (max-width: 600px) {
     text-align: left;
@@ -182,7 +185,7 @@ const ClaimSecondSection = styled.div`
 `;
 
 const ClaimButton = styled.div`
-  width: 120px;
+  width: 100px;
   height: 44px;
   line-height: 40px;
   border-radius: 10px;
@@ -190,9 +193,11 @@ const ClaimButton = styled.div`
   text-align: center;
   float: right;
   position:relative;
-  top:60px;
+  top:20px;
   right:10px;
   cursor: pointer;
+  line-height: 50px;
+  font-weight: 500;
 
   @media (max-width: 600px) {
     top: 0px;
@@ -220,20 +225,20 @@ export default function SushiBar(props:any) {
   return (
     <>
       <BurySection>
-      <CloseIcon style={{backgroundImage:"url(" + closeLogo + ")"}}/>
+      {/* <CloseIcon style={{backgroundImage:"url(" + closeLogo + ")"}}/> */}
       
       <BoxContainer>
         <BoxSection>
-          <TYPE.white fontWeight={500} fontFamily={"Metric - Medium"}>Total Value Locked</TYPE.white>
-          <TYPE.white fontWeight={700} fontFamily={"Metric - Bold"}>$000,000,000.000</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={"18px"} font-Style={"Metric - Medium"}>Total Value Locked</TYPE.white>
+          <TYPE.white fontWeight={700} fontSize={"21px"} font-Style={"Metric - Bold"}>$000,000,000.000</TYPE.white>
         </BoxSection>
         <BoxSection>
-          <TYPE.white fontWeight={500} fontFamily={"Metric - Medium"}>Your Portfolio</TYPE.white>
-          <TYPE.white fontWeight={700} fontFamily={"Metric - Bold"}>$000,000,000.000</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={"18px"} font-Style={"Metric - Medium"}>Your Portfolio</TYPE.white>
+          <TYPE.white fontWeight={700} fontSize={"21px"} font-Style={"Metric - Bold"}>$000,000,000.000</TYPE.white>
         </BoxSection>
         <BoxSection>
-          <TYPE.white fontWeight={500} fontFamily={"Metric - Medium"}>Token Price</TYPE.white>
-          <TYPE.white fontWeight={700} fontFamily={"Metric - Bold"}>$000,000,000.000</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={"18px"} font-Style={"Metric - Medium"}>Token Price</TYPE.white>
+          <TYPE.white fontWeight={700} fontSize={"21px"} font-Style={"Metric - Bold"}>$000,000,000.000</TYPE.white>
         </BoxSection>
       </BoxContainer>
 
@@ -259,19 +264,19 @@ export default function SushiBar(props:any) {
       <ClaimContainer>
         <ClaimFirstSection>
           <div style={{paddingLeft:"15px"}}> 
-          <TYPE.white fontWeight={700} fontSize={14} font-Style={"Metric - Medium"}>Your staked amount - $000,000,000.000</TYPE.white>
-          <TYPE.white fontWeight={700} fontSize={14} font-Style={"Metric - Medium"}>Available-</TYPE.white>
-          <TYPE.white fontWeight={700} fontSize={14} font-Style={"Metric - Medium"}>Yearly ROI - 0,00%</TYPE.white>
-          <TYPE.white fontWeight={700} fontSize={14} font-Style={"Metric - Medium"}>Value - $0.000</TYPE.white>
+          <TYPE.white fontWeight={700} fontSize={18} font-Style={"Metric - Medium"}>Your staked amount - $000,000,000.000</TYPE.white>
+          <TYPE.white fontWeight={700} fontSize={18} font-Style={"Metric - Medium"}>Available-</TYPE.white>
+          <TYPE.white fontWeight={700} fontSize={18} font-Style={"Metric - Medium"}>Yearly ROI - 0,00%</TYPE.white>
+          <TYPE.white fontWeight={700} fontSize={18} font-Style={"Metric - Medium"}>Value - $0.000</TYPE.white>
           </div>
         </ClaimFirstSection>
         
         <ClaimSecondSection>
         <div style={{marginLeft:"15px"}}>
-          <TYPE.white fontWeight={700} fontSize={14} font-Style={"Metric - Medium"}>Rewards - $0.000</TYPE.white>
-          <TYPE.white fontWeight={700} fontSize={14} font-Style={"Metric - Medium"}>Available date:</TYPE.white>
+          <TYPE.white fontWeight={700} fontSize={18} font-Style={"Metric - Medium"}>Rewards - $0.000</TYPE.white>
+          <TYPE.white fontWeight={700} fontSize={18} font-Style={"Metric - Medium"}>Available date:</TYPE.white>
           <ClaimButton>
-          <TYPE.white fontWeight={700}>Claim</TYPE.white>
+          <TYPE.white fontWeight={700} fontSize={18} font-Style={"Metric - Bold"}>CLAIM</TYPE.white>
         </ClaimButton>
         </div>
         

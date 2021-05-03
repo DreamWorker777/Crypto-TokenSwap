@@ -97,6 +97,7 @@ input:focus {
   border-color: transparent !important;
   font-weight: bold;
   font-family: 'Metric - Bold';
+  padding-top: 0.4rem;
 
 }
 .n-color-black {
@@ -110,6 +111,7 @@ input:focus {
   color: #ffa409;
   font-size: 2rem;
   align-self: center;
+  line-height: 2rem;
   font-family: Kanit, Avenir, Helvetica, Arial, sans-serif;
   
 }

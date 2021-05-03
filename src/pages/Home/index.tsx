@@ -34,17 +34,6 @@ export default function Home() {
                     </div>
                     <div className="col-12 col-md-6 col-lg-4">
                         <Card
-                            name="BURY"
-                            url="/bury"
-                            subTitle="Shibas love to bury what they have found"
-                            desc="Stake tokens to get rewards."
-                            buttonText="Stake Tokens"
-                            disabled={false}
-                            icon="/images/bury_icon.svg"
-                        />
-                    </div>
-                    <div className="col-12 col-md-6 col-lg-4">
-                        <Card
                             name="FETCH"
                             url="/fetch"
                             subTitle="Swap your tokens"
@@ -56,7 +45,18 @@ export default function Home() {
                     </div>
                     <div className="col-12 col-md-6 col-lg-4">
                         <Card
-                            name="TREAT"
+                            name="BURY"
+                            url="/bury"
+                            subTitle="Shibas love to bury what they have found"
+                            desc="Stake tokens to get rewards."
+                            buttonText="Stake Tokens"
+                            disabled={false}
+                            icon="/images/bury_icon.svg"
+                        />
+                    </div>
+                    <div className="col-12 col-md-6 col-lg-4">
+                        <Card
+                            name="SWAP"
                             url="/#"
                             subTitle="Burn bones to get Treat"
                             desc="New token woofing soon!"
@@ -68,11 +68,11 @@ export default function Home() {
                     <div className="col-12 col-md-6 col-lg-4">
                         <Card
                             name="BONEFOLIO"
-                            url="/#"
+                            url="/bonefolio"
                             subTitle="Every Shiba Inu needs to check their stash."
                             desc="Check your dogalytics, bonefolio and set alerts"
-                            buttonText="Locked"
-                            disabled={true}
+                            buttonText="Bonefolio"
+                            disabled={false}
                             icon="/images/bonefolio_icon.svg"
                         />
                     </div>

@@ -4,9 +4,9 @@ import styled from 'styled-components'
 
 const CardWrapper = styled.div`
     width: 100%;
-    height: 23rem;
+    height: auto;
     box-shadow: inset 0 0 9px rgba(13, 13, 13, 0.43);
-    border-radius: 0.7rem;
+    border-radius: 10px;
     background-color: #1b1d2a;
     position: relative;
 `
@@ -110,41 +110,49 @@ type CardProps = {
 }
 
 const InnerDiv = styled.div`
-    border-radius: 0.6rem;
+    border-radius: 10px;
     background-color: #292c37;
     padding: 0.5rem;
-    height: 11.5rem;
+    height: auto;
 `
 const P1 = styled.p`
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 18px;
+    font-family: Metric - Semibold;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.09px;
+    line-height: normal;
 `
 
 const P2 = styled.p`
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 18px;
     padding-bottom: 0.5rem;
 `
 
 const P3 = styled.p`
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 18px;
     padding-top: 1rem;
 `
 
 const P4 = styled.p`
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 18px;
     padding-bottom: 1rem;
 `
 const Button = styled.a<{ disabled: boolean }>`
-    font-size: 1rem;
+    font-size: 18px;
+    font-family: Metric - Bold
     background-color: #d5d5d5;
     color: #292c37;
     border-radius: 0.6rem;
     font-weight: bold;
-    padding: 0.5rem;
-    padding-top: 0.7rem !important;
+    // padding: 0.5rem;
+    // padding-top: 0.7rem !important;
+    padding: 18px 38px;
+    //width: 170px;
     margin: auto;
     text-align: center;
     :hover {
@@ -155,6 +163,27 @@ const Button = styled.a<{ disabled: boolean }>`
       pointer-events: none;
       color: #939395;
   `}
+`
+
+const ButtonBury = styled.div<{ disabled: boolean }>`
+width: 90%;
+height: auto;
+font-size: 20px;
+font-family: Metric - Bold
+background-color: #d5d5d5;
+color: #292c37;
+border-radius: 0.6rem;
+font-weight: bold;
+padding: 12px 0px;
+//width: 170px;
+margin: auto;
+text-align: center;
+
+${props =>
+    props.disabled &&`
+  pointer-events: none;
+  color: #939395;
+`}
 `
 
 
@@ -197,11 +226,12 @@ export const VCard: FunctionComponent<CardProps> = ({ name, percentage, value, b
                     <P2>{percentage}</P2>
                     <P3>{value?"Total staked":<br></br>}</P3>
                     <P4>{value}</P4>
-                    <div style={{ textAlign: 'center', cursor: 'pointer' }}>
-                      <Button onClick={()=>{handleBuryButtonClick(tokenAddress,buryTokenAddress,tokenType)}} disabled={disabled}>
+                    <div style={{ textAlign: 'center', cursor: 'pointer'}}>
+                      <ButtonBury onClick={()=>{handleBuryButtonClick(tokenAddress,buryTokenAddress,tokenType)}} disabled={disabled}>
                         {buttonText}
-                      </Button>
+                      </ButtonBury>
                     </div>
+                    
                 </InnerDiv>
             </CardHeader>
         </CardWrapper>

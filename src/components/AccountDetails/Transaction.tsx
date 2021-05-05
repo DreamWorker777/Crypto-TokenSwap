@@ -14,6 +14,7 @@ const TransactionStatusText = styled.div`
     margin-right: 0.5rem;
     display: flex;
     align-items: center;
+    font-size: 15px;
     :hover {
         text-decoration: underline;
     }

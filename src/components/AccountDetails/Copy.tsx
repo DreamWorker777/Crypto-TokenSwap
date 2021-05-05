@@ -10,10 +10,11 @@ const CopyIcon = styled(LinkStyledButton)`
     display: flex;
     text-decoration: none;
     font-size: 0.825rem;
+    //font-size: 1rem;
     :hover,
     :active,
     :focus {
-        text-decoration: none;
+        //text-decoration: none;
         color: ${({ theme }) => theme.text2};
     }
 `

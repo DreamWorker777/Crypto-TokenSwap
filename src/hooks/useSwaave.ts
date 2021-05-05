@@ -48,7 +48,7 @@ const useSushiBar = () => {
         async (amount: string) => {
             try {
                 const tx = await barContract?.enter(ethers.utils.parseUnits(amount))
-                return addTransaction(tx, { summary: 'Enter SushiBar' })
+                return addTransaction(tx, { summary: 'Enter Shibabar' })
             } catch (e) {
                 return e
             }

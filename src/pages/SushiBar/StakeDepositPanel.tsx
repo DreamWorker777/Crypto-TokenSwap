@@ -48,7 +48,7 @@ const Input = styled.input<{ error?: boolean }>`
   width:90%;
   height:60px;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 0px;
   box-shadow: inset 0 0 7px 1px rgba(0, 0, 0, 0.45);
   border-radius: 10px;
   background-color: #161825;
@@ -82,9 +82,9 @@ export default function StakeDepositPanel(props:any){
     let tokenAddress = props.tokenAddress;
 
     //Token Balance
-    const shibaBalanceBigInt = useShibaSwapTokenBalance(tokenAddress ? tokenAddress : '');
-    const shibaBalanceValue = parseFloat(formatFromBalance(shibaBalanceBigInt?.value, shibaBalanceBigInt?.decimals));
-    const decimals = shibaBalanceBigInt?.decimals;
+    let shibaBalanceBigInt = useShibaSwapTokenBalance(tokenAddress ? tokenAddress : '');
+    let shibaBalanceValue = parseFloat(formatFromBalance(shibaBalanceBigInt?.value, shibaBalanceBigInt?.decimals));
+    let decimals = shibaBalanceBigInt?.decimals;
 
     const maxDepositAmountInput = shibaBalanceBigInt
 
@@ -129,8 +129,8 @@ export default function StakeDepositPanel(props:any){
         <>
         <div>   
             <PercentContainer>
-            <Percent style={{float:'left'}}>Available: {shibaBalanceValue}</Percent> 
-            <Percent style={{color: (activePercent === "100")?"#fea31c":""}} onClick={()=>{handlePercentSelect("100")}}>100%</Percent>
+            <Percent style={{float:'left'}}>Available: {shibaBalanceValue ? shibaBalanceValue: "Loading..."}</Percent> 
+            <Percent style={{color: (activePercent === "100")?"#fea31c":"", marginRight:"20px"}} onClick={()=>{handlePercentSelect("100")}}>100%</Percent>
             <Percent style={{color: (activePercent === "75")?"#fea31c":""}} onClick={()=>{handlePercentSelect("75")}}>75%</Percent>
             <Percent style={{color: (activePercent === "50")?"#fea31c":""}} onClick={()=>{handlePercentSelect("50")}}>50%</Percent>
             <Percent style={{color: (activePercent === "25")?"#fea31c":""}} onClick={()=>{handlePercentSelect("25")}}>25%</Percent>
@@ -166,6 +166,7 @@ export default function StakeDepositPanel(props:any){
                   } else {
                       await enter(formatToBalance(input, decimals))
                   }
+                  setInput("");
                   setPendingTx(false)
                 }}
             >

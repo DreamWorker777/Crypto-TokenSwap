@@ -48,7 +48,7 @@ const Input = styled.input<{ error?: boolean }>`
   width:90%;
   height:60px;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 0px;
   box-shadow: inset 0 0 7px 1px rgba(0, 0, 0, 0.45);
   border-radius: 10px;
   background-color: #161825;
@@ -133,8 +133,8 @@ export default function BuryWithdrawlPanel(props:any){
         <>
         <div>   
             <PercentContainer>
-            <Percent style={{float:'left'}}>Available: {buryBalanceValue}</Percent> 
-            <Percent style={{color: (activePercent === "100")?"#fea31c":""}} onClick={()=>{handlePercentSelect("100")}}>100%</Percent>
+            <Percent style={{float:'left'}}>Available: {buryBalanceValue ? buryBalanceValue : "Loading..."}</Percent> 
+            <Percent style={{color: (activePercent === "100")?"#fea31c":"", marginRight:"20px"}} onClick={()=>{handlePercentSelect("100")}}>100%</Percent>
             <Percent style={{color: (activePercent === "75")?"#fea31c":""}} onClick={()=>{handlePercentSelect("75")}}>75%</Percent>
             <Percent style={{color: (activePercent === "50")?"#fea31c":""}} onClick={()=>{handlePercentSelect("50")}}>50%</Percent>
             <Percent style={{color: (activePercent === "25")?"#fea31c":""}} onClick={()=>{handlePercentSelect("25")}}>25%</Percent>
@@ -171,10 +171,11 @@ export default function BuryWithdrawlPanel(props:any){
                     } else {
                         await leave(formatToBalance(input, decimals))
                     }
+                    setInput("");
                     setPendingTx(false)
                     }}
                 >
-                    <TYPE.white fontWeight={700} fontSize={"21px"} color={"black"}>UnStake</TYPE.white>
+                    <TYPE.white fontWeight={700} fontSize={"21px"} color={"black"}>Unstake</TYPE.white>
                 </ButtonSelect> 
             } 
               </div>  

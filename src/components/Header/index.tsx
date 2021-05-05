@@ -32,7 +32,7 @@ export default function Header(): JSX.Element {
         <Disclosure as="nav" className="w-screen bg-transparent gradiant-border-bottom z-10">
             {({ open }) => (
                 <>
-                    <div style={{padding: "1rem",background: "#131825"}}>
+                    <div style={{padding: "1rem",background: "transparent", border:"none"}}>
                         <div className="flex items-center justify-between h-3">
                             <div className="flex items-center">
                                 {/* <div > */}

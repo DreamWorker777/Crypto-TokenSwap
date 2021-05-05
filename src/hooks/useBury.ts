@@ -60,7 +60,7 @@ const useBury = (props:any) => {
             if (amount?.value) {
                 try {
                     const tx = await buryContract?.enter(amount?.value)
-                    return addTransaction(tx, { summary: 'Enter SushiBar' })
+                    return addTransaction(tx, { summary: 'Enter Shibabar' })
                 } catch (e) {
                     return e
                 }
@@ -76,7 +76,7 @@ const useBury = (props:any) => {
                 try {
                     const tx = await buryContract?.leave(amount?.value)
                     //const tx = await buryContract?.leave(ethers.utils.parseUnits(amount)) // where amount is string
-                    return addTransaction(tx, { summary: 'Enter SushiBar' })
+                    return addTransaction(tx, { summary: 'Enter Shibabar' })
                 } catch (e) {
                     return e
                 }

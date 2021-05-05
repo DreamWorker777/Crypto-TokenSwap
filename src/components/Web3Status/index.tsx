@@ -67,15 +67,15 @@ const Web3StatusConnect = styled(Web3StatusGeneric)<{ faded?: boolean }>`
     color: black;
 
     :hover{
-        font-family: Kanit, Avenir, Helvetica, Arial, sans-serif;
-        padding: 0.4rem 0.8rem;
-        outline: none;
-        background-color: white;
-        border: solid 1px #919193;
-        display: inline-block;
-        border-radius: 20px;
-        border-width: 2.5px;
-        color: black;
+        // font-family: Kanit, Avenir, Helvetica, Arial, sans-serif;
+        // padding: 0.4rem 0.8rem;
+        // outline: none;
+        // background-color: white;
+        // border: solid 1px #919193;
+        // display: inline-block;
+        // border-radius: 20px;
+        // border-width: 2.5px;
+        // color: black;
     }
 `
 // const Web3StatusConnect = styled(Web3StatusGeneric)<{ faded?: boolean }>`

@@ -178,8 +178,8 @@ module.exports = {
                     borderImageSource: 'linear-gradient(to right, #743ad5, #d53a9d)'
                 },
                 '.gradiant-border-bottom': {
-                    background:
-                        'linear-gradient(to right, rgba(39, 176, 230, 0.2) 0%, rgba(250, 82, 160, 0.2) 100%) left bottom no-repeat',
+                    // background:
+                    //     'linear-gradient(to right, rgba(39, 176, 230, 0.2) 0%, rgba(250, 82, 160, 0.2) 100%) left bottom no-repeat',
                     backgroundSize: '100% 1px'
                 }
             })

@@ -25,6 +25,8 @@ const HeaderRow = styled.div`
     ${({ theme }) => theme.flexRowNoWrap};
     padding: 1rem 1rem;
     font-weight: 500;
+    font-family: "Metric - Bold";
+    font-size: 21px;
     color: ${props => (props.color === 'blue' ? ({ theme }) => theme.primary1 : 'inherit')};
     ${({ theme }) => theme.mediaWidth.upToMedium`
     padding: 1rem;
@@ -115,10 +117,11 @@ const AccountControl = styled.div`
     width: 100%;
 
     font-weight: 500;
-    font-size: 1.25rem;
+    font-family: "Metric - Bold";
+    font-size: 1.55rem;
 
     a:hover {
-        text-decoration: underline;
+        //text-decoration: underline;
     }
 
     p {
@@ -159,8 +162,9 @@ const CloseColor = styled(Close)`
 
 const WalletName = styled.div`
     width: initial;
-    font-size: 0.825rem;
+    font-size: 1rem;
     font-weight: 500;
+    font-family: "Metric - Semibold";
     color: ${({ theme }) => theme.text3};
 `
 
@@ -189,9 +193,10 @@ const WalletAction = styled(ButtonSecondary)`
     margin-left: 8px;
     font-size: 0.825rem;
     padding: 4px 6px;
+    fontFamily: "Metric - Bold" !important;
     :hover {
         cursor: pointer;
-        text-decoration: underline;
+        //text-decoration: underline;
     }
 `
 
@@ -319,12 +324,12 @@ export default function AccountDetails({
                                         </WalletAction>
                                     )}
                                     <WalletAction
-                                        style={{ fontSize: '.825rem', fontWeight: 400, color: '#ffa409', border: '1px solid #ffa409' }}
+                                        style={{paddingTop: "8px", fontSize: '.825rem', fontWeight: 400, color: '#ffa409', border: '1px solid #ffa409' }}
                                         onClick={() => {
                                             openOptions()
                                         }}
                                     >
-                                        Change
+                                        <b>Change</b>
                                     </WalletAction>
                                 </div>
                             </AccountGroupingRow>
@@ -334,14 +339,14 @@ export default function AccountDetails({
                                         <>
                                             <div>
                                                 {getStatusIcon()}
-                                                <p> {ENSName}</p>
+                                                <p><b> {ENSName} </b></p>
                                             </div>
                                         </>
                                     ) : (
                                         <>
                                             <div>
                                                 {getStatusIcon()}
-                                                <p> {account && shortenAddress(account)}</p>
+                                                <p><b> {account && shortenAddress(account)} </b></p>
                                             </div>
                                         </>
                                     )}
@@ -354,7 +359,7 @@ export default function AccountDetails({
                                             <div>
                                                 {account && (
                                                     <Copy toCopy={account}>
-                                                        <span style={{ marginLeft: '4px' }}>Copy Address</span>
+                                                        <span style={{ marginLeft: '4px'}}>Copy Address</span>
                                                     </Copy>
                                                 )}
                                                 {chainId && account && (
@@ -364,7 +369,7 @@ export default function AccountDetails({
                                                         href={chainId && getExplorerLink(chainId, ENSName, 'address')}
                                                     >
                                                         <LinkIcon size={16} />
-                                                        <span style={{ marginLeft: '4px' }}>View on explorer</span>
+                                                        <span style={{ marginLeft: '4px'}}>View on explorer</span>
                                                     </AddressLink>
                                                 )}
                                             </div>
@@ -386,7 +391,7 @@ export default function AccountDetails({
                                                         href={getExplorerLink(chainId, account, 'address')}
                                                     >
                                                         <LinkIcon size={16} />
-                                                        <span style={{ marginLeft: '4px' }}>View on explorer</span>
+                                                        <span style={{ marginLeft: '4px', textDecoration:"none" }}>View on explorer</span>
                                                     </AddressLink>
                                                 )}
                                             </div>

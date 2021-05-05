@@ -28,6 +28,7 @@ import { MaxButton } from '../Pool/styleds'
 import { Helmet } from 'react-helmet'
 import { FACTORY_ADDRESS as SUSHI_FACTORY_ADDRESS } from '@sushiswap/sdk'
 import { FACTORY_ADDRESS as UNI_FACTORY_ADDRESS } from '@uniswap/sdk'
+import { CardHeading, Col, CardsubTitle } from '../Home/Card'
 
 const Border = styled.div`
     width: 100%;
@@ -69,7 +70,7 @@ const AmountInput = ({ state }: { state: MigrateState }) => {
             <LightCardCustom>
                 <FixedHeightRow>
                     <NumericalInput value={state.amount} onUserInput={val => state.setAmount(val)} />
-                    <MaxButton style={{backgroundColor:"#292c37", color:"white", borderColor:"white"}} onClick={onPressMax} width="10px">
+                    <MaxButton style={{ backgroundColor: "#292c37", color: "white", borderColor: "white" }} onClick={onPressMax} width="10px">
                         MAX
                     </MaxButton>
                 </FixedHeightRow>
@@ -114,7 +115,7 @@ const LPTokenSelect = ({ lpToken, onClick, onDismiss, isSelected, updating, isSu
                         <TYPE.body fontWeight={500} style={{ marginLeft: '' }}>
                             {`${lpToken.tokenA.symbol}/${lpToken.tokenB.symbol}`}
                         </TYPE.body>
-                       {!isSushi? <Text
+                        {!isSushi ? <Text
                             fontSize={12}
                             fontWeight={500}
                             ml="0.5rem"
@@ -124,8 +125,8 @@ const LPTokenSelect = ({ lpToken, onClick, onDismiss, isSelected, updating, isSu
                             backgroundColor={theme.yellow1}
                             color={'black'}
                         >
-                          V2
-                        </Text>: <div></div>}
+                            V2
+                        </Text> : <div></div>}
                     </RowFixed>
                     {updating ? (
                         <CustomLightSpinner src={Circle} alt="loader" size="20px" />
@@ -280,7 +281,7 @@ const MigrateButtons = ({ state, isSushi }: { state: MigrateState, isSushi: bool
                 )}
             </LightCardCustom>
             <TYPE.darkGray fontSize="0.75rem" textAlign="center">
-                {`Your ${isSushi?"Sushiswap":"Uniswap"} ${state.selectedLPToken.tokenA.symbol}/${state.selectedLPToken.tokenB.symbol} liquidity will become Shibaswap ${state.selectedLPToken.tokenA.symbol}/${state.selectedLPToken.tokenB.symbol} liquidity.`}
+                {`Your ${isSushi ? "Sushiswap" : "Uniswap"} ${state.selectedLPToken.tokenA.symbol}/${state.selectedLPToken.tokenB.symbol} liquidity will become Shibaswap ${state.selectedLPToken.tokenA.symbol}/${state.selectedLPToken.tokenB.symbol} liquidity.`}
             </TYPE.darkGray>
         </AutoColumn>
     )
@@ -357,7 +358,7 @@ const MigrateV2 = () => {
             width: 100%;
         }
     `
- 
+
     return (
         <>
             <MigrateUniBlock style={{ marginRight: '20px' }}>
@@ -365,11 +366,11 @@ const MigrateV2 = () => {
                     <title>Migrate | Sushi</title>
                     <meta name="description" content="Migrate Uniswap LP tokens to Shiba LP tokens" />
                 </Helmet>
-                <AppBodySection style={{ padding: 24}}>
+                <AppBodySection style={{ padding: 24 }}>
                     <AutoColumn gap="16px">
                         <AutoRow style={{ alignItems: 'center', justifyContent: 'space-between' }} gap="8px">
                             {/* <BackArrow to="/pool" /> */}
-                            <TYPE.mediumHeader style={{fontSize:"30px"}} fontWeight="700">Migrate Uniswap Liquidity</TYPE.mediumHeader>
+                            <TYPE.mediumHeader style={{ fontSize: "29px" }} fontWeight="700">Migrate Uniswap Liquidity</TYPE.mediumHeader>
                             <div>
                                 <QuestionHelper text="Migrate your Uniswap LP tokens to ShibaSwap LP tokens." />
                             </div>
@@ -396,13 +397,13 @@ const MigrateV2 = () => {
                                 <MigrateModeSelect state={state} />
                                 <UniswapLiquidityPairs state={state} title={'Your Uniswap Liquidity'} isSushi={false} />
                                 <AmountInput state={state} />
-                                <MigrateButtons state={state} isSushi={false}/>
+                                <MigrateButtons state={state} isSushi={false} />
                             </>
                         )}
                     </AutoColumn>
                 </AppBodySection>
                 <br></br>
-                
+
             </MigrateUniBlock>
         </>
     )
@@ -438,8 +439,8 @@ const MigrateV2Sushi = () => {
                 <AppBodySection style={{ padding: 24 }}>
                     <AutoColumn gap="16px">
                         <AutoRow style={{ alignItems: 'center', justifyContent: 'space-between' }} gap="8px">
-                            
-                            <TYPE.mediumHeader fontSize="30px" fontWeight="700">Migrate Sushiswap Liquidity</TYPE.mediumHeader>
+
+                            <TYPE.mediumHeader fontSize="29px" fontWeight="700">Migrate Sushiswap Liquidity</TYPE.mediumHeader>
                             <div>
                                 <QuestionHelper text="Migrate your Sushiswap LP tokens to ShibaSwap LP tokens." />
                             </div>
@@ -466,7 +467,7 @@ const MigrateV2Sushi = () => {
                                 <MigrateModeSelect state={state} />
                                 <UniswapLiquidityPairs state={state} title="Your Sushiswap Liquidity" isSushi={true} />
                                 <AmountInput state={state} />
-                                <MigrateButtons state={state} isSushi={true}/>
+                                <MigrateButtons state={state} isSushi={true} />
                             </>
                         )}
                     </AutoColumn>
@@ -477,33 +478,6 @@ const MigrateV2Sushi = () => {
 }
 
 const MigrateParent = () => {
-    const MigrateSection = styled.div`
-        display: block;
-        width: 80%;
-        //border: 2px solid white;
-        padding-top: 50px;
-        padding-left: 30px;
-        font-family: Metric - Regular;
-        font-style: Metric - Regular;
-        padding-right: 30px;
-        text-align: center;
-        box-shadow: 0 0 9px 4px rgba(0, 0, 0, 0.43);
-        border-radius: 10px;
-        background-image: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.25) 0%,
-            rgba(17, 20, 27, 0.33) 31%,
-            rgba(17, 20, 27, 0.5) 100%
-        );
-
-        @media (max-width: 1000px) {
-            height: auto;
-        }
-        @media(max-width: 500px){
-            width: 100%;
-        }
-    `
-
     const MigrationBlock = styled.div`
         display: inline-flex;
         width: auto;
@@ -515,86 +489,68 @@ const MigrateParent = () => {
             margin: 0;
         }
     `
-    const HeaderSection = styled.div`
-        display: inline-block;
-        width: 100%;
-        text-align: center;
-        //border: 2px solid white;
-        @media (max-width: 1000px) {
-            text-align: center;
-        }
-    `
-
-    const BackArrowSection = styled.div`
-        display: inline-block;
-        width: 10%;
-        height: 100%;
-        float:left;
-    `;
-
-    const TitleSection = styled.div`
-        display: inline-block;
-        width: auto;
-        float:left;
-        //padding-right:60px;
-        //border: 2px solid white;
-    `;
-
+    
     const CardHeading = styled.h1`
-        display: inline-block;
-        font-size: 40px;
+        font-size: 35px;
         text-align: left;
         font-weight: 700;
         color: #d5d5d5;
         margin: 0;
         font-family: "Metric - Bold";
-        line-height: 2.5rem;
-        padding-top: 1.4rem;
+        line-height: 1.5rem;
+        padding-top: 0.4rem;
         padding-bottom: 0.4rem;
     `
 
     const ImageDiv = styled.div`
-        display: inline-block;
-        float:  right;
-        box-shadow: inset 0 0 9px rgba(13, 13, 13, 0.8);
+        box-shadow: inset 0 0 9px rgba(13, 13, 13, 0.43);
         border-radius: 10px;
+        background-color: #1b1d2a;
         padding: 0.5rem;
-        background: transparent;
     `
-
-    const Image = styled.img``
-
-
+    const InnerDiv = styled.div`
+        border-radius: 10px;    
+    `
+    const Row = styled.div`
+        display: flex;
+        margin: 0;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 0 1rem 0;
+    `
+    const PageWrapper = styled(AutoColumn)`
+        max-width: 100%;
+        width: 100%;
+        justify-items: flex-start;
+        height: 100%; 
+    `
     return (
-        <MigrateSection>
-            <HeaderSection>
-                {/* <BackArrowSection>
-                <BackArrow to="/" />
-                </BackArrowSection> */}
-                
-                <TitleSection>
-                {/* <TYPE.white
-                    fontWeight={700}
-                    fontSize={"30px"}
-                    fontFamily={'Metric - Bold'}
-                >
-                    Migrate your LP tokens
-                </TYPE.white> */}
-                <CardHeading>FETCH</CardHeading>
-                
-                </TitleSection>
-                <ImageDiv>
-                    <Image height={40} width={40} src={"/images/fetch_icon.svg"} />
-                </ImageDiv>
-                
-            </HeaderSection>
-            <div style={{ height: '20px' }}></div>
-            
-            <MigrationBlock>
-                <MigrateV2 />
-                <MigrateV2Sushi />
-            </MigrationBlock>
-        </MigrateSection>
+        <PageWrapper gap="lg" justify="center">
+            <div
+                className="container pb-5 m-auto bury-container"
+                style={{ padding: '1rem' }}
+            >
+                <InnerDiv>
+                    <Row>
+                        <Col>
+                            <CardHeading>FETCH</CardHeading>
+                        </Col>
+                        <Col>
+                            <ImageDiv>
+                                <img height={40} width={40} src="/images/fetch_icon.svg" />
+                            </ImageDiv>
+                        </Col>
+                    </Row>
+                </InnerDiv>
+
+                <div className="row" style={{ paddingTop: "1rem", paddingBottom: "1rem" }}>
+                    <MigrationBlock>
+                        <MigrateV2 />
+                        <MigrateV2Sushi />
+                    </MigrationBlock>
+                </div>
+            </div>
+        </PageWrapper>
     )
 }
 

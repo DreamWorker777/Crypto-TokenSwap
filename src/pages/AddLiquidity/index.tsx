@@ -3,7 +3,7 @@ import { TransactionResponse } from '@ethersproject/providers'
 import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@shibaswap/sdk'
 import UnsupportedCurrencyFooter from 'components/swap/UnsupportedCurrencyFooter'
 import { useIsTransactionUnsupported } from 'hooks/Trades'
-import React, { useCallback, useContext, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { Plus } from 'react-feather'
 import ReactGA from 'react-ga'
 import { RouteComponentProps } from 'react-router-dom'
@@ -17,6 +17,8 @@ import DoubleCurrencyLogo from '../../components/DoubleLogo'
 import { AddRemoveTabs } from '../../components/NavigationTabs'
 import { MinimalPositionCard } from '../../components/PositionCard'
 import Row, { RowBetween, RowFlat } from '../../components/Row'
+import styled from 'styled-components'
+import { CardHeading, Col, CardsubTitle } from '../Home/Card'
 import TransactionConfirmationModal, { ConfirmationModalContent } from '../../components/TransactionConfirmationModal'
 import { PairState } from '../../data/Reserves'
 import { useActiveWeb3React } from '../../hooks'
@@ -32,12 +34,15 @@ import { TYPE } from '../../theme'
 import {
     calculateGasMargin,
     calculateSlippageAmount,
+    getRouterAddress,
+    getRouterContract,
     getShibaSwapRouterAddress,
     getShibaSwapRouterContract
 } from '../../utils'
 import { currencyId } from '../../utils/currencyId'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { wrappedCurrency } from '../../utils/wrappedCurrency'
+import getCurrencyQuotesData from '../../utils/getCurrencyQuotesData'
 import AppBody from '../AppBody'
 import { Dots, Wrapper } from '../Pool/styleds'
 import { ConfirmAddModalBottom } from './ConfirmAddModalBottom'
@@ -48,6 +53,14 @@ import '../../assets/styles/liquidity.scss'
 import BoneImage from '../../assets/images/dig_icon.svg'
 import { constants } from 'os'
 import Settings from '../../components/Settings'
+import Chart from '../../components/Chart'
+import ToggleButton from '../../components/Toggle/ToggleButton'
+import TokenButton from '../../components/Toggle/TokenButton'
+import {prepareLineChartOptions, prepareCandleChartOptions} from '../../components/Chart/chartOptions'
+import Footer from 'components/Footer'
+
+
+
 
 export default function AddLiquidity({
     match: {
@@ -95,10 +108,33 @@ export default function AddLiquidity({
     const [showConfirm, setShowConfirm] = useState<boolean>(false)
     const [attemptingTxn, setAttemptingTxn] = useState<boolean>(false) // clicked confirm
 
+    // Chart data
+    const [chartDataLoading, setChartDataLoading] = useState<boolean>(true)
+    const [lineChartOptions, setLineChartOptions] = useState<any>('')
+    const [candleChartOptions, setCandleChartOptions] = useState<any>('')
+    const [chartMode, setChartMode] = useState<string>('line')
+    const [tokenButton, setTokenButton] = useState<string>('SHIB')
+
+    useEffect( () => {
+
+        getCurrencyQuotesData().then((data) => {
+            console.log('data', data)
+            setLineChartOptions( prepareLineChartOptions(data))
+            setCandleChartOptions(prepareCandleChartOptions(data))
+            setChartDataLoading(false)
+        })
+
+    },[])
+
     // txn values
     const deadline = useTransactionDeadline() // custom from users settings
     const [allowedSlippage] = useUserSlippageTolerance() // custom from users
     const [txHash, setTxHash] = useState<string>('')
+
+    const handleTokenButtonClick = (tokenName: string) => {
+        console.log("tokenName", tokenName);
+        setTokenButton(tokenName);
+    }
 
     // get formatted amounts
     const formattedAmounts = {
@@ -349,31 +385,32 @@ export default function AddLiquidity({
                 )}
                 pendingText={pendingText}
             />
-            <div className="w-full max-w-2xl">
+            {/* className="w-full max-w-2xl" */}
+            <div className="dig-container">
                 <div className="dig">
                     <div className="wrapper">
                         <div className="dig--inner">
-                            <div className="left">
+                            <div className="left" style={{ marginRight: '0rem' }}>
                                 <div className="inner">
                                     <div className="top">
                                         <div className="top-left">
-                                            <div className="row">
-                                                <img src={BoneImage} width="42" height="42" />
-                                                <div className="title pl-5" style={{ margin: 'auto' }}>
-                                                    DIG
-                                                </div>
+                                            <CardHeading>DIG</CardHeading>
+                                            <div className="description" style={{ margin: '10px 0px' }}>
+                                                Get BONES in our Liquidity Pool
                                             </div>
-                                            <div className="description">Get BONES in our Liquidity Pool</div>
-                                            <div className="read-more">Read more about providing liquidity</div>
-                                            <div className="mt-5"></div>
+                                            <div className="read-more mt-5">Read more about providing liquidity</div>
                                         </div>
 
-                                        <Settings />
+                                        {/* <Settings /> */}
+                                        <div className="image-div">
+                                            <img src={BoneImage} width="40" height="40" />
+                                        </div>
                                     </div>
 
-                                    <div className="bottom mt-10">
+                                    <div className="bottom" style={{ marginTop: '20px' }}>
                                         <div className="swaparea">
                                             <CurrencyInputPanel
+                                                customStyle="pd-0"
                                                 value={formattedAmounts[Field.CURRENCY_A]}
                                                 onUserInput={onFieldAInput}
                                                 onMax={() => {
@@ -391,6 +428,7 @@ export default function AddLiquidity({
                                                 <Plus size="16" color={theme.text2} />
                                             </ColumnCenter>
                                             <CurrencyInputPanel
+                                                customStyle="pd-0"
                                                 value={formattedAmounts[Field.CURRENCY_B]}
                                                 onUserInput={onFieldBInput}
                                                 onCurrencySelect={handleCurrencyBSelect}
@@ -432,9 +470,7 @@ export default function AddLiquidity({
                                                     <TYPE.main mb="4px">Unsupported Asset</TYPE.main>
                                                 </ButtonPrimary>
                                             ) : !account ? (
-                                                <ButtonPrimary
-                                                    onClick={toggleWalletModal}
-                                                >
+                                                <ButtonPrimary onClick={toggleWalletModal}>
                                                     Connect Wallet
                                                 </ButtonPrimary>
                                             ) : (
@@ -512,8 +548,11 @@ export default function AddLiquidity({
                                                             !!parsedAmounts[Field.CURRENCY_B]
                                                         }
                                                     >
-                                                        <Text fontSize={25} fontWeight={500}>
-                                                            {error ?? 'Supply'}
+                                                        <Text>
+                                                            <span className="fontFamily"
+                                                            >
+                                                                {error ?? 'Supply'}
+                                                            </span>
                                                         </Text>
                                                     </ButtonError>
                                                 </AutoColumn>
@@ -527,14 +566,46 @@ export default function AddLiquidity({
                 </div>
 
                 <div className="data-container">
-                    <div className="graph-container"></div>
+                    <div id="chart-container" className="graph-container">
+                        <div className="toggle-btn">
+                            <TokenButton
+                                toggle={() => {
+                                    handleTokenButtonClick('SHIB')
+                                }}
+                                name="SHIB"
+                                disabled={tokenButton !== 'SHIB'}
+                            />
+                            <TokenButton
+                                toggle={() => {
+                                    handleTokenButtonClick('LEASH')
+                                }}
+                                name="LEASH"
+                                disabled={tokenButton !== 'LEASH'}
+                            />
+                            <TokenButton
+                                toggle={() => {
+                                    handleTokenButtonClick('BONE')
+                                }}
+                                name="BONE"
+                                disabled={tokenButton !== 'BONE'}
+                            />
+                            <ToggleButton toggle={() => setChartMode(chartMode === 'line' ? 'candle' : 'line')} />
+                        </div>
+                        {chartDataLoading ? (
+                            'Loading'
+                        ) : chartMode === 'line' ? (
+                            <Chart options={lineChartOptions} />
+                        ) : (
+                            <Chart options={candleChartOptions} />
+                        )}
+                    </div>
                     <div className="total-container"></div>
                 </div>
             </div>
 
             {!addIsUnsupported ? (
                 pair && !noLiquidity && pairState !== PairState.INVALID ? (
-                    <div className="w-full max-w-2xl flex flex-col mt-4">
+                    <div className="w-full max-w-2xl flex flex-col" style={{ marginTop: '50px', marginBottom: '30px' }}>
                         <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
                     </div>
                 ) : null
@@ -544,6 +615,8 @@ export default function AddLiquidity({
                     currencies={[currencies.CURRENCY_A, currencies.CURRENCY_B]}
                 />
             )}
+            <Footer />
         </>
     )
 }
+

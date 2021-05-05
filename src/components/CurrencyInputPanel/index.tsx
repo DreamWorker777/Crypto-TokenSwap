@@ -138,6 +138,7 @@ interface CurrencyInputPanelProps {
     hideBalance?: boolean
     pair?: Pair | null
     hideInput?: boolean
+    customStyle: any
     otherCurrency?: Currency | null
     currenciesAB?: { [field in Field]?: Currency },
     type?: Field,
@@ -162,6 +163,7 @@ export default function CurrencyInputPanel({
     pair = null, // used for double token logo
     hideInput = false,
     otherCurrency,
+    customStyle,
     currenciesAB,
     type,
     id,
@@ -183,7 +185,7 @@ export default function CurrencyInputPanel({
     }, [setModalOpen])
 
     return (
-        <div id={id} style={ InputGroupStyle } className="p-5">
+        <div id={id} style={InputGroupStyle} className={'pd-5 ' + customStyle}>
             <div
                 className="flex flex-col space-y-3 sm:space-y-0 sm:flex-row justify-between"
                 // hideInput={hideInput}
@@ -214,7 +216,7 @@ export default function CurrencyInputPanel({
                     </LabelRow>
                 )} */}
                 <div
-                    style={{minWidth:'170px'}}
+                    style={{ minWidth: '170px' }}
                     className="w-full sm:w-2/5"
                     // style={hideInput ? { padding: '0', borderRadius: '8px' } : {}}
                     // selected={disableCurrencySelect}
@@ -263,7 +265,10 @@ export default function CurrencyInputPanel({
                                             className="token-symbol-container"
                                             active={Boolean(currency && currency.symbol)}
                                         > */}
-                                        <div style={{fontFamily:"Metric - Bold"}} className="text-lg md:text-2xl font-bold token-style">
+                                        <div
+                                            style={{ fontFamily: 'Metric - Bold' }}
+                                            className="text-lg md:text-2xl font-bold token-style"
+                                        >
                                             {(currency && currency.symbol && currency.symbol.length > 20
                                                 ? currency.symbol.slice(0, 4) +
                                                   '...' +
@@ -272,9 +277,19 @@ export default function CurrencyInputPanel({
                                                       currency.symbol.length
                                                   )
                                                 : currency?.getSymbol(chainId)) || (
-                                                <div className="bg-transparent border border-low-emphesis rounded-full py-1 px-0 text-secondary text-xs font-medium mt-1 whitespace-nowrap row" style={{border: 0, fontFamily:"Metric - Bold"}}>
+                                                <div
+                                                    className="bg-transparent border border-low-emphesis rounded-full py-1 px-0 text-secondary text-xs font-medium mt-1 whitespace-nowrap row"
+                                                    style={{ border: 0, fontFamily: 'Metric - Bold' }}
+                                                >
                                                     {t('selectToken')}
-                                                    <img src="/images/drop-down.png" style={{height: "0.7rem",paddingTop: "0.2rem", paddingLeft: "0.3rem"}}/>
+                                                    <img
+                                                        src="/images/drop-down.png"
+                                                        style={{
+                                                            height: '0.7rem',
+                                                            paddingTop: '0.2rem',
+                                                            paddingLeft: '0.3rem'
+                                                        }}
+                                                    />
                                                 </div>
                                             )}
                                         </div>
@@ -343,4 +358,8 @@ export default function CurrencyInputPanel({
             )}
         </div>
     )
+}
+
+CurrencyInputPanel.defaultProps = {
+    customStyle: ''
 }

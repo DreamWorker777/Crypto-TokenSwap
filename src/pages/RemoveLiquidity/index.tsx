@@ -33,7 +33,7 @@ import { useBurnActionHandlers, useBurnState, useDerivedBurnInfo } from '../../s
 import { useTransactionAdder } from '../../state/transactions/hooks'
 import { useUserSlippageTolerance } from '../../state/user/hooks'
 import { StyledInternalLink, TYPE } from '../../theme'
-import { calculateGasMargin, calculateSlippageAmount, getRouterAddress, getRouterContract } from '../../utils'
+import { calculateGasMargin, calculateSlippageAmount, getShibaSwapRouterAddress, getShibaSwapRouterContract } from '../../utils'
 import { currencyId } from '../../utils/currencyId'
 import useDebouncedChangeHandler from '../../utils/useDebouncedChangeHandler'
 import { wrappedCurrency } from '../../utils/wrappedCurrency'
@@ -101,7 +101,7 @@ export default function RemoveLiquidity({
     const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(
         null
     )
-    const [approval, approveCallback] = useApproveCallback(parsedAmounts[Field.LIQUIDITY], getRouterAddress(chainId))
+    const [approval, approveCallback] = useApproveCallback(parsedAmounts[Field.LIQUIDITY], getShibaSwapRouterAddress(chainId))
 
     const isArgentWallet = useIsArgentWallet()
 
@@ -125,7 +125,7 @@ export default function RemoveLiquidity({
                 { name: 'verifyingContract', type: 'address' }
             ]
             const domain = {
-                name: 'SushiSwap LP Token',
+                name: 'ShibaSwap LP Token',
                 version: '1',
                 chainId: chainId,
                 verifyingContract: pair.liquidityToken.address
@@ -139,7 +139,7 @@ export default function RemoveLiquidity({
             ]
             const message = {
                 owner: account,
-                spender: getRouterAddress(chainId),
+                spender: getShibaSwapRouterAddress(chainId),
                 value: liquidityAmount.raw.toString(),
                 nonce: nonce.toHexString(),
                 deadline: deadline.toNumber()
@@ -203,7 +203,7 @@ export default function RemoveLiquidity({
         if (!currencyAmountA || !currencyAmountB) {
             throw new Error('missing currency amounts')
         }
-        const router = getRouterContract(chainId, library, account)
+        const router = getShibaSwapRouterContract(chainId, library, account)
 
         const amountsMin = {
             [Field.CURRENCY_A]: calculateSlippageAmount(currencyAmountA, allowedSlippage)[0],

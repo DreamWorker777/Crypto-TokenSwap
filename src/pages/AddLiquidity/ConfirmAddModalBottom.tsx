@@ -29,7 +29,7 @@ export function ConfirmAddModalBottom({
             <RowBetween>
                 <TYPE.body>{currencies[Field.CURRENCY_A]?.getSymbol(chainId)} Deposited</TYPE.body>
                 <RowFixed>
-                    <CurrencyLogo currency={currencies[Field.CURRENCY_A]} style={{ marginRight: '8px' }} />
+                    <CurrencyLogo currency={currencies[Field.CURRENCY_A]} style={{ marginRight: '8px', }} />
                     <TYPE.body>{parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)}</TYPE.body>
                 </RowFixed>
             </RowBetween>
@@ -60,8 +60,8 @@ export function ConfirmAddModalBottom({
                 <TYPE.body>{noLiquidity ? '100' : poolTokenPercentage?.toSignificant(4)}%</TYPE.body>
             </RowBetween>
             <ButtonPrimary style={{ margin: '20px 0 0 0' }} onClick={onAdd}>
-                <Text fontWeight={500} fontSize={20}>
-                    {noLiquidity ? 'Create Pool & Supply' : 'Confirm Supply'}
+                <Text>
+                    <span className="fontFamily">{noLiquidity ? 'Create Pool & Supply' : 'Confirm Supply'}</span>
                 </Text>
             </ButtonPrimary>
         </>

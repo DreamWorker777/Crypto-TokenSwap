@@ -54,6 +54,7 @@ import BoneImage from '../../assets/images/dig_icon.svg'
 import { constants } from 'os'
 import Settings from '../../components/Settings'
 import Chart from '../../components/Chart'
+import Table from '../../components/Table'
 import ToggleButton from '../../components/Toggle/ToggleButton'
 import TokenButton from '../../components/Toggle/TokenButton'
 import {prepareLineChartOptions, prepareCandleChartOptions} from '../../components/Chart/chartOptions'
@@ -599,7 +600,9 @@ export default function AddLiquidity({
                             <Chart options={candleChartOptions} />
                         )}
                     </div>
-                    <div className="total-container"></div>
+                    <div className="total-container">
+                        <Table/>
+                    </div>
                 </div>
             </div>
 

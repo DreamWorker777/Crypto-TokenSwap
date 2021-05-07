@@ -452,6 +452,7 @@ export default function AddLiquidity({
                                                 id="add-liquidity-input-tokenb"
                                                 showCommonBases
                                             />
+                                            <hr />
                                             {currencies[Field.CURRENCY_A] &&
                                                 currencies[Field.CURRENCY_B] &&
                                                 pairState !== PairState.INVALID && (
@@ -473,100 +474,117 @@ export default function AddLiquidity({
                                                     </>
                                                 )}
 
-                                            <hr />
+                                            
 
                                             {addIsUnsupported ? (
                                                 <ButtonPrimary disabled={true}>
                                                     <TYPE.main mb="4px">Unsupported Asset</TYPE.main>
                                                 </ButtonPrimary>
-                                            ) : !account ? (
-                                                <ButtonPrimary onClick={toggleWalletModal}>
-                                                    Connect Wallet
-                                                </ButtonPrimary>
-                                            ) : (
-                                                <AutoColumn gap={'md'}>
-                                                    {(approvalA === ApprovalState.NOT_APPROVED ||
-                                                        approvalA === ApprovalState.PENDING ||
-                                                        approvalB === ApprovalState.NOT_APPROVED ||
-                                                        approvalB === ApprovalState.PENDING) &&
-                                                        isValid && (
-                                                            <RowBetween>
-                                                                {approvalA !== ApprovalState.APPROVED && (
-                                                                    <ButtonPrimary
-                                                                        onClick={approveACallback}
-                                                                        disabled={approvalA === ApprovalState.PENDING}
-                                                                        width={
-                                                                            approvalB !== ApprovalState.APPROVED
-                                                                                ? '48%'
-                                                                                : '100%'
-                                                                        }
-                                                                    >
-                                                                        {approvalA === ApprovalState.PENDING ? (
-                                                                            <Dots>
-                                                                                Approving{' '}
-                                                                                {currencies[
-                                                                                    Field.CURRENCY_A
-                                                                                ]?.getSymbol(chainId)}
-                                                                            </Dots>
-                                                                        ) : (
-                                                                            'Approve ' +
-                                                                            currencies[Field.CURRENCY_A]?.getSymbol(
-                                                                                chainId
-                                                                            )
-                                                                        )}
-                                                                    </ButtonPrimary>
-                                                                )}
-                                                                {approvalB !== ApprovalState.APPROVED && (
-                                                                    <ButtonPrimary
-                                                                        onClick={approveBCallback}
-                                                                        disabled={approvalB === ApprovalState.PENDING}
-                                                                        width={
-                                                                            approvalA !== ApprovalState.APPROVED
-                                                                                ? '48%'
-                                                                                : '100%'
-                                                                        }
-                                                                    >
-                                                                        {approvalB === ApprovalState.PENDING ? (
-                                                                            <Dots>
-                                                                                Approving{' '}
-                                                                                {currencies[
-                                                                                    Field.CURRENCY_B
-                                                                                ]?.getSymbol(chainId)}
-                                                                            </Dots>
-                                                                        ) : (
-                                                                            'Approve ' +
-                                                                            currencies[Field.CURRENCY_B]?.getSymbol(
-                                                                                chainId
-                                                                            )
-                                                                        )}
-                                                                    </ButtonPrimary>
-                                                                )}
-                                                            </RowBetween>
-                                                        )}
-                                                    <ButtonError
-                                                        onClick={() => {
-                                                            expertMode ? onAdd() : setShowConfirm(true)
-                                                        }}
-                                                        disabled={
-                                                            !isValid ||
-                                                            approvalA !== ApprovalState.APPROVED ||
-                                                            approvalB !== ApprovalState.APPROVED
-                                                        }
-                                                        error={
-                                                            !isValid &&
-                                                            !!parsedAmounts[Field.CURRENCY_A] &&
-                                                            !!parsedAmounts[Field.CURRENCY_B]
-                                                        }
-                                                    >
-                                                        <Text>
-                                                            <span className="fontFamily"
-                                                            >
-                                                                {error ?? 'Supply'}
-                                                            </span>
-                                                        </Text>
-                                                    </ButtonError>
-                                                </AutoColumn>
-                                            )}
+                                            ) : 
+                                                
+                                            <React.Fragment>
+                                            {
+                                                pair && !noLiquidity && pairState !== PairState.INVALID && (
+                                                    <div className="w-full max-w-2xl flex flex-col pdy-10">
+                                                        <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
+                                                    </div>
+                                                )
+                                            }
+
+                                            {
+                                                !account ? (
+                                                    <ButtonPrimary onClick={toggleWalletModal}>
+                                                        Connect Wallet
+                                                    </ButtonPrimary>
+                                                ) : (
+                                                    <AutoColumn gap={'md'}>
+                                                        {(approvalA === ApprovalState.NOT_APPROVED ||
+                                                            approvalA === ApprovalState.PENDING ||
+                                                            approvalB === ApprovalState.NOT_APPROVED ||
+                                                            approvalB === ApprovalState.PENDING) &&
+                                                            isValid && (
+                                                                <RowBetween>
+                                                                    {approvalA !== ApprovalState.APPROVED && (
+                                                                        <ButtonPrimary
+                                                                            onClick={approveACallback}
+                                                                            disabled={approvalA === ApprovalState.PENDING}
+                                                                            width={
+                                                                                approvalB !== ApprovalState.APPROVED
+                                                                                    ? '48%'
+                                                                                    : '100%'
+                                                                            }
+                                                                        >
+                                                                            {approvalA === ApprovalState.PENDING ? (
+                                                                                <Dots>
+                                                                                    Approving{' '}
+                                                                                    {currencies[
+                                                                                        Field.CURRENCY_A
+                                                                                    ]?.getSymbol(chainId)}
+                                                                                </Dots>
+                                                                            ) : (
+                                                                                'Approve ' +
+                                                                                currencies[Field.CURRENCY_A]?.getSymbol(
+                                                                                    chainId
+                                                                                )
+                                                                            )}
+                                                                        </ButtonPrimary>
+                                                                    )}
+                                                                    {approvalB !== ApprovalState.APPROVED && (
+                                                                        <ButtonPrimary
+                                                                            onClick={approveBCallback}
+                                                                            disabled={approvalB === ApprovalState.PENDING}
+                                                                            width={
+                                                                                approvalA !== ApprovalState.APPROVED
+                                                                                    ? '48%'
+                                                                                    : '100%'
+                                                                            }
+                                                                        >
+                                                                            {approvalB === ApprovalState.PENDING ? (
+                                                                                <Dots>
+                                                                                    Approving{' '}
+                                                                                    {currencies[
+                                                                                        Field.CURRENCY_B
+                                                                                    ]?.getSymbol(chainId)}
+                                                                                </Dots>
+                                                                            ) : (
+                                                                                'Approve ' +
+                                                                                currencies[Field.CURRENCY_B]?.getSymbol(
+                                                                                    chainId
+                                                                                )
+                                                                            )}
+                                                                        </ButtonPrimary>
+                                                                    )}
+                                                                </RowBetween>
+                                                            )}
+                                                        <ButtonError
+                                                            onClick={() => {
+                                                                expertMode ? onAdd() : setShowConfirm(true)
+                                                            }}
+                                                            disabled={
+                                                                !isValid ||
+                                                                approvalA !== ApprovalState.APPROVED ||
+                                                                approvalB !== ApprovalState.APPROVED
+                                                            }
+                                                            error={
+                                                                !isValid &&
+                                                                !!parsedAmounts[Field.CURRENCY_A] &&
+                                                                !!parsedAmounts[Field.CURRENCY_B]
+                                                            }
+                                                        >
+                                                            <Text>
+                                                                <span className="fontFamily"
+                                                                >
+                                                                    {error ?? 'Supply'}
+                                                                </span>
+                                                            </Text>
+                                                        </ButtonError>
+                                                    </AutoColumn>
+                                                )
+                                            }
+                                             </React.Fragment> 
+                                            }
+                                            
+                                              
                                         </div>
                                     </div>
                                 </div>
@@ -619,11 +637,12 @@ export default function AddLiquidity({
             </div>
 
             {!addIsUnsupported ? (
-                pair && !noLiquidity && pairState !== PairState.INVALID ? (
-                    <div className="w-full max-w-2xl flex flex-col" style={{ marginTop: '50px', marginBottom: '30px' }}>
-                        <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
-                    </div>
-                ) : null
+                // pair && !noLiquidity && pairState !== PairState.INVALID ? (
+                //     <div className="w-full max-w-2xl flex flex-col" style={{ marginTop: '50px', marginBottom: '30px' }}>
+                //         <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
+                //     </div>
+                // ) : 
+                null
             ) : (
                 <UnsupportedCurrencyFooter
                     show={addIsUnsupported}

@@ -84,6 +84,7 @@ export const Input = React.memo(function InnerInput({
             maxLength={79}
             spellCheck="false"
             className={className}
+            autoFocus
         />
     )
 })

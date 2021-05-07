@@ -122,6 +122,7 @@
 .dig-container {
     //border: 2px solid green;
     width: 80%;
+    margin-bottom: 30px;
 
     // position:absolute;
 
@@ -165,7 +166,7 @@
 .graph-container {
     .echarts-for-react {
         min-height: 200px !important;
-        height: 200px !important;
+        height: 80% !important;
     }
 }
 
@@ -269,13 +270,15 @@
             text-decoration: underline;
             cursor: pointer;
         }
+        .pdy-10{
+            padding: 10px;
+        }
 
         .poolPriceBar {
             border-radius: 1rem;
             background-color: #171a23;
             padding-bottom: 17px;
             margin: 0.5rem;
-            margin-top: 3rem;
             color: #d5d5d5;
             font-family: 'Metric - Bold';
             font-size: 16px;

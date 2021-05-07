@@ -11,7 +11,7 @@ export interface TransactionHistoryData {
 function Table(props: any ) {
     
     let transactionsArray :TransactionHistoryData[] = [];
-    let maxTransactions = 10;
+    let maxTransactions = 15;
     const [transactionList, setTransactionList] =  useState<TransactionHistoryData[]>([]);
     useEffect( () => {
 

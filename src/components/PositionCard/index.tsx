@@ -90,12 +90,15 @@ export function MinimalPositionCard({ pair, showUnwrapped = false, border }: Pos
                         </FixedHeightRow>
                         <FixedHeightRow onClick={() => setShowMore(!showMore)}>
                             <RowFixed>
+                                <span className="mt-5">
                                 <DoubleCurrencyLogo
                                     currency0={currency0}
                                     currency1={currency1}
                                     margin={true}
                                     size={20}
                                 />
+                                </span>
+                                
                                 <Text fontWeight={500} fontSize={20}>
                                     {currency0.getSymbol(chainId)}/{currency1.getSymbol(chainId)}
                                 </Text>
@@ -147,16 +150,17 @@ export function MinimalPositionCard({ pair, showUnwrapped = false, border }: Pos
                     </AutoColumn>
                 </GreyCard>
             ) : (
-                <LightCard>
-                    <TYPE.subHeader style={{ textAlign: 'center' }}>
-                        <span role="img" aria-label="wizard-icon">
-                            ⭐️
-                        </span>{' '}
-                        By adding liquidity you&apos;ll earn 0.25% of all trades on this pair proportional to your share
-                        of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing
-                        your liquidity.
-                    </TYPE.subHeader>
-                </LightCard>
+                <div></div>
+                // <LightCard>
+                //     <TYPE.subHeader style={{ textAlign: 'center' }}>
+                //         <span role="img" aria-label="wizard-icon">
+                //             ⭐️
+                //         </span>{' '}
+                //         By adding liquidity you&apos;ll earn 0.25% of all trades on this pair proportional to your share
+                //         of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing
+                //         your liquidity.
+                //     </TYPE.subHeader>
+                // </LightCard>
             )}
         </>
     )

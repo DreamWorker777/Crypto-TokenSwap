@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@shibaswap/sdk'
+import { Currency, currencyEquals, ETHER, TokenAmount, WETH, ChainId, SHIBASWAP_SHIB_TOKEN_ADDRESS, SHIBASWAP_BONE_TOKEN_ADDRESS, SHIBASWAP_LEASH_TOKEN_ADDRESS, SHIBASWAP_BURY_BONE_ADDRESS, SHIBASWAP_BURY_SHIB_ADDRESS, SHIBASWAP_BURY_LEASH_ADDRESS} from '@shibaswap/sdk'
 import UnsupportedCurrencyFooter from 'components/swap/UnsupportedCurrencyFooter'
 import { useIsTransactionUnsupported } from 'hooks/Trades'
 import React, { useCallback, useContext, useEffect, useState } from 'react'
@@ -118,13 +118,7 @@ export default function AddLiquidity({
 
     useEffect( () => {
 
-        getCurrencyQuotesData().then((data) => {
-            console.log('data', data)
-            setLineChartOptions( prepareLineChartOptions(data))
-            setCandleChartOptions(prepareCandleChartOptions(data))
-            setChartDataLoading(false)
-        })
-
+        chartToken(SHIBASWAP_SHIB_TOKEN_ADDRESS[chainId ? chainId: 1]);
     },[])
 
     // txn values
@@ -175,6 +169,14 @@ export default function AddLiquidity({
     )
 
     const addTransaction = useTransactionAdder()
+
+    const chartToken = (baseCurrency:string) => {
+        getCurrencyQuotesData(baseCurrency).then((data) => {
+            setLineChartOptions( prepareLineChartOptions(data))
+            setCandleChartOptions(prepareCandleChartOptions(data))
+            setChartDataLoading(false)
+        })
+    }
 
     async function onAdd() {
         if (!chainId || !library || !account) return
@@ -369,6 +371,13 @@ export default function AddLiquidity({
     const isCreate = history.location.pathname.includes('/create')
 
     const addIsUnsupported = useIsTransactionUnsupported(currencies?.CURRENCY_A, currencies?.CURRENCY_B)
+
+    const digSectionHeight = document.getElementById('digSection')?.clientHeight;
+    
+
+    let chartSectionHeight = digSectionHeight?digSectionHeight*0.488:276;
+    document.getElementById('chart-container')?.setAttribute("style",`min-height:${chartSectionHeight}px;height:${chartSectionHeight}px`);
+    document.getElementById('tableSection')?.setAttribute("style",`min-height:${chartSectionHeight}px;height:${chartSectionHeight}px`);
     return (
         <>
             <TransactionConfirmationModal
@@ -388,7 +397,7 @@ export default function AddLiquidity({
             />
             {/* className="w-full max-w-2xl" */}
             <div className="dig-container">
-                <div className="dig">
+                <div className="dig" id="digSection">
                     <div className="wrapper">
                         <div className="dig--inner">
                             <div className="left" style={{ marginRight: '0rem' }}>
@@ -571,6 +580,7 @@ export default function AddLiquidity({
                         <div className="toggle-btn">
                             <TokenButton
                                 toggle={() => {
+                                    chartToken(SHIBASWAP_SHIB_TOKEN_ADDRESS[chainId ? chainId: 1]);
                                     handleTokenButtonClick('SHIB')
                                 }}
                                 name="SHIB"
@@ -578,6 +588,7 @@ export default function AddLiquidity({
                             />
                             <TokenButton
                                 toggle={() => {
+                                    chartToken(SHIBASWAP_LEASH_TOKEN_ADDRESS[chainId ? chainId: 1]);
                                     handleTokenButtonClick('LEASH')
                                 }}
                                 name="LEASH"
@@ -585,6 +596,7 @@ export default function AddLiquidity({
                             />
                             <TokenButton
                                 toggle={() => {
+                                    chartToken(SHIBASWAP_BONE_TOKEN_ADDRESS[chainId ? chainId: 1]);
                                     handleTokenButtonClick('BONE')
                                 }}
                                 name="BONE"
@@ -600,7 +612,7 @@ export default function AddLiquidity({
                             <Chart options={candleChartOptions} />
                         )}
                     </div>
-                    <div className="total-container">
+                    <div id="tableSection" className="total-container">
                         <Table/>
                     </div>
                 </div>

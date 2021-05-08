@@ -42,18 +42,10 @@ export default function Menu() {
         <Popover className="relative">
             {({ open }) => (
                 <>
-                    <Popover.Button className="n-color-black"   
-                        // className={classNames(open ? 'text-secondary' : 'text-primary', 'focus:outline-none')}
+                    <Popover.Button
+                        className='n-color-black'
                     >
                       <p className="nav-menu-name"> MENU </p>  
-                        {/* <MenuIcon
-                            title="test"
-                            className={classNames(
-                                open ? 'text-gray-600' : 'text-gray-400',
-                                'inline-flex items-center ml-2 h-5 w-5 group-hover:text-secondary hover:text-high-emphesis'
-                            )}
-                            aria-hidden="true"
-                        /> */}
                     </Popover.Button>
 
                     <Transition
@@ -68,17 +60,15 @@ export default function Menu() {
                     >
                         <Popover.Panel
                             static
-                            className="absolute z-10 bottom-12 md:top-6 left-full transform -translate-x-full mt-1 px-2 w-screen max-w-xs sm:px-0"
+                            className="absolute z-10 bottom-12 md:top-12 left-full transform -translate-x-full mt-3 px-2 w-screen max-w-xs sm:px-0"
                         >
                             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden nav-menu-submenu">
-                                {/* <div className="relative grid gap-6 bg-dark-900 px-5 py-6 sm:gap-8 sm:p-8"> */}
-                                <div className="relative text-left">
+                                <div className="relative grid gap-6 px-5 py-6 sm:gap-8 sm:p-8">
                                     {solutions.map(item => (
                                         <ExternalLink
                                             key={item.name}
-                                            href="#"
-                                            className="-m-3 p-3 block rounded-md"
-                                            style={{textDecoration:"none"}}
+                                            href={item.href}
+                                            className="-m-3 p-3 block rounded-md transition ease-in-out duration-150"
                                         >
                                             <p className="nav-menu-submenu-text">{item.name}</p>
                                             {/* <p className="mt-1 text-sm text-secondary">{item.description}</p> */}

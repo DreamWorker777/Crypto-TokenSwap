@@ -21,7 +21,7 @@ import Column from '../Column'
 import Row, { RowBetween, RowFixed } from '../Row'
 import CommonBases from './CommonBases'
 import CurrencyList from './CurrencyList'
-import { filterTokens, useSortedTokensByQuery, filterLiquidityPairs } from './filtering'
+import { filterTokens, useSortedTokensByQuery } from './filtering'
 import ImportRow from './ImportRow'
 import { useTokenComparator } from './sorting'
 import { PaddedColumn, SearchInput, Separator } from './styleds'
@@ -104,7 +104,7 @@ export function CurrencySearch({
 
     const showETH: boolean = useMemo(() => {
         const s = debouncedQuery.toLowerCase().trim()
-        return filterLiquidityPairs(type, currenciesAB, "ETH") && (s === '' || s === 'e' || s === 'et' || s === 'eth')
+        return s === '' || s === 'e' || s === 'et' || s === 'eth'
     }, [debouncedQuery])
 
     const tokenComparator = useTokenComparator(invertSearchOrder)
@@ -117,10 +117,10 @@ export function CurrencySearch({
         return filteredTokens.sort(tokenComparator)
     }, [filteredTokens, tokenComparator])
 
-    const fs = useSortedTokensByQuery(sortedTokens, debouncedQuery)
-    const filteredSortedTokens = fs.filter((token)=>{
-        return filterLiquidityPairs(type, currenciesAB, token.symbol)
-    })
+    const filteredSortedTokens = useSortedTokensByQuery(sortedTokens, debouncedQuery)
+    // const filteredSortedTokens = fs.filter((token)=>{
+    //     return filterLiquidityPairs(type, currenciesAB, token.symbol)
+    // })
 
     const handleCurrencySelect = useCallback(
         (currency: Currency) => {

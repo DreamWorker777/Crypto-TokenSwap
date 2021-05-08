@@ -63,12 +63,12 @@ export default function Menu() {
                             className="absolute z-10 bottom-12 md:top-12 left-full transform -translate-x-full mt-3 px-2 w-screen max-w-xs sm:px-0"
                         >
                             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden nav-menu-submenu">
-                                <div className="relative grid gap-6 px-5 py-6 sm:gap-8 sm:p-8">
+                                <div className="relative text-left">
                                     {solutions.map(item => (
                                         <ExternalLink
                                             key={item.name}
                                             href={item.href}
-                                            className="-m-3 p-3 block rounded-md transition ease-in-out duration-150"
+                                            className="-m-3 p-3 block p-1 rounded-md transition ease-in-out duration-150"
                                         >
                                             <p className="nav-menu-submenu-text">{item.name}</p>
                                             {/* <p className="mt-1 text-sm text-secondary">{item.description}</p> */}

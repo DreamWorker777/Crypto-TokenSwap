@@ -114,9 +114,9 @@ export default function Header(): JSX.Element {
                                             </button>
                                         </div>
                                     ))}
-                                    <button type="button" className="btn circle-button mr-4 nav-price-alert-btn">
+                                    {/* <button type="button" className="btn circle-button mr-4 nav-price-alert-btn">
                                         <p style={{ lineHeight: '1.5rem' }}>$</p>
-                                    </button>
+                                    </button> */}
 
                                     {/* {chainId && chainId === ChainId.MAINNET && library && library.provider.isMetaMask && (
                                         <>

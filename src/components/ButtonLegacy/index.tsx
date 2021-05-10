@@ -98,7 +98,7 @@ export const ButtonPrimaryNormal = styled(Base)`
     font-size: 110%;
     background: rgba(255, 255, 255, 0.8);
     color: #1c2d41;
-    font-family: 'Metric-Semibold';
+    font-family: 'Metric - Semibold';
     font-size: 22px;
     font-weight: 600;
     font-style: normal;
@@ -108,6 +108,7 @@ export const ButtonPrimaryNormal = styled(Base)`
     font-style: normal;
     letter-spacing: 0.11px;
     line-height: normal;
+    padding-top:13px;
     &:focus {
         box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
     }
@@ -120,6 +121,9 @@ export const ButtonPrimaryNormal = styled(Base)`
         border: 1px solid transparent;
         outline: none;
         opacity: ${({ altDisabledStyle }) => (altDisabledStyle ? '0.5' : '1')};
+    }
+    &:hover {
+        color: #1c2d41;
     }
 `
 

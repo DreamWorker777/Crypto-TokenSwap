@@ -531,7 +531,7 @@ export default function RemoveLiquidity({
                                     </ClickableText>
                                 </RowBetween>
                                 <Row style={{ alignItems: 'flex-end' }}>
-                                    <Text fontSize={72} fontWeight={500}>
+                                    <Text fontSize={25} fontWeight={500}>
                                         {formattedAmounts[Field.LIQUIDITY_PERCENT]}%
                                     </Text>
                                 </Row>
@@ -739,7 +739,7 @@ export default function RemoveLiquidity({
                                         }
                                     >
                                         <Text fontSize={16} fontWeight={500}>
-                                            {error || 'Remove'}
+                                            <span className="fontFamily" style={{lineHeight: '1.2'}}>{error || 'Remove'}</span>
                                         </Text>
                                     </ButtonError>
                                 </RowBetween>

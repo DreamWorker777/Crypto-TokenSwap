@@ -29,6 +29,34 @@ const PercentContainer = styled.div`
     display: block;
   }
 `;
+// const AvailableSectionBlock = styled.div`
+//   @media (max-width: 620px) {
+//     width:100%;
+//     display:block;
+//   }
+// `;
+
+// const PercentSectionBlock = styled.div`
+//   @media (max-width: 620px) {
+//     display:block;
+//     width:100%;
+//   }
+// `;
+
+const PercentAvailable = styled.div`
+  color: white;
+  margin: 5px;
+  display: inline-block;
+  float:right;
+  cursor: pointer;
+  font-style: Metric - Regular;
+  font-size: 18px;
+  @media (max-width: 610px) {
+    text-align: left;
+    display: block;
+    width:100%;
+  }
+`;
 
 const Percent = styled.div`
   color: white;
@@ -41,6 +69,7 @@ const Percent = styled.div`
   @media (max-width: 500px) {
     text-align: center;
     display: block;
+    
   }
 `;
 
@@ -72,6 +101,10 @@ const ButtonSelect = styled.button`
   line-height: 15px;
   font-family: "Metric - Semibold"
 `;
+
+
+
+
 
 
 export default function StakeDepositPanel(props:any){
@@ -129,11 +162,11 @@ export default function StakeDepositPanel(props:any){
         <>
         <div>   
             <PercentContainer>
-            <Percent style={{float:'left'}}>Available: {shibaBalanceValue ? shibaBalanceValue: "Loading..."}</Percent> 
-            <Percent style={{color: (activePercent === "100")?"#fea31c":"", marginRight:"20px"}} onClick={()=>{handlePercentSelect("100")}}>100%</Percent>
-            <Percent style={{color: (activePercent === "75")?"#fea31c":""}} onClick={()=>{handlePercentSelect("75")}}>75%</Percent>
-            <Percent style={{color: (activePercent === "50")?"#fea31c":""}} onClick={()=>{handlePercentSelect("50")}}>50%</Percent>
-            <Percent style={{color: (activePercent === "25")?"#fea31c":""}} onClick={()=>{handlePercentSelect("25")}}>25%</Percent>
+              <PercentAvailable style={{float:'left'}}>Available: {shibaBalanceValue ? shibaBalanceValue: "Loading..."}</PercentAvailable> 
+              <Percent style={{color: (activePercent === "100")?"#fea31c":"", marginRight:"20px"}} onClick={()=>{handlePercentSelect("100")}}>100%</Percent>
+              <Percent style={{color: (activePercent === "75")?"#fea31c":""}} onClick={()=>{handlePercentSelect("75")}}>75%</Percent>
+              <Percent style={{color: (activePercent === "50")?"#fea31c":""}} onClick={()=>{handlePercentSelect("50")}}>50%</Percent>
+              <Percent style={{color: (activePercent === "25")?"#fea31c":""}} onClick={()=>{handlePercentSelect("25")}}>25%</Percent>
             </PercentContainer>
 
             <Input

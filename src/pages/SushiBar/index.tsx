@@ -122,7 +122,7 @@ const StakeButton = styled.div`
 `
 const ClaimContainer = styled.div`
   width:90%;
-  height:150px;
+  height:auto;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -136,6 +136,7 @@ const ClaimContainer = styled.div`
   
   @media (max-width: 600px) {
     // display: block;
+    padding-bottom: 3px;
   }
 
 `;
@@ -143,21 +144,22 @@ const ClaimContainer = styled.div`
 const ClaimFirstSection = styled.div`
   display: inline-block;
   width: 60%;
-  height:80%;
+  height:auto;
   margin: auto;
-  margin-top:20px;
+  margin-top:10px;
   //border: 2px solid white;
-  float:left;
+  //float:left;
   text-align:left;
   //padding:10px;
+  //border-right: 1px solid rgba(255, 255, 255, .2);
   
   
   @media (max-width: 600px) {
     text-align: left;
     display: block;
-    float:center;
+    //float:center;
     margin:auto;
-    height:50%;
+    height:auto !important;
     width:100%;
   }
 `;
@@ -165,42 +167,52 @@ const ClaimFirstSection = styled.div`
 const ClaimSecondSection = styled.div`
   display: inline-block;
   width: 40%;
-  height:80%;
+  height:auto;
   //border: 2px solid white;
   float:right;
   text-align: left;
-  margin-top:20px;
+  margin-top:4px;
   //border-left: 0.5px solid #d5d5d5;
   border-left: 1px solid rgba(255, 255, 255, .2);
-
+  //position:relative;
+  //top:-15px;
+  padding-left:5px;
   @media (max-width: 600px) {
     text-align: left;
     display: block;
-    float:center;
+    float:none;
     margin:auto;
-    height:50%;
+    height:auto;
     width:100%;
     border-left: none;
+    top: 0px;
+    padding-left:0;
   }
 `;
 
 const ClaimButton = styled.div`
   width: 100px;
-  height: 44px;
+  height: auto;
   line-height: 40px;
   border-radius: 10px;
   background-color: #292c37;
   text-align: center;
   float: right;
   position:relative;
-  top:20px;
-  right:10px;
+  //top:10px;
+  //right:10px;
+  //left:50px;
   cursor: pointer;
-  line-height: 50px;
+  line-height: 45px;
   font-weight: 500;
+  margin-right:5px;
+  margin-bottom: 5px;
+  padding-top:5px;
 
   @media (max-width: 600px) {
     top: 0px;
+    left:0;
+    float:none;
   }
 `;
 

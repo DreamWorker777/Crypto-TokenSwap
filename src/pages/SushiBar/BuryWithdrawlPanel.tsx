@@ -30,6 +30,21 @@ const PercentContainer = styled.div`
   }
 `;
 
+const PercentAvailable = styled.div`
+  color: white;
+  margin: 5px;
+  display: inline-block;
+  float:right;
+  cursor: pointer;
+  font-style: Metric - Regular;
+  font-size: 18px;
+  @media (max-width: 610px) {
+    text-align: left;
+    display: block;
+    width:100%;
+  }
+`;
+
 const Percent = styled.div`
   color: white;
   margin: 5px;
@@ -133,7 +148,7 @@ export default function BuryWithdrawlPanel(props:any){
         <>
         <div>   
             <PercentContainer>
-            <Percent style={{float:'left'}}>Available: {buryBalanceValue ? buryBalanceValue : "Loading..."}</Percent> 
+            <PercentAvailable style={{float:'left'}}>Available: {buryBalanceValue ? buryBalanceValue : "Loading..."}</PercentAvailable> 
             <Percent style={{color: (activePercent === "100")?"#fea31c":"", marginRight:"20px"}} onClick={()=>{handlePercentSelect("100")}}>100%</Percent>
             <Percent style={{color: (activePercent === "75")?"#fea31c":""}} onClick={()=>{handlePercentSelect("75")}}>75%</Percent>
             <Percent style={{color: (activePercent === "50")?"#fea31c":""}} onClick={()=>{handlePercentSelect("50")}}>50%</Percent>

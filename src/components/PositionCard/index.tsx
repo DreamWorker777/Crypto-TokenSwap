@@ -204,7 +204,9 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
             <AutoColumn gap="12px">
                 <FixedHeightRow>
                     <AutoRow gap="8px">
-                        <DoubleCurrencyLogo currency0={currency0} currency1={currency1} size={20} />
+                        <span style={{position:"relative",top:"10px"}}>
+                            <DoubleCurrencyLogo currency0={currency0} currency1={currency1} size={20} />
+                        </span>
                         <Text fontWeight={500} fontSize={20}>
                             {!currency0 || !currency1 ? (
                                 <Dots>Loading</Dots>
@@ -263,7 +265,7 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
                             </RowFixed>
                             {token0Deposited ? (
                                 <RowFixed>
-                                    <Text fontSize={16} fontWeight={500} marginLeft={'6px'}>
+                                    <Text fontSize={16} fontWeight={500} marginLeft={'6px'} marginTop={'5px'}>
                                         {token0Deposited?.toSignificant(6)}
                                     </Text>
                                     <CurrencyLogo size="20px" style={{ marginLeft: '8px' }} currency={currency0} />
@@ -281,7 +283,7 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
                             </RowFixed>
                             {token1Deposited ? (
                                 <RowFixed>
-                                    <Text fontSize={16} fontWeight={500} marginLeft={'6px'}>
+                                    <Text fontSize={16} fontWeight={500} marginLeft={'6px'} marginTop={'5px'}>
                                         {token1Deposited?.toSignificant(6)}
                                     </Text>
                                     <CurrencyLogo size="20px" style={{ marginLeft: '8px' }} currency={currency1} />

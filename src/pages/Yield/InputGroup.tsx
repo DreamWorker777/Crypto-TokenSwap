@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { MASTERCHEF_ADDRESS, Token, TokenAmount } from '@shibaswap/sdk'
+import {MASTERCHEF_ADDRESS, SHIBASWAP_TOPDOG_ADDRESS, Token, TokenAmount} from '@shibaswap/sdk'
 import { Input as NumericalInput } from 'components/NumericalInput'
 import { Fraction } from '../../entities'
 import { ethers } from 'ethers'
@@ -14,6 +14,9 @@ import useTokenBalance from 'sushi-hooks/useTokenBalance'
 import { formattedNum, isAddressString, isWETH } from 'utils'
 import { Dots } from '../Pool/styleds'
 import { Button } from './components'
+import useTopDog from "../../hooks/useTopDog";
+import useShibaSwapPendingBone from "../../hooks/useShibaSwapPendingBone";
+import useShibaSwapStakedBalance from "../../hooks/useShibaSwapStakedBalance";
 
 const fixedFormatting = (value: BigNumber, decimals?: number) => {
     return Fraction.from(value, BigNumber.from(10).pow(BigNumber.from(decimals))).toString(decimals)
@@ -48,8 +51,8 @@ export default function InputGroup({
 
     //const { deposit } = useBentoBox()
     const balance = useTokenBalance(pairAddressChecksum)
-    const staked = useStakedBalance(pid, assetDecimals) // kMP depends on decimals of asset, SLP is always 18
-    const pending = usePendingSushi(pid)
+    const staked = useShibaSwapStakedBalance(pid, assetDecimals) // kMP depends on decimals of asset, SLP is always 18
+    const pendingBone = useShibaSwapPendingBone(pid)
 
     //console.log('pending:', pending, pid)
 
@@ -58,10 +61,10 @@ export default function InputGroup({
             new Token(chainId || 1, pairAddressChecksum, balance.decimals, pairSymbol, ''),
             ethers.constants.MaxUint256.toString()
         ),
-        MASTERCHEF_ADDRESS[1]
+        SHIBASWAP_TOPDOG_ADDRESS[chainId || 1]
     )
 
-    const { deposit, withdraw, harvest } = useMasterChef()
+    const { deposit, withdraw, harvest } = useTopDog()
 
     //console.log('depositValue:', depositValue)
 
@@ -87,22 +90,22 @@ export default function InputGroup({
                             </Button>
                         </>
                     )}
-                    {type === 'KMP' && assetSymbol && (
-                        <>
-                            <Button
-                                color="default"
-                                onClick={() => history.push(`/bento/kashi/lend/${isWETH(pairAddress)}`)}
-                            >
-                                Lend {assetSymbol}
-                            </Button>
-                            <Button
-                                color="default"
-                                onClick={() => history.push(`/bento/kashi/lend/${isWETH(pairAddress)}`)}
-                            >
-                                Withdraw {assetSymbol}
-                            </Button>
-                        </>
-                    )}
+                    {/*{type === 'KMP' && assetSymbol && (*/}
+                    {/*    <>*/}
+                    {/*        <Button*/}
+                    {/*            color="default"*/}
+                    {/*            onClick={() => history.push(`/bento/kashi/lend/${isWETH(pairAddress)}`)}*/}
+                    {/*        >*/}
+                    {/*            Lend {assetSymbol}*/}
+                    {/*        </Button>*/}
+                    {/*        <Button*/}
+                    {/*            color="default"*/}
+                    {/*            onClick={() => history.push(`/bento/kashi/lend/${isWETH(pairAddress)}`)}*/}
+                    {/*        >*/}
+                    {/*            Withdraw {assetSymbol}*/}
+                    {/*        </Button>*/}
+                    {/*    </>*/}
+                    {/*)}*/}
                 </div>
 
                 {(approvalState === ApprovalState.NOT_APPROVED || approvalState === ApprovalState.PENDING) && (
@@ -207,7 +210,7 @@ export default function InputGroup({
                         </div>
                     </div>
                 )}
-                {pending && Number(pending) > 0 && (
+                {pendingBone && Number(pendingBone) > 0 && (
                     <div className=" px-4">
                         <Button
                             color="default"
@@ -218,7 +221,7 @@ export default function InputGroup({
                             }}
                         >
                             Harvest{'  '}
-                            {formattedNum(pending)} SUSHI
+                            {formattedNum(pendingBone)} BONE
                         </Button>
                     </div>
                 )}

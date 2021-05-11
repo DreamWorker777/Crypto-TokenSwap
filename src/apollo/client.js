@@ -46,3 +46,19 @@ export const blockClient = new ApolloClient({
     }),
     cache: new InMemoryCache()
 })
+
+export const topDog = new ApolloClient({
+    link: createHttpLink({
+        uri: 'https://api.thegraph.com/subgraphs/name/kaaldhairya/topdogkovanv1'
+    }),
+    cache: new InMemoryCache(),
+    shouldBatch: true
+})
+
+export const shibaExchange = new ApolloClient({
+    link: createHttpLink({
+        uri: 'https://api.thegraph.com/subgraphs/name/kaaldhairya/exchangekovanv1'
+    }),
+    cache: new InMemoryCache(),
+    shouldBatch: true
+})

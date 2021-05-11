@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { ChevronDown, ChevronUp } from 'react-feather'
 import styled from 'styled-components'
 import useFarms from 'hooks/useFarms'
+import useShibaSwapFarms from 'hooks/useShibaSwapFarms';
 import { RowBetween } from '../../components/Row'
 import { formattedNum, formattedPercent } from '../../utils'
 import { Card, CardHeader, Paper, Search, DoubleLogo, TokenLogo } from './components'
@@ -15,7 +16,7 @@ export const FixedHeightRow = styled(RowBetween)`
 `
 
 export default function Yield(): JSX.Element {
-    const query = useFarms()
+    const query = useShibaSwapFarms()
     const farms = query?.farms
     const userFarms = query?.userFarms
 
@@ -29,11 +30,13 @@ export default function Yield(): JSX.Element {
     // Sorting Setup
     const { items, requestSort, sortConfig } = useSortableData(flattenSearchResults)
 
+
+
     return (
         <>
             <Helmet>
-                <title>Yield | Sushi</title>
-                <meta name="description" content="Farm SUSHI by staking LP (Liquidity Provider) tokens" />
+                <title>Yield | Shiba</title>
+                <meta name="description" content="Farm BONE by staking LP (Liquidity Provider) tokens" />
             </Helmet>
             <div className="container max-w-2xl mx-auto px-0 sm:px-4">
                 <Card
@@ -85,24 +88,24 @@ export default function Yield(): JSX.Element {
                                 ((sortConfig.direction === 'ascending' && <ChevronUp size={12} />) ||
                                     (sortConfig.direction === 'descending' && <ChevronDown size={12} />))}
                         </div>
-                        <div className="hover:text-secondary cursor-pointer" onClick={() => requestSort('tvl')}>
-                            <div className="flex items-center justify-end">
-                                <div>TVL</div>
-                                {sortConfig &&
-                                    sortConfig.key === 'tvl' &&
-                                    ((sortConfig.direction === 'ascending' && <ChevronUp size={12} />) ||
-                                        (sortConfig.direction === 'descending' && <ChevronDown size={12} />))}
-                            </div>
-                        </div>
-                        <div className="hover:text-secondary cursor-pointer" onClick={() => requestSort('roiPerYear')}>
-                            <div className="flex items-center justify-end">
-                                <div>APR</div>
-                                {sortConfig &&
-                                    sortConfig.key === 'roiPerYear' &&
-                                    ((sortConfig.direction === 'ascending' && <ChevronUp size={12} />) ||
-                                        (sortConfig.direction === 'descending' && <ChevronDown size={12} />))}
-                            </div>
-                        </div>
+                        {/*<div className="hover:text-secondary cursor-pointer" onClick={() => requestSort('tvl')}>*/}
+                        {/*    <div className="flex items-center justify-end">*/}
+                        {/*        <div>TVL</div>*/}
+                        {/*        {sortConfig &&*/}
+                        {/*            sortConfig.key === 'tvl' &&*/}
+                        {/*            ((sortConfig.direction === 'ascending' && <ChevronUp size={12} />) ||*/}
+                        {/*                (sortConfig.direction === 'descending' && <ChevronDown size={12} />))}*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
+                        {/*<div className="hover:text-secondary cursor-pointer" onClick={() => requestSort('roiPerYear')}>*/}
+                        {/*    <div className="flex items-center justify-end">*/}
+                        {/*        <div>APR</div>*/}
+                        {/*        {sortConfig &&*/}
+                        {/*            sortConfig.key === 'roiPerYear' &&*/}
+                        {/*            ((sortConfig.direction === 'ascending' && <ChevronUp size={12} />) ||*/}
+                        {/*                (sortConfig.direction === 'descending' && <ChevronDown size={12} />))}*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                     </div>
                     <div className="flex-col space-y-2">
                         {items && items.length > 0 ? (
@@ -131,7 +134,7 @@ const TokenBalance = ({ farm }: any) => {
     const [expand, setExpand] = useState<boolean>(false)
     return (
         <>
-            {farm.type === 'SLP' && (
+            {farm.type === 'SSLP' && (
                 <Paper className="bg-dark-800">
                     <div
                         className="grid grid-cols-3 py-4 px-4 cursor-pointer select-none rounded text-sm"
@@ -154,7 +157,7 @@ const TokenBalance = ({ farm }: any) => {
                             <div>
                                 <div className="text-right">{formattedNum(farm.tvl, true)} </div>
                                 <div className="text-secondary text-right">
-                                    {formattedNum(farm.slpBalance / 1e18, false)} SLP
+                                    {formattedNum(farm.sslpBalance / 1e18, false)} SSLP
                                 </div>
                             </div>
                         </div>
@@ -230,7 +233,7 @@ const UserBalance = ({ farm }: any) => {
     const [expand, setExpand] = useState<boolean>(false)
     return (
         <>
-            {farm.type === 'SLP' && (
+            {farm.type === 'SSLP' && (
                 <Paper className="bg-dark-800">
                     <div
                         className="grid grid-cols-3 py-4 px-4 cursor-pointer select-none rounded text-sm"
@@ -253,14 +256,14 @@ const UserBalance = ({ farm }: any) => {
                             <div>
                                 <div className="text-right">{formattedNum(farm.depositedUSD, true)} </div>
                                 <div className="text-secondary text-right">
-                                    {formattedNum(farm.depositedLP, false)} SLP
+                                    {formattedNum(farm.depositedLP, false)} SSLP
                                 </div>
                             </div>
                         </div>
                         <div className="flex justify-end items-center">
                             <div>
                                 <div className="text-right">{formattedNum(farm.pendingSushi)} </div>
-                                <div className="text-secondary text-right">SUSHI</div>
+                                <div className="text-secondary text-right">BONE</div>
                             </div>
                         </div>
                     </div>
@@ -276,53 +279,53 @@ const UserBalance = ({ farm }: any) => {
                     )}
                 </Paper>
             )}
-            {farm.type === 'KMP' && (
-                <Paper className="bg-dark-800">
-                    <div
-                        className="grid grid-cols-3 py-4 px-4 cursor-pointer select-none rounded text-sm"
-                        onClick={() => setExpand(!expand)}
-                    >
-                        <div className="flex items-center">
-                            <div className="mr-4">
-                                <DoubleLogo
-                                    a0={'kashiLogo'}
-                                    a1={farm.liquidityPair.asset.id}
-                                    size={32}
-                                    margin={true}
-                                    higherRadius={'0px'}
-                                />
-                            </div>
-                            <div className="hidden sm:block">{farm && farm.symbol}</div>
-                        </div>
-                        <div className="flex justify-end items-center">
-                            <div>
-                                <div className="text-right">{formattedNum(farm.depositedUSD, true)} </div>
-                                <div className="text-secondary text-right">
-                                    {formattedNum(farm.depositedLP, false)} KMP
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex justify-end items-center">
-                            <div>
-                                <div className="text-right">{formattedNum(farm.pendingSushi)} </div>
-                                <div className="text-secondary text-right">SUSHI</div>
-                            </div>
-                        </div>
-                    </div>
-                    {expand && (
-                        <InputGroup
-                            pid={farm.pid}
-                            pairAddress={farm.pairAddress}
-                            pairSymbol={farm.symbol}
-                            token0Address={farm.liquidityPair.collateral.id}
-                            token1Address={farm.liquidityPair.asset.id}
-                            type={'KMP'}
-                            assetSymbol={farm.liquidityPair.asset.symbol}
-                            assetDecimals={farm.liquidityPair.asset.decimals}
-                        />
-                    )}
-                </Paper>
-            )}
+            {/*{farm.type === 'KMP' && (*/}
+            {/*    <Paper className="bg-dark-800">*/}
+            {/*        <div*/}
+            {/*            className="grid grid-cols-3 py-4 px-4 cursor-pointer select-none rounded text-sm"*/}
+            {/*            onClick={() => setExpand(!expand)}*/}
+            {/*        >*/}
+            {/*            <div className="flex items-center">*/}
+            {/*                <div className="mr-4">*/}
+            {/*                    <DoubleLogo*/}
+            {/*                        a0={'kashiLogo'}*/}
+            {/*                        a1={farm.liquidityPair.asset.id}*/}
+            {/*                        size={32}*/}
+            {/*                        margin={true}*/}
+            {/*                        higherRadius={'0px'}*/}
+            {/*                    />*/}
+            {/*                </div>*/}
+            {/*                <div className="hidden sm:block">{farm && farm.symbol}</div>*/}
+            {/*            </div>*/}
+            {/*            <div className="flex justify-end items-center">*/}
+            {/*                <div>*/}
+            {/*                    <div className="text-right">{formattedNum(farm.depositedUSD, true)} </div>*/}
+            {/*                    <div className="text-secondary text-right">*/}
+            {/*                        {formattedNum(farm.depositedLP, false)} KMP*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*            <div className="flex justify-end items-center">*/}
+            {/*                <div>*/}
+            {/*                    <div className="text-right">{formattedNum(farm.pendingSushi)} </div>*/}
+            {/*                    <div className="text-secondary text-right">SUSHI</div>*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*        {expand && (*/}
+            {/*            <InputGroup*/}
+            {/*                pid={farm.pid}*/}
+            {/*                pairAddress={farm.pairAddress}*/}
+            {/*                pairSymbol={farm.symbol}*/}
+            {/*                token0Address={farm.liquidityPair.collateral.id}*/}
+            {/*                token1Address={farm.liquidityPair.asset.id}*/}
+            {/*                type={'KMP'}*/}
+            {/*                assetSymbol={farm.liquidityPair.asset.symbol}*/}
+            {/*                assetDecimals={farm.liquidityPair.asset.decimals}*/}
+            {/*            />*/}
+            {/*        )}*/}
+            {/*    </Paper>*/}
+            {/*)}*/}
         </>
     )
 }

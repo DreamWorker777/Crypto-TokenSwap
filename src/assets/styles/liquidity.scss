@@ -8,11 +8,20 @@
     display: flex;
 }
 .data-container {
-    width: 470px;
-    //width: 59%;
+    //width: 470px;
+    width: 42%;
     height: 615px;
     float: right;
     //border:2px solid white;
+
+    @media(max-width: 1400px){
+        width: 60%;
+        display: block;
+        float: left;
+        position: relative;
+        left: 20%;
+    }
+
     @media (max-width: 1300px) {
         width: 60%;
         display: block;
@@ -126,9 +135,9 @@
 }
 
 .dig-container {
-    width: 80%;
+    width: 70%;
     margin-bottom: 30px;
-
+    //border: 2px solid white;
     // position:absolute;
 
     @media (max-width: 500px) {
@@ -142,12 +151,12 @@
 
 .dig {
     display: inline-flex;
-    width: 52%;
+    width: 55%;
     //border: 2px solid pink;
     text-align: left;
     float: left;
     position: relative;
-    left: 4%;
+    //left: 4%;
     min-height: 565px;
     box-shadow: 0 0 9px 4px rgba(0, 0, 0, 0.43);
     border-radius: 10px;
@@ -160,8 +169,12 @@
     margin-left: 20px;
 
     @media (max-width: 1400px){
-        left: 0;
+        width: 60%;
+        left: 20%;
         margin-left:0;
+        margin:0 auto;
+        text-align: center;
+        justify-content: center;
     }
     @media (max-width: 1300px) {
         width: 60%;

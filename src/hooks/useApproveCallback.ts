@@ -6,7 +6,7 @@ import { useTokenAllowance } from '../data/Allowances'
 import { getTradeVersion, useV1TradeExchangeAddress } from '../data/V1'
 import { Field } from '../state/swap/actions'
 import { useHasPendingApproval, useTransactionAdder } from '../state/transactions/hooks'
-import { calculateGasMargin, getRouterAddress } from '../utils'
+import { calculateGasMargin, getRouterAddress, getShibaSwapRouterAddress } from '../utils'
 import { computeSlippageAdjustedAmounts } from '../utils/prices'
 import { useActiveWeb3React } from './index'
 import { useTokenContract } from './useContract'
@@ -108,5 +108,5 @@ export function useApproveCallbackFromTrade(trade?: Trade, allowedSlippage = 0) 
     const tradeIsV1 = getTradeVersion(trade) === Version.v1
     const v1ExchangeAddress = useV1TradeExchangeAddress(trade)
     const { chainId } = useActiveWeb3React()
-    return useApproveCallback(amountToApprove, tradeIsV1 ? v1ExchangeAddress : getRouterAddress(chainId))
+    return useApproveCallback(amountToApprove, tradeIsV1 ? v1ExchangeAddress : getShibaSwapRouterAddress(chainId))
 }

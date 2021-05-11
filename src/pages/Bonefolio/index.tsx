@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { TYPE } from '../../theme'
+import TableBonefolio from '../../components/TableBonefolio'
+//Images
 import trophyLogo from "../../assets/images/trophy.png";
 import shibIcon from "../../assets/images/shibIcon.png";
 import leashIcon from "../../assets/images/leashIcon.png";
@@ -10,14 +12,14 @@ export default function Bonefolio(props:any) {
 
     const BonefolioContainer = styled.div`
         display: inline-flex;
-        width: 80%;
-        height: 600px;
-        //border: 2px solid white;
+        width: 70%;
+        height: auto;
+        //border: 2px solid yellow;
         text-align: center
 
         @media(max-width: 1200px){
             display: block;
-            height: 100%;
+            //height: 100%;
         }
 
         @media(max-width: 500px){
@@ -29,10 +31,10 @@ export default function Bonefolio(props:any) {
 
     const BoneSection = styled.div`
         display: inline-block;
-        width:40%;
+        width:50%;
         height:auto;
         //border: 2px solid white;
-        margin:auto;
+        //margin:auto;
 
         box-shadow: 0 0 9px 4px rgba(0, 0, 0, 0.43);
         border-radius: 10px;
@@ -40,20 +42,33 @@ export default function Bonefolio(props:any) {
 
         @media(max-width: 1200px){
             //display:block;
+            width:80%;
+        }
+        @media(max-width: 500px){
             width:100%;
         }
     `;
 
     const ChartSection = styled.div`
         display: inline-block;
-        width:40%;
-        height:95%;
+        width:45%;
+        height:100%;
         //border: 2px solid white;
         margin:auto;
         float: right
 
+        box-shadow: 0 0 9px 4px rgba(0, 0, 0, 0.43);
+        border-radius: 10px;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0%, rgba(17, 20, 27, 0.33) 31%, rgba(17, 20, 27, 0.5) 100%);
+
         @media(max-width: 1200px){
             //display: block;
+            width:80%;
+            float:none;
+            height:80%;
+            
+        }
+        @media(max-width: 500px){
             width:100%;
         }
     `;
@@ -118,7 +133,7 @@ export default function Bonefolio(props:any) {
     const BarSection = styled.div`
         width: 80%;
         height: auto;
-        border: 2px solid white;
+        //border: 2px solid white;
         margin:auto;
         box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
@@ -188,6 +203,22 @@ export default function Bonefolio(props:any) {
        // border: 2px solid white;
     `;
 
+
+    const TableSection = styled.div`
+        width: 100%;
+        height: 80%;
+        //border: 2px solid green;
+        position: relative;
+        top: 10%;
+    `;
+
+    const TotalSection = styled.div`
+        width: 100%;
+        height: 10%;
+        //border: 2px solid white;
+        position: relative;
+        bottom: 0%;
+    `;
 
 
 
@@ -281,8 +312,15 @@ export default function Bonefolio(props:any) {
                 </BarContainer>
             </BoneSection>
             <ChartSection>
-
+            <TableSection>
+                <TableBonefolio/>
+            </TableSection>
+            <TotalSection>
+                <span className="pagination">{"<1/1>"}</span>
+                <span className="total">{`TOTAL:$1.9`}</span>
+            </TotalSection>
             </ChartSection>
+            <div style={{height:"20px"}}></div>
         </BonefolioContainer>
     )
 }

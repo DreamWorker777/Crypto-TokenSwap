@@ -185,7 +185,7 @@ export default function CurrencyInputPanel({
     }, [setModalOpen])
 
     return (
-        <div id={id} style={InputGroupStyle} className={'pd-5 ' + customStyle}>
+        <div id={id} style={InputGroupStyle} className={'pd-5 mb-2 ' + customStyle}>
             <div
                 className="flex flex-col space-y-3 sm:space-y-0 sm:flex-row justify-between"
                 // hideInput={hideInput}

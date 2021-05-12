@@ -10,7 +10,7 @@ import { isTradeBetter } from 'utils/trades'
 import AddressInputPanel from '../../components/AddressInputPanel'
 import { ButtonConfirmed, ButtonError, ButtonLight, ButtonPrimary } from '../../components/ButtonLegacy'
 import Card, { GreyCard } from '../../components/Card'
-import Column, { AutoColumn } from '../../components/Column'
+import Column, { AutoColumn, ColumnCenter } from '../../components/Column'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
 import Loader from '../../components/Loader'
 import { SwapPoolTabs } from '../../components/NavigationTabs'
@@ -50,6 +50,17 @@ import { ClickableText } from '../Pool/styleds'
 import swapArrowsAnimationData from '../../assets/animation/swap-arrows.json'
 import Lottie from 'lottie-react'
 import { Helmet } from 'react-helmet'
+import { CardHeading, Col, CardsubTitle } from '../../pages/Home/Card'
+import Table from '../../components/Table'
+import Chart from '../../components/Chart'
+import getCurrencyQuotesData from '../../utils/getCurrencyQuotesData'
+import {prepareLineChartOptions, prepareCandleChartOptions} from '../../components/Chart/chartOptions'
+import ToggleButton from '../../components/Toggle/ToggleButton'
+import SwapImage from '../../assets/images/fetch_icon.svg'
+import DownArrow from '../../assets/images/right-down-arrow.svg'
+import TokenButton from '../../components/Toggle/TokenButton'
+import { Currency, currencyEquals, ETHER, TokenAmount, WETH, ChainId, SHIBASWAP_SHIB_TOKEN_ADDRESS, SHIBASWAP_BONE_TOKEN_ADDRESS, SHIBASWAP_LEASH_TOKEN_ADDRESS, SHIBASWAP_BURY_BONE_ADDRESS, SHIBASWAP_BURY_SHIB_ADDRESS, SHIBASWAP_BURY_LEASH_ADDRESS} from '@shibaswap/sdk'
+import Footer from 'components/Footer'
 
 export default function Swap() {
     const loadedUrlParams = useDefaultsFromURLSearch()
@@ -309,6 +320,32 @@ export default function Swap() {
 
     const [animateSwapArrows, setAnimateSwapArrows] = useState<boolean>(false)
 
+    // Chart data
+    const [chartDataLoading, setChartDataLoading] = useState<boolean>(true)
+    const [lineChartOptions, setLineChartOptions] = useState<any>('')
+    const [candleChartOptions, setCandleChartOptions] = useState<any>('')
+    const [chartMode, setChartMode] = useState<string>('line')
+    const [tokenButton, setTokenButton] = useState<string>('SHIB')
+
+    useEffect( () => {
+
+        chartToken(SHIBASWAP_SHIB_TOKEN_ADDRESS[chainId ? chainId: 1]);
+    },[])
+
+    // txn values
+    const handleTokenButtonClick = (tokenName: string) => {
+        console.log("tokenName", tokenName);
+        setTokenButton(tokenName);
+    }
+
+    const chartToken = (baseCurrency:string) => {
+        getCurrencyQuotesData(baseCurrency).then((data) => {
+            setLineChartOptions( prepareLineChartOptions(data))
+            setCandleChartOptions(prepareCandleChartOptions(data))
+            setChartDataLoading(false)
+        })
+    }
+
     return (
         <>
             <Helmet>
@@ -324,156 +361,180 @@ export default function Swap() {
                 onConfirm={handleConfirmTokenWarning}
             />
             <SwapPoolTabs active={'swap'} />
-            <div className="bg-dark-900 shadow-swap-blue-glow w-full max-w-xl rounded">
-                <SwapHeader />
-                <Wrapper id="swap-page">
-                    <ConfirmSwapModal
-                        isOpen={showConfirm}
-                        trade={trade}
-                        originalTrade={tradeToConfirm}
-                        onAcceptChanges={handleAcceptChanges}
-                        attemptingTxn={attemptingTxn}
-                        txHash={txHash}
-                        recipient={recipient}
-                        allowedSlippage={allowedSlippage}
-                        onConfirm={handleSwap}
-                        swapErrorMessage={swapErrorMessage}
-                        onDismiss={handleConfirmDismiss}
-                    />
+            <div className="dig-container">
+                <div className="dig" id="digSection">
+                    <div className="wrapper">
+                        <div className="dig--inner">
+                            <div className="left" style={{ marginRight: '0rem' }}>
+                                <div className="inner">
+                                    <div className="top">
+                                        <div className="top-left">
+                                            <CardHeading>SWAP</CardHeading>
+                                            <div className="description" style={{ margin: '10px 0px' }}>
+                                            Swap your tokens for other tokens
+                                            </div>
+                                            <div className="read-more mt-5">Read more about swapping tokens</div>
+                                        </div>
 
-                    <AutoColumn gap={'md'}>
-                        <CurrencyInputPanel
-                            label={
-                                independentField === Field.OUTPUT && !showWrap && trade
-                                    ? 'Swap From (est.):'
-                                    : 'Swap From:'
-                            }
-                            value={formattedAmounts[Field.INPUT]}
-                            showMaxButton={!atMaxAmountInput}
-                            currency={currencies[Field.INPUT]}
-                            onUserInput={handleTypeInput}
-                            onMax={handleMaxInput}
-                            onCurrencySelect={handleInputSelect}
-                            otherCurrency={currencies[Field.OUTPUT]}
-                            id="swap-currency-input"
-                        />
-                        <AutoColumn justify="space-between">
-                            <AutoRow
-                                justify={isExpertMode ? 'space-between' : 'flex-start'}
-                                style={{ padding: '0 1rem' }}
-                            >
-                                <button
-                                    className="bg-dark-900 rounded-full p-3px -mt-6 -mb-6 z-10"
-                                    onClick={() => {
-                                        setApprovalSubmitted(false) // reset 2 step UI for approvals
-                                        onSwitchTokens()
-                                    }}
-                                >
-                                    <div
-                                        className="bg-dark-800 hover:bg-dark-700 rounded-full p-3"
-                                        onMouseEnter={() => setAnimateSwapArrows(true)}
-                                        onMouseLeave={() => setAnimateSwapArrows(false)}
-                                    >
-                                        <Lottie
-                                            animationData={swapArrowsAnimationData}
-                                            autoplay={animateSwapArrows}
-                                            loop={false}
-                                            style={{ width: 32, height: 32 }}
-
-                                            // className="text-secondary fill-current"
-                                        />
+                                        
+                                        <div className="image-div">
+                                            <img src={SwapImage} width="40" height="40" />
+                                        </div>
                                     </div>
-                                </button>
-                                {/* <ArrowWrapper clickable>
-                                      <ArrowDown
-                                        size="16"
-                                        onClick={() => {
-                                            setApprovalSubmitted(false) // reset 2 step UI for approvals
-                                            onSwitchTokens()
-                                        }}
-                                        color={
-                                            currencies[Field.INPUT] && currencies[Field.OUTPUT]
-                                                ? theme.primary1
-                                                : theme.text2
-                                        }
-                                    />
-                                </ArrowWrapper> */}
-                                {recipient === null && !showWrap && isExpertMode ? (
-                                    <LinkStyledButton id="add-recipient-button" onClick={() => onChangeRecipient('')}>
-                                        + Add a send (optional)
-                                    </LinkStyledButton>
-                                ) : null}
-                            </AutoRow>
-                        </AutoColumn>
-                        <CurrencyInputPanel
-                            value={formattedAmounts[Field.OUTPUT]}
-                            onUserInput={handleTypeOutput}
-                            label={
-                                independentField === Field.INPUT && !showWrap && trade ? 'Swap To (est.):' : 'Swap To:'
-                            }
-                            showMaxButton={false}
-                            currency={currencies[Field.OUTPUT]}
-                            onCurrencySelect={handleOutputSelect}
-                            otherCurrency={currencies[Field.INPUT]}
-                            id="swap-currency-output"
-                        />
 
-                        {recipient !== null && !showWrap ? (
-                            <>
-                                <AutoRow justify="space-between" style={{ padding: '0 1rem' }}>
-                                    <ArrowWrapper clickable={false}>
-                                        <ArrowDown size="16" color={theme.text2} />
-                                    </ArrowWrapper>
-                                    <LinkStyledButton
-                                        id="remove-recipient-button"
-                                        onClick={() => onChangeRecipient(null)}
-                                    >
-                                        - Remove send
-                                    </LinkStyledButton>
-                                </AutoRow>
-                                <AddressInputPanel id="recipient" value={recipient} onChange={onChangeRecipient} />
-                            </>
-                        ) : null}
-
-                        {showWrap ? null : (
-                            <Card padding={showWrap ? '.25rem 1rem 0 1rem' : '0px'} borderRadius={'20px'}>
-                                <AutoColumn gap="8px" style={{ padding: '0 16px' }}>
-                                    {Boolean(trade) && (
-                                        <RowBetween align="center">
-                                            <Text fontWeight={500} fontSize={14} color={theme.text2}>
-                                                Price
-                                            </Text>
-                                            <TradePrice
-                                                price={trade?.executionPrice}
-                                                showInverted={showInverted}
-                                                setShowInverted={setShowInverted}
+                                    <div className="bottom" style={{ marginTop: '20px' }}>
+                                    <div className="swaparea">
+                                        <Wrapper id="swap-page" className="p-0">
+                                            <ConfirmSwapModal
+                                                isOpen={showConfirm}
+                                                trade={trade}
+                                                originalTrade={tradeToConfirm}
+                                                onAcceptChanges={handleAcceptChanges}
+                                                attemptingTxn={attemptingTxn}
+                                                txHash={txHash}
+                                                recipient={recipient}
+                                                allowedSlippage={allowedSlippage}
+                                                onConfirm={handleSwap}
+                                                swapErrorMessage={swapErrorMessage}
+                                                onDismiss={handleConfirmDismiss}
                                             />
-                                        </RowBetween>
-                                    )}
-                                    {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
-                                        <RowBetween align="center">
-                                            <ClickableText
-                                                fontWeight={500}
-                                                fontSize={14}
-                                                color={theme.text2}
-                                                onClick={toggleSettings}
-                                            >
-                                                Slippage Tolerance
-                                            </ClickableText>
-                                            <ClickableText
-                                                fontWeight={500}
-                                                fontSize={14}
-                                                color={theme.text2}
-                                                onClick={toggleSettings}
-                                            >
-                                                {allowedSlippage / 100}%
-                                            </ClickableText>
-                                        </RowBetween>
-                                    )}
-                                </AutoColumn>
-                            </Card>
-                        )}
-                    </AutoColumn>
+
+                                        <AutoColumn gap={'md'}>
+                                            <CurrencyInputPanel
+                                                label={
+                                                    independentField === Field.OUTPUT && !showWrap && trade
+                                                        ? 'Swap From (est.):'
+                                                        : 'Swap From:'
+                                                }
+                                                value={formattedAmounts[Field.INPUT]}
+                                                showMaxButton={!atMaxAmountInput}
+                                                currency={currencies[Field.INPUT]}
+                                                onUserInput={handleTypeInput}
+                                                onMax={handleMaxInput}
+                                                onCurrencySelect={handleInputSelect}
+                                                otherCurrency={currencies[Field.OUTPUT]}
+                                                id="swap-currency-input"
+                                            />
+                                            {/* <AutoColumn justify="space-between">
+                                                <AutoRow
+                                                    justify={isExpertMode ? 'space-between' : 'flex-start'}
+                                                    style={{ padding: '0 1rem' }}
+                                                >
+                                                    <button
+                                                        className="bg-dark-900 rounded-full p-3px -mt-6 -mb-6 z-10"
+                                                        onClick={() => {
+                                                            setApprovalSubmitted(false) // reset 2 step UI for approvals
+                                                            onSwitchTokens()
+                                                        }}
+                                                    >
+                                                        <div
+                                                            className="bg-dark-800 hover:bg-dark-700 rounded-full p-3"
+                                                            onMouseEnter={() => setAnimateSwapArrows(true)}
+                                                            onMouseLeave={() => setAnimateSwapArrows(false)}
+                                                        >
+                                                            <Lottie
+                                                                animationData={swapArrowsAnimationData}
+                                                                autoplay={animateSwapArrows}
+                                                                loop={false}
+                                                                style={{ width: 32, height: 32 }}
+
+                                                               
+                                                            />
+                                                        </div>
+                                                    </button>
+                                                    <ArrowWrapper clickable>
+                                                        <ArrowDown
+                                                            size="16"
+                                                            onClick={() => {
+                                                                setApprovalSubmitted(false) // reset 2 step UI for approvals
+                                                                onSwitchTokens()
+                                                            }}
+                                                            color={
+                                                                currencies[Field.INPUT] && currencies[Field.OUTPUT]
+                                                                    ? theme.primary1
+                                                                    : theme.text2
+                                                            }
+                                                        />
+                                                    </ArrowWrapper>
+                                                    {recipient === null && !showWrap && isExpertMode ? (
+                                                        <LinkStyledButton id="add-recipient-button" onClick={() => onChangeRecipient('')}>
+                                                            + Add a send (optional)
+                                                        </LinkStyledButton>
+                                                    ) : null}
+                                                </AutoRow>
+                                            </AutoColumn> */}
+                                            <ColumnCenter>
+                                            <img src={DownArrow} width="11" height="18" />
+                                            </ColumnCenter>
+                                            <CurrencyInputPanel
+                                                value={formattedAmounts[Field.OUTPUT]}
+                                                onUserInput={handleTypeOutput}
+                                                label={
+                                                    independentField === Field.INPUT && !showWrap && trade ? 'Swap To (est.):' : 'Swap To:'
+                                                }
+                                                showMaxButton={false}
+                                                currency={currencies[Field.OUTPUT]}
+                                                onCurrencySelect={handleOutputSelect}
+                                                otherCurrency={currencies[Field.INPUT]}
+                                                id="swap-currency-output"
+                                            />
+
+                                            {recipient !== null && !showWrap ? (
+                                                <>
+                                                    <AutoRow justify="space-between" style={{ padding: '0 1rem' }}>
+                                                        <ArrowWrapper clickable={false}>
+                                                            <ArrowDown size="16" color={theme.text2} />
+                                                        </ArrowWrapper>
+                                                        <LinkStyledButton
+                                                            id="remove-recipient-button"
+                                                            onClick={() => onChangeRecipient(null)}
+                                                        >
+                                                            - Remove send
+                                                        </LinkStyledButton>
+                                                    </AutoRow>
+                                                    <AddressInputPanel id="recipient" value={recipient} onChange={onChangeRecipient} />
+                                                </>
+                                            ) : null}
+
+                                            {showWrap ? null : (
+                                                <Card padding={showWrap ? '.25rem 1rem 0 1rem' : '0px'} borderRadius={'20px'}>
+                                                    <AutoColumn gap="8px" style={{ padding: '0 16px' }}>
+                                                        {Boolean(trade) && (
+                                                            <RowBetween align="center">
+                                                                <Text fontWeight={500} fontSize={14} color={theme.text2}>
+                                                                    Price
+                                                                </Text>
+                                                                <TradePrice
+                                                                    price={trade?.executionPrice}
+                                                                    showInverted={showInverted}
+                                                                    setShowInverted={setShowInverted}
+                                                                />
+                                                            </RowBetween>
+                                                        )}
+                                                        {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
+                                                            <RowBetween align="center">
+                                                                <ClickableText
+                                                                    fontWeight={500}
+                                                                    fontSize={14}
+                                                                    color={theme.text2}
+                                                                    onClick={toggleSettings}
+                                                                >
+                                                                    Slippage Tolerance
+                                                                </ClickableText>
+                                                                <ClickableText
+                                                                    fontWeight={500}
+                                                                    fontSize={14}
+                                                                    color={theme.text2}
+                                                                    onClick={toggleSettings}
+                                                                >
+                                                                    {allowedSlippage / 100}%
+                                                                </ClickableText>
+                                                            </RowBetween>
+                                                        )}
+                                                    </AutoColumn>
+                                                </Card>
+                                            )}
+                                        </AutoColumn>
                     <BottomGrouping>
                         {swapIsUnsupported ? (
                             <ButtonPrimary disabled={true}>
@@ -585,7 +646,57 @@ export default function Swap() {
                         ) : null}
                     </BottomGrouping>
                 </Wrapper>
+                </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="data-container">
+                    <div id="chart-container" className="graph-container">
+                        <div className="toggle-btn">
+                            <TokenButton
+                                toggle={() => {
+                                    chartToken(SHIBASWAP_SHIB_TOKEN_ADDRESS[chainId ? chainId: 1]);
+                                    handleTokenButtonClick('SHIB')
+                                }}
+                                name="SHIB"
+                                disabled={tokenButton !== 'SHIB'}
+                            />
+                            <TokenButton
+                                toggle={() => {
+                                    chartToken(SHIBASWAP_LEASH_TOKEN_ADDRESS[chainId ? chainId: 1]);
+                                    handleTokenButtonClick('LEASH')
+                                }}
+                                name="LEASH"
+                                disabled={tokenButton !== 'LEASH'}
+                            />
+                            <TokenButton
+                                toggle={() => {
+                                    chartToken(SHIBASWAP_BONE_TOKEN_ADDRESS[chainId ? chainId: 1]);
+                                    handleTokenButtonClick('BONE')
+                                }}
+                                name="BONE"
+                                disabled={tokenButton !== 'BONE'}
+                            />
+                            <ToggleButton toggle={() => setChartMode(chartMode === 'line' ? 'candle' : 'line')} />
+                        </div>
+                        {chartDataLoading ? (
+                            'Loading'
+                        ) : chartMode === 'line' ? (
+                            <Chart options={lineChartOptions} />
+                        ) : (
+                            <Chart options={candleChartOptions} />
+                        )}
+                    </div>
+                    <div id="tableSection" className="total-container">
+                        <Table/>
+                    </div>
+                </div>
             </div>
+                
             {!swapIsUnsupported ? (
                 <AdvancedSwapDetailsDropdown trade={trade} />
             ) : (

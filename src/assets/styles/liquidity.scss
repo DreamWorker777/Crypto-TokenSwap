@@ -167,7 +167,9 @@
         rgba(17, 20, 27, 0.5) 100%
     );
     margin-left: 20px;
-
+    @media (min-width: 1700px){
+        width: 61%;
+    }
     @media (max-width: 1400px){
         width: 60%;
         left: 20%;
@@ -196,7 +198,9 @@
         height: 80% !important;
     }
 }
-
+.open-currency-select-button{
+    background: transparent;
+}
 .fontFamily {
     font-family: 'Metric - Bold' !important;
     font-size: 22px;

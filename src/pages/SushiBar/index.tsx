@@ -1,5 +1,6 @@
 import { Paper } from 'kashi'
 import React, {useContext, useState, useEffect, useCallback} from 'react'
+import { BigNumber } from '@ethersproject/bignumber'
 import { useActiveWeb3React } from '../../hooks'
 import AppBody from '../AppBody'
 import SushiDepositPanel from './SushiDepositPanel'
@@ -13,13 +14,18 @@ import closeLogo from "../../assets/images/X.png";
 import styled, { ThemeContext } from 'styled-components'
 import useTokenBalance from 'sushi-hooks/useTokenBalance'
 import { formatFromBalance, formatToBalance } from '../../utils'
-//
+
 // import SaaveHeader from './SushiBarHeader'
 import { Wrapper } from '../../components/swap/styleds'
 
 import StakeDepositPanel from './StakeDepositPanel'
 import BuryWithdrawlPanel from './BuryWithdrawlPanel'
+import useBury from 'hooks/useBury'
 
+export interface BalanceProps {
+  value: BigNumber
+  decimals: number
+}
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 420px;
@@ -229,6 +235,7 @@ export default function SushiBar(props:any) {
   let buryTokenAddress = state && state.buryTokenAddress;
 
   const [isStakeSelected, setIsStakeSelected] = useState(true);
+  const {leave} = useBury({tokenType,tokenAddress});  
 
   function handleStakeSelect(selectedKey:string){
     setIsStakeSelected(selectedKey === "Stake");
@@ -287,7 +294,19 @@ export default function SushiBar(props:any) {
         <div style={{marginLeft:"15px",margin:"20px"}}>
           <TYPE.white fontWeight={500} fontSize={18}>Rewards - $0.000</TYPE.white>
           <TYPE.white fontWeight={500} fontSize={18}>Available date:</TYPE.white>
-          <ClaimButton>
+          <ClaimButton
+          //  disabled={
+          //  // TODO: write relevant condition
+          //  false
+          //   }
+            onClick={async () => {
+            // setPendingTx(true)
+            // TOOO: decimal should not be hardcoded
+              let balance = { value: BigNumber.from(0), decimals: 18 }
+                await leave(balance)
+            // setPendingTx(false)
+            }}
+             >
           <TYPE.white fontWeight={500} fontSize={18} font-Style={"Metric - Bold"}>CLAIM</TYPE.white>
         </ClaimButton>
         </div>

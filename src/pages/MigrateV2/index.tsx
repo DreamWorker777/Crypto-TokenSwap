@@ -192,7 +192,7 @@ const MigrateModeSelect = ({ state }: { state: MigrateState }) => {
 
 const MigrateButtons = ({ state, isSushi }: { state: MigrateState, isSushi: boolean }) => {
     const [error, setError] = useState<MetamaskError>({})
-    const sushiRollContract = useSushiRollContract()
+    // const sushiRollContract = useSushiRollContract()
     const shibaSwapUniV2FetchContract = useShibaSwapUniV2FetchContract()
     const [approval, approve] = useApproveCallback(state.selectedLPToken?.balance, shibaSwapUniV2FetchContract?.address)
     const noLiquidityTokens = !!state.selectedLPToken?.balance && state.selectedLPToken?.balance.equalTo(ZERO)

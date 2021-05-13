@@ -90,22 +90,6 @@ export default function InputGroup({
                             </Button>
                         </>
                     )}
-                    {/*{type === 'KMP' && assetSymbol && (*/}
-                    {/*    <>*/}
-                    {/*        <Button*/}
-                    {/*            color="default"*/}
-                    {/*            onClick={() => history.push(`/bento/kashi/lend/${isWETH(pairAddress)}`)}*/}
-                    {/*        >*/}
-                    {/*            Lend {assetSymbol}*/}
-                    {/*        </Button>*/}
-                    {/*        <Button*/}
-                    {/*            color="default"*/}
-                    {/*            onClick={() => history.push(`/bento/kashi/lend/${isWETH(pairAddress)}`)}*/}
-                    {/*        >*/}
-                    {/*            Withdraw {assetSymbol}*/}
-                    {/*        </Button>*/}
-                    {/*    </>*/}
-                    {/*)}*/}
                 </div>
 
                 {(approvalState === ApprovalState.NOT_APPROVED || approvalState === ApprovalState.PENDING) && (

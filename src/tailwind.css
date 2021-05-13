@@ -22,7 +22,7 @@ input:focus {
   margin-left: 1.5rem;
 }
 .nav-prices > button {
-  width: 10.375rem;
+  width: 212px;
   padding: 0.4rem 0.6rem;
   border: 2px double transparent;
   display: flex;
@@ -42,6 +42,7 @@ input:focus {
 .p-t-label {
   color: #d5d5d5 !important;
   font-family: 'Metric - Semibold';
+  font-size: 22px;
 }
 
 .p-t-price {
@@ -94,10 +95,11 @@ input:focus {
   text-align: center;
   font-family: Kanit, Avenir, Helvetica, Arial, sans-serif;
   font-size: 12pt;
+  line-height: 1;
 }
 .nav-menu-name {
   color: #ffa409;
-  font-size: 1.6625rem;
+  font-size: 30px;
   background: "#131825";
   border-color: transparent !important;
   font-weight: bold;
@@ -144,6 +146,30 @@ input:focus {
 .nav-price-alert-btn{
   line-height: 1.5rem !important;
   padding: 0.2rem !important;
+}
+.footer-section{
+  margin: 0 auto;
+  box-shadow: 0 0 9px 4px rgb(0 0 0 / 20%);
+  width: 100%;
+}
+.home_conatiner p{
+  font-size: 18px;
+}
+.card_styles{
+  width: 95%;
+}
+#connect-wallet{
+  font-weight: 400;
+  font-size: 20px;
+  width: 235px;
+  border-radius: 25px;
+  border: 3px solid #383648;
+  background-color: #d5d5d5;
+}
+@media only screen and (min-width: 1200px) {
+  .home_conatiner{
+    max-width: 1500px !important;
+  }
 }
 @media only screen and (max-width: 600px) {
   .nav-prices,

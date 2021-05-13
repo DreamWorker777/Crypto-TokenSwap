@@ -2,7 +2,6 @@ import React from 'react'
 import { AutoColumn } from '../../components/Column'
 import { Card } from './Card'
 import styled from 'styled-components'
-import Footer from '../../components/Footer'
 
 const PageWrapper = styled(AutoColumn)`
     max-width: 100%;
@@ -19,9 +18,10 @@ const Col = styled.div<{ size: any }>`
 export default function Home() {
     return (
         <PageWrapper gap="lg" justify="center">
-            <div className="container my-auto pb-10">
+            <div className="container my-auto pb-10 home_conatiner">
                 <div className="row">
                     <div className="col-12 col-md-6 col-lg-4">
+                        <div className="card_styles">
                         <Card
                             name="DIG"
                             url="/pool"
@@ -29,10 +29,14 @@ export default function Home() {
                             desc="Provide liqiudity to earn BONES."
                             buttonText="Farm BONES"
                             disabled={false}
-                            icon="/images/dig_icon.svg"
+                            icon="/images/bury_icon.svg"
                         />
                     </div>
+                    </div>
+
                     <div className="col-12 col-md-6 col-lg-4">
+                    <div className="card_styles">
+
                         <Card
                             name="FETCH"
                             url="/fetch"
@@ -43,7 +47,10 @@ export default function Home() {
                             icon="/images/fetch_icon.svg"
                         />
                     </div>
+                    </div>
                     <div className="col-12 col-md-6 col-lg-4">
+                    <div className="card_styles">
+
                         <Card
                             name="BURY"
                             url="/bury"
@@ -51,10 +58,13 @@ export default function Home() {
                             desc="Stake tokens to get rewards."
                             buttonText="Stake Tokens"
                             disabled={false}
-                            icon="/images/bury_icon.svg"
+                            icon="/images/treat_icon.svg"
                         />
                     </div>
+                    </div>
                     <div className="col-12 col-md-6 col-lg-4">
+                    <div className="card_styles">
+
                         <Card
                             name="SWAP"
                             url="/#"
@@ -62,10 +72,13 @@ export default function Home() {
                             desc="New token woofing soon!"
                             buttonText="Locked"
                             disabled={true}
-                            icon="/images/treat_icon.svg"
+                            icon="/images/fetch_icon.svg"
                         />
                     </div>
+                    </div>
                     <div className="col-12 col-md-6 col-lg-4">
+                    <div className="card_styles">
+
                         <Card
                             name="BONEFOLIO"
                             url="/bonefolio"
@@ -76,7 +89,10 @@ export default function Home() {
                             icon="/images/bonefolio_icon.svg"
                         />
                     </div>
+                    </div>
                     <div className="col-12 col-md-6 col-lg-4">
+                    <div className="card_styles">
+
                         <Card
                             name="NFTs"
                             url="/#"
@@ -87,9 +103,10 @@ export default function Home() {
                             icon="/images/nfts_icon.svg"
                         />
                     </div>
+                    </div>
+
                 </div>                
             </div>
-            <Footer />
         </PageWrapper>
     )
 }

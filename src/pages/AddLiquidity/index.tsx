@@ -58,7 +58,6 @@ import Table from '../../components/Table'
 import ToggleButton from '../../components/Toggle/ToggleButton'
 import TokenButton from '../../components/Toggle/TokenButton'
 import {prepareLineChartOptions, prepareCandleChartOptions} from '../../components/Chart/chartOptions'
-import Footer from 'components/Footer'
 
 
 
@@ -398,7 +397,7 @@ export default function AddLiquidity({
             {/* className="w-full max-w-2xl" */}
             <div className="dig-container">
                 <div className="dig" id="digSection">
-                    <div className="wrapper">
+                    <div className="wrapper mt-0">
                         <div className="dig--inner">
                             <div className="left" style={{ marginRight: '0rem' }}>
                                 <div className="inner">
@@ -417,7 +416,7 @@ export default function AddLiquidity({
                                         </div>
                                     </div>
 
-                                    <div className="bottom" style={{ marginTop: '20px' }}>
+                                    <div className="bottom" style={{ marginTop: '5rem' }}>
                                         <div className="swaparea">
                                             <CurrencyInputPanel
                                                 customStyle="pd-0"
@@ -649,7 +648,6 @@ export default function AddLiquidity({
                     currencies={[currencies.CURRENCY_A, currencies.CURRENCY_B]}
                 />
             )}
-            <Footer />
         </>
     )
 }

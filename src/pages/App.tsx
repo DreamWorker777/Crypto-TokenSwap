@@ -35,6 +35,8 @@ import Saave from './Saave'
 import SushiBar from './SushiBar'
 import Bonefolio from './Bonefolio'
 import Swap from './Swap'
+import Footer from 'components/Footer'
+
 import {
     RedirectHashRoutes,
     OpenClaimAddressModalAndRedirectToSwap,
@@ -68,6 +70,7 @@ function App(): JSX.Element {
     }, [pathname, search])
 
     return (
+        <div>
         <Suspense fallback={null}>
             <Route component={DarkModeQueryParamReader} />
             <div className="flex flex-col items-start overflow-x-hidden h-screen">
@@ -179,9 +182,10 @@ function App(): JSX.Element {
                         </Switch>
                     </Web3ReactManager>
                 </div>
-                
+                <Footer />
             </div>
         </Suspense>
+        </div>
     )
 }
 

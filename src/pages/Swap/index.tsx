@@ -60,7 +60,6 @@ import SwapImage from '../../assets/images/fetch_icon.svg'
 import DownArrow from '../../assets/images/right-down-arrow.svg'
 import TokenButton from '../../components/Toggle/TokenButton'
 import { Currency, currencyEquals, ETHER, TokenAmount, WETH, ChainId, SHIBASWAP_SHIB_TOKEN_ADDRESS, SHIBASWAP_BONE_TOKEN_ADDRESS, SHIBASWAP_LEASH_TOKEN_ADDRESS, SHIBASWAP_BURY_BONE_ADDRESS, SHIBASWAP_BURY_SHIB_ADDRESS, SHIBASWAP_BURY_LEASH_ADDRESS} from '@shibaswap/sdk'
-import Footer from 'components/Footer'
 
 export default function Swap() {
     const loadedUrlParams = useDefaultsFromURLSearch()
@@ -345,6 +344,12 @@ export default function Swap() {
             setChartDataLoading(false)
         })
     }
+    const digSectionHeight = document.getElementById('digSection')?.clientHeight;
+    
+
+    let chartSectionHeight = digSectionHeight?digSectionHeight*0.488:276;
+    document.getElementById('chart-container')?.setAttribute("style",`min-height:${chartSectionHeight}px;height:${chartSectionHeight}px`);
+    document.getElementById('tableSection')?.setAttribute("style",`min-height:${chartSectionHeight}px;height:${chartSectionHeight}px`);
 
     return (
         <>
@@ -363,7 +368,7 @@ export default function Swap() {
             <SwapPoolTabs active={'swap'} />
             <div className="dig-container">
                 <div className="dig" id="digSection">
-                    <div className="wrapper">
+                    <div className="wrapper mt-0">
                         <div className="dig--inner">
                             <div className="left" style={{ marginRight: '0rem' }}>
                                 <div className="inner">
@@ -382,7 +387,7 @@ export default function Swap() {
                                         </div>
                                     </div>
 
-                                    <div className="bottom" style={{ marginTop: '20px' }}>
+                                    <div className="bottom" style={{ marginTop: '5rem' }}>
                                     <div className="swaparea">
                                         <Wrapper id="swap-page" className="p-0">
                                             <ConfirmSwapModal
@@ -464,7 +469,7 @@ export default function Swap() {
                                                 </AutoRow>
                                             </AutoColumn> */}
                                             <ColumnCenter>
-                                            <img src={DownArrow} width="11" height="18" />
+                                            <img src={DownArrow} width="11" height="18" className="-m-2.5"/>
                                             </ColumnCenter>
                                             <CurrencyInputPanel
                                                 value={formattedAmounts[Field.OUTPUT]}

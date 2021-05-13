@@ -5,21 +5,21 @@ import { classNames } from '../../functions/styling'
 import { ExternalLink } from '../Link'
 import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 const solutions = [
-    {
-        name: 'DOGPARK',
-        // description: 'Documentation for users of Sushi.',
-        href: 'https://docs.sushi.com'
-    },
+    // {
+    //     name: 'DOGPARK',
+    //     // description: 'Documentation for users of Sushi.',
+    //     href: 'https://docs.sushi.com'
+    // },
     {
         name: 'GOVERNANCE',
         //description: 'Documentation for developers of Sushi.',
         href: 'https://dev.sushi.com'
     },
-    {
-        name: 'ROADMAP',
-        //description: 'Sushi is a supporter of Open Source.',
-        href: 'https://github.com/sushiswap'
-    },
+    // {
+    //     name: 'ROADMAP',
+    //     //description: 'Sushi is a supporter of Open Source.',
+    //     href: 'https://github.com/sushiswap'
+    // },
     {
         name: 'WHITEPAPER',
         //description: 'Tools to optimize your workflow.',

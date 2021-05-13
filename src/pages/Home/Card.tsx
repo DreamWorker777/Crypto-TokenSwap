@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const CardWrapper = styled.div`
     width: 100%;
-    height: 14rem;
+    height: 240px;
     background-color: #1b1e29;
     box-shadow: 0 0 9px 4px rgba(0, 0, 0, 0.3);
     border-radius: 1rem;
@@ -20,7 +20,7 @@ const CardHeader = styled.header`
     padding-right: 1rem;
 `
 export const CardHeading = styled.h1`
-    font-size: 35px;
+    font-size: 42px;
     text-align: left;
     font-weight: 700;
     color: #d5d5d5;
@@ -54,7 +54,7 @@ const Button = styled.a<{ disabled: boolean }>`
     background-color: #383648;
     border-radius: 2rem;
     color: #fea31c;
-    font-size: 0.8rem;
+    font-size: 18px;
     font-weight: 600;
     font-style: normal;
     letter-spacing: normal;
@@ -65,6 +65,7 @@ const Button = styled.a<{ disabled: boolean }>`
     line-height: normal;
     position: absolute;
     bottom: 0.6rem;
+    width: 211px;
     ${props =>
         props.disabled &&
         `

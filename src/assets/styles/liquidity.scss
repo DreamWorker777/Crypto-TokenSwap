@@ -8,8 +8,8 @@
     display: flex;
 }
 .data-container {
-    //width: 470px;
-    width: 42%;
+    width: 650px;
+    // width: 42%;
     height: 615px;
     float: right;
     //border:2px solid white;
@@ -136,7 +136,6 @@
 
 .dig-container {
     width: 70%;
-    margin-bottom: 30px;
     //border: 2px solid white;
     // position:absolute;
 
@@ -157,7 +156,7 @@
     float: left;
     position: relative;
     //left: 4%;
-    min-height: 565px;
+    min-height: 740px;
     box-shadow: 0 0 9px 4px rgba(0, 0, 0, 0.43);
     border-radius: 10px;
     background-image: linear-gradient(
@@ -168,10 +167,10 @@
     );
     margin-left: 20px;
     @media (min-width: 1700px){
-        width: 61%;
+        width: 580px;
     }
     @media (max-width: 1400px){
-        width: 60%;
+        width: 42%;
         left: 20%;
         margin-left:0;
         margin:0 auto;

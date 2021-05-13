@@ -483,7 +483,7 @@ export default function AddLiquidity({
                                             
 
                                             {addIsUnsupported ? (
-                                                <ButtonPrimary disabled={true}>
+                                                <ButtonPrimary disabled={true} className="mt-1 mb-1">
                                                     <TYPE.main mb="4px">Unsupported Asset</TYPE.main>
                                                 </ButtonPrimary>
                                             ) : 
@@ -499,7 +499,7 @@ export default function AddLiquidity({
 
                                             {
                                                 !account ? (
-                                                    <ButtonPrimary onClick={toggleWalletModal}>
+                                                    <ButtonPrimary onClick={toggleWalletModal} className="mt-1 mb-1">
                                                         Connect Wallet
                                                     </ButtonPrimary>
                                                 ) : (
@@ -512,6 +512,7 @@ export default function AddLiquidity({
                                                                 <RowBetween>
                                                                     {approvalA !== ApprovalState.APPROVED && (
                                                                         <ButtonPrimary
+                                                                            className="mt-1 mb-1"
                                                                             onClick={approveACallback}
                                                                             disabled={approvalA === ApprovalState.PENDING}
                                                                             width={
@@ -537,6 +538,7 @@ export default function AddLiquidity({
                                                                     )}
                                                                     {approvalB !== ApprovalState.APPROVED && (
                                                                         <ButtonPrimary
+                                                                            className="mt-1 mb-1"
                                                                             onClick={approveBCallback}
                                                                             disabled={approvalB === ApprovalState.PENDING}
                                                                             width={
@@ -563,6 +565,7 @@ export default function AddLiquidity({
                                                                 </RowBetween>
                                                             )}
                                                         <ButtonError
+                                                            className="mt-1 mb-1"
                                                             onClick={() => {
                                                                 expertMode ? onAdd() : setShowConfirm(true)
                                                             }}

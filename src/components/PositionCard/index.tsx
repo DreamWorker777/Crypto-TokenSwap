@@ -317,11 +317,11 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
                         {userDefaultPoolBalance && JSBI.greaterThan(userDefaultPoolBalance.raw, BIG_INT_ZERO) && (
                             <RowBetween marginTop="10px">
                                 <ButtonPrimaryNormal
-                                    padding="8px"
                                     borderRadius="8px"
                                     as={Link}
                                     to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}
                                     width="48%"
+                                    className="pool-buttons"
                                 >
                                     Add
                                 </ButtonPrimaryNormal>
@@ -335,11 +335,11 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
                                     text-align: center;}}
                                 >Add</a> */}
                                 <ButtonPrimaryNormal
-                                    padding="8px"
                                     borderRadius="8px"
                                     as={Link}
                                     width="48%"
                                     to={`/remove/${currencyId(currency0)}/${currencyId(currency1)}`}
+                                    className="pool-buttons"
                                 >
                                     Remove
                                 </ButtonPrimaryNormal>
@@ -347,15 +347,15 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
                         )}
                         {stakedBalance && JSBI.greaterThan(stakedBalance.raw, BIG_INT_ZERO) && (
                             <ButtonPrimary
-                                padding="8px"
                                 borderRadius="8px"
                                 as={Link}
                                 to={`/uni/${currencyId(currency0)}/${currencyId(currency1)}`}
                                 width="100%"
+                                className="pool-buttons"
                             >
                                 Manage Liquidity in Rewards Pool
                             </ButtonPrimary>
-                        )}
+                        )}         
                     </AutoColumn>
                 )}
             </AutoColumn>

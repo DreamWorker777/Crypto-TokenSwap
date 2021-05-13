@@ -90,7 +90,7 @@ const ImageDiv = styled.div`
 `
 
 const Image = styled.img`
-    height: 10rem;
+    height: 8rem;
     padding: 1rem;
     margin: auto;
 `
@@ -175,7 +175,6 @@ color: #292c37;
 border-radius: 0.6rem;
 font-weight: bold;
 padding: 12px 0px;
-padding-top:15px;
 //width: 170px;
 margin: auto;
 text-align: center;

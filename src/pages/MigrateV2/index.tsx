@@ -70,7 +70,7 @@ const AmountInput = ({ state }: { state: MigrateState }) => {
             <LightCardCustom>
                 <FixedHeightRow>
                     <NumericalInput value={state.amount} onUserInput={val => state.setAmount(val)} />
-                    <MaxButton style={{ backgroundColor: "#292c37", color: "white", borderColor: "white" }} onClick={onPressMax} width="10px">
+                    <MaxButton className="m-0 px-4 py-1" style={{ backgroundColor: "#292c37", color: "white", borderColor: "white" }} onClick={onPressMax} width="10px">
                         MAX
                     </MaxButton>
                 </FixedHeightRow>
@@ -104,7 +104,7 @@ const LPTokenSelect = ({ lpToken, onClick, onDismiss, isSelected, updating, isSu
     return (
         <LightCardCustom>
             <AutoColumn gap="12px">
-                <FixedHeightRow>
+                <FixedHeightRow  className="fetch-card">
                     <RowFixed onClick={() => onClick(lpToken)}>
                         <DoubleCurrencyLogo
                             currency0={lpToken.tokenA}
@@ -164,9 +164,9 @@ const MigrateModeSelect = ({ state }: { state: MigrateState }) => {
                 if (state.mode === undefined || key === state.mode)
                     acc.push(
                         <LightCardCustom key={key}>
-                            <AutoColumn gap="12px">
-                                <RowFixed>
-                                    <AutoRow onClick={() => state.setMode(key)}>
+                            <AutoColumn gap="12px" className="relative fetch-card" onClick={() => state.setMode(key)}>
+                                <RowFixed >
+                                    <AutoRow >
                                         <AutoRow marginBottom="2px">
                                             <TYPE.body fontWeight={500}>{text}</TYPE.body>
                                         </AutoRow>
@@ -175,9 +175,9 @@ const MigrateModeSelect = ({ state }: { state: MigrateState }) => {
                                         </AutoRow>
                                     </AutoRow>
                                     {key === state.mode ? (
-                                        <CloseIcon onClick={unsetMode} />
+                                        <CloseIcon onClick={unsetMode} className="absolute right-0"/>
                                     ) : (
-                                        <ChevronRight onClick={unsetMode} />
+                                        <ChevronRight onClick={unsetMode} className="absolute right-0"/>
                                     )}
                                 </RowFixed>
                             </AutoColumn>
@@ -348,11 +348,12 @@ const MigrateV2 = () => {
         width: '45%';
         margintop: '30px';
         //border: 2px solid white;
-        @media (max-width: 1000px) {
+        @media (max-width: 1400px) {
             width: auto;
             height: auto;
             margin: 0;
             margintop: '50px';
+            margin-right:0px !important;
         }
         @media(max-width: 500px){
             width: 100%;
@@ -361,7 +362,7 @@ const MigrateV2 = () => {
 
     return (
         <>
-            <MigrateUniBlock style={{ marginRight: '20px' }}>
+            <MigrateUniBlock style={{ marginRight: '20px' }} className="fetchCard">
                 <Helmet>
                     <title>Migrate | Sushi</title>
                     <meta name="description" content="Migrate Uniswap LP tokens to Shiba LP tokens" />
@@ -436,7 +437,7 @@ const MigrateV2Sushi = () => {
                     <title>Migrate | Sushi</title>
                     <meta name="description" content="Migrate Sushiswap LP tokens to Shiba LP tokens" />
                 </Helmet>
-                <AppBodySection style={{ padding: 24 }}>
+                <AppBodySection style={{ padding: 24 }} className="fetchCard">
                     <AutoColumn gap="16px">
                         <AutoRow style={{ alignItems: 'center', justifyContent: 'space-between' }} gap="8px">
 
@@ -527,7 +528,7 @@ const MigrateParent = () => {
     return (
         <PageWrapper gap="lg" justify="center">
             <div
-                className="container pb-5 m-auto bury-container"
+                className="container pb-5 m-auto fetch-container"
                 style={{ padding: '1rem' }}
             >
                 <InnerDiv>

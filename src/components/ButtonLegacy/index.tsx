@@ -54,12 +54,12 @@ export const ButtonPrimary = styled(Base)`
     font-weight: 600;
     font-style: normal;
     letter-spacing: normal;
-    line-height: normal;
     text-align: center;
     overflow: hidden;
     margin-top: 1rem;
-    padding-top: 1.3rem;
     margin-bottom: 1rem;
+    padding:13px;
+    line-height: 1.2rem;
     background-origin: border-box;
     &:focus {
         box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
@@ -110,6 +110,7 @@ export const ButtonPrimaryNormal = styled(Base)`
     letter-spacing: 0.11px;
     line-height: normal;
     padding-top:13px;
+    
     &:focus {
         box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
     }

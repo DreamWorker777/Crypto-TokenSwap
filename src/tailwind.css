@@ -162,11 +162,36 @@ button#connect-wallet {
   float: right;
   margin-top: -20px;
 }
+.space-x-2.mx-auto a.text-xsf{
+  font-size: 1rem;
+}
 #open-settings-dialog-button:active{
   background-color: transparent;
 }
 .recipient-address-input{
   font-weight: 500;
+}
+.footer-section{
+  background: #141824;
+}
+.main-container-section{
+  margin-bottom: 50px;
+}
+.pool-buttons{
+  padding: 13px;
+  line-height: 1.2rem !important;
+  font-size: 1rem;
+}
+.fetch-container{
+  box-shadow: 0 0 9px 4px rgb(0 0 0 / 43%);
+  border-radius: 10px;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0%, rgba(17, 20, 27, 0.33) 31%, rgba(17, 20, 27, 0.5) 100%);
+}
+.fetchCard .doublelogo{
+  top:0 !important;
+}
+.fetch-card:hover{
+  cursor: pointer;
 }
 @media only screen and (max-width: 974px) {
   .nav-prices,
@@ -205,6 +230,8 @@ button#connect-wallet {
     float: right;
   }
 }
+
+
 
 /* .border-gradient {
   padding: 2px;

@@ -20,7 +20,7 @@ const CardHeader = styled.header`
     padding-right: 1rem;
 `
 export const CardHeading = styled.h1`
-    font-size: 42px;
+    font-size: 1.8rem;
     text-align: left;
     font-weight: 700;
     color: #d5d5d5;
@@ -32,7 +32,7 @@ export const CardHeading = styled.h1`
 `
 
 export const CardsubTitle = styled.p`
-    font-size: 12pt;
+    font-size: 1rem;
     text-align: left;
     font-weight: 500;
     color: #d5d5d5;

@@ -40,7 +40,7 @@ const UpperSection = styled.div`
         margin: 0;
         margin-bottom: 0.5rem;
         font-size: 1rem;
-        font-weight: 400;
+        font-weight: 500;
     }
 
     h5:last-child {
@@ -67,7 +67,7 @@ const AccountGroupingRow = styled.div`
     ${({ theme }) => theme.flexRowNoWrap};
     justify-content: space-between;
     align-items: center;
-    font-weight: 400;
+    font-weight: 500;
     color: ${({ theme }) => theme.text1};
 
     div {
@@ -85,7 +85,7 @@ const AccountSection = styled.div`
 const YourAccount = styled.div`
     h5 {
         margin: 0 0 1rem 0;
-        font-weight: 400;
+        font-weight: 500;
     }
 
     h4 {
@@ -105,7 +105,7 @@ const LowerSection = styled.div`
 
     h5 {
         margin: 0;
-        font-weight: 400;
+        font-weight: 500;
         color: ${({ theme }) => theme.text3};
     }
 `
@@ -147,7 +147,7 @@ const AddressLink = styled(ExternalLink)<{ hasENS: boolean; isENS: boolean }>`
 const CloseIcon = styled.div`
     position: absolute;
     right: 1rem;
-    top: 14px;
+    top: 15px;
     &:hover {
         cursor: pointer;
         opacity: 0.6;
@@ -189,7 +189,7 @@ const TransactionListWrapper = styled.div`
 
 const WalletAction = styled(ButtonSecondary)`
     width: fit-content;
-    font-weight: 400;
+    font-weight: 500;
     margin-left: 8px;
     font-size: 0.825rem;
     padding: 4px 6px;
@@ -324,7 +324,7 @@ export default function AccountDetails({
                                         </WalletAction>
                                     )}
                                     <WalletAction
-                                        style={{paddingTop: "8px", fontSize: '.825rem', fontWeight: 400, color: '#ffa409', border: '1px solid #ffa409' }}
+                                        style={{fontSize: '.825rem', fontWeight: 400, color: '#ffa409', border: '1px solid #ffa409' }}
                                         onClick={() => {
                                             openOptions()
                                         }}
@@ -406,7 +406,7 @@ export default function AccountDetails({
             {!!pendingTransactions.length || !!confirmedTransactions.length ? (
                 <LowerSection>
                     <AutoRow mb={'1rem'} style={{ justifyContent: 'space-between' }}>
-                        <TYPE.body>Recent Transactions</TYPE.body>
+                        <TYPE.body fontWeight={500}>Recent Transactions</TYPE.body>
                         <LinkStyledButton onClick={clearAllTransactionsCallback}>(clear all)</LinkStyledButton>
                     </AutoRow>
                     {renderTransactions(pendingTransactions)}

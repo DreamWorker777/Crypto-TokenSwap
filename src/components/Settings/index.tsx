@@ -152,17 +152,17 @@ export default function SettingsTab() {
             {open && (
                 <ExtendedMenuFlyout>
                     <AutoColumn gap="md" style={{ padding: '1rem' }}>
-                        <div className="text-base font-semibold text-high-emphesis">Transaction Settings</div>
+                        <div className="text-base font-bold text-high-emphesis">Transaction Settings</div>
                         <TransactionSettings
                             rawSlippage={userSlippageTolerance}
                             setRawSlippage={setUserslippageTolerance}
                             deadline={ttl}
                             setDeadline={setTtl}
                         />
-                        <div className="text-base font-semibold text-high-emphesis">Interface Settings</div>
+                        <div className="text-base font-bold text-high-emphesis">Interface Settings</div>
                         <RowBetween>
                             <RowFixed>
-                                <TYPE.black fontWeight={400} fontSize={14} color={theme.text2}>
+                                <TYPE.black fontWeight={500} fontSize={14} color={theme.text2}>
                                     Toggle Expert Mode
                                 </TYPE.black>
                                 <QuestionHelper text="Bypasses confirmation modals and allows high slippage trades. Use at your own risk." />
@@ -185,7 +185,7 @@ export default function SettingsTab() {
                         </RowBetween>
                         <RowBetween>
                             <RowFixed>
-                                <TYPE.black fontWeight={400} fontSize={14} color={theme.text2}>
+                                <TYPE.black fontWeight={500} fontSize={14} color={theme.text2}>
                                     Disable Multihops
                                 </TYPE.black>
                                 <QuestionHelper text="Restricts swaps to direct pairs only." />

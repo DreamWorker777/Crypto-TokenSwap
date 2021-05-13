@@ -78,7 +78,7 @@ function App(): JSX.Element {
                 </div>
                 <div
                     ref={bodyRef}
-                    className="flex flex-col flex-1 items-center justify-start w-screen h-full overflow-y-auto overflow-x-hidden z-0 pt-4 sm:pt-8 px-4 md:pt-10 pb-4"
+                    className="flex flex-col flex-1 items-center justify-start w-screen h-full overflow-y-auto overflow-x-hidden z-0 pt-4 sm:pt-8 px-4 md:pt-10 pb-4 main-container-section"
                 >
                     <Popups />
                     {/* <Polling /> */}

@@ -9,10 +9,11 @@ import { isAddress } from '../utils'
 export interface BalanceProps {
     value: BigNumber
     decimals: number
+    isLoading?: boolean
 }
 
 const useShibaSwapTokenBalance = (tokenAddress: string) => {
-    const [balance, setBalance] = useState<BalanceProps>({ value: BigNumber.from(0), decimals: 18 })
+    const [balance, setBalance] = useState<BalanceProps>({ value: BigNumber.from(0), decimals: 18 , isLoading: true })
     const { account } = useActiveWeb3React()
     const currentBlockNumber = useBlockNumber()
     const addressCheckSum = isAddress(tokenAddress)
@@ -22,10 +23,10 @@ const useShibaSwapTokenBalance = (tokenAddress: string) => {
         try {
             const balance = await contract?.balanceOf(owner)
             const decimals = await contract?.decimals()
-            return { value: BigNumber.from(balance), decimals: decimals }
+            return { value: BigNumber.from(balance), decimals: decimals, isLoading: false }
         } catch (e) {
             console.log('getBalance_error:', e)
-            return { value: BigNumber.from(0), decimals: 18 }
+            return { value: BigNumber.from(0), decimals: 18, isLoading: false }
         }
     }
 

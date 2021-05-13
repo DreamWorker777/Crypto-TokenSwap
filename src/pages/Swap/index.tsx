@@ -387,7 +387,7 @@ export default function Swap() {
                                         </div>
                                     </div>
 
-                                    <div className="bottom" style={{ marginTop: '5rem' }}>
+                                    <div className="bottom" style={{ marginTop: '2rem' }}>
                                     <div className="swaparea">
                                         <Wrapper id="swap-page" className="p-0">
                                             <ConfirmSwapModal

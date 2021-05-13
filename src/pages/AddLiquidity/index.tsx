@@ -58,8 +58,12 @@ import Table from '../../components/Table'
 import ToggleButton from '../../components/Toggle/ToggleButton'
 import TokenButton from '../../components/Toggle/TokenButton'
 import {prepareLineChartOptions, prepareCandleChartOptions} from '../../components/Chart/chartOptions'
+import { MenuFlyout, StyledMenu, StyledMenuButton } from 'components/StyledMenu'
 
-
+const StyledMenuIcon = styled(Settings)`
+    height: 20px;
+    width: 20px;
+`
 
 
 export default function AddLiquidity({
@@ -416,8 +420,11 @@ export default function AddLiquidity({
                                         </div>
                                     </div>
 
-                                    <div className="bottom" style={{ marginTop: '5rem' }}>
+                                    <div className="bottom" style={{ marginTop: '2rem' }}>
                                         <div className="swaparea">
+                                        <div className="settings_dig">
+                                            <StyledMenuIcon />
+                                        </div>
                                             <CurrencyInputPanel
                                                 customStyle="pd-0"
                                                 value={formattedAmounts[Field.CURRENCY_A]}

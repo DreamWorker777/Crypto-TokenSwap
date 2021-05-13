@@ -23,10 +23,11 @@ const StyledToggle = styled.button`
     letter-spacing: 0.08px;
     cursor: pointer;
     outline: none;
-    padding:3px;
+    padding:0px;
     display: table-cell;
     float: left;
     margin: 0px 2px;
+    font-weight: bold;
 `
 export default function TokenButton({id, toggle, name, disabled}: TokenButtonProps) {
     return <StyledToggle style={{backgroundColor: disabled?'#996100':'#ffa409'}} id={id} onClick={toggle}>{name}</StyledToggle>

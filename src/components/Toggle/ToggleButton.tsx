@@ -21,9 +21,10 @@ const StyledToggle = styled.button`
     letter-spacing: 0.08px;
     cursor: pointer;
     outline: none;
-    padding:3px;
+    padding:0px;
     display: table-cell;
     float: right;
+    font-weight:bold;
 `
 export default function ToggleButton({id, toggle}: ToggleButtonProps) {
     return <StyledToggle id={id} onClick={toggle}>MODE</StyledToggle>

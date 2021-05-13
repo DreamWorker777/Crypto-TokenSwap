@@ -195,6 +195,8 @@ export default function Bonefolio(props:any) {
         height:90px;
         //border: 2px solid green;
         margin-top: 5px;
+        font-weight:500;
+        color: #d5d5d5;
     `;
 
     const DetailSection = styled.div`

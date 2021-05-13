@@ -3,10 +3,10 @@ import styled from 'styled-components'
 
 const CardWrapper = styled.div`
     width: 100%;
-    height: 240px;
-    background-color: #1b1e29;
-    box-shadow: 0 0 9px 4px rgba(0, 0, 0, 0.3);
-    border-radius: 1rem;
+    height: 16rem;
+    background-color: #141824;
+    box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.45);
+    border-radius: 1.25rem;
     position: relative;
     :hover {
         box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.45);
@@ -25,19 +25,19 @@ export const CardHeading = styled.h1`
     font-weight: 700;
     color: #d5d5d5;
     margin: 0;
-    font-family: "Metric - Bold";
+    font-family: 'Kanit';
     line-height: 1.5rem;
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
 `
 
 export const CardsubTitle = styled.p`
-    font-size: 0.9rem;
+    font-size: 12pt;
     text-align: left;
     font-weight: 500;
     color: #d5d5d5;
     margin: 0;
-    font-family: "Metric - Semibold";
+    font-family: 'Kanit';
 `
 
 const CardDesc = styled.p`
@@ -48,7 +48,8 @@ const CardDesc = styled.p`
     margin: 0;
     margin-top: 1.4rem;
     margin-bottom: 5rem;
-    font-family: "Metric - Bold";
+    font-family: 'Kanit';
+    
 `
 const Button = styled.a<{ disabled: boolean }>`
     background-color: #383648;
@@ -61,11 +62,12 @@ const Button = styled.a<{ disabled: boolean }>`
     line-height: normal;
     text-align: center;
     padding: 0.5rem 2.75rem;
-    padding-top: 0.8rem !important;
     line-height: normal;
     position: absolute;
     bottom: 0.6rem;
-    width: 211px;
+    font-size: 11pt;
+    width: 180px;
+    height: 40px;
     ${props =>
         props.disabled &&
         `

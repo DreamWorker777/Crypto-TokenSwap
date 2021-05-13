@@ -25,7 +25,7 @@
 }
 }@media (min-width:1200px) {
   .container {
-  max-width: 1140px;
+  max-width: 1300px;
   padding: 1rem;
 }
 }.container-fluid {
@@ -1108,15 +1108,15 @@
 }
 
 .metric-bold {
-  font-family: 'Metric - Bold';
+  font-family: 'Kanit';
 }
 
 .metric-semibold {
-  font-family: 'Metric - SemiBold';
+  font-family: 'Kanit';
 }
 
 .metric-regular {
-  font-family: 'Metric - Regular';
+  font-family: 'Kanit';
 }
 
 .bury-container {

@@ -1,7 +1,7 @@
 button,
 .btn {
   //font-family: $font-serif;
-  font-family: "Metric - Regular";
+  font-family: "Kanit";
   padding: $spacing * 2 $spacing * 4;
   outline: none;
   background-color: $white;
@@ -27,7 +27,7 @@ button:active,
 
 .btn-round {
   border-radius: 20px;
-  border-width: 2.5px;
+  border-width: 3px;
 }
 
 .btn-sm {
@@ -47,7 +47,7 @@ button:active,
 }
 
 .btn-blue {
-  background-color: $blue;
+  background-color: #131722;
   color: $light;
 }
 

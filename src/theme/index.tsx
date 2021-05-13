@@ -243,7 +243,7 @@ body {
   // min-height: 100vh;
   // background-position: 0 -30vh;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 90vh;
   background-image: ${({ theme }) => `url('/images/background.png')`};
 }
 `

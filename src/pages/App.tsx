@@ -35,7 +35,6 @@ import Saave from './Saave'
 import SushiBar from './SushiBar'
 import Bonefolio from './Bonefolio'
 import Swap from './Swap'
-import Footer from 'components/Footer'
 
 import {
     RedirectHashRoutes,
@@ -52,6 +51,7 @@ import Home from './Home'
 import Bury from './Bury'
 import Retrieve from './Retrieve'
 import { RedirectOldRetrievePathStructure } from './Retrieve/redirects'
+import Footer from 'components/Footer'
 
 function App(): JSX.Element {
     const { chainId } = useActiveWeb3React()
@@ -70,7 +70,6 @@ function App(): JSX.Element {
     }, [pathname, search])
 
     return (
-        <div>
         <Suspense fallback={null}>
             <Route component={DarkModeQueryParamReader} />
             <div className="flex flex-col items-start overflow-x-hidden h-screen">
@@ -181,11 +180,10 @@ function App(): JSX.Element {
                             <Route component={RedirectPathToSwapOnly} />
                         </Switch>
                     </Web3ReactManager>
+                    <Footer />
                 </div>
-                <Footer />
             </div>
         </Suspense>
-        </div>
     )
 }
 

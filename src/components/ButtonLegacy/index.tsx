@@ -12,7 +12,7 @@ const Base = styled(RebassButton)<{
     altDisabledStyle?: boolean
 }>`
     padding: ${({ padding }) => (padding ? padding : '16px')};
-    width: ${({ width }) => (width ? width : '100%')};
+    width: ${({ width }) => (width ? width : '98%')};
     font-weight: 500;
     text-align: center;
     border-radius: 10px;
@@ -28,6 +28,7 @@ const Base = styled(RebassButton)<{
     cursor: pointer;
     position: relative;
     z-index: 1;
+    margin:20px auto;
     &:disabled {
         cursor: auto;
     }

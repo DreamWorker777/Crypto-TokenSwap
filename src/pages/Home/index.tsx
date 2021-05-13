@@ -18,7 +18,7 @@ const Col = styled.div<{ size: any }>`
 export default function Home() {
     return (
         <PageWrapper gap="lg" justify="center">
-            <div className="container my-auto pb-10 home_conatiner">
+            <div className="container my-auto pb-10">
                 <div className="row">
                     <div className="col-12 col-md-6 col-lg-4">
                         <div className="card_styles">

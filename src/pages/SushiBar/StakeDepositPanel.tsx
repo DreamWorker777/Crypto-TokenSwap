@@ -49,7 +49,7 @@ const PercentAvailable = styled.div`
   display: inline-block;
   float:right;
   cursor: pointer;
-  font-style: Metric - Regular;
+  font-weight:500;
   font-size: 18px;
   @media (max-width: 610px) {
     text-align: left;
@@ -64,7 +64,7 @@ const Percent = styled.div`
   display: inline-block;
   float:right;
   cursor: pointer;
-  font-style: Metric - Regular;
+  font-weight:500;
   font-size: 18px;
   @media (max-width: 500px) {
     text-align: center;

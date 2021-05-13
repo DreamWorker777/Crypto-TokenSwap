@@ -12,9 +12,8 @@ const AnimatedDialogOverlay = animated(DialogOverlay)
 const StyledDialogOverlay = styled(AnimatedDialogOverlay)`
     &[data-reach-dialog-overlay] {
         z-index: 10;
-        background-color: transparent;
+        background-color: rgb(0 0 0 / 70%);
         overflow: hidden;
-
         display: flex;
         align-items: center;
         justify-content: center;

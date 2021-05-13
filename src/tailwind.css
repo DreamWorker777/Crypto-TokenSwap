@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 * {
-  font-family: 'Metric - Regular';
+  font-family: 'Kanit' !important;
 }
 
 button:focus {
@@ -22,7 +22,7 @@ input:focus {
   margin-left: 1.5rem;
 }
 .nav-prices > button {
-  width: 212px;
+  width: 11.688rem;
   padding: 0.4rem 0.6rem;
   border: 2px double transparent;
   display: flex;
@@ -35,23 +35,25 @@ input:focus {
   background-clip: padding-box, border-box;
   border-right-width: 3px;
   max-height: 36.8px;
+  font-family: 'Kanit';
+  font-weight: 600;
 }
 .token{
-  line-height: 1.5rem !important;
+  line-height: 1.2rem !important;
 }
 .p-t-label {
-  color: #d5d5d5 !important;
-  font-family: 'Metric - Semibold';
-  font-size: 22px;
+  color: #919193 !important;
+  font-family: 'Kanit';
+  font-weight: 600;
 }
 
 .p-t-price {
   color: #ffa409;
-  font-weight: bold;
+  font-weight: 600;
   max-width: 3.125rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-family: 'Metric - Semibold';
+  font-family: 'Kanit';
 }
 
 .p-value {
@@ -103,9 +105,7 @@ input:focus {
   background: "#131825";
   border-color: transparent !important;
   font-weight: bold;
-  font-family: 'Metric - Bold';
-  padding-top: 0.4rem;
-
+  font-family: 'Kanit';
 }
 .n-color-black {
   background-color: transparent !important;
@@ -132,10 +132,8 @@ input:focus {
   margin-left: 1rem;
   justify-content: center;
   line-height: 1rem !important;
-  padding-top: 0.5rem !important;
-  padding-bottom: 0.3rem !important;
   font-size: 1rem;
-  font-family: 'Metric - Bold'!important;
+  font-family: 'Kaint';
 }
 .nav-left-bar {
   text-decoration: none;
@@ -147,31 +145,30 @@ input:focus {
   line-height: 1.5rem !important;
   padding: 0.2rem !important;
 }
-.footer-section{
-  margin: 0 auto;
-  box-shadow: 0 0 9px 4px rgb(0 0 0 / 20%);
-  width: 100%;
-}
-.home_conatiner p{
-  font-size: 18px;
-}
-.card_styles{
-  width: 95%;
-}
-#connect-wallet{
-  font-weight: 400;
-  font-size: 20px;
-  width: 235px;
+button#connect-wallet {
+  width: 13.688rem;
   border-radius: 25px;
   border: 3px solid #383648;
   background-color: #d5d5d5;
+  font-size: 13pt;
+  height: 36.8px;
 }
-@media only screen and (min-width: 1200px) {
-  .home_conatiner{
-    max-width: 1500px !important;
-  }
+#connect-wallet p{
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1rem;
 }
-@media only screen and (max-width: 600px) {
+.settings_dig svg{
+  float: right;
+  margin-top: -20px;
+}
+#open-settings-dialog-button:active{
+  background-color: transparent;
+}
+.recipient-address-input{
+  font-weight: 500;
+}
+@media only screen and (max-width: 974px) {
   .nav-prices,
   .nav-price-alert-btn,
   .nav-tvl-btn,
@@ -183,6 +180,18 @@ input:focus {
     position: relative;
     float: right;
   }
+  .footer-section{
+    display: none !important;
+  }
+  button#connect-wallet {
+    width: 11rem;
+    padding: 0;
+  }
+  .container.my-auto {
+    padding-bottom: 8rem !important;
+
+  }
+
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {

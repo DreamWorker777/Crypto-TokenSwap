@@ -155,7 +155,7 @@ export default function Pool() {
                         <TitleRow style={{ marginTop: '1rem', marginBottom: '1rem' }} padding={'0'}>
                             <HideSmall>
                                 <TYPE.mediumHeader
-                                    style={{ marginTop: '0.5rem', justifySelf: 'flex-start', paddingLeft: '0.75rem' }}
+                                    style={{ marginTop: '0.8rem', justifySelf: 'flex-start'}}
                                 >
                                     Your liquidity
                                 </TYPE.mediumHeader>
@@ -172,9 +172,11 @@ export default function Pool() {
                                         fontWeight: 'bold',
                                         padding: '0.5rem',
                                         paddingTop: '0.8rem',
-                                        lineHeight: '1rem',
+                                        lineHeight: '6px',
                                         margin: 'auto',
-                                        textAlign: 'center'
+                                        textAlign: 'center',
+                                        width:'120px',
+                                        height:'40px'
                                     }}
                                 >
                                     Create a Pair
@@ -189,9 +191,12 @@ export default function Pool() {
                                         fontWeight: 'bold',
                                         padding: '0.5rem',
                                         paddingTop: '0.8rem',
-                                        lineHeight: '1rem',
+                                        lineHeight: '11px',
                                         margin: 'auto',
-                                        textAlign: 'center'
+                                        textAlign: 'center',
+                                        width:'120px',
+                                        height:'40px',
+                                        marginLeft: '-6px',
                                     }}
                                 >
                                     Add Liquidity

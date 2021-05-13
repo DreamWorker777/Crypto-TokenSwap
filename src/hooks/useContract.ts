@@ -39,7 +39,7 @@ import {
     SUSHISWAP_SWAPPER_ADDRESS
 } from 'kashi'
 import { useMemo } from 'react'
-import { BORING_HELPER_ADDRESS, MERKLE_DISTRIBUTOR_ADDRESS, SUSHI } from '../constants'
+import { BORING_HELPER_ADDRESS, MERKLE_DISTRIBUTOR_ADDRESS, SHIBA_HELPER_ADDRESS, SUSHI } from '../constants'
 import {
     ARGENT_WALLET_DETECTOR_ABI,
     ARGENT_WALLET_DETECTOR_MAINNET_ADDRESS
@@ -181,6 +181,11 @@ export function useStakingContract(stakingAddress?: string, withSignerIfPossible
 
 export function useBoringHelperContract(): Contract | null {
     return useContract(BORING_HELPER_ADDRESS, BORING_HELPER_ABI, false)
+}
+
+export function useShibaHelperContract(): Contract | null {
+    const { chainId } = useActiveWeb3React()
+    return useContract(chainId && SHIBA_HELPER_ADDRESS[chainId], BORING_HELPER_ABI, false)
 }
 
 export function usePendingContract(): Contract | null {

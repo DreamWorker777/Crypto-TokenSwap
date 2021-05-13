@@ -1,7 +1,7 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import sushiData from '@sushiswap/sushi-data'
 import { useActiveWeb3React } from 'hooks'
-import { useBoringHelperContract } from 'hooks/useContract'
+import { useBoringHelperContract, useShibaHelperContract } from 'hooks/useContract'
 import _ from 'lodash'
 import { useCallback, useEffect, useState } from 'react'
 import {exchange, masterchef, shibaExchange, topDog} from 'apollo/client'
@@ -14,7 +14,7 @@ import { Fraction } from '../entities'
 const useShibaSwapFarms = () => {
     const [farms, setFarms] = useState<any | undefined>()
     const { account } = useActiveWeb3React()
-    const boringHelperContract = useBoringHelperContract()
+    const shibaHelperContract = useShibaHelperContract()
 
     const fetchAllFarms = useCallback(async () => {
         const results = await Promise.all([
@@ -43,7 +43,6 @@ const useShibaSwapFarms = () => {
             variables: { pairAddresses }
         })
 
-        console.log(pairsQuery);
 
         // const liquidityPositions = results[1]?.data.liquidityPositions
         // const averageBlockTime = results[2]
@@ -53,8 +52,6 @@ const useShibaSwapFarms = () => {
 
         const pairs = pairsQuery?.data.pairs
         // const KASHI_PAIRS = _.range(190, 230, 1) // kashiPair pids 189-229
-        //console.log('kashiPairs:', KASHI_PAIRS, kashiPairs, pools)
-        console.log(pools);
         const farms = pools
             .map((pool: any) => {
                     const pair : any = pairs.find((pair: any) => pair.id === pool.pair)
@@ -62,10 +59,10 @@ const useShibaSwapFarms = () => {
                     //     (liquidityPosition: any) => liquidityPosition.pair.id === pair.id
                     // )
                     // const blocksPerHour = 3600 / averageBlockTime
-                    const balance = 0//Number(pool.balance / 1e18) > 0 ? Number(pool.balance / 1e18) : 0.1
-                    const totalSupply = 0//pair.totalSupply > 0 ? pair.totalSupply : 0.1
-                    const reserveUSD = 0//pair.reserveUSD > 0 ? pair.reserveUSD : 0.1
-                    const balanceUSD = 0//(balance / Number(totalSupply)) * Number(reserveUSD)
+                    const balance = 0 //Number(pool.balance / 1e18) > 0 ? Number(pool.balance / 1e18) : 0.1
+                    const totalSupply = 0 //pair.totalSupply > 0 ? pair.totalSupply : 0.1
+                    const reserveUSD = 0 //pair.reserveUSD > 0 ? pair.reserveUSD : 0.1
+                    const balanceUSD = 0 //(balance / Number(totalSupply)) * Number(reserveUSD)
                     const rewardPerBlock = 0
                         // ((pool.allocPoint / pool.owner.totalAllocPoint) * pool.owner.sushiPerBlock) / 1e18
                     // const roiPerBlock = (rewardPerBlock * sushiPrice) / balanceUSD
@@ -93,61 +90,47 @@ const useShibaSwapFarms = () => {
                     }
             })
 
-        //console.log('farms:', farms)
         const sorted = _.orderBy(farms, ['pid'], ['desc'])
 
         const pids = sorted.map(pool => {
             return pool.pid
         })
 
-        // if (account) {
-        //     const userFarmDetails = await boringHelperContract?.pollPools(account, pids)
-        //     //console.log('userFarmDetails:', userFarmDetails)
-        //     const userFarms = userFarmDetails
-        //         .filter((farm: any) => {
-        //             return farm.balance.gt(BigNumber.from(0)) || farm.pending.gt(BigNumber.from(0))
-        //         })
-        //         .map((farm: any) => {
-        //             //console.log('userFarm:', farm.pid.toNumber(), farm)
+        if (account) {
+            const userFarmDetails = await shibaHelperContract?.pollPools(account, pids)
+            const userFarms = userFarmDetails
+                .filter((farm: any) => {
+                    return farm.balance.gt(BigNumber.from(0)) || farm.pending.gt(BigNumber.from(0))
+                })
+                .map((farm: any) => {
         
-        //             const pid = farm.pid.toNumber()
-        //             const farmDetails = sorted.find((pair: any) => pair.pid === pid)
+                    const pid = farm.pid.toNumber()
+                    const farmDetails = sorted.find((pair: any) => pair.pid === pid)
         
-        //             console.log('farmDetails:', farmDetails)
-        //             let deposited
-        //             let depositedUSD
-        //             // if (farmDetails && farmDetails.type === 'KMP') {
-        //             //     deposited = Fraction.from(
-        //             //         farm.balance,
-        //             //         BigNumber.from(10).pow(farmDetails.liquidityPair.asset.decimals)
-        //             //     ).toString()
-        //             //     depositedUSD =
-        //             //         farmDetails.totalAssetStaked && farmDetails.totalAssetStaked > 0
-        //             //             ? (Number(deposited) * Number(farmDetails.tvl)) / farmDetails.totalAssetStaked
-        //             //             : 0
-        //             // } else {
-        //                 deposited = Fraction.from(farm.balance, BigNumber.from(10).pow(18)).toString(18)
-        //                 depositedUSD =
-        //                     farmDetails.slpBalance && Number(farmDetails.slpBalance / 1e18) > 0
-        //                         ? (Number(deposited) * Number(farmDetails.tvl)) / (farmDetails.slpBalance / 1e18)
-        //                         : 0
-        //             // }
-        //             const pending = Fraction.from(farm.pending, BigNumber.from(10).pow(18)).toString(18)
+                    let deposited
+                    let depositedUSD
+                    
+                    deposited = Fraction.from(farm.balance, BigNumber.from(10).pow(18)).toString(18)
+                    depositedUSD =
+                        farmDetails.slpBalance && Number(farmDetails.slpBalance / 1e18) > 0
+                            ? (Number(deposited) * Number(farmDetails.tvl)) / (farmDetails.slpBalance / 1e18)
+                            : 0
+                                
+                    const pending = Fraction.from(farm.pending, BigNumber.from(10).pow(18)).toString(18)
         
-        //             return {
-        //                 ...farmDetails,
-        //                 type: farmDetails.type, // KMP or SLP
-        //                 depositedLP: deposited,
-        //                 depositedUSD: depositedUSD,
-        //                 pendingSushi: pending
-        //             }
-        //         })
-        //     setFarms({ farms: sorted, userFarms: userFarms })
-        //     //console.log('userFarms:', userFarms)
-        // } else {
+                    return {
+                        ...farmDetails,
+                        type: farmDetails.type, // KMP or SLP
+                        depositedLP: deposited,
+                        depositedUSD: depositedUSD,
+                        pendingBone: pending
+                    }
+                })
+            setFarms({ farms: sorted, userFarms: userFarms })
+        } else {
             setFarms({ farms: sorted, userFarms: [] })
-        // }
-    }, [account, boringHelperContract])
+        }
+    }, [account, shibaHelperContract])
 
     useEffect(() => {
         fetchAllFarms()

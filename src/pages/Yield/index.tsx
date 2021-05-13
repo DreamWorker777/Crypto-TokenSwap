@@ -61,9 +61,9 @@ export default function Yield(): JSX.Element {
                                     <div className="flex items-center">
                                         <div>Your Yields</div>
                                     </div>
-                                    <div className="flex items-center justify-end">
+                                    {/* {/* <div className="flex items-center justify-end">
                                         <div>Deposited</div>
-                                    </div>
+                                    </div> */}
                                     <div className="flex items-center justify-end">
                                         <div>Claim</div>
                                     </div>
@@ -76,8 +76,8 @@ export default function Yield(): JSX.Element {
                             </div>
                         </>
                     )}
-                    {/* All Farms */}
-                    {/* <div className="grid grid-cols-3 pb-4 px-4 text-sm  text-secondary">
+                    All Farms
+                    <div className="grid grid-cols-3 pb-4 px-4 text-sm  text-secondary">
                         <div
                             className="flex items-center cursor-pointer hover:text-secondary"
                             onClick={() => requestSort('symbol')}
@@ -88,7 +88,7 @@ export default function Yield(): JSX.Element {
                                 ((sortConfig.direction === 'ascending' && <ChevronUp size={12} />) ||
                                     (sortConfig.direction === 'descending' && <ChevronDown size={12} />))}
                         </div>
-                        <div className="hover:text-secondary cursor-pointer" onClick={() => requestSort('tvl')}>
+                        {/* <div className="hover:text-secondary cursor-pointer" onClick={() => requestSort('tvl')}>
                            <div className="flex items-center justify-end">
                                <div>TVL</div>
                                {sortConfig &&
@@ -105,8 +105,8 @@ export default function Yield(): JSX.Element {
                                    ((sortConfig.direction === 'ascending' && <ChevronUp size={12} />) ||
                                        (sortConfig.direction === 'descending' && <ChevronDown size={12} />))}
                            </div>
-                        </div>
-                    </div> */}
+                        </div> */}
+                    </div>
                     <div className="flex-col space-y-2">
                         {items && items.length > 0 ? (
                             items.map((farm: any, i: number) => {
@@ -206,14 +206,14 @@ const UserBalance = ({ farm }: any) => {
                                 {farm && farm.liquidityPair.token0.symbol + '-' + farm.liquidityPair.token1.symbol}
                             </div>
                         </div>
-                        <div className="flex justify-end items-center">
+                        {/* <div className="flex justify-end items-center">
                             <div>
                                 <div className="text-right">{formattedNum(farm.depositedUSD, true)} </div>
                                 <div className="text-secondary text-right">
                                     {formattedNum(farm.depositedLP, false)} SSLP
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                         <div className="flex justify-end items-center">
                             <div>
                                 <div className="text-right">{formattedNum(farm.pendingBone)} </div>

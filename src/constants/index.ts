@@ -403,3 +403,10 @@ export const BASE_SWAPPER: { [chainId in ChainId]?: string } = {
 
 // Boring Helper
 export const BORING_HELPER_ADDRESS = '0x11Ca5375AdAfd6205E41131A4409f182677996E6'
+
+// Shiba Helper
+export const SHIBA_HELPER_ADDRESS: { [chainId in ChainId]?: string } = {
+    [ChainId.MAINNET]: '0x0',
+    [ChainId.KOVAN]: '0xC66C06FB92Fe4AbEFC23edD9410a138C740ae89a'
+}
+

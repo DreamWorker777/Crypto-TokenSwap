@@ -355,8 +355,8 @@ export default function AccountDetails({
                             <AccountGroupingRow>
                                 {ENSName ? (
                                     <>
-                                        <AccountControl>
-                                            <div>
+                                        <AccountControl >
+                                            <div className="-m-4">
                                                 {account && (
                                                     <Copy toCopy={account}>
                                                         <span style={{ marginLeft: '4px'}}>Copy Address</span>

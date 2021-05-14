@@ -7,6 +7,7 @@ import trophyLogo from "../../assets/images/trophy.png";
 import shibIcon from "../../assets/images/shibIcon.png";
 import leashIcon from "../../assets/images/leashIcon.png";
 import boneIcon from "../../assets/images/boneIcon.png";
+import { CardHeading, Col, CardsubTitle } from '../Home/Card'
 
 export default function Bonefolio(props:any) {
 
@@ -197,6 +198,7 @@ export default function Bonefolio(props:any) {
         margin-top: 5px;
         font-weight:500;
         color: #d5d5d5;
+        padding-left:10px
     `;
 
     const DetailSection = styled.div`
@@ -209,9 +211,8 @@ export default function Bonefolio(props:any) {
     const TableSection = styled.div`
         width: 100%;
         height: 80%;
-        //border: 2px solid green;
         position: relative;
-        top: 10%;
+        top: 2%;
     `;
 
     const TotalSection = styled.div`
@@ -219,21 +220,42 @@ export default function Bonefolio(props:any) {
         height: 10%;
         //border: 2px solid white;
         position: relative;
-        bottom: 0%;
+        bottom: -10%;
     `;
 
+    const Row = styled.div`
+    display: flex;
+    margin: 0;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 0 1rem 0;
+    `;
 
+    const Col = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-right: 0.3rem;
+    `;
+
+    const CardsubTitle = styled.div`
+        padding-left:1rem
+    `;
 
 
     return(
         <BonefolioContainer>
             <BoneSection>
-                <BoneHeaderSection>
-                <CardHeading>BONEFOLIO</CardHeading>
+                <Row>
+                <Col>
+                    <CardHeading>BONEFOLIO</CardHeading>
+                    <CardsubTitle>Every Shiba Inu needs to check their stash</CardsubTitle>
+                </Col>
+                <Col>
                 <TrophySection>
                     <TrophyIcon/>
                 </TrophySection>
-                </BoneHeaderSection>
+                </Col>
+                </Row>
                 <BarContainer>
                     <BarSection>
                         <TitleBarContainer>

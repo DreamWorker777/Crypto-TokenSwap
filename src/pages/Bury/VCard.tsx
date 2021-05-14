@@ -117,7 +117,7 @@ const InnerDiv = styled.div`
 `
 const P1 = styled.p`
     text-align: center;
-    font-size: 18px;
+    font-size: 1rem;
     font-family: Metric - Semibold;
     font-weight: 600;
     font-style: normal;
@@ -127,23 +127,23 @@ const P1 = styled.p`
 
 const P2 = styled.p`
     text-align: center;
-    font-size: 18px;
+    font-size: 1rem;
     padding-bottom: 0.5rem;
 `
 
 const P3 = styled.p`
     text-align: center;
-    font-size: 18px;
+    font-size: 1rem;
     padding-top: 1rem;
 `
 
 const P4 = styled.p`
     text-align: center;
-    font-size: 18px;
+    font-size: 1rem;
     padding-bottom: 1rem;
 `
 const Button = styled.a<{ disabled: boolean }>`
-    font-size: 18px;
+    font-size: 1rem;
     font-family: Metric - Bold
     background-color: #d5d5d5;
     color: #292c37;

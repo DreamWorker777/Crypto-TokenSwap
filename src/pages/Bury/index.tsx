@@ -53,7 +53,7 @@ export default function Bury(props:any) {
                     <Row>
                         <Col>
                             <CardHeading>BURY</CardHeading>
-                            <CardsubTitle>Shibas love to bury what they have found!</CardsubTitle>
+                            <CardsubTitle style={{ paddingTop: " 0.5rem"}}>Shibas love to bury what they have found!</CardsubTitle>
                         </Col>
                         <Col>
                             <ImageDiv>
@@ -61,7 +61,7 @@ export default function Bury(props:any) {
                             </ImageDiv>
                         </Col>
                     </Row>
-                    <div className="row" style={{paddingTop: "1rem",paddingBottom: "1rem"}}>
+                    <div className="row">
                         <div className="col-12 col-md-6 col-lg-3">
                             <VCard
                                 {...props}

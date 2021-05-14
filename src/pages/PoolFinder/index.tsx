@@ -70,7 +70,7 @@ export default function PoolFinder() {
     }, [setShowSearch])
 
     const prerequisiteMessage = (
-        <LightCard padding="45px 10px">
+        <LightCard className="pool-buttons">
             <Text textAlign="center">
                 {!account ? 'Connect to a wallet to find pools' : 'Select a token to find your liquidity.'}
             </Text>

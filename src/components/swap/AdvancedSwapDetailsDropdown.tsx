@@ -6,7 +6,6 @@ import { AdvancedSwapDetails, AdvancedSwapDetailsProps } from './AdvancedSwapDet
 const AdvancedDetailsFooter = styled.div<{ show: boolean }>`
     padding-top: calc(16px + 2rem);
     padding-bottom: 16px;
-    margin-top: -2rem;
     width: 100%;
     max-width: 544px;
     border-bottom-left-radius: 20px;
@@ -16,7 +15,7 @@ const AdvancedDetailsFooter = styled.div<{ show: boolean }>`
     // background-color: ${({ theme }) => theme.advancedBG};
     z-index: -1;
 
-    transform: ${({ show }) => (show ? 'translateY(0%)' : 'translateY(-100%)')};
+    transform: ${({ show }) => (show ? 'translateY(0%)' : 'translateY(5%)')};
     transition: transform 300ms ease-in-out;
 `
 
@@ -24,7 +23,7 @@ export default function AdvancedSwapDetailsDropdown({ trade, ...rest }: Advanced
     const lastTrade = useLastTruthy(trade)
 
     return (
-        <AdvancedDetailsFooter show={Boolean(trade)}>
+        <AdvancedDetailsFooter show={Boolean(trade)} className="view_analytic">
             <AdvancedSwapDetails {...rest} trade={trade ?? lastTrade ?? undefined} />
         </AdvancedDetailsFooter>
     )

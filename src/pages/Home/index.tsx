@@ -18,7 +18,7 @@ const Col = styled.div<{ size: any }>`
 export default function Home() {
     return (
         <PageWrapper gap="lg" justify="center">
-            <div className="container my-auto pb-10">
+            <div className="container my-auto pb-10 home-container">
                 <div className="row">
                     <div className="col-12 col-md-6 col-lg-4">
                         <div className="card_styles">
@@ -40,8 +40,8 @@ export default function Home() {
                         <Card
                             name="FETCH"
                             url="/fetch"
-                            subTitle="Swap your tokens"
-                            desc="Swap tokens for other tokens."
+                            subTitle="Shib will retrieve your Uniswap or SushiSwap LP Tokens"
+                            desc="For two weeks bring designated Liquidity Tokens from Uniswap or Sushiswap to get bonus Bone tokens."
                             buttonText="Fetch"
                             disabled={false}
                             icon="/images/fetch_icon.svg"
@@ -68,8 +68,8 @@ export default function Home() {
                         <Card
                             name="SWAP"
                             url="/#"
-                            subTitle="Burn bones to get Treat"
-                            desc="New token woofing soon!"
+                            subTitle="Tell your Shiba Inu to fetch new tokens"
+                            desc="Swap tokens for other tokens."
                             buttonText="Locked"
                             disabled={true}
                             icon="/images/fetch_icon.svg"
@@ -82,8 +82,8 @@ export default function Home() {
                         <Card
                             name="BONEFOLIO"
                             url="/bonefolio"
-                            subTitle="Every Shiba Inu needs to check their stash."
-                            desc="Check your dogalytics, bonefolio and set alerts"
+                            subTitle="Every Shiba Inu needs to check their stash"
+                            desc="Check your dogalytics, Bonefolio and set alerts."
                             buttonText="Bonefolio"
                             disabled={false}
                             icon="/images/bonefolio_icon.svg"

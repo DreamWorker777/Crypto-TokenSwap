@@ -197,7 +197,7 @@ const ClaimSecondSection = styled.div`
 `;
 
 const ClaimButton = styled.div`
-  width: 100px;
+  width: 30%;
   height: auto;
   line-height: 40px;
   border-radius: 10px;
@@ -209,11 +209,10 @@ const ClaimButton = styled.div`
   //right:10px;
   //left:50px;
   cursor: pointer;
-  line-height: 45px;
+  line-height: 35px;
   font-weight: 500;
-  margin-right:5px;
-  margin-bottom: 5px;
-  padding-top:5px;
+  margin-top: 20px ;
+
 
   @media (max-width: 600px) {
     top: 0px;
@@ -263,7 +262,7 @@ export default function SushiBar(props:any) {
 
       <StakeSection>
 
-      <StakeButton onClick={()=>{handleStakeSelect("Unstake")}} style={{color: !isStakeSelected?"#fea31c":""}}>Unstake</StakeButton>
+      <StakeButton onClick={()=>{handleStakeSelect("Unstake")}} style={{color: !isStakeSelected?"#fea31c":"", marginRight:"45px" }}>Unstake</StakeButton>
       <StakeButton onClick={()=>{handleStakeSelect("Stake")}} style={{color: isStakeSelected?"#fea31c":""}}>Stake</StakeButton>
       <br></br>
 

@@ -42,7 +42,7 @@ function ConfirmationPendingContent({ onDismiss, pendingText }: { onDismiss: () 
                     <CustomLightSpinner src={Circle} alt="loader" size={'90px'} />
                 </ConfirmedIcon>
                 <AutoColumn gap="12px" justify={'center'}>
-                    <Text fontWeight={500} fontSize={20}>
+                    <Text fontWeight={500} fontSize={20} textAlign="center">
                         Waiting For Confirmation
                     </Text>
                     <AutoColumn gap="12px" justify={'center'}>

@@ -25,6 +25,7 @@ input:focus {
   width: 11.688rem;
   padding: 0.4rem 0.6rem;
   border: 2px double transparent;
+  border-width: 3px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -173,6 +174,7 @@ button#connect-wallet {
 }
 .footer-section{
   background: #141824;
+  z-index: 999;
 }
 .main-container-section{
   margin-bottom: 50px;
@@ -192,6 +194,9 @@ button#connect-wallet {
 }
 .fetch-card:hover{
   cursor: pointer;
+}
+.modal-confirm span.doublelogo{
+  top: 8px !important
 }
 @media only screen and (max-width: 974px) {
   .nav-prices,
@@ -229,8 +234,28 @@ button#connect-wallet {
     position: relative;
     float: right;
   }
+  .view_analytic{
+    margin-top: 20px;
+  }
 }
 
+@media (min-width: 1100px) and (max-width: 1480px)  {
+  .dig {
+    width: 50% !important;
+    right: 5%;  
+    left: -18px !important;
+  }
+  .data-container {
+    width: 50% !important;
+    left: 0px !important;
+  }
+}
+
+@media (min-width: 1100px) and (max-width: 2560px)  {
+  .main-container-section{
+    margin-bottom: 0px;
+  }
+}
 
 
 /* .border-gradient {

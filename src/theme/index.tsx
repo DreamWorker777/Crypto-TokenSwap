@@ -155,7 +155,7 @@ export const TYPE = {
         return <TextWrapper fontWeight={500} fontSize={20} {...props} />
     },
     subHeader(props: TextProps) {
-        return <TextWrapper fontWeight={400} fontSize={14} {...props} />
+        return <TextWrapper fontWeight={500} fontSize={14} {...props} />
     },
     small(props: TextProps) {
         return <TextWrapper fontWeight={500} fontSize={11} {...props} />
@@ -243,7 +243,7 @@ body {
   // min-height: 100vh;
   // background-position: 0 -30vh;
   background-repeat: no-repeat;
-  background-size: 100% 90vh;
+  background-size: 100% 94vh;
   background-image: ${({ theme }) => `url('/images/background.png')`};
 }
 `

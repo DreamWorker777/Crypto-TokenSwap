@@ -147,14 +147,15 @@ export default function BuryWithdrawlPanel(props:any){
     return (
         <>
         <div>   
-            <PercentContainer>
+            <PercentContainer className="mt-1">
             <PercentAvailable style={{float:'left'}}>Available: {buryBalanceValue ? buryBalanceValue : buryBalanceBigInt.isLoading ? 'Loading': 0 }</PercentAvailable> 
             <Percent style={{color: (activePercent === "100")?"#fea31c":"", marginRight:"20px"}} onClick={()=>{handlePercentSelect("100")}}>100%</Percent>
             <Percent style={{color: (activePercent === "75")?"#fea31c":""}} onClick={()=>{handlePercentSelect("75")}}>75%</Percent>
             <Percent style={{color: (activePercent === "50")?"#fea31c":""}} onClick={()=>{handlePercentSelect("50")}}>50%</Percent>
             <Percent style={{color: (activePercent === "25")?"#fea31c":""}} onClick={()=>{handlePercentSelect("25")}}>25%</Percent>
             </PercentContainer>
-
+            {
+            !allowance || Number(allowance) === 0 ? 
             <Input
                 className="recipient-address-input"
                 //type="number"
@@ -164,8 +165,19 @@ export default function BuryWithdrawlPanel(props:any){
                 onChange={(event)=>{handleInputChange(event)}}
                 onClick={()=>handleInputClick()}
                 value={input}
+            /> :
+            <Input
+            className="recipient-address-input"
+            //type="number"
+            type="number"
+            pattern="^[0-9]*[.,]?[0-9]*$"
+            placeholder="Type an amount to unstake"
+            onChange={(event)=>{handleInputChange(event)}}
+            onClick={()=>handleInputClick()}
+            value={input}
             />
-            <div>
+            }
+            
             {
             !allowance || Number(allowance) === 0 ? 
                 <ButtonSelect disabled={requestedApproval} onClick={()=>{handleApprove()}}>  
@@ -194,7 +206,7 @@ export default function BuryWithdrawlPanel(props:any){
                 </ButtonSelect> 
             } 
               </div>  
-        </div>  
+        
         
         </>
     )

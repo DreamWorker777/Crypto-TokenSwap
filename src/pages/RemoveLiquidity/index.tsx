@@ -517,8 +517,8 @@ export default function RemoveLiquidity({
                                 </TYPE.link>
                             </AutoColumn>
                         </BlueCard>
-                        <LightCard>
-                            <AutoColumn gap="20px">
+                        <LightCard >
+                            <AutoColumn gap="20px" >
                                 <RowBetween>
                                     <Text fontWeight={500}>Amount</Text>
                                     <ClickableText

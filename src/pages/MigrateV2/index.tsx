@@ -535,6 +535,7 @@ const MigrateParent = () => {
                     <Row>
                         <Col>
                             <CardHeading>FETCH</CardHeading>
+                            <CardsubTitle style={{ paddingTop: " 0.5rem"}}>Shib will retrieve your Uniswap or SushiSwap LP Tokens</CardsubTitle>
                         </Col>
                         <Col>
                             <ImageDiv>

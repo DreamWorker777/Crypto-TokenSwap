@@ -315,7 +315,7 @@ export default function AccountDetails({
                                 <div>
                                     {connector !== injected && connector !== walletlink && (
                                         <WalletAction
-                                            style={{ fontSize: '.825rem', fontWeight: 400, marginRight: '8px' }}
+                                            style={{ fontSize: '.825rem', fontWeight: 500, marginRight: '8px' }}
                                             onClick={() => {
                                                 ;(connector as any).close()
                                             }}
@@ -324,7 +324,7 @@ export default function AccountDetails({
                                         </WalletAction>
                                     )}
                                     <WalletAction
-                                        style={{fontSize: '.825rem', fontWeight: 400, color: '#ffa409', border: '1px solid #ffa409' }}
+                                        style={{fontSize: '.825rem', fontWeight: 500, color: '#ffa409', border: '1px solid #ffa409' }}
                                         onClick={() => {
                                             openOptions()
                                         }}

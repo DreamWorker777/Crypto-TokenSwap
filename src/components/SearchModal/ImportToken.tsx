@@ -132,7 +132,7 @@ export function ImportToken({ tokens, onBack, onDismiss, handleCurrencySelect }:
                     </AutoColumn>
 
                     <AutoColumn style={{ textAlign: 'center', gap: '16px', marginBottom: '12px' }}>
-                        <TYPE.body fontWeight={400} color={fromLists ? theme.yellow2 : theme.red1}>
+                        <TYPE.body fontWeight={500} color={fromLists ? theme.yellow2 : theme.red1}>
                             Anyone can create a token, including creating fake versions of existing tokens that claim to
                             represent projects.
                         </TYPE.body>

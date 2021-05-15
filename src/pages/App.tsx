@@ -180,7 +180,7 @@ function App(): JSX.Element {
                             <Route component={RedirectPathToSwapOnly} />
                         </Switch>
                     </Web3ReactManager>
-                    <Footer />
+                <Footer />
                 </div>
             </div>
         </Suspense>

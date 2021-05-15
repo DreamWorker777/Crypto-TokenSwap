@@ -223,7 +223,6 @@ button#connect-wallet {
   }
 
 }
-
 @media (min-width: 601px) and (max-width: 1024px) {
   .nav-prices,
   .nav-price-alert-btn,
@@ -257,6 +256,11 @@ button#connect-wallet {
   }
 }
 
+@media (min-width: 1800px) and (max-width: 3000px)  {
+  .main-container-section{
+    margin-bottom: 0px;
+  }
+}
 
 /* .border-gradient {
   padding: 2px;

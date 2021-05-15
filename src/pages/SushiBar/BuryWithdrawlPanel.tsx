@@ -154,29 +154,17 @@ export default function BuryWithdrawlPanel(props:any){
             <Percent style={{color: (activePercent === "50")?"#fea31c":""}} onClick={()=>{handlePercentSelect("50")}}>50%</Percent>
             <Percent style={{color: (activePercent === "25")?"#fea31c":""}} onClick={()=>{handlePercentSelect("25")}}>25%</Percent>
             </PercentContainer>
-            {
-            !allowance || Number(allowance) === 0 ? 
+            
             <Input
                 className="recipient-address-input"
                 //type="number"
                 type="number"
                 pattern="^[0-9]*[.,]?[0-9]*$"
-                placeholder="Type an amount to stake"
+                placeholder="Type an amount to unstake"
                 onChange={(event)=>{handleInputChange(event)}}
                 onClick={()=>handleInputClick()}
                 value={input}
-            /> :
-            <Input
-            className="recipient-address-input"
-            //type="number"
-            type="number"
-            pattern="^[0-9]*[.,]?[0-9]*$"
-            placeholder="Type an amount to unstake"
-            onChange={(event)=>{handleInputChange(event)}}
-            onClick={()=>handleInputClick()}
-            value={input}
-            />
-            }
+            /> 
             
             {
             !allowance || Number(allowance) === 0 ? 

@@ -239,7 +239,7 @@ export default function CurrencyInputPanel({
                                     margin={true}
                                 />
                             ) : currency ? (
-                                <div className="flex-1">
+                                <div className="flex-1" style={{ width: 54, height: 54 }}>
                                     <CurrencyLogo currency={currency} size={'54px'} />
                                 </div>
                             ) : (

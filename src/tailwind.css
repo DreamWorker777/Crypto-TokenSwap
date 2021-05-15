@@ -175,6 +175,9 @@ button#connect-wallet {
 .footer-section{
   background: #141824;
   z-index: 999;
+  border-top: 1px solid #292d38;
+  box-shadow: -5px -5px 5px 0px rgb(41 45 56 / 63%);
+  -webkit-box-shadow: -5px -5px 5px 0px rgb(13 14 19 / 63%);
 }
 .main-container-section{
   margin-bottom: 50px;
@@ -198,6 +201,7 @@ button#connect-wallet {
 .modal-confirm span.doublelogo{
   top: 8px !important
 }
+
 @media only screen and (max-width: 974px) {
   .nav-prices,
   .nav-price-alert-btn,
@@ -238,15 +242,30 @@ button#connect-wallet {
   }
 }
 
-@media (min-width: 1100px) and (max-width: 1480px)  {
+@media (min-width: 1100px) and (max-width: 1399px)  {
   .dig {
-    width: 50% !important;
-    right: 5%;  
-    left: -18px !important;
+    width: 45% !important;
+    left: 60px !important;
   }
   .data-container {
-    width: 50% !important;
-    left: 0px !important;
+    width: 45% !important;
+    left: 77px !important;
+
+  }
+  .dig-container {
+    width: 100% !important;
+  }
+  .balance{
+    margin-top: -21px;
+  }
+  .currency-div{
+    padding: 0 !important;
+    width: 100%!important;
+    margin-left: -16px;
+  }
+  .token-amount-input {
+    width: 100% !important;
+    margin-left: 0px !important;;
   }
 }
 

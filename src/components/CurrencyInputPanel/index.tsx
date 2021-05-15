@@ -315,7 +315,7 @@ export default function CurrencyInputPanel({
                         </>
                     )} */}
                 </div>
-                <div style={InputTextStyle} className="flex items-center rounded space-x-3 p-3 w-full sm:w-3/5">
+                <div style={InputTextStyle} className="flex items-center rounded space-x-3 p-3 w-full sm:w-3/5 currency-div">
                     {!hideInput && (
                         <>
                             {account && currency && showMaxButton && label !== 'To' && (
@@ -334,7 +334,7 @@ export default function CurrencyInputPanel({
                                 }}
                             />
                             {account && (
-                                <div onClick={onMax} className="font-medium cursor-pointer text-xs text-low-emphesis">
+                                <div onClick={onMax} className="font-medium cursor-pointer text-xs text-low-emphesis balance">
                                     {!hideBalance && !!currency && selectedCurrencyBalance
                                         ? (customBalanceText ?? 'Balance: ') + selectedCurrencyBalance?.toSignificant(6)
                                         : ' -'}

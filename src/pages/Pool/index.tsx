@@ -196,7 +196,7 @@ export default function Pool() {
                                         textAlign: 'center',
                                         width:'120px',
                                         height:'40px',
-                                        marginLeft: '-6px',
+                                        marginLeft: '1px',
                                     }}
                                 >
                                     Add Liquidity
@@ -243,7 +243,7 @@ export default function Pool() {
                         <AutoColumn justify={'center'} gap="xs">
                             <Text textAlign="center" fontSize={14} style={{ padding: '.5rem 0 .5rem 0' }}>
                                 {hasV1Liquidity ? 'Uniswap V1 liquidity found!' : "Don't see a pool you joined?"}{' '}
-                                <StyledInternalLink id="import-pool-link" to={hasV1Liquidity ? '/migrate/v1' : '/find'}>
+                                <StyledInternalLink id="import-pool-link" to={hasV1Liquidity ? '/migrate/v1' : '/find'} style={{ color: '#ffb73c' }}>
                                     {hasV1Liquidity ? 'Migrate now.' : 'Import it.'}
                                 </StyledInternalLink>
                             </Text>

@@ -4,7 +4,7 @@ import Brightness from '../../assets/images/brightness.svg'
 
 export default function Footer(props: any) {
     return (
-        <div className="footer-section absolute bottom-0 pb-2 w-full">
+        <div className="footer-section absolute bottom-0 pb-2 w-full mt-4">
             <div className="flex flex-row flex-nowrap justify-between w-screen my-auto">  
             <div className="space-x-2 mx-auto">
             {/* <div className="inline-block  absolute left-5">

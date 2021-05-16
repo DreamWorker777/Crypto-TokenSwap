@@ -67,11 +67,11 @@ export default function Home() {
 
                         <Card
                             name="SWAP"
-                            url="/#"
+                            url="/swap"
                             subTitle="Tell your Shiba Inu to fetch new tokens"
                             desc="Swap tokens for other tokens."
-                            buttonText="Locked"
-                            disabled={true}
+                            buttonText="Swap"
+                            disabled={false}
                             icon="/images/fetch_icon.svg"
                         />
                     </div>
@@ -94,12 +94,12 @@ export default function Home() {
                     <div className="card_styles">
 
                         <Card
-                            name="NFTs"
-                            url="/#"
-                            subTitle="Non Fungible Treats!"
-                            desc="Woofing soon!"
-                            buttonText="Locked"
-                            disabled={true}
+                            name="Yield"
+                            url="/yield"
+                            subTitle="Farm Bone"
+                            desc="Stake SSLP Tokens to earn BONE rewards!"
+                            buttonText="Farm"
+                            disabled={false}
                             icon="/images/nfts_icon.svg"
                         />
                     </div>

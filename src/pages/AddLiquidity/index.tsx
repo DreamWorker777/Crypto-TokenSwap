@@ -403,7 +403,7 @@ export default function AddLiquidity({
             {/* className="w-full max-w-2xl" */}
             <div className="dig-container container my-auto pb-10">
                 <div className="dig" id="digSection">
-                    <div className="wrapper mt-0">
+                    <div className="wrapper mt-0 contents">
                         <div className="dig--inner">
                             <div className="left" style={{ marginRight: '0rem' }}>
                                 <div className="inner">
@@ -417,7 +417,7 @@ export default function AddLiquidity({
                                         </div>
 
                                         {/* <Settings /> */}
-                                        <div className="image-div">
+                                        <div className="image-div mt-2">
                                             <img src={BoneImage} width="40" height="40" />
                                         </div>
                                     </div>

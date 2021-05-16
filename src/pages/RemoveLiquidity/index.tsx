@@ -489,7 +489,7 @@ export default function RemoveLiquidity({
             <Helmet>
                 <title>Remove Liquidity | Sushi</title>
             </Helmet>
-            <div className="bg-dark-900 w-full max-w-2xl rounded yield-card mt-2 my-auto">
+            <div className="bg-dark-900 w-full max-w-2xl rounded yield-card mt-2 my-auto" style={{background: "#171a23"}}>
                 <AddRemoveTabs creating={false} adding={false} />
                 <Wrapper>
                     <TransactionConfirmationModal
@@ -508,12 +508,13 @@ export default function RemoveLiquidity({
                         pendingText={pendingText}
                     />
                     <AutoColumn gap="md">
-                        <BlueCard style={{background: "#171a23"}}>
+                        <BlueCard >
                             <AutoColumn gap="10px">
-                                <TYPE.link fontWeight={400} color={'primaryText1'}>
-                                    <b>Tip:</b> Removing pool tokens converts your position back into underlying tokens
+                                <TYPE.link fontWeight={500}>
+                                    <p  className="text-gray-500"> <b>Tip:</b> Removing pool tokens converts your position back into underlying tokens
                                     at the current rate, proportional to your share of the pool. Accrued fees are
-                                    included in the amounts you receive.
+                                    included in the amounts you receive.</p>
+                                    
                                 </TYPE.link>
                             </AutoColumn>
                         </BlueCard>

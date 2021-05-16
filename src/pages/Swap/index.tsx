@@ -368,7 +368,7 @@ export default function Swap() {
             <SwapPoolTabs active={'swap'} />
             <div className="dig-container container my-auto pb-10">
                 <div className="dig" id="digSection">
-                    <div className="wrapper mt-0">
+                    <div className="wrapper mt-0 contents">
                         <div className="dig--inner">
                             <div className="left" style={{ marginRight: '0rem' }}>
                                 <div className="inner">
@@ -382,7 +382,7 @@ export default function Swap() {
                                         </div>
 
                                         
-                                        <div className="image-div">
+                                        <div className="image-div mt-2">
                                             <img src={SwapImage} width="40" height="40" />
                                         </div>
                                     </div>

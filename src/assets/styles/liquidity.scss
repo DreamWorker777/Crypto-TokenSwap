@@ -126,7 +126,8 @@
 .token-style {
     font-family: 'Metric - Bold';
     font-weight: 700;
-    font-size: 30px !important;
+    font-size: 28px !important;
+    margin-right: 1rem;
 }
 
 .label-style {
@@ -200,7 +201,7 @@
 .graph-container {
     .echarts-for-react {
         min-height: 200px !important;
-        height: 80% !important;
+        height: 87% !important;
     }
 }
 .open-currency-select-button{

@@ -114,17 +114,19 @@ export const Card: FunctionComponent<CardProps> = ({ name, url, subTitle, desc, 
                 <Col>
                     <CardHeading>{name}</CardHeading>
                 </Col>
-                <Col>
+                <Col className="absolute top-4 right-1">
                     <ImageDiv>
                         <Image height={40} width={40} src={icon} />
                     </ImageDiv>
                 </Col>
             </Row>
-            <p>{subTitle}</p>
+            <p style={{marginRight: "48px"}}>{subTitle}</p>
             <CardDesc>{desc}</CardDesc>
             <Button href={url} disabled={disabled}>
                 {buttonText}
             </Button>
+           
         </CardHeader>
+        
     </CardWrapper>
 )

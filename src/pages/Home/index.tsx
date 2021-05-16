@@ -36,7 +36,6 @@ export default function Home() {
 
                     <div className="col-12 col-md-6 col-lg-4">
                     <div className="card_styles">
-
                         <Card
                             name="FETCH"
                             url="/fetch"
@@ -44,7 +43,7 @@ export default function Home() {
                             desc="For two weeks bring designated Liquidity Tokens from Uniswap or Sushiswap to get bonus Bone tokens."
                             buttonText="Fetch"
                             disabled={false}
-                            icon="/images/fetch_icon.svg"
+                            icon="/images/fetchicon.svg"
                         />
                     </div>
                     </div>

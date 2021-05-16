@@ -260,7 +260,7 @@ export default function CurrencyInputPanel({
                                             {label}
                                         </div>
                                     )}
-                                    <div className="flex items-center">
+                                    <div className="flex items-center relative">
                                         {/* <StyledTokenName
                                             className="token-symbol-container"
                                             active={Boolean(currency && currency.symbol)}
@@ -282,19 +282,19 @@ export default function CurrencyInputPanel({
                                                     style={{ border: 0, fontFamily: 'Metric - Bold' }}
                                                 >
                                                     {t('selectToken')}
-                                                    <img
+                                                    {/* <img
                                                         src="/images/drop-down.png"
                                                         style={{
                                                             height: '0.7rem',
                                                             paddingTop: '0.2rem',
                                                             paddingLeft: '0.3rem'
                                                         }}
-                                                    />
+                                                    /> */}
                                                 </div>
                                             )}
                                         </div>
                                         {/* </StyledTokenName> */}
-                                        {!disableCurrencySelect && currency && <StyledDropDown selected={!!currency} />}
+                                        {!disableCurrencySelect && currency && <StyledDropDown selected={!!currency} className="absolute -right-3.5"/>}
                                     </div>
                                 </div>
                             )}
@@ -315,10 +315,10 @@ export default function CurrencyInputPanel({
                         </>
                     )} */}
                 </div>
-                <div style={InputTextStyle} className="flex items-center rounded space-x-3 p-3 w-full sm:w-3/5 currency-div">
+                <div style={InputTextStyle} className="ml-4 flex items-center rounded space-x-3 p-3 w-full sm:w-3/5 currency-div">
                     {!hideInput && (
                         <>
-                            {account && currency && showMaxButton && label !== 'To' && (
+                            {account && label !== 'To' && (
                                 <Button
                                     onClick={onMax}
                                     className="bg-transparent hover:bg-primary border border-low-emphesis rounded-full py-1 px-2 text-secondary text-xs font-medium whitespace-nowrap ml-3"

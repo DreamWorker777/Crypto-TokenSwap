@@ -321,7 +321,7 @@ export default function CurrencyInputPanel({
                             {account && currency && showMaxButton && label !== 'To' && (
                                 <Button
                                     onClick={onMax}
-                                    className="bg-transparent hover:bg-primary border border-low-emphesis rounded-full py-1 px-2 text-secondary text-xs font-medium whitespace-nowrap"
+                                    className="bg-transparent hover:bg-primary border border-low-emphesis rounded-full py-1 px-2 text-secondary text-xs font-medium whitespace-nowrap ml-3"
                                 >
                                     MAX
                                 </Button>

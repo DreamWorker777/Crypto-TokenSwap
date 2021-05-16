@@ -401,7 +401,7 @@ export default function AddLiquidity({
                 pendingText={pendingText}
             />
             {/* className="w-full max-w-2xl" */}
-            <div className="dig-container">
+            <div className="dig-container container my-auto pb-10">
                 <div className="dig" id="digSection">
                     <div className="wrapper mt-0">
                         <div className="dig--inner">
@@ -413,7 +413,7 @@ export default function AddLiquidity({
                                             <div className="description" style={{ margin: '10px 0px' }}>
                                                 Get BONES in our Liquidity Pool
                                             </div>
-                                            <div className="read-more mt-5">Read more about providing liquidity</div>
+                                            <div className="read-more mt-5 font-medium">Read more about providing liquidity</div>
                                         </div>
 
                                         {/* <Settings /> */}

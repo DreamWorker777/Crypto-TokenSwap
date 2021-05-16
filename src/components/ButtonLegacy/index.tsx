@@ -316,6 +316,8 @@ const ButtonConfirmedStyle = styled(Base)`
     background-color: ${({ theme }) => lighten(0.5, theme.green1)};
     color: ${({ theme }) => theme.green1};
     border: 1px solid ${({ theme }) => theme.green1};
+    padding:13px;
+    line-height: 1.2rem;
 
     &:disabled {
         opacity: 50%;

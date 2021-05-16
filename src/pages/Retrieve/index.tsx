@@ -104,7 +104,7 @@ export default function Retrieve({
                                 style={{
                                     color: '#d5d5d5',
                                     fontSize: '1.1rem',
-                                    fontWeight: 400,
+                                    fontWeight: 500,
                                     fontStyle: 'normal',
                                     letterSpacing: 'normal',
                                     lineHeight: 'normal',
@@ -122,7 +122,7 @@ export default function Retrieve({
                                 style={{
                                     color: '#d5d5d5',
                                     fontSize: '1.1rem',
-                                    fontWeight: 400,
+                                    fontWeight: 500,
                                     fontStyle: 'normal',
                                     letterSpacing: 'normal',
                                     lineHeight: 'normal',

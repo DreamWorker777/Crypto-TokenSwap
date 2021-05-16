@@ -113,7 +113,6 @@ export const Card: FunctionComponent<CardProps> = ({ name, url, subTitle, desc, 
             <Row>
                 <Col>
                     <CardHeading>{name}</CardHeading>
-                    <CardsubTitle>{subTitle}</CardsubTitle>
                 </Col>
                 <Col>
                     <ImageDiv>
@@ -121,6 +120,7 @@ export const Card: FunctionComponent<CardProps> = ({ name, url, subTitle, desc, 
                     </ImageDiv>
                 </Col>
             </Row>
+            <p>{subTitle}</p>
             <CardDesc>{desc}</CardDesc>
             <Button href={url} disabled={disabled}>
                 {buttonText}

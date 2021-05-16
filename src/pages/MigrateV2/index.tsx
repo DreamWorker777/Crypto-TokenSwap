@@ -376,7 +376,7 @@ const MigrateV2 = () => {
                                 <QuestionHelper text="Migrate your Uniswap LP tokens to ShibaSwap LP tokens." />
                             </div>
                         </AutoRow>
-                        <TYPE.white style={{ marginBottom: 8, fontWeight: 400 }}>
+                        <TYPE.white style={{ marginBottom: 8, fontWeight: 500 }}>
                             For each pool shown below, click migrate to remove your liquidity from Uniswap and deposit
                             it into Shibaswap.
                         </TYPE.white>
@@ -446,7 +446,7 @@ const MigrateV2Sushi = () => {
                                 <QuestionHelper text="Migrate your Sushiswap LP tokens to ShibaSwap LP tokens." />
                             </div>
                         </AutoRow>
-                        <TYPE.white style={{ marginBottom: 8, fontWeight: 400 }}>
+                        <TYPE.white style={{ marginBottom: 8, fontWeight: 500 }}>
                             For each pool shown below, click migrate to remove your liquidity from Sushiswap and deposit
                             it into Shibaswap.
                         </TYPE.white>

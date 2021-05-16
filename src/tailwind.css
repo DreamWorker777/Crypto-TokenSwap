@@ -178,9 +178,11 @@ button#connect-wallet {
   border-top: 1px solid #292d38;
   box-shadow: -5px -5px 5px 0px rgb(41 45 56 / 63%);
   -webkit-box-shadow: -5px -5px 5px 0px rgb(13 14 19 / 63%);
+  top: auto;
+
 }
 .main-container-section{
-  margin-bottom: 50px;
+  margin-bottom: 41px;
 }
 .pool-buttons{
   padding: 13px;
@@ -201,7 +203,33 @@ button#connect-wallet {
 .modal-confirm span.doublelogo{
   top: 8px !important
 }
-
+.bg-dark-8000{
+  background-color: #161821;
+}
+.bg-dark-9000{
+  background-color: #282b34;
+}
+.yield-card{
+  box-shadow: 0 0 9px 4px rgb(0 0 0 / 43%);
+  border-radius: 10px;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0%, rgba(17, 20, 27, 0.33) 31%, rgba(17, 20, 27, 0.5) 100%);
+}
+.yield-button{
+  font-size: 1rem !important;
+  background-color: transparent;
+  border: 2px solid rgb(213, 213, 213) !important;;
+  font-weight: bold !important;
+}
+.yield-button.bg-blue{
+  background-color: rgb(213, 213, 213) !important;
+  color: rgb(41, 44, 55);
+}
+.yield_slider button{
+  background-color: transparent;
+  color: rgb(213, 213, 213);
+  border-radius: 0.6rem;
+  border: 2px solid rgb(213, 213, 213);
+}
 @media only screen and (max-width: 974px) {
   .nav-prices,
   .nav-price-alert-btn,
@@ -242,7 +270,7 @@ button#connect-wallet {
   }
 }
 
-@media (min-width: 1100px) and (max-width: 1399px)  {
+@media (min-width: 1100px) and (max-width: 1400px)  {
   .dig {
     width: 45% !important;
     left: 60px !important;
@@ -269,18 +297,14 @@ button#connect-wallet {
   }
 }
 
-@media (min-width: 1100px) and (max-width: 2560px)  {
-  .main-container-section{
-    margin-bottom: 0px;
+
+@media (min-width: 992px) and (max-width: 1399px)  {
+  .dig--inner{
+    position: relative;
+    top: -10px;
+
   }
 }
-
-@media (min-width: 1800px) and (max-width: 3000px)  {
-  .main-container-section{
-    margin-bottom: 0px;
-  }
-}
-
 /* .border-gradient {
   padding: 2px;
   border: double 1px transparent;

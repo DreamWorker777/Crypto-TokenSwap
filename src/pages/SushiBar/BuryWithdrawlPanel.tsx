@@ -147,7 +147,7 @@ export default function BuryWithdrawlPanel(props:any){
     return (
         <>
         <div>   
-            <PercentContainer className="mt-1">
+            <PercentContainer>
             <PercentAvailable style={{float:'left'}}>Available: {buryBalanceValue ? buryBalanceValue : buryBalanceBigInt.isLoading ? 'Loading': 0 }</PercentAvailable> 
             <Percent style={{color: (activePercent === "100")?"#fea31c":"", marginRight:"20px"}} onClick={()=>{handlePercentSelect("100")}}>100%</Percent>
             <Percent style={{color: (activePercent === "75")?"#fea31c":""}} onClick={()=>{handlePercentSelect("75")}}>75%</Percent>

@@ -68,7 +68,7 @@ const UpperSection = styled.div`
         margin: 0;
         margin-bottom: 0.5rem;
         font-size: 1rem;
-        font-weight: 400;
+        font-weight: 500;
     }
 
     h5:last-child {

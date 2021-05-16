@@ -197,7 +197,7 @@ const ClaimSecondSection = styled.div`
 `;
 
 const ClaimButton = styled.div`
-  width: 30%;
+  width: 80px;
   height: auto;
   line-height: 40px;
   border-radius: 10px;
@@ -242,7 +242,7 @@ export default function SushiBar(props:any) {
 
   return (
     <>
-      <BurySection>
+      <BurySection className="m-auto">
       {/* <CloseIcon style={{backgroundImage:"url(" + closeLogo + ")"}}/> */}
       
       <BoxContainer>

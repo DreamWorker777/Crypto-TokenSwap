@@ -188,7 +188,7 @@ function V1PairMigration({ liquidityTokenAmount, token }: { liquidityTokenAmount
 
     return (
         <AutoColumn gap="20px">
-            <TYPE.body my={9} style={{ fontWeight: 400 }}>
+            <TYPE.body my={9} style={{ fontWeight: 500 }}>
                 This tool will safely migrate your V1 liquidity to V2 with minimal price risk. The process is completely
                 trustless thanks to the{' '}
                 {chainId && (
@@ -201,7 +201,7 @@ function V1PairMigration({ liquidityTokenAmount, token }: { liquidityTokenAmount
 
             {!isFirstLiquidityProvider && largePriceDifference ? (
                 <YellowCard>
-                    <TYPE.body style={{ marginBottom: 8, fontWeight: 400 }}>
+                    <TYPE.body style={{ marginBottom: 8, fontWeight: 500 }}>
                         It{"'"}s best to deposit liquidity into Uniswap V2 at a price you believe is correct. If the V2
                         price seems incorrect, you can either make a swap to move the price or wait for someone else to
                         do so.
@@ -243,7 +243,7 @@ function V1PairMigration({ liquidityTokenAmount, token }: { liquidityTokenAmount
 
             {isFirstLiquidityProvider && (
                 <PinkCard>
-                    <TYPE.body style={{ marginBottom: 8, fontWeight: 400 }}>
+                    <TYPE.body style={{ marginBottom: 8, fontWeight: 500 }}>
                         You are the first liquidity provider for this pair on Uniswap V2. Your liquidity will be
                         migrated at the current V1 price. Your transaction cost also includes the gas to create the
                         pool.
@@ -364,7 +364,7 @@ export default function MigrateV1Exchange({
                     <TYPE.largeHeader>You must connect an account.</TYPE.largeHeader>
                 ) : validatedAddress && chainId && token?.equals(WETH[chainId]) ? (
                     <>
-                        <TYPE.body my={9} style={{ fontWeight: 400 }}>
+                        <TYPE.body my={9} style={{ fontWeight: 500 }}>
                             Because Uniswap V2 uses WETH under the hood, your Uniswap V1 WETH/ETH liquidity cannot be
                             migrated. You may want to remove your liquidity instead.
                         </TYPE.body>

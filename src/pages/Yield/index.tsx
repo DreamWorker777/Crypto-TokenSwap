@@ -10,6 +10,7 @@ import { Card, CardHeader, Paper, Search, DoubleLogo, TokenLogo } from './compon
 import InputGroup from './InputGroup'
 import { Dots } from 'kashi/components'
 import { Helmet } from 'react-helmet'
+import { CardHeading, Col, CardsubTitle } from '../../pages/Home/Card'
 
 export const FixedHeightRow = styled(RowBetween)`
     height: 24px;
@@ -40,13 +41,13 @@ export default function Yield(): JSX.Element {
             </Helmet>
             <div className="container max-w-2xl mx-auto px-0 sm:px-4">
                 <Card
-                    className="h-full bg-dark-900"
+                    className="h-full yield-card"
                     header={
-                        <CardHeader className="flex justify-between items-center bg-dark-800">
+                        <CardHeader className="flex justify-between items-center bg-dark-8000">
                             <div className="flex w-full justify-between">
                                 <div className="hidden md:flex items-center">
                                     {/* <BackButton defaultRoute="/pool" /> */}
-                                    <div className="text-lg mr-2 whitespace-nowrap">Yield Instruments</div>
+                                    <CardHeading>YIELD</CardHeading>
                                 </div>
                                 <Search search={search} term={term} />
                             </div>
@@ -76,13 +77,13 @@ export default function Yield(): JSX.Element {
                             </div>
                         </>
                     )}
-                    All Farms
+                    {/* All Farms */}
                     <div className="grid grid-cols-3 pb-4 px-4 text-sm  text-secondary">
                         <div
                             className="flex items-center cursor-pointer hover:text-secondary"
                             onClick={() => requestSort('symbol')}
                         >
-                            <div>Instruments</div>
+                            {/* <div>Instruments</div> */}
                             {sortConfig &&
                                 sortConfig.key === 'symbol' &&
                                 ((sortConfig.direction === 'ascending' && <ChevronUp size={12} />) ||
@@ -135,7 +136,7 @@ const TokenBalance = ({ farm }: any) => {
     return (
         <>
             {farm.type === 'SSLP' && (
-                <Paper className="bg-dark-800">
+                <Paper className="bg-dark-9000">
                     <div
                         className="grid grid-cols-3 py-4 px-4 cursor-pointer select-none rounded text-sm"
                         onClick={() => setExpand(!expand)}

@@ -489,7 +489,7 @@ export default function RemoveLiquidity({
             <Helmet>
                 <title>Remove Liquidity | Sushi</title>
             </Helmet>
-            <div className="bg-dark-900 w-full max-w-2xl rounded">
+            <div className="bg-dark-900 w-full max-w-2xl rounded yield-card mt-2 my-auto">
                 <AddRemoveTabs creating={false} adding={false} />
                 <Wrapper>
                     <TransactionConfirmationModal
@@ -508,7 +508,7 @@ export default function RemoveLiquidity({
                         pendingText={pendingText}
                     />
                     <AutoColumn gap="md">
-                        <BlueCard>
+                        <BlueCard style={{background: "#171a23"}}>
                             <AutoColumn gap="10px">
                                 <TYPE.link fontWeight={400} color={'primaryText1'}>
                                     <b>Tip:</b> Removing pool tokens converts your position back into underlying tokens
@@ -521,14 +521,14 @@ export default function RemoveLiquidity({
                             <AutoColumn gap="20px" >
                                 <RowBetween>
                                     <Text fontWeight={500}>Amount</Text>
-                                    <ClickableText
+                                    {/* <ClickableText
                                         fontWeight={500}
                                         onClick={() => {
                                             setShowDetailed(!showDetailed)
                                         }}
                                     >
                                         {showDetailed ? 'Simple' : 'Detailed'}
-                                    </ClickableText>
+                                    </ClickableText> */}
                                 </RowBetween>
                                 <Row style={{ alignItems: 'flex-end' }}>
                                     <Text fontSize={25} fontWeight={500}>
@@ -541,7 +541,7 @@ export default function RemoveLiquidity({
                                             value={innerLiquidityPercentage}
                                             onChange={setInnerLiquidityPercentage}
                                         />
-                                        <RowBetween>
+                                        <RowBetween className="justify-center yield_slider">
                                             <MaxButton
                                                 onClick={() => onUserInput(Field.LIQUIDITY_PERCENT, '25')}
                                                 width="100%"
@@ -615,6 +615,7 @@ export default function RemoveLiquidity({
                                                         to={`/remove/${
                                                             currencyA === ETHER ? WETH[chainId].address : currencyIdA
                                                         }/${currencyB === ETHER ? WETH[chainId].address : currencyIdB}`}
+                                                        style={{color: "#fea31c"}}
                                                     >
                                                         Receive W{Currency.getNativeCurrencySymbol(chainId)}
                                                     </StyledInternalLink>
@@ -629,6 +630,7 @@ export default function RemoveLiquidity({
                                                                 ? 'ETH'
                                                                 : currencyIdB
                                                         }`}
+                                                        style={{color: "#fea31c"}}
                                                     >
                                                         Receive {Currency.getNativeCurrencySymbol(chainId)}
                                                     </StyledInternalLink>
@@ -725,7 +727,8 @@ export default function RemoveLiquidity({
                                             'Approve'
                                         )}
                                     </ButtonConfirmed>
-                                    <ButtonError
+                                    <ButtonError 
+                                        className="ml-2"
                                         onClick={() => {
                                             setShowConfirm(true)
                                         }}
@@ -738,8 +741,8 @@ export default function RemoveLiquidity({
                                             !!parsedAmounts[Field.CURRENCY_B]
                                         }
                                     >
-                                        <Text fontSize={16} fontWeight={500}>
-                                            <span className="fontFamily" style={{lineHeight: '1.2'}}>{error || 'Remove'}</span>
+                                        <Text fontSize={22} fontWeight={600}>
+                                            <span >{error || 'Remove'}</span>
                                         </Text>
                                     </ButtonError>
                                 </RowBetween>

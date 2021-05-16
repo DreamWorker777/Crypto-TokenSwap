@@ -79,7 +79,7 @@ export default function MigrateV1() {
                     </div>
                 </AutoRow>
 
-                <TYPE.body style={{ marginBottom: 8, fontWeight: 400 }}>
+                <TYPE.body style={{ marginBottom: 8, fontWeight: 500 }}>
                     For each pool shown below, click migrate to remove your liquidity from Uniswap V1 and deposit it
                     into Uniswap V2.
                 </TYPE.body>

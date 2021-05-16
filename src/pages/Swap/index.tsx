@@ -366,7 +366,7 @@ export default function Swap() {
                 onConfirm={handleConfirmTokenWarning}
             />
             <SwapPoolTabs active={'swap'} />
-            <div className="dig-container">
+            <div className="dig-container container my-auto pb-10">
                 <div className="dig" id="digSection">
                     <div className="wrapper mt-0">
                         <div className="dig--inner">
@@ -378,7 +378,7 @@ export default function Swap() {
                                             <div className="description" style={{ margin: '10px 0px' }}>
                                             Swap your tokens for other tokens
                                             </div>
-                                            <div className="read-more mt-5">Read more about swapping tokens</div>
+                                            <div className="read-more mt-5 font-medium">Read more about swapping tokens</div>
                                         </div>
 
                                         

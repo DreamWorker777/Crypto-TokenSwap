@@ -4,8 +4,8 @@ import Brightness from '../../assets/images/brightness.svg'
 
 export default function Footer(props: any) {
     return (
-        <div className="footer-section absolute bottom-0 pb-2 w-full mt-4">
-            <div className="flex flex-row flex-nowrap justify-between w-screen my-auto">  
+        <div className="footer-section absolute bottom-0 w-full">
+            <div className="flex flex-row flex-nowrap justify-between w-screen my-auto p-1">  
             <div className="space-x-2 mx-auto">
             {/* <div className="inline-block  absolute left-5">
                 <img src={Brightness} className="px-2 metric-semibold text-xsf font-medium	"/>

@@ -44,7 +44,7 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
 
     :focus,
     :hover {
-        background-color: #171a23;
+        background-color: transparent;
     }
 `
 

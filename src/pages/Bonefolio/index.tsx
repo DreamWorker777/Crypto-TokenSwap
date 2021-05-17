@@ -8,7 +8,7 @@ import shibIcon from "../../assets/images/shibIcon.png";
 import leashIcon from "../../assets/images/leashIcon.png";
 import boneIcon from "../../assets/images/boneIcon.png";
 import { CardHeading, Col, CardsubTitle } from '../Home/Card'
-import TrophyImage from '../../assets/images/TROPHY.svg'
+import BonefolioImage from '../../assets/images/home/bonefolio_icon.svg'
 
 export default function Bonefolio(props:any) {
 
@@ -254,7 +254,7 @@ export default function Bonefolio(props:any) {
                 </Col>
                 <Col className="mt-4 pr-3">
                 <div className="image-div">
-                    <img src={TrophyImage} width="40" height="40" />
+                    <img src={BonefolioImage} width="40" height="40" />
                 </div>
                 </Col>
                 </Row>

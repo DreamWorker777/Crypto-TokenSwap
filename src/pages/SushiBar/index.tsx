@@ -282,17 +282,17 @@ export default function SushiBar(props:any) {
       <ClaimContainer>
         <ClaimFirstSection>
           <div style={{paddingLeft:"15px",margin:"20px"}}> 
-          <TYPE.white fontWeight={500} fontSize={18}>Your staked amount - $000,000,000.000</TYPE.white>
-          <TYPE.white fontWeight={500} fontSize={18}>Available-</TYPE.white>
-          <TYPE.white fontWeight={500} fontSize={18}>Yearly ROI - 0,00%</TYPE.white>
-          <TYPE.white fontWeight={500} fontSize={18}>Value - $0.000</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={16}>Your staked amount - $1000</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={16}>Available-</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={16}>Yearly ROI - 0,00%</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={16}>Value - $0.000</TYPE.white>
           </div>
         </ClaimFirstSection>
         
         <ClaimSecondSection>
         <div style={{marginLeft:"15px",margin:"20px"}}>
-          <TYPE.white fontWeight={500} fontSize={18}>Rewards - $0.000</TYPE.white>
-          <TYPE.white fontWeight={500} fontSize={18}>Available date:</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={16}>Rewards - $0.000</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={16}>Available date:</TYPE.white>
           <ClaimButton
           //  disabled={
           //  // TODO: write relevant condition

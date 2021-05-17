@@ -13,18 +13,11 @@ export default function Card({
     return (
         <div
             className={`relative ${className}`}
-            style={{
-                borderRadius: '10px',
-                backgroundImage: `url(${backgroundImage})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'contain',
-                backgroundPosition: 'center bottom'
-            }}
         >
             <div>
                 {header && <>{header}</>}
 
-                <div className="px-2 py-4 sm:p-8 bg-dark-8000">
+                <div className="px-2 py-4 sm:p-8">
                     {title && <div className="text-2xl text-high-emphesis mb-4">{title}</div>}
                     {description && <div className="text-base text-secondary">{description}</div>}
                     {children}

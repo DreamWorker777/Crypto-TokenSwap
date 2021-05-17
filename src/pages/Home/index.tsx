@@ -29,7 +29,7 @@ export default function Home() {
                             desc="Provide liqiudity to earn BONES."
                             buttonText="Farm BONES"
                             disabled={false}
-                            icon="/images/bury_icon.svg"
+                            icon="/images/home/dig_icon.svg"
                         />
                     </div>
                     </div>
@@ -43,7 +43,7 @@ export default function Home() {
                             desc="For two weeks bring designated Liquidity Tokens from Uniswap or Sushiswap to get bonus Bone tokens."
                             buttonText="Fetch"
                             disabled={false}
-                            icon="/images/fetchicon.svg"
+                            icon="/images/home/fetchicon.svg"
                         />
                     </div>
                     </div>
@@ -57,7 +57,7 @@ export default function Home() {
                             desc="Stake tokens to gain returns."
                             buttonText="Stake Tokens"
                             disabled={false}
-                            icon="/images/treat_icon.svg"
+                            icon="/images/home/bury_icon.svg"
                         />
                     </div>
                     </div>
@@ -71,7 +71,7 @@ export default function Home() {
                             desc="Swap your tokens for other tokens."
                             buttonText="Swap"
                             disabled={false}
-                            icon="/images/fetch_icon.svg"
+                            icon="/images/home/swap_icon.svg"
                         />
                     </div>
                     </div>
@@ -85,7 +85,7 @@ export default function Home() {
                             desc="Check your dogalytics, Bonefolio and set alerts."
                             buttonText="Check your portfolio"
                             disabled={false}
-                            icon="/images/bonefolio_icon.svg"
+                            icon="/images/home/bonefolio_icon.svg"
                         />
                     </div>
                     </div>
@@ -99,7 +99,7 @@ export default function Home() {
                             desc="Stake SSLP Tokens to earn BONE rewards!"
                             buttonText="Returns"
                             disabled={false}
-                            icon="/images/nfts_icon.svg"
+                            icon="/images/home/yield_icon.svg"
                         />
                     </div>
                     </div>

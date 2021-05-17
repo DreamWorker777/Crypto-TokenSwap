@@ -32,18 +32,22 @@ export const CardHeading = styled.h1`
 `
 
 export const CardsubTitle = styled.p`
-    font-size: 1rem;
+    font-size: 15px;
     text-align: left;
     color: #d5d5d5;
     margin: 0;
     font-family: 'Heebo', sans-serif !important;
+<<<<<<< HEAD
+    font-weight: bold;
+=======
     font-weight: 600;
+>>>>>>> f5ea8446f7cebb88a3e0a565dd51d0d7ec203df4
 `
 
 const CardDesc = styled.p`
-    font-size: 0.9rem;
+    font-size: 15px;
     text-align: left;
-    font-weight: 500;
+    font-weight: bold;
     color: #d5d5d5;
     margin: 0;
     margin-top: 1.4rem;
@@ -66,7 +70,7 @@ const Button = styled.a<{ disabled: boolean }>`
     position: absolute;
     bottom: 0.6rem;
     font-size: 11pt;
-    width: 195px;
+    width: 200px;
     height: 40px;
     ${props =>
         props.disabled &&
@@ -114,7 +118,7 @@ export const Card: FunctionComponent<CardProps> = ({ name, url, subTitle, desc, 
                 <Col>
                     <CardHeading>{name}</CardHeading>
                 </Col>
-                <Col className="absolute top-4 right-1">
+                <Col className="absolute top-4 right-2">
                     <ImageDiv>
                         <Image height={40} width={40} src={icon} />
                     </ImageDiv>

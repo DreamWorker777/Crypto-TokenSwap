@@ -57,7 +57,7 @@ export default function Bury(props:any) {
                         </Col>
                         <Col>
                             <ImageDiv>
-                                <img height={40} width={40} src="/images/bury_icon.svg" />
+                                <img height={40} width={40} src="/images/home/bury_icon.svg" />
                             </ImageDiv>
                         </Col>
                     </Row>

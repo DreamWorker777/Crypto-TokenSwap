@@ -489,7 +489,7 @@ export default function RemoveLiquidity({
             <Helmet>
                 <title>Remove Liquidity | Sushi</title>
             </Helmet>
-            <div className="bg-dark-900 w-full max-w-2xl rounded yield-card mt-2 my-auto" style={{background: "#171a23"}}>
+            <div className="w-full max-w-2xl rounded yield-card mt-2 my-auto">
                 <AddRemoveTabs creating={false} adding={false} />
                 <Wrapper>
                     <TransactionConfirmationModal

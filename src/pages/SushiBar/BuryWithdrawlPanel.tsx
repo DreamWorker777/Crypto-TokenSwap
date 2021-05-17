@@ -74,7 +74,7 @@ const Input = styled.input<{ error?: boolean }>`
 
 const ButtonSelect = styled.button`
   width:90%;
-  height:60px;
+  height:52px;
   margin: auto;
   margin-top: 20px;
   border-radius: 10px;
@@ -83,7 +83,7 @@ const ButtonSelect = styled.button`
   color: #292c37;
   line-height: 60px;
   cursor: pointer;
-  font-size: 19px;
+  font-size: 1rem;
   line-height: 15px;
   font-family: "Metric - Semibold"
 `;
@@ -169,7 +169,7 @@ export default function BuryWithdrawlPanel(props:any){
             {
             !allowance || Number(allowance) === 0 ? 
                 <ButtonSelect disabled={requestedApproval} onClick={()=>{handleApprove()}}>  
-                    <TYPE.white fontWeight={700} fontSize={"21px"} color={"black"}>Approve</TYPE.white>
+                    <TYPE.white fontWeight={700} fontSize={"1rem"} color={"black"}>Approve</TYPE.white>
                 </ButtonSelect>
             :
                 <ButtonSelect 
@@ -190,7 +190,7 @@ export default function BuryWithdrawlPanel(props:any){
                     setPendingTx(false)
                     }}
                 >
-                    <TYPE.white fontWeight={700} fontSize={"21px"} color={"black"}>Unstake</TYPE.white>
+                    <TYPE.white fontWeight={700} fontSize={"1rem"} color={"black"}>Unstake</TYPE.white>
                 </ButtonSelect> 
             } 
               </div>  

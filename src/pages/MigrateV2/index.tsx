@@ -539,7 +539,7 @@ const MigrateParent = () => {
                         </Col>
                         <Col>
                             <ImageDiv>
-                                <img height={40} width={40} src="/images/fetch_icon.svg" />
+                                <img height={40} width={40} src="/images/home/fetchicon.svg" />
                             </ImageDiv>
                         </Col>
                     </Row>

@@ -135,7 +135,7 @@ export default function Pool() {
             <Helmet>
                 <title>Pool | Shiba</title>
             </Helmet>
-            <PageWrapper className="dig-liquidity mb-auto">
+            <PageWrapper className="dig-liquidity mb-auto my-auto">
                 <Alert
                     title="Liquidity provider rewards"
                     className="alert-container"

@@ -39,11 +39,11 @@ export default function Yield(): JSX.Element {
                 <title>Yield | Shiba</title>
                 <meta name="description" content="Farm BONE by staking LP (Liquidity Provider) tokens" />
             </Helmet>
-            <div className="container max-w-2xl mx-auto px-0 sm:px-4">
+            <div className="container max-w-2xl mx-auto px-0 sm:px-4 m-auto">
                 <Card
-                    className="h-full yield-card"
+                    className="h-full yield-card fetch-container"
                     header={
-                        <CardHeader className="flex justify-between items-center bg-dark-8000">
+                        <CardHeader className="flex justify-between items-center">
                             <div className="flex w-full justify-between">
                                 <div className="hidden md:flex items-center">
                                     {/* <BackButton defaultRoute="/pool" /> */}

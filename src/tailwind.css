@@ -217,7 +217,7 @@ button#connect-wallet {
 }
 .yield-button{
   font-size: 1rem !important;
-  background-color: transparent;
+  background: #0e111b;
   border: 2px solid rgb(213, 213, 213) !important;;
   font-weight: bold !important;
 }

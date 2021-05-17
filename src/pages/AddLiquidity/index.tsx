@@ -50,7 +50,7 @@ import { PoolPriceBar } from './PoolPriceBar'
 import Alert from '../../components/Alert'
 import { Helmet } from 'react-helmet'
 import '../../assets/styles/liquidity.scss'
-import BoneImage from '../../assets/images/dig_icon.svg'
+import DigImage from '../../assets/images/home/dig_icon.svg'
 import { constants } from 'os'
 import Settings from '../../components/Settings'
 import Chart from '../../components/Chart'
@@ -418,7 +418,7 @@ export default function AddLiquidity({
 
                                         {/* <Settings /> */}
                                         <div className="image-div mt-2">
-                                            <img src={BoneImage} width="40" height="40" />
+                                            <img src={DigImage} width="40" height="40" />
                                         </div>
                                     </div>
 

@@ -157,7 +157,7 @@
   "scripts": {
     "start": "cross-env PORT=3000 react-app-rewired start",
     "dev": "cross-env PORT=3001 react-app-rewired start",
-    "build": "npm install node-sass && npm rebuild node-sass && cross-env CI= GENERATE_SOURCEMAP=false react-app-rewired build",
+    "build": "npm install node-sass && npm rebuild node-sass && cross-env CI= GENERATE_SOURCEMAP=false react-app-rewired build && cp -r _redirects build/",
     "eject": "react-app-rewired eject",
     "test": "react-app-rewired test --env=jsdom",
     "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'",

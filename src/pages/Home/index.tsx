@@ -39,7 +39,7 @@ export default function Home() {
                         <Card
                             name="FETCH"
                             url="/fetch"
-                            subTitle="Shib will retrieve your Uniswap or SushiSwap LP Tokens"
+                            subTitle="Retrieve UNI-V2-LP or SLP for our event"
                             desc="For two weeks bring designated Liquidity Tokens from Uniswap or Sushiswap to get bonus Bone tokens."
                             buttonText="Fetch"
                             disabled={false}
@@ -54,7 +54,7 @@ export default function Home() {
                             name="BURY"
                             url="/bury"
                             subTitle="Shibas love to bury what they have found"
-                            desc="Stake tokens to get rewards."
+                            desc="Stake tokens to gain returns."
                             buttonText="Stake Tokens"
                             disabled={false}
                             icon="/images/treat_icon.svg"
@@ -68,7 +68,7 @@ export default function Home() {
                             name="SWAP"
                             url="/swap"
                             subTitle="Tell your Shiba Inu to fetch new tokens"
-                            desc="Swap tokens for other tokens."
+                            desc="Swap your tokens for other tokens."
                             buttonText="Swap"
                             disabled={false}
                             icon="/images/fetch_icon.svg"
@@ -83,7 +83,7 @@ export default function Home() {
                             url="/bonefolio"
                             subTitle="Every Shiba Inu needs to check their stash"
                             desc="Check your dogalytics, Bonefolio and set alerts."
-                            buttonText="Bonefolio"
+                            buttonText="Check your portfolio"
                             disabled={false}
                             icon="/images/bonefolio_icon.svg"
                         />
@@ -93,11 +93,11 @@ export default function Home() {
                     <div className="card_styles">
 
                         <Card
-                            name="Yield"
+                            name="YIELD"
                             url="/yield"
-                            subTitle="Farm Bone"
+                            subTitle="Claim your returns"
                             desc="Stake SSLP Tokens to earn BONE rewards!"
-                            buttonText="Farm"
+                            buttonText="Returns"
                             disabled={false}
                             icon="/images/nfts_icon.svg"
                         />

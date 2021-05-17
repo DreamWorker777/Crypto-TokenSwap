@@ -717,7 +717,7 @@ export default function RemoveLiquidity({
                                         confirmed={approval === ApprovalState.APPROVED || signatureData !== null}
                                         disabled={approval !== ApprovalState.NOT_APPROVED || signatureData !== null}
                                         mr="0.5rem"
-                                        fontWeight={500}
+                                        fontWeight={700}
                                         fontSize={16}
                                     >
                                         {approval === ApprovalState.PENDING ? (
@@ -742,7 +742,7 @@ export default function RemoveLiquidity({
                                             !!parsedAmounts[Field.CURRENCY_B]
                                         }
                                     >
-                                        <Text fontSize={22} fontWeight={600}>
+                                        <Text fontSize={16} fontWeight={700}>
                                             <span >{error || 'Remove'}</span>
                                         </Text>
                                     </ButtonError>

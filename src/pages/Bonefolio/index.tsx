@@ -34,6 +34,7 @@ export default function Bonefolio(props:any) {
     const BoneSection = styled.div`
         display: inline-block;
         width:50%;
+        min-height: 650px;
         height:auto;
         //border: 2px solid white;
         //margin:auto;

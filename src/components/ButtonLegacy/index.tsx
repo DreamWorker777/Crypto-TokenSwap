@@ -13,7 +13,7 @@ const Base = styled(RebassButton)<{
 }>`
     padding: ${({ padding }) => (padding ? padding : '16px')};
     width: ${({ width }) => (width ? width : '98%')};
-    font-weight: 500;
+    font-weight: 700;
     text-align: center;
     border-radius: 10px;
     border-radius: ${({ borderRadius }) => borderRadius && borderRadius};
@@ -50,16 +50,16 @@ export const ButtonPrimary = styled(Base)`
     background: rgba(255, 255, 255, 0.8);
     color: #1c2d41;
     font-family: 'Metric - Bold';
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 700;
     font-style: normal;
     letter-spacing: normal;
     text-align: center;
     overflow: hidden;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    padding:13px;
-    line-height: 1.2rem;
+    padding: 0.8rem;
+    line-height: 1.6rem;
     background-origin: border-box;
     &:focus {
         box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
@@ -96,12 +96,11 @@ export const ButtonPrimary = styled(Base)`
 export const ButtonPrimaryNormal = styled(Base)`
     border: none;
     border-radius: 0.25rem;
-    font-size: 110%;
     background: rgba(255, 255, 255, 0.8);
     color: #1c2d41;
     font-family: 'Metric - Semibold';
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 700;
     font-style: normal;
     letter-spacing: normal;
     line-height: normal;
@@ -135,9 +134,8 @@ export const ButtonLight = styled(Base)`
     font-size: 110%;
     background: rgba(255, 255, 255, 0.8);
     color: #1c2d41;
-    font-family: 'Metric-Semibold';
-    font-size: 22px;
-    font-weight: 600;
+    font-family: 'Metric-Semibold'1rem ;
+      font-weight: 600;
     font-style: normal;
     letter-spacing: normal;
     line-height: normal;
@@ -316,9 +314,7 @@ const ButtonConfirmedStyle = styled(Base)`
     background-color: ${({ theme }) => lighten(0.5, theme.green1)};
     color: ${({ theme }) => theme.green1};
     border: 1px solid ${({ theme }) => theme.green1};
-    padding:13px;
-    line-height: 1.2rem;
-
+    padding: 0.8rem;
     &:disabled {
         opacity: 50%;
         cursor: auto;

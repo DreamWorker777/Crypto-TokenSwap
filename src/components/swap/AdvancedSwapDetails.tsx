@@ -22,10 +22,10 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
 
     return (
         <>
-            <AutoColumn style={{ padding: '0 16px' }}>
+            <AutoColumn style={{ padding: '16px' }}>
                 <RowBetween>
                     <RowFixed>
-                        <div className="text-secondary text-sm">{isExactIn ? 'Minimum received' : 'Maximum sold'}</div>
+                        <div className="text-sm">{isExactIn ? 'Minimum received' : 'Maximum sold'}</div>
                         <QuestionHelper text="Your transaction will revert if there is a large, unfavorable price movement before it is confirmed." />
                     </RowFixed>
                     <RowFixed>
@@ -42,7 +42,7 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
                 </RowBetween>
                 <RowBetween>
                     <RowFixed>
-                        <div className="text-secondary text-sm">Price Impact</div>
+                        <div className="text-sm">Price Impact</div>
                         <QuestionHelper text="The difference between the market price and estimated price due to trade size." />
                     </RowFixed>
                     <FormattedPriceImpact priceImpact={priceImpactWithoutFee} />
@@ -50,7 +50,7 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
 
                 <RowBetween>
                     <RowFixed>
-                        <div className="text-secondary text-sm">Liquidity Provider Fee</div>
+                        <div className="text-sm">Liquidity Provider Fee</div>
                         <QuestionHelper text="A portion of each trade (0.25%) goes to liquidity providers as a protocol incentive." />
                     </RowFixed>
                     <div className="text-sm font-bold text-high-emphesis">
@@ -82,9 +82,9 @@ export function AdvancedSwapDetails({ trade }: AdvancedSwapDetailsProps) {
                     <TradeSummary trade={trade} allowedSlippage={allowedSlippage} />
                     {showRoute && (
                         <>
-                            <RowBetween style={{ padding: '0 16px' }}>
+                            <RowBetween style={{ padding: '0px 16px' }}>
                                 <span style={{ display: 'flex', alignItems: 'center' }}>
-                                    <div className="text-secondary text-sm">Route</div>
+                                    <div className="text-sm">Route</div>
                                     <QuestionHelper text="Routing through these tokens resulted in the best price for your trade." />
                                 </span>
                                 <SwapRoute trade={trade} />
@@ -92,7 +92,7 @@ export function AdvancedSwapDetails({ trade }: AdvancedSwapDetailsProps) {
                         </>
                     )}
                     {!showRoute && (
-                        <div className="flex justify-center pt-3 px-4">
+                        <div className="flex justify-center pt-1 px-4">
                             <ExternalLink
                                 href={
                                     'https://analytics.sushi.com/pairs/' + trade.route.pairs[0].liquidityToken.address

@@ -188,6 +188,7 @@ button#connect-wallet {
   padding: 13px;
   line-height: 1.2rem !important;
   font-size: 1rem;
+  border-radius: 0.5rem !important;
 }
 .fetch-container{
   box-shadow: 0 0 9px 4px rgb(0 0 0 / 43%);

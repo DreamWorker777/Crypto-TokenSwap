@@ -60,6 +60,13 @@ import SwapImage from '../../assets/images/fetch_icon.svg'
 import DownArrow from '../../assets/images/right-down-arrow.svg'
 import TokenButton from '../../components/Toggle/TokenButton'
 import { Currency, currencyEquals, ETHER, TokenAmount, WETH, ChainId, SHIBASWAP_SHIB_TOKEN_ADDRESS, SHIBASWAP_BONE_TOKEN_ADDRESS, SHIBASWAP_LEASH_TOKEN_ADDRESS, SHIBASWAP_BURY_BONE_ADDRESS, SHIBASWAP_BURY_SHIB_ADDRESS, SHIBASWAP_BURY_LEASH_ADDRESS} from '@shibaswap/sdk'
+import Settings from '../../components/Settings'
+import styled from 'styled-components'
+
+const StyledMenuIcon = styled(Settings)`
+    height: 20px;
+    width: 20px;
+    `
 
 export default function Swap() {
     const loadedUrlParams = useDefaultsFromURLSearch()
@@ -389,6 +396,9 @@ export default function Swap() {
 
                                     <div className="bottom" style={{ marginTop: '2rem' }}>
                                     <div className="swaparea">
+                                    <div className="settings_dig">
+                                            <StyledMenuIcon />
+                                        </div>
                                         <Wrapper id="swap-page" className="p-0">
                                             <ConfirmSwapModal
                                                 isOpen={showConfirm}
@@ -483,6 +493,17 @@ export default function Swap() {
                                                 otherCurrency={currencies[Field.INPUT]}
                                                 id="swap-currency-output"
                                             />
+                                            <hr className="m-0"/>
+                                            <div className="poolPriceBar pb-0 mt-0">
+                                                {!swapIsUnsupported ? (
+                                                    <AdvancedSwapDetailsDropdown trade={trade} />
+                                                ) : (
+                                                    <UnsupportedCurrencyFooter
+                                                        show={swapIsUnsupported}
+                                                        currencies={[currencies.INPUT, currencies.OUTPUT]}
+                                                    />
+                                                )}
+                                            </div>
 
                                             {recipient !== null && !showWrap ? (
                                                 <>
@@ -629,7 +650,7 @@ export default function Swap() {
                                 disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                                 error={isValid && priceImpactSeverity > 2 && !swapCallbackError}
                             >
-                                <Text fontSize={20} fontWeight={500}>
+                                <Text fontSize={16} fontWeight={500}>
                                     {swapInputError
                                         ? swapInputError
                                         : priceImpactSeverity > 3 && !isExpertMode
@@ -701,15 +722,6 @@ export default function Swap() {
                     </div>
                 </div>
             </div>
-                
-            {!swapIsUnsupported ? (
-                <AdvancedSwapDetailsDropdown trade={trade} />
-            ) : (
-                <UnsupportedCurrencyFooter
-                    show={swapIsUnsupported}
-                    currencies={[currencies.INPUT, currencies.OUTPUT]}
-                />
-            )}
         </>
     )
 }

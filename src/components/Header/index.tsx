@@ -1,7 +1,8 @@
 import { ChainId, Currency } from '@shibaswap/sdk'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import Logo from '../../assets/images/logo_shiba_swap.png'
+import { ReactComponent as Logo } from '../../assets/images/ss_logo.svg'
+// import Logo from '../../assets/images/logo_shiba_swap.png'
 import GreenUp from '../../assets/images/green_up.png'
 import GreenFuel from '../../assets/images/green_fuel.png'
 import { useActiveWeb3React } from '../../hooks'
@@ -37,7 +38,9 @@ export default function Header(): JSX.Element {
                             <div className="flex items-center">
                                 {/* <div > */}
                                     <a href="/" className="flex-shrink-0 m-l-1 nav-left-bar">
-                                        <img src={Logo} alt="Shiba" className="h-10 w-auto logo-name" />
+                                    <Logo className="h-10 w-auto logo-name" />
+
+                                        {/* <img src={Logo} alt="Shiba" className="h-10 w-auto logo-name" /> */}
                                         <span className="logo-text">SHIBASWAP</span>
                                     </a>
                                 {/* </div> */}

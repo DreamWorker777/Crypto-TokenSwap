@@ -169,12 +169,11 @@ const ButtonBury = styled.div<{ disabled: boolean }>`
 width: 90%;
 height: auto;
 font-size: 20px;
-font-family: Metric - Bold
 background-color: #d5d5d5;
 color: #292c37;
 border-radius: 0.6rem;
 font-weight: bold;
-padding: 12px 0px;
+padding: 10px 0px;
 //width: 170px;
 margin: auto;
 text-align: center;

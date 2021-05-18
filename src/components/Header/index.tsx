@@ -87,7 +87,7 @@ export default function Header(): JSX.Element {
                                         {chainId && (
                                             <ExternalLink
                                                 id={`analytics-nav-link`}
-                                                href={'https://analytics.sushi.com'}
+                                                href={''}
                                             >
                                                 Analytics
                                             </ExternalLink>
@@ -291,7 +291,7 @@ export default function Header(): JSX.Element {
                                 Tools
                             </NavLink>
                             {chainId && (
-                                <ExternalLink id={`analytics-nav-link`} href={'https://analytics.sushi.com'}>
+                                <ExternalLink id={`analytics-nav-link`} href={'#'}>
                                     Analytics
                                 </ExternalLink>
                             )}

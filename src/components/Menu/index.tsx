@@ -8,32 +8,32 @@ const solutions = [
     // {
     //     name: 'DOGPARK',
     //     // description: 'Documentation for users of Sushi.',
-    //     href: 'https://docs.sushi.com'
+    //     href: ''
     // },
     {
         name: 'GOVERNANCE',
         //description: 'Documentation for developers of Sushi.',
-        href: 'https://dev.sushi.com'
+        href: '#'
     },
     // {
     //     name: 'ROADMAP',
     //     //description: 'Sushi is a supporter of Open Source.',
-    //     href: 'https://github.com/sushiswap'
+    //     href: ''
     // },
     {
         name: 'WHITEPAPER',
         //description: 'Tools to optimize your workflow.',
-        href: '/tools'
+        href: '#'
     },
     {
         name: 'AUDIT',
         //description: 'Join the community on Discord.',
-        href: 'https://discord.gg/NVPXN4e'
+        href: ''
     },
     {
         name: 'FAQ',
         //description: 'Join the community on Discord.',
-        href: 'https://discord.gg/NVPXN4e'
+        href: ''
     }
 ]
 

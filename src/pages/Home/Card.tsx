@@ -37,11 +37,8 @@ export const CardsubTitle = styled.p`
     color: #d5d5d5;
     margin: 0;
     font-family: 'Heebo', sans-serif !important;
-<<<<<<< HEAD
     font-weight: bold;
-=======
-    font-weight: 600;
->>>>>>> f5ea8446f7cebb88a3e0a565dd51d0d7ec203df4
+    font-weight: 800;
 `
 
 const CardDesc = styled.p`

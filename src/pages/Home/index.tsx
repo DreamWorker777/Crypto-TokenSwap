@@ -26,7 +26,7 @@ export default function Home() {
                             name="DIG"
                             url="/pool"
                             subTitle="There are tons on BONES under the ground"
-                            desc="Provide liqiudity to earn BONES."
+                            desc="Provide liquidity to earn BONES."
                             buttonText="Farm BONES"
                             disabled={false}
                             icon="/images/home/dig_icon.svg"

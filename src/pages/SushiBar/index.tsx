@@ -342,7 +342,7 @@ export default function SushiBar(props:any) {
     <ExternalLink
     style={{ color: 'white', textDecoration: 'underline' }}
     target="_blank"
-    href="https://analytics.sushi.com/bar"
+    href=""
     >
     <TYPE.white fontSize={14} color={theme.text1}>
     View SushiBar Stats <span style={{ fontSize: '11px' }}>넇</span>
@@ -352,7 +352,7 @@ export default function SushiBar(props:any) {
     <ExternalLink
     style={{ color: 'white', textDecoration: 'underline' }}
     target="_blank"
-    href={'http://analytics.sushi.com/users/' + account}
+    href={'' + account}
     >
     <TYPE.white fontSize={14} color={theme.text1}>
     View your SushiBar Portfolio <span style={{ fontSize: '11px' }}>넇</span>

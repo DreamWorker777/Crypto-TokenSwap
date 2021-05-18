@@ -108,7 +108,7 @@ export function AdvancedSwapDetailsFixed({ trade }: AdvancedSwapDetailsProps) {
             {chainId === 1 && trade && !showRoute ? (
                 <AutoColumn style={{ padding: '12px 16px 0 16px' }}>
                     <InfoLink
-                        href={'https://analytics.sushi.com/pairs/' + trade?.route.pairs[0].liquidityToken.address}
+                        href={'#/pairs/' + trade?.route.pairs[0].liquidityToken.address}
                         target="_blank"
                     >
                         View Pair Analytics ↗
@@ -117,7 +117,7 @@ export function AdvancedSwapDetailsFixed({ trade }: AdvancedSwapDetailsProps) {
             ) : (
                 !showRoute && (
                     <AutoColumn style={{ padding: '12px 16px 0 16px' }}>
-                        <InfoLink href={'https://analytics.sushi.com/'} target="_blank">
+                        <InfoLink href={'#/'} target="_blank">
                             View Analytics ↗
                         </InfoLink>
                     </AutoColumn>

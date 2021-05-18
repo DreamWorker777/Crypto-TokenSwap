@@ -86,21 +86,21 @@ function App(): JSX.Element {
                         <Switch>
                             <PublicRoute exact path="/connect" component={Connect} />
                             {/* BentoApps */}
-                            <Route exact strict path="/bento" component={Bento} />
-                            <WalletRoute exact strict path="/bento/balances" component={BentoBalances} />
+                            {/*<Route exact strict path="/bento" component={Bento} />*/}
+                            {/*<WalletRoute exact strict path="/bento/balances" component={BentoBalances} />*/}
 
                             {/* Kashi */}
-                            <Route
-                                exact
-                                strict
-                                path="/bento/kashi"
-                                render={props => <Redirect to="/bento/kashi/borrow" {...props} />}
-                            />
-                            <WalletRoute exact strict path="/bento/kashi/lend" component={LendMarkets} />
-                            <WalletRoute exact strict path="/bento/kashi/borrow" component={BorrowMarkets} />
-                            <WalletRoute exact strict path="/bento/kashi/create" component={CreateMarkets} />
-                            <WalletRoute exact strict path="/bento/kashi/lend/:pairAddress" component={LendPair} />
-                            <WalletRoute exact strict path="/bento/kashi/borrow/:pairAddress" component={BorrowPair} />
+                            {/*<Route*/}
+                            {/*    exact*/}
+                            {/*    strict*/}
+                            {/*    path="/bento/kashi"*/}
+                            {/*    render={props => <Redirect to="/bento/kashi/borrow" {...props} />}*/}
+                            {/*/>*/}
+                            {/*<WalletRoute exact strict path="/bento/kashi/lend" component={LendMarkets} />*/}
+                            {/*<WalletRoute exact strict path="/bento/kashi/borrow" component={BorrowMarkets} />*/}
+                            {/*<WalletRoute exact strict path="/bento/kashi/create" component={CreateMarkets} />*/}
+                            {/*<WalletRoute exact strict path="/bento/kashi/lend/:pairAddress" component={LendPair} />*/}
+                            {/*<WalletRoute exact strict path="/bento/kashi/borrow/:pairAddress" component={BorrowPair} />*/}
 
                             <Route exact strict path="/claim" component={OpenClaimAddressModalAndRedirectToSwap} />
                             <Route exact strict path="/yield" component={Yield} />
@@ -116,14 +116,14 @@ function App(): JSX.Element {
                             {/* Pages */}
                             <Route exact strict path="/" component={Home} />
                             <Route exact strict path="/retrieve" component={Retrieve} />
-                            <Route
-                                exact
-                                strict
-                                path="/retrieve/:currencyIdA"
-                                component={RedirectOldRetrievePathStructure}
-                            />
+                            {/*<Route*/}
+                            {/*    exact*/}
+                            {/*    strict*/}
+                            {/*    path="/retrieve/:currencyIdA"*/}
+                            {/*    component={RedirectOldRetrievePathStructure}*/}
+                            {/*/>*/}
                             <Route exact strict path="/bury" component={Bury} />
-                            <Route exact path="/sushibar" render={() => <Redirect to="/stake" />} />
+                            {/*<Route exact path="/sushibar" render={() => <Redirect to="/stake" />} />*/}
                             <Route exact path="/stake/:tokenName" component={SushiBar} />
                             <Route exact strict path="/stake" component={SushiBar} />
                             <Route exact strict path="/bonefolio" component={Bonefolio} />

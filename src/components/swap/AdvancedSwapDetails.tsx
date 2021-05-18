@@ -95,7 +95,7 @@ export function AdvancedSwapDetails({ trade }: AdvancedSwapDetailsProps) {
                         <div className="flex justify-center pt-1 px-4">
                             <ExternalLink
                                 href={
-                                    'https://analytics.sushi.com/pairs/' + trade.route.pairs[0].liquidityToken.address
+                                    '#/' + trade.route.pairs[0].liquidityToken.address
                                 }
                             >
                                 View pair analytics

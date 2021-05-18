@@ -25,7 +25,6 @@ export const CardHeading = styled.h1`
     font-weight: bold;
     color: #d5d5d5;
     margin: 0;
-    font-family: 'Heebo' !important;
     line-height: 1.5rem;
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;

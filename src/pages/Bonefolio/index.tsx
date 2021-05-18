@@ -243,7 +243,7 @@ export default function Bonefolio(props:any) {
 
     const CardsubTitle = styled.div`
         padding-left:1rem;
-        font-family: 'Heebo', sans-serif;
+        font-family: 'Heebo' !important;
         font-weight: bold
     `;
 

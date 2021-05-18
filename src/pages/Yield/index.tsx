@@ -11,6 +11,7 @@ import InputGroup from './InputGroup'
 import { Dots } from 'kashi/components'
 import { Helmet } from 'react-helmet'
 import { CardHeading, Col, CardsubTitle } from '../../pages/Home/Card'
+import YieldImage from '../../assets/images/home/yield_icon.svg'
 
 export const FixedHeightRow = styled(RowBetween)`
     height: 24px;
@@ -39,21 +40,25 @@ export default function Yield(): JSX.Element {
                 <title>Yield | Shiba</title>
                 <meta name="description" content="Farm BONE by staking LP (Liquidity Provider) tokens" />
             </Helmet>
-            <div className="container max-w-2xl mx-auto px-0 sm:px-4 m-auto">
+            <div className="container max-w-2xl mx-auto px-0 sm:px-4 m-auto relative">
                 <Card
                     className="h-full yield-card fetch-container"
                     header={
                         <CardHeader className="flex justify-between items-center">
                             <div className="flex w-full justify-between">
-                                <div className="hidden md:flex items-center">
+                                <div className="items-center">
                                     {/* <BackButton defaultRoute="/pool" /> */}
                                     <CardHeading>YIELD</CardHeading>
+                                    <CardsubTitle className="flex-end">Claim your returns</CardsubTitle>
                                 </div>
-                                <Search search={search} term={term} />
+                                <div className="image-div">
+                                    <img src={YieldImage} width="40" height="40" />
+                                </div>
                             </div>
                         </CardHeader>
                     }
                 >
+                    <Search search={search} term={term} />
                     {/* UserFarms */}
                     {userFarms && userFarms.length > 0 && (
                         <>

@@ -59,6 +59,7 @@ import ToggleButton from '../../components/Toggle/ToggleButton'
 import TokenButton from '../../components/Toggle/TokenButton'
 import {prepareLineChartOptions, prepareCandleChartOptions} from '../../components/Chart/chartOptions'
 import { MenuFlyout, StyledMenu, StyledMenuButton } from 'components/StyledMenu'
+import { BackButton } from 'kashi/components'
 
 const StyledMenuIcon = styled(Settings)`
     height: 20px;
@@ -403,6 +404,7 @@ export default function AddLiquidity({
             {/* className="w-full max-w-2xl" */}
             <div className="dig-container container my-auto pb-10">
                 <div className="dig" id="digSection">
+                <BackButton defaultRoute="/pool" className="back_button"/>
                     <div className="wrapper mt-0 contents">
                         <div className="dig--inner">
                             <div className="left" style={{ marginRight: '0rem' }}>

@@ -22,6 +22,7 @@ import { useTokenBalancesWithLoadingIndicator } from '../../state/wallet/hooks'
 import { HideSmall, StyledInternalLink, TYPE } from '../../theme'
 import Alert from '../../components/Alert'
 import { Helmet } from 'react-helmet'
+import { BackButton } from 'kashi/components'
 
 const PageWrapper = styled(AutoColumn)`
     max-width: 640px;
@@ -50,6 +51,7 @@ const ButtonRow = styled(RowFixed)`
     width: 100%;
     flex-direction: row-reverse;
     justify-content: space-between;
+    font-family: 'Heebo' !important;
   `};
 `
 
@@ -135,13 +137,14 @@ export default function Pool() {
             <Helmet>
                 <title>Pool | Shiba</title>
             </Helmet>
-            <PageWrapper className="dig-liquidity mb-auto my-auto">
+            <PageWrapper className="dig-liquidity mb-auto my-auto relative">
+            <BackButton defaultRoute="" className="back_button -left-12 top-6"/>
                 <Alert
                     title="Liquidity provider rewards"
-                    className="alert-container"
+                    className="fetch-container"
                     message={
                         <>
-                            <p className="text-gray-500">
+                            <p className="text-gray-5000 text">
                                 Liquidity providers earn a 0.25% fee on all trades proportional to their share of the
                                 pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing
                                 your liquidity.
@@ -154,7 +157,7 @@ export default function Pool() {
                     <AutoColumn gap="md" style={{ width: '100%' }}>
                         <TitleRow style={{ marginTop: '1rem', marginBottom: '1rem' }} padding={'0'}>
                             <HideSmall>
-                                <TYPE.mediumHeader
+                                <TYPE.mediumHeader className="text"
                                     style={{ marginTop: '0.8rem', justifySelf: 'flex-start'}}
                                 >
                                     Your liquidity
@@ -162,6 +165,7 @@ export default function Pool() {
                             </HideSmall>
                             <ButtonRow>
                                 <a
+                                    className="text"
                                     href="/create/ETH"
                                     style={{
                                         fontSize: '1rem',
@@ -172,7 +176,7 @@ export default function Pool() {
                                         fontWeight: 'bold',
                                         padding: '0.5rem',
                                         paddingTop: '0.8rem',
-                                        lineHeight: '6px',
+                                        lineHeight: '10px',
                                         margin: 'auto',
                                         textAlign: 'center',
                                         width:'120px',
@@ -182,6 +186,7 @@ export default function Pool() {
                                     Create a Pair
                                 </a>
                                 <a
+                                    className="text"
                                     href="/add/ETH"
                                     style={{
                                         fontSize: '1rem',
@@ -191,12 +196,13 @@ export default function Pool() {
                                         fontWeight: 'bold',
                                         padding: '0.5rem',
                                         paddingTop: '0.8rem',
-                                        lineHeight: '11px',
+                                        lineHeight: '14px',
                                         margin: 'auto',
                                         textAlign: 'center',
                                         width:'120px',
                                         height:'40px',
                                         marginLeft: '1px',
+                                       
                                     }}
                                 >
                                     Add Liquidity
@@ -206,13 +212,13 @@ export default function Pool() {
 
                         {!account ? (
                             <Card padding="40px">
-                                <TYPE.body color={theme.text3} textAlign="center">
+                                <TYPE.body textAlign="center" className="text-gray-5000 text">
                                     Connect to a wallet to view your liquidity.
                                 </TYPE.body>
                             </Card>
                         ) : v2IsLoading ? (
                             <EmptyProposals>
-                                <TYPE.body color={theme.text3} textAlign="center">
+                                <TYPE.body textAlign="center" className="text-gray-5000 text">
                                     <Dots>Loading</Dots>
                                 </TYPE.body>
                             </EmptyProposals>
@@ -234,16 +240,16 @@ export default function Pool() {
                             </>
                         ) : (
                             <EmptyProposals>
-                                <TYPE.body color={theme.text3} textAlign="center" fontWeight={500}>
+                                <TYPE.body color={theme.text3} textAlign="center" fontWeight={500} className="text">
                                     No liquidity found.
                                 </TYPE.body>
                             </EmptyProposals>
                         )}
 
                         <AutoColumn justify={'center'} gap="xs">
-                            <Text textAlign="center" fontSize={14} style={{ padding: '.5rem 0 .5rem 0' }}>
+                            <Text textAlign="center" fontSize={14} style={{ padding: '.5rem 0 .5rem 0' }} className="text">
                                 {hasV1Liquidity ? 'Uniswap V1 liquidity found!' : "Don't see a pool you joined?"}{' '}
-                                <StyledInternalLink id="import-pool-link" to={hasV1Liquidity ? '/migrate/v1' : '/find'} style={{ color: '#ffb73c' }}>
+                                <StyledInternalLink id="import-pool-link" className="text" to={hasV1Liquidity ? '/migrate/v1' : '/find'} style={{ color: '#ffb73c' }}>
                                     {hasV1Liquidity ? 'Migrate now.' : 'Import it.'}
                                 </StyledInternalLink>
                             </Text>

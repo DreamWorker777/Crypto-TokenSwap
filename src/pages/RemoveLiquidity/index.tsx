@@ -511,7 +511,7 @@ export default function RemoveLiquidity({
                         <BlueCard >
                             <AutoColumn gap="10px">
                                 <TYPE.link fontWeight={500}>
-                                    <p  className="text-gray-500"> <b>Tip:</b> Removing pool tokens converts your position back into underlying tokens
+                                    <p  className="text-gray-5000"> <b>Tip:</b> Removing pool tokens converts your position back into underlying tokens
                                     at the current rate, proportional to your share of the pool. Accrued fees are
                                     included in the amounts you receive.</p>
                                     

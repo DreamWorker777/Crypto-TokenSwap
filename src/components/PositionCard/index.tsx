@@ -224,12 +224,12 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
                         >
                             {showMore ? (
                                 <>
-                                    <span className="text-white">Manage</span>
+                                    <span className="text-white b-0">Manage</span>
                                     <ChevronUp size="20" className="text-white" style={{ marginLeft: '10px' }} />
                                 </>
                             ) : (
                                 <>
-                                    <span className="text-white">Manage</span>
+                                    <span className="text-white b-0">Manage</span>
                                     <ChevronDown size="20" className="text-white" style={{ marginLeft: '10px' }} />
                                 </>
                             )}

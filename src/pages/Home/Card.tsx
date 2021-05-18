@@ -22,10 +22,10 @@ const CardHeader = styled.header`
 export const CardHeading = styled.h1`
     font-size: 1.8rem;
     text-align: left;
-    font-weight: 700;
+    font-weight: bold;
     color: #d5d5d5;
     margin: 0;
-    font-family: 'Kanit';
+    font-family: 'Heebo' !important;
     line-height: 1.5rem;
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
@@ -37,14 +37,13 @@ export const CardsubTitle = styled.p`
     color: #d5d5d5;
     margin: 0;
     font-family: 'Heebo', sans-serif !important;
-    font-weight: bold;
     font-weight: 800;
 `
 
 const CardDesc = styled.p`
     font-size: 15px;
     text-align: left;
-    font-weight: bold;
+    font-weight: 600;
     color: #d5d5d5;
     margin: 0;
     margin-top: 1.4rem;

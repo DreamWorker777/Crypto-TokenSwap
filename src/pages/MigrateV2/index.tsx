@@ -29,6 +29,7 @@ import { Helmet } from 'react-helmet'
 import { FACTORY_ADDRESS as SUSHI_FACTORY_ADDRESS } from '@sushiswap/sdk'
 import { FACTORY_ADDRESS as UNI_FACTORY_ADDRESS } from '@uniswap/sdk'
 import { CardHeading, Col, CardsubTitle } from '../Home/Card'
+import { BackButton } from 'kashi/components'
 
 const Border = styled.div`
     width: 100%;
@@ -150,11 +151,11 @@ const MigrateModeSelect = ({ state }: { state: MigrateState }) => {
             text: 'Non-hardware Wallet',
             description: 'Migration is done in one-click using your signature(permit)'
         },
-        {
-            key: 'approve',
-            text: 'Hardware Wallet',
-            description: 'You need to first approve LP tokens and then migrate it'
-        }
+        // {
+        //     key: 'approve',
+        //     text: 'Hardware Wallet',
+        //     description: 'You need to first approve LP tokens and then migrate it'
+        // }
     ]
 
     return (
@@ -528,10 +529,11 @@ const MigrateParent = () => {
     return (
         <PageWrapper gap="lg" justify="center">
             <div
-                className="container pb-5 m-auto fetch-container"
+                className="container pb-5 m-auto fetch-container relative"
                 style={{ padding: '1rem' }}
             >
                 <InnerDiv>
+                <BackButton defaultRoute="" className="back_button"/>
                     <Row>
                         <Col>
                             <CardHeading>FETCH</CardHeading>

@@ -4,15 +4,15 @@ import { useHistory } from 'react-router-dom'
 
 const FILLED = {
     default: 'border-2  border-solid border-gray-700 w-full rounded px-4 py-3',
-    blue: 'bg-blue w-full rounded px-4 py-3',
-    pink: 'bg-pink w-full rounded px-4 py-3',
+    blue: 'w-full rounded px-4 py-3',
+    pink: 'w-full rounded px-4 py-3',
     gradient: 'bg-gradient-to-r from-blue to-pink'
 }
 
 const OUTLINED = {
     default: 'bg-opacity-20 outline-blue rounded text-xs text-blue px-2 py-1',
-    blue: 'bg-blue bg-opacity-20 outline-blue rounded text-xs text-blue px-2 py-1',
-    pink: 'bg-pink bg-opacity-20 outline-pink rounded text-xs text-pink px-2 py-1',
+    blue: 'bg-opacity-20 outline-blue rounded text-xs text-blue px-2 py-1',
+    pink: 'bg-opacity-20 outline-pink rounded text-xs text-pink px-2 py-1',
     gradient: 'bg-gradient-to-r from-blue to-pink'
 }
 

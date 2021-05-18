@@ -14,6 +14,7 @@ import closeLogo from "../../assets/images/X.png";
 import styled, { ThemeContext } from 'styled-components'
 import useTokenBalance from 'sushi-hooks/useTokenBalance'
 import { formatFromBalance, formatToBalance } from '../../utils'
+import { BackButton } from 'kashi/components'
 
 // import SaaveHeader from './SushiBarHeader'
 import { Wrapper } from '../../components/swap/styleds'
@@ -119,7 +120,7 @@ const StakeButton = styled.div`
   font-weight: 700;
   font-style: normal;
   font-size: 18px;
-  font-family: Metric - Bold;
+  font-family: 'Heebo' !important;
   letter-spacing: 0.1px;
   line-height: normal;
   float:right;
@@ -174,6 +175,7 @@ const ClaimSecondSection = styled.div`
   display: inline-block;
   width: 40%;
   height:auto;
+  min-height: 140px;
   //border: 2px solid white;
   float:right;
   text-align: left;
@@ -209,7 +211,7 @@ const ClaimButton = styled.div`
   //right:10px;
   //left:50px;
   cursor: pointer;
-  line-height: 35px;
+  line-height: 36px;
   font-weight: 500;
   margin-top: 20px ;
 
@@ -242,21 +244,21 @@ export default function SushiBar(props:any) {
 
   return (
     <>
-      <BurySection className="m-auto">
+      <BurySection className="m-auto relative bury_section">
       {/* <CloseIcon style={{backgroundImage:"url(" + closeLogo + ")"}}/> */}
-      
+      <BackButton defaultRoute="/bury" className="back_button"/>
       <BoxContainer>
         <BoxSection>
-          <TYPE.white fontWeight={500} fontSize={"18px"}>Total Value Locked</TYPE.white>
-          <TYPE.white fontWeight={700} fontSize={"21px"} font-Style={"Metric - Bold"}>$000,000,000.000</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={"18px"} className="text">Total Value Locked</TYPE.white>
+          <TYPE.white fontWeight={700} fontSize={"21px"} className="text">$000,000,000.000</TYPE.white>
         </BoxSection>
         <BoxSection>
-          <TYPE.white fontWeight={500} fontSize={"18px"}>Your Portfolio</TYPE.white>
-          <TYPE.white fontWeight={700} fontSize={"21px"} font-Style={"Metric - Bold"}>$000,000,000.000</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={"18px"} className="text">Your Portfolio</TYPE.white>
+          <TYPE.white fontWeight={700} fontSize={"21px"} className="text">$000,000,000.000</TYPE.white>
         </BoxSection>
         <BoxSection>
-          <TYPE.white fontWeight={500} fontSize={"18px"}>Token Price</TYPE.white>
-          <TYPE.white fontWeight={700} fontSize={"21px"} font-Style={"Metric - Bold"}>$000,000,000.000</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={"18px"} className="text">Token Price</TYPE.white>
+          <TYPE.white fontWeight={700} fontSize={"21px"} className="text">$000,000,000.000</TYPE.white>
         </BoxSection>
       </BoxContainer>
 
@@ -282,17 +284,17 @@ export default function SushiBar(props:any) {
       <ClaimContainer>
         <ClaimFirstSection>
           <div style={{paddingLeft:"15px",margin:"20px"}}> 
-          <TYPE.white fontWeight={500} fontSize={16}>Your staked amount - $1000</TYPE.white>
-          <TYPE.white fontWeight={500} fontSize={16}>Available-</TYPE.white>
-          <TYPE.white fontWeight={500} fontSize={16}>Yearly ROI - 0,00%</TYPE.white>
-          <TYPE.white fontWeight={500} fontSize={16}>Value - $0.000</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={16} className="text">Your staked amount - $1000</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={16} className="text">Available returns -</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={16} className="text">Yearly ROI - 0,00%</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={16} className="text">Value - $0.000</TYPE.white>
           </div>
         </ClaimFirstSection>
         
         <ClaimSecondSection>
         <div style={{marginLeft:"15px",margin:"20px"}}>
-          <TYPE.white fontWeight={500} fontSize={16}>Rewards - $0.000</TYPE.white>
-          <TYPE.white fontWeight={500} fontSize={16}>Available date:</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={16} className="text">Pending returns - $0.000</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={16} className="text">Available date:</TYPE.white>
           <ClaimButton
           //  disabled={
           //  // TODO: write relevant condition
@@ -306,7 +308,7 @@ export default function SushiBar(props:any) {
             // setPendingTx(false)
             }}
              >
-          <TYPE.white fontWeight={500} fontSize={18} font-Style={"Metric - Bold"}>CLAIM</TYPE.white>
+          <TYPE.white fontWeight={500} fontSize={16} className="text">CLAIM</TYPE.white>
         </ClaimButton>
         </div>
         

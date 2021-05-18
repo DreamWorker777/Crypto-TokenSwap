@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { CardHeading, Col, CardsubTitle } from '../Home/Card'
 import {ChainId, SHIBASWAP_SHIB_TOKEN_ADDRESS, SHIBASWAP_BONE_TOKEN_ADDRESS, SHIBASWAP_LEASH_TOKEN_ADDRESS, SHIBASWAP_BURY_BONE_ADDRESS, SHIBASWAP_BURY_SHIB_ADDRESS, SHIBASWAP_BURY_LEASH_ADDRESS} from '@shibaswap/sdk'
 import { useActiveWeb3React } from '../../hooks'
+import { BackButton } from 'kashi/components'
 
 const PageWrapper = styled(AutoColumn)`
     max-width: 100%;
@@ -46,14 +47,16 @@ export default function Bury(props:any) {
     return (
         <PageWrapper gap="lg" justify="center">
             <div
-                className="container pb-5 m-auto bury-container"
+                className="container pb-5 m-auto bury-container relative"
                 style={{ padding: '1rem' }}
             >
                 <InnerDiv>
+                <BackButton defaultRoute="" className="back_button"/>
                     <Row>
                         <Col>
                             <CardHeading>BURY</CardHeading>
                             <CardsubTitle style={{ paddingTop: " 0.5rem"}}>Shibas love to bury what they have found!</CardsubTitle>
+                            <div className="read-more mt-3 font-medium">Read more about swapping tokens</div>
                         </Col>
                         <Col>
                             <ImageDiv>
@@ -61,7 +64,7 @@ export default function Bury(props:any) {
                             </ImageDiv>
                         </Col>
                     </Row>
-                    <div className="row">
+                    <div className="row mt-16 mb-16">
                         <div className="col-12 col-md-6 col-lg-3">
                             <VCard
                                 {...props}
@@ -74,7 +77,7 @@ export default function Bury(props:any) {
                                 buryTokenAddress={(SHIBASWAP_BURY_SHIB_ADDRESS && chainId) ? SHIBASWAP_BURY_SHIB_ADDRESS[chainId] :""}
                                 tokenType="Shib"
                                 disabled={false}
-                                icon="/images/dig_icon.svg"
+                                // icon="/images/dig_icon.svg"
                             />
                         </div>
                         <div className="col-12 col-md-6 col-lg-3">
@@ -89,7 +92,7 @@ export default function Bury(props:any) {
                                 buryTokenAddress={(SHIBASWAP_BURY_LEASH_ADDRESS && chainId) ? SHIBASWAP_BURY_LEASH_ADDRESS[chainId] :""}
                                 tokenType="Leash"
                                 disabled={false}
-                                icon="/images/bury_icon.svg"
+                                // icon="/images/bury_icon.svg"
                             />
                         </div>
                         <div className="col-12 col-md-6 col-lg-3">
@@ -104,7 +107,7 @@ export default function Bury(props:any) {
                                 buryTokenAddress={(SHIBASWAP_BURY_BONE_ADDRESS && chainId) ? SHIBASWAP_BURY_BONE_ADDRESS[chainId] :""}
                                 tokenType="Bone"
                                 disabled={false}
-                                icon="/images/fetch_icon.svg"
+                                // icon="/images/fetch_icon.svg"
                             />
                         </div>
                         <div className="col-12 col-md-6 col-lg-3">
@@ -119,7 +122,7 @@ export default function Bury(props:any) {
                                 buryTokenAddress={""}
                                 tokenType=""
                                 disabled={true}
-                                icon="/images/question-mark.png"
+                                // icon="/images/question-mark.png"
                             />
                         </div>
                     </div>

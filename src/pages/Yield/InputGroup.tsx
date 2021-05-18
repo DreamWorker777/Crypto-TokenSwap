@@ -120,11 +120,10 @@ export default function InputGroup({
                                 {account && (
                                     <Button
                                         variant="outlined"
-                                        color="blue"
                                         onClick={() => {
                                             setDepositValue(fixedFormatting(balance.value, balance.decimals))
                                         }}
-                                        className="absolute right-4 focus:ring focus:ring-blue border-0"
+                                        className="absolute right-4 border-0 bg-transparent p-3 rounded focus:outline-none focus:ring bg-transparent hover:bg-primary border border-low-emphesis rounded-full py-1 px-2 text-secondary text-xs font-medium whitespace-nowrap ml-3"
                                     >
                                         MAX
                                     </Button>
@@ -165,19 +164,17 @@ export default function InputGroup({
                                 {account && (
                                     <Button
                                         variant="outlined"
-                                        color="pink"
                                         onClick={() => {
                                             setWithdrawValue(fixedFormatting(staked.value, staked.decimals))
                                         }}
-                                        className="absolute right-4 focus:ring focus:ring-pink border-0"
+                                        className="absolute right-4 border-0 bg-transparent p-3 rounded focus:outline-none focus:ring bg-transparent hover:bg-primary border border-low-emphesis rounded-full py-1 px-2 text-secondary text-xs font-medium whitespace-nowrap ml-3"
                                     >
                                         MAX
                                     </Button>
                                 )}
                             </div>
                             <Button
-                                color="pink"
-                                className="border-0"
+                                className="border-0 bg_green_01"
                                 disabled={
                                     pendingTx ||
                                     Number(withdrawValue) === 0 ||

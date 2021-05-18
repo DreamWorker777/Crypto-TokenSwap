@@ -20,7 +20,6 @@ const PercentContainer = styled.div`
   display:inline-block;
   margin:auto;
   margin-left:10px;
-  margin-top:20px;
   padding-left:10px;
   padding-right: 10px;
 
@@ -51,6 +50,7 @@ const PercentAvailable = styled.div`
   cursor: pointer;
   font-weight:500;
   font-size: 18px;
+  font-family: 'Heebo' !important;
   @media (max-width: 610px) {
     text-align: left;
     display: block;
@@ -66,6 +66,7 @@ const Percent = styled.div`
   cursor: pointer;
   font-weight:500;
   font-size: 18px;
+  font-family: 'Heebo' !important;
   @media (max-width: 500px) {
     text-align: center;
     display: block;
@@ -81,6 +82,7 @@ const Input = styled.input<{ error?: boolean }>`
   box-shadow: inset 0 0 7px 1px rgba(0, 0, 0, 0.45);
   border-radius: 10px;
   background-color: #161825;
+  font-family: 'Heebo' !important;
   opacity: 0.76;
   border-color: #161825;
   
@@ -170,7 +172,7 @@ export default function StakeDepositPanel(props:any){
             </PercentContainer>
 
             <Input
-                className="recipient-address-input"
+                className="recipient-address-input italic"
                 type="number"
                 placeholder="Type an amount to stake"
                 onChange={(event)=>{handleInputChange(event)}}

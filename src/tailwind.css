@@ -208,7 +208,12 @@ button#connect-wallet {
   background-color: #161821;
 }
 .bg-dark-9000{
-  background-color: #282b34;
+  background-color: #292c37;
+}
+.bg_green_01{
+  background: #597e6c !important;
+  border: 2px solid transparent !important;
+  color: rgb(41, 44, 55);
 }
 .yield-card{
   box-shadow: 0 0 9px 4px rgb(0 0 0 / 43%);
@@ -221,6 +226,15 @@ button#connect-wallet {
   border: 2px solid rgb(213, 213, 213) !important;;
   font-weight: bold !important;
 }
+.back_button{
+  left: -64px;
+  position: absolute;
+  top: 10px;
+  box-shadow: 0 0 9px 4px rgb(0 0 0 / 43%);
+  border-radius: 10px !important;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0%, rgba(17, 20, 27, 0.33) 31%, rgba(17, 20, 27, 0.5) 100%);
+  border: 1px solid transparent;
+}
 .yield-button.bg-blue{
   background-color: rgb(213, 213, 213) !important;
   color: rgb(41, 44, 55);
@@ -230,6 +244,24 @@ button#connect-wallet {
   color: rgb(213, 213, 213);
   border-radius: 0.6rem;
   border: 2px solid rgb(213, 213, 213);
+}
+.text{
+  font-family: 'Heebo' !important;
+}
+.text-gray-5000{
+  color: #bbbbbd !important;
+}
+.read-more{
+  color: #d5d5d5;
+  font-family: 'Metric - Bold';
+  font-size: 14px;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: normal;
+  line-height: normal;
+  text-align: left;
+  text-decoration: underline;
+  cursor: pointer;
 }
 @media only screen and (max-width: 974px) {
   .nav-prices,

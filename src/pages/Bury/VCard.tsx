@@ -50,7 +50,7 @@ const CardDesc = styled.p`
 //     color: #292c37;
 //     width: 4rem;
 //     font-size: 1rem;
-//     font-weight: 600;
+//     font-weight: 700;
 //     font-style: normal;
 //     letter-spacing: normal;
 //     line-height: normal;
@@ -113,13 +113,17 @@ const InnerDiv = styled.div`
     border-radius: 10px;
     background-color: #292c37;
     padding: 0.5rem;
-    height: auto;
+    height: 230px;
+    postion: relative
+`
+const BuryInner = styled.div`
+    margin-top: 1rem;
 `
 const P1 = styled.p`
     text-align: center;
     font-size: 1rem;
-    font-family: Metric - Semibold;
-    font-weight: 600;
+    font-family: 'Heebo' !important;
+    font-weight: 700;
     font-style: normal;
     letter-spacing: 0.09px;
     line-height: normal;
@@ -129,18 +133,23 @@ const P2 = styled.p`
     text-align: center;
     font-size: 1rem;
     padding-bottom: 0.5rem;
+    font-family: 'Heebo' !important;
+    font-weight: 700;
 `
 
 const P3 = styled.p`
     text-align: center;
     font-size: 1rem;
-    padding-top: 1rem;
+    font-family: 'Heebo' !important;
+    font-weight: 700;
 `
 
 const P4 = styled.p`
     text-align: center;
     font-size: 1rem;
     padding-bottom: 1rem;
+    font-family: 'Heebo' !important;
+    font-weight: 700;
 `
 const Button = styled.a<{ disabled: boolean }>`
     font-size: 1rem;
@@ -219,18 +228,19 @@ export const VCard: FunctionComponent<CardProps> = ({ name, percentage, value, b
 
         <CardWrapper>
             <CardHeader>
-                <Image src={icon} />
+                {/* <Image src={icon} /> */}
                 <InnerDiv>
+                    <BuryInner>
                     <P1>{name}</P1>
                     <P2>{percentage}</P2>
                     <P3>{value?"Total staked":<br></br>}</P3>
                     <P4>{value}</P4>
-                    <div style={{ textAlign: 'center', cursor: 'pointer'}}>
+                    <div style={{ textAlign: 'center', cursor: 'pointer'}} className="mt-4">
                       <ButtonBury onClick={()=>{handleBuryButtonClick(tokenAddress,buryTokenAddress,tokenType)}} disabled={disabled}>
                         {buttonText}
                       </ButtonBury>
                     </div>
-                    
+                    </BuryInner>
                 </InnerDiv>
             </CardHeader>
         </CardWrapper>

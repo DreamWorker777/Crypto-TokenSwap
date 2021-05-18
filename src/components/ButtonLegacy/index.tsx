@@ -61,12 +61,7 @@ export const ButtonPrimary = styled(Base)`
     padding: 0.8rem;
     line-height: 1.6rem;
     background-origin: border-box;
-    &:focus {
-        box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
-    }
-    &:active {
-        box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.1, theme.primary1)};
-    }
+    
     &:disabled {
         pointer-events: none;
         cursor: auto;
@@ -109,13 +104,7 @@ export const ButtonPrimaryNormal = styled(Base)`
     letter-spacing: 0.11px;
     line-height: normal;
     padding-top:13px;
-    
-    &:focus {
-        box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
-    }
-    &:active {
-        box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.1, theme.primary1)};
-    }
+
     &:disabled {
         cursor: auto;
         box-shadow: none;
@@ -143,12 +132,7 @@ export const ButtonLight = styled(Base)`
     font-style: normal;
     letter-spacing: 0.11px;
     line-height: normal;
-    &:focus {
-        box-shadow: 0 0 0 1pt ${({ theme, disabled }) => !disabled && darken(0.03, theme.primary5)};
-    }
-    &:active {
-        box-shadow: 0 0 0 1pt ${({ theme, disabled }) => !disabled && darken(0.05, theme.primary5)};
-    }
+  
     :disabled {
         opacity: 0.4;
         :hover {
@@ -165,12 +149,7 @@ export const ButtonGray = styled(Base)`
     color: ${({ theme }) => theme.text2};
     font-size: 16px;
     font-weight: 500;
-    &:focus {
-        background-color: ${({ theme, disabled }) => !disabled && darken(0.05, theme.bg4)};
-    }
-    &:hover {
-        background-color: ${({ theme, disabled }) => !disabled && darken(0.05, theme.bg4)};
-    }
+  
     &:active {
         background-color: ${({ theme, disabled }) => !disabled && darken(0.1, theme.bg4)};
     }
@@ -191,10 +170,7 @@ export const ButtonSecondary = styled(Base)`
     &:hover {
         border: 1px solid ${({ theme }) => theme.primary3};
     }
-    &:active {
-        box-shadow: 0 0 0 1pt ${({ theme }) => theme.primary4};
-        border: 1px solid ${({ theme }) => theme.primary3};
-    }
+   
     &:disabled {
         opacity: 50%;
         cursor: auto;
@@ -215,10 +191,7 @@ export const ButtonPink = styled(Base)`
     &:hover {
         background-color: ${({ theme }) => darken(0.05, theme.primary1)};
     }
-    &:active {
-        box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.1, theme.primary1)};
-        background-color: ${({ theme }) => darken(0.1, theme.primary1)};
-    }
+  
     &:disabled {
         background-color: ${({ theme }) => theme.primary1};
         opacity: 50%;
@@ -258,7 +231,6 @@ export const ButtonOutlined = styled(Base)`
         box-shadow: 0 0 0 1px ${({ theme }) => theme.bg4};
     }
     &:active {
-        box-shadow: 0 0 0 1px ${({ theme }) => theme.bg4};
         background-color: ${({ theme }) => darken(0.5, theme.primary1)};
     }
     &:disabled {
@@ -274,14 +246,12 @@ export const ButtonEmpty = styled(Base)`
     justify-content: center;
     align-items: center;
 
-    &:focus {
-        text-decoration: underline;
-    }
     &:hover {
         text-decoration: none;
     }
     &:active {
         text-decoration: none;
+        background: transparent !important
     }
     &:disabled {
         opacity: 50%;
@@ -301,9 +271,7 @@ export const ButtonWhite = styled(Base)`
     &:hover {
         box-shadow: 0 0 0 1pt ${darken(0.1, '#edeef2')};
     }
-    &:active {
-        box-shadow: 0 0 0 1pt ${darken(0.1, '#edeef2')};
-    }
+    
     &:disabled {
         opacity: 50%;
         cursor: auto;
@@ -326,14 +294,12 @@ const ButtonErrorStyle = styled(Base)`
     border: 1px solid ${({ theme }) => theme.red1};
 
     &:focus {
-        box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.red1)};
         background-color: ${({ theme }) => darken(0.05, theme.red1)};
     }
     &:hover {
         background-color: ${({ theme }) => darken(0.05, theme.red1)};
     }
     &:active {
-        box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.1, theme.red1)};
         background-color: ${({ theme }) => darken(0.1, theme.red1)};
     }
     &:disabled {

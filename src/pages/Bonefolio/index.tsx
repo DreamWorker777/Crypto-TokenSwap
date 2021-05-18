@@ -9,6 +9,7 @@ import leashIcon from "../../assets/images/leashIcon.png";
 import boneIcon from "../../assets/images/boneIcon.png";
 import { CardHeading, Col, CardsubTitle } from '../Home/Card'
 import BonefolioImage from '../../assets/images/home/bonefolio_icon.svg'
+import { BackButton } from 'kashi/components'
 
 export default function Bonefolio(props:any) {
 
@@ -215,6 +216,7 @@ export default function Bonefolio(props:any) {
         height: 80%;
         position: relative;
         top: 2%;
+        padding: 10px
     `;
 
     const TotalSection = styled.div`
@@ -240,12 +242,16 @@ export default function Bonefolio(props:any) {
     `;
 
     const CardsubTitle = styled.div`
-        padding-left:1rem
+        padding-left:1rem;
+        font-family: 'Heebo', sans-serif;
+        font-weight: bold
     `;
 
 
     return(
-        <BonefolioContainer className="container my-auto pb-10">
+        <BonefolioContainer className="container my-auto pb-10 relative">
+                            <BackButton defaultRoute="" className="back_button -left-11 top-8"/>
+
             <BoneSection>
                 <Row>
                 <Col>
@@ -279,8 +285,8 @@ export default function Bonefolio(props:any) {
                                 <TextSection style={{float:"right", lineHeight:"1.2rem"}}>300</TextSection>
                             </DetailSection>
                             <DetailSection>
-                                <TextSection style={{float:"left", lineHeight:"1.2rem", marginLeft:"10px", color:"#7d2121"}}>Locked rewards:</TextSection>
-                                <TextSection style={{float:"right", lineHeight:"1.2rem", color:"#7d2121"}}>600</TextSection>
+                                <TextSection style={{float:"left", lineHeight:"1.2rem", marginLeft:"10px", color:"#b61e1e"}}>Locked rewards:</TextSection>
+                                <TextSection style={{float:"right", lineHeight:"1.2rem", color:"#b61e1e"}}>600</TextSection>
                             </DetailSection>
                         </DescriptionSection>
                     </BarSection>
@@ -304,8 +310,8 @@ export default function Bonefolio(props:any) {
                                 <TextSection style={{float:"right", lineHeight:"1.2rem"}}>300</TextSection>
                             </DetailSection>
                             <DetailSection>
-                                <TextSection style={{float:"left", lineHeight:"1.2rem", marginLeft:"10px", color:"#7d2121"}}>Locked rewards:</TextSection>
-                                <TextSection style={{float:"right", lineHeight:"1.2rem", color:"#7d2121"}}>600</TextSection>
+                                <TextSection style={{float:"left", lineHeight:"1.2rem", marginLeft:"10px", color:"#b61e1e"}}>Locked rewards:</TextSection>
+                                <TextSection style={{float:"right", lineHeight:"1.2rem", color:"#b61e1e"}}>600</TextSection>
                             </DetailSection>
                         </DescriptionSection>
                     </BarSection>
@@ -329,8 +335,8 @@ export default function Bonefolio(props:any) {
                                 <TextSection style={{float:"right", lineHeight:"1.2rem"}}>300</TextSection>
                             </DetailSection>
                             <DetailSection>
-                                <TextSection style={{float:"left", lineHeight:"1.2rem", marginLeft:"10px", color:"#7d2121"}}>Locked rewards:</TextSection>
-                                <TextSection style={{float:"right", lineHeight:"1.2rem", color:"#7d2121"}}>600</TextSection>
+                                <TextSection style={{float:"left", lineHeight:"1.2rem", marginLeft:"10px", color:"#b61e1e"}}>Locked rewards:</TextSection>
+                                <TextSection style={{float:"right", lineHeight:"1.2rem", color:"#b61e1e"}}>600</TextSection>
                             </DetailSection>
                         </DescriptionSection>
                     </BarSection>

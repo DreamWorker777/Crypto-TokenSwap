@@ -20,7 +20,6 @@ const PercentContainer = styled.div`
   display:inline-block;
   margin:auto;
   margin-left:10px;
-  margin-top:20px;
   padding-left:10px;
   padding-right: 10px;
 
@@ -38,6 +37,7 @@ const PercentAvailable = styled.div`
   cursor: pointer;
   font-size: 18px;
   font-weight: 500;
+  font-family: 'Heebo' !important;
   @media (max-width: 610px) {
     text-align: left;
     display: block;
@@ -51,6 +51,7 @@ const Percent = styled.div`
   display: inline-block;
   float:right;
   cursor: pointer;
+  font-family: 'Heebo' !important;
   font-weight: 500;
     font-size: 18px;
   @media (max-width: 500px) {
@@ -69,7 +70,7 @@ const Input = styled.input<{ error?: boolean }>`
   background-color: #161825;
   opacity: 0.76;
   border-color: #161825;
-  
+  font-family: 'Heebo' !important;
 `;
 
 const ButtonSelect = styled.button`
@@ -156,7 +157,7 @@ export default function BuryWithdrawlPanel(props:any){
             </PercentContainer>
             
             <Input
-                className="recipient-address-input"
+                className="recipient-address-input italic"
                 //type="number"
                 type="number"
                 pattern="^[0-9]*[.,]?[0-9]*$"

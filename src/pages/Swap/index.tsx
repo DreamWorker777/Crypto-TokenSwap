@@ -62,6 +62,7 @@ import TokenButton from '../../components/Toggle/TokenButton'
 import { Currency, currencyEquals, ETHER, TokenAmount, WETH, ChainId, SHIBASWAP_SHIB_TOKEN_ADDRESS, SHIBASWAP_BONE_TOKEN_ADDRESS, SHIBASWAP_LEASH_TOKEN_ADDRESS, SHIBASWAP_BURY_BONE_ADDRESS, SHIBASWAP_BURY_SHIB_ADDRESS, SHIBASWAP_BURY_LEASH_ADDRESS} from '@shibaswap/sdk'
 import Settings from '../../components/Settings'
 import styled from 'styled-components'
+import { BackButton } from 'kashi/components'
 
 const StyledMenuIcon = styled(Settings)`
     height: 20px;
@@ -375,6 +376,7 @@ export default function Swap() {
             <SwapPoolTabs active={'swap'} />
             <div className="dig-container container my-auto pb-10">
                 <div className="dig" id="digSection">
+                <BackButton defaultRoute="" className="back_button"/>
                     <div className="wrapper mt-0 contents">
                         <div className="dig--inner">
                             <div className="left" style={{ marginRight: '0rem' }}>
@@ -650,7 +652,7 @@ export default function Swap() {
                                 disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                                 error={isValid && priceImpactSeverity > 2 && !swapCallbackError}
                             >
-                                <Text fontSize={16} fontWeight={500}>
+                                <Text fontSize={16} fontWeight={700}>
                                     {swapInputError
                                         ? swapInputError
                                         : priceImpactSeverity > 3 && !isExpertMode

@@ -140,7 +140,7 @@ export default function ClaimModal() {
         <>
             {' '}
             <Helmet>
-                <title>Vesting | Sushi</title>
+                <title>Vesting | ShibaSwap</title>
             </Helmet>
             <PageWrapper>
                 {/* <Confetti start={Boolean(isOpen && claimConfirmed)} /> */}

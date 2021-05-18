@@ -44,7 +44,7 @@ export default function LendingMarkets(): JSX.Element | null {
             }
         >
             <Helmet>
-                <title>Lend | Sushi</title>
+                <title>Lend | ShibaSwap</title>
             </Helmet>
             <Card
                 className="bg-dark-900"

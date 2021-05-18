@@ -44,7 +44,7 @@ export default function BorrowMarkets(): JSX.Element {
             }
         >
             <Helmet>
-                <title>Borrow | Sushi</title>
+                <title>Borrow | ShibaSwap</title>
             </Helmet>
             <Card
                 className="h-full bg-dark-900"

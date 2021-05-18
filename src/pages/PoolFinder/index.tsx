@@ -80,7 +80,7 @@ export default function PoolFinder() {
     return (
         <>
             <Helmet>
-                <title>Find Pool | Shiba</title>
+                <title>Find Pool | ShibaSwap</title>
             </Helmet>
             <AppBody className="alert-container">
                 <FindPoolTabs />

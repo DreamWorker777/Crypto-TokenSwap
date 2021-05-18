@@ -365,8 +365,8 @@ const MigrateV2 = () => {
         <>
             <MigrateUniBlock style={{ marginRight: '20px' }} className="fetchCard">
                 <Helmet>
-                    <title>Migrate | Sushi</title>
-                    <meta name="description" content="Migrate Uniswap LP tokens to Shiba LP tokens" />
+                    <title>Migrate | ShibaSwap</title>
+                    <meta name="description" content="Migrate Uniswap LP tokens to ShibaSwap LP tokens" />
                 </Helmet>
                 <AppBodySection style={{ padding: 24 }}>
                     <AutoColumn gap="16px">
@@ -435,8 +435,8 @@ const MigrateV2Sushi = () => {
         <>
             <MigrateSushiBlock>
                 <Helmet>
-                    <title>Migrate | Sushi</title>
-                    <meta name="description" content="Migrate Sushiswap LP tokens to Shiba LP tokens" />
+                    <title>Migrate | ShibaSwap</title>
+                    <meta name="description" content="Migrate Sushiswap LP tokens to ShibaSwap LP tokens" />
                 </Helmet>
                 <AppBodySection style={{ padding: 24 }} className="fetchCard">
                     <AutoColumn gap="16px">

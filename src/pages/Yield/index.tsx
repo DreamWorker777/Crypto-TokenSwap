@@ -37,7 +37,7 @@ export default function Yield(): JSX.Element {
     return (
         <>
             <Helmet>
-                <title>Yield | Shiba</title>
+                <title>Yield | Shibaswap</title>
                 <meta name="description" content="Farm BONE by staking LP (Liquidity Provider) tokens" />
             </Helmet>
             <div className="container max-w-2xl mx-auto px-0 sm:px-4 m-auto relative">

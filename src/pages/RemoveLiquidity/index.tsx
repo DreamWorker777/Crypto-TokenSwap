@@ -487,7 +487,7 @@ export default function RemoveLiquidity({
     return (
         <>
             <Helmet>
-                <title>Remove Liquidity | Sushi</title>
+                <title>Remove Liquidity | ShibaSwap</title>
             </Helmet>
             <div className="w-full max-w-2xl rounded yield-card mt-2 my-auto">
                 <AddRemoveTabs creating={false} adding={false} />

@@ -70,7 +70,7 @@ export default function Pool() {
     return (
         <>
             <Helmet>
-                <title>Tools | Sushi</title>
+                <title>Tools | ShibaSwap</title>
             </Helmet>
             <PageWrapper>
                 <SwapPoolTabs active={'pool'} />

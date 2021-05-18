@@ -135,7 +135,7 @@ export default function Pool() {
     return (
         <>
             <Helmet>
-                <title>Pool | Shiba</title>
+                <title>Pool | ShibaSwap</title>
             </Helmet>
             <PageWrapper className="dig-liquidity mb-auto my-auto relative">
             <BackButton defaultRoute="" className="back_button -left-12 top-6"/>

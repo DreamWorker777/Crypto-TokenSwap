@@ -2,6 +2,7 @@ import { Paper } from 'kashi'
 import React, {useContext, useState, useEffect, useCallback} from 'react'
 import { BigNumber } from '@ethersproject/bignumber'
 import { useActiveWeb3React } from '../../hooks'
+import { CardHeading, Col, CardsubTitle } from '../Home/Card'
 import AppBody from '../AppBody'
 import SushiDepositPanel from './SushiDepositPanel'
 import XSushiWithdrawlPanel from './XSushiWithdrawlPanel'
@@ -69,7 +70,7 @@ const BoxContainer = styled.div`
   width: 90%;
   height:auto;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
@@ -217,9 +218,11 @@ const ClaimButton = styled.div`
 
 
   @media (max-width: 600px) {
-    top: 0px;
+    top: 28px;
     left:0;
     float:none;
+    margin: 0 auto;
+    text-align: center
   }
 `;
 
@@ -245,6 +248,8 @@ export default function SushiBar(props:any) {
   return (
     <>
       <BurySection className="m-auto relative bury_section">
+      <CardHeading className="p-4 text-5xl">BURY</CardHeading>
+
       {/* <CloseIcon style={{backgroundImage:"url(" + closeLogo + ")"}}/> */}
       <BackButton defaultRoute="/bury" className="back_button"/>
       <BoxContainer>
@@ -283,7 +288,7 @@ export default function SushiBar(props:any) {
       
       <ClaimContainer>
         <ClaimFirstSection>
-          <div style={{paddingLeft:"15px",margin:"20px"}}> 
+          <div className="claimsection-1"> 
           <TYPE.white fontWeight={500} fontSize={16} className="text">Your staked amount - $1000</TYPE.white>
           <TYPE.white fontWeight={500} fontSize={16} className="text">Available returns -</TYPE.white>
           <TYPE.white fontWeight={500} fontSize={16} className="text">Yearly ROI - 0,00%</TYPE.white>
@@ -292,7 +297,7 @@ export default function SushiBar(props:any) {
         </ClaimFirstSection>
         
         <ClaimSecondSection>
-        <div style={{marginLeft:"15px",margin:"20px"}}>
+        <div className="claimsection">
           <TYPE.white fontWeight={500} fontSize={16} className="text">Pending returns - $0.000</TYPE.white>
           <TYPE.white fontWeight={500} fontSize={16} className="text">Available date:</TYPE.white>
           <ClaimButton

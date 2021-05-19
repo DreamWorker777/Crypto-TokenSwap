@@ -163,7 +163,7 @@ export default function Pool() {
                                     Your liquidity
                                 </TYPE.mediumHeader>
                             </HideSmall>
-                            <ButtonRow>
+                            <ButtonRow className="Dig-button">
                                 <a
                                     className="text"
                                     href="/create/ETH"

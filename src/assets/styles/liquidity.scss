@@ -461,3 +461,19 @@
     }
 }
 
+
+
+@media only screen and (max-width: 600px) {
+    .back_button{
+      display: none !important;
+    }
+    .dig-container {
+      width: 90%;
+    }
+    .dig-liquidity {
+        margin-top: unset !important;
+    }
+    .wrapper .left .description{
+        font-size: 14px;
+    }
+  }

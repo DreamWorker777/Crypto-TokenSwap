@@ -72,7 +72,7 @@ export default function Bury(props:any) {
                                 name="APY"
                                 percentage="0.00%"
                                 value="0,00000"
-                                buttonText="Stake Shib"
+                                buttonText="Bury Shib"
                                 tokenAddress={(SHIBASWAP_SHIB_TOKEN_ADDRESS && chainId)? SHIBASWAP_SHIB_TOKEN_ADDRESS[chainId] : ""}
                                 buryTokenAddress={(SHIBASWAP_BURY_SHIB_ADDRESS && chainId) ? SHIBASWAP_BURY_SHIB_ADDRESS[chainId] :""}
                                 tokenType="Shib"
@@ -87,7 +87,7 @@ export default function Bury(props:any) {
                                 name="APY"
                                 percentage="0.00%"
                                 value="0,00000"
-                                buttonText="Stake Leash"
+                                buttonText="Bury Leash"
                                 tokenAddress={(SHIBASWAP_LEASH_TOKEN_ADDRESS && chainId)? SHIBASWAP_LEASH_TOKEN_ADDRESS[chainId] : ""}
                                 buryTokenAddress={(SHIBASWAP_BURY_LEASH_ADDRESS && chainId) ? SHIBASWAP_BURY_LEASH_ADDRESS[chainId] :""}
                                 tokenType="Leash"
@@ -102,7 +102,7 @@ export default function Bury(props:any) {
                                 name="APY"
                                 percentage="0.00%"
                                 value="0,00000"
-                                buttonText="Stake Bone"
+                                buttonText="Bury Bone"
                                 tokenAddress={(SHIBASWAP_BONE_TOKEN_ADDRESS && chainId)? SHIBASWAP_BONE_TOKEN_ADDRESS[chainId] : ""}
                                 buryTokenAddress={(SHIBASWAP_BURY_BONE_ADDRESS && chainId) ? SHIBASWAP_BURY_BONE_ADDRESS[chainId] :""}
                                 tokenType="Bone"

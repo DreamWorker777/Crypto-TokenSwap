@@ -33,7 +33,7 @@ export default function Header(): JSX.Element {
         <Disclosure as="nav" className="w-screen bg-transparent gradiant-border-bottom z-10">
             {({ open }) => (
                 <>
-                    <div style={{padding: "1rem",background: "transparent", border:"none"}}>
+                    <div style={{padding: "1rem",background: "transparent", border:"none"}} className="header">
                         <div className="flex items-center justify-between h-3">
                             <div className="flex items-center">
                                 {/* <div > */}
@@ -97,7 +97,7 @@ export default function Header(): JSX.Element {
                             */}
                             </div>
 
-                            <div className="flex flex-row items-center justify-center w-full p-4 fixed left-0 bottom-0 bg-dark-1000 lg:relative lg:p-0 lg:bg-transparent">
+                            <div className="flex flex-row items-center justify-center w-full p-4 fixed left-0 bottom-0 bg-dark-1000 lg:relative lg:p-0 lg:bg-transparent header-mobile">
                                 <div className="flex items-center justify-between sm:justify-end space-x-2 w-full">
                                     {TokensButton.map((t, key) => (
                                         <div className="nav-prices" key={key}>

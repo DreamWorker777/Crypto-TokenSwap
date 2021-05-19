@@ -40,7 +40,7 @@ export default function Yield(): JSX.Element {
                 <title>Yield | Shibaswap</title>
                 <meta name="description" content="Farm BONE by staking LP (Liquidity Provider) tokens" />
             </Helmet>
-            <div className="container max-w-2xl mx-auto px-0 sm:px-4 m-auto relative">
+            <div className="container max-w-2xl mx-auto px-0 sm:px-4 m-auto relative yield_card_mobile">
                 <Card
                     className="h-full yield-card fetch-container"
                     header={

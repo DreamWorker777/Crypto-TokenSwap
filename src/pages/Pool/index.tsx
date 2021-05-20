@@ -141,10 +141,10 @@ export default function Pool() {
             <BackButton defaultRoute="" className="back_button -left-12 top-6"/>
                 <Alert
                     title="Liquidity provider rewards"
-                    className="fetch-container"
+                    className="fetch-container text"
                     message={
                         <>
-                            <p className="text-gray-5000 text">
+                            <p className="text-gray-5000">
                                 Liquidity providers earn a 0.25% fee on all trades proportional to their share of the
                                 pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing
                                 your liquidity.
@@ -155,7 +155,7 @@ export default function Pool() {
                 />
                 <AutoColumn gap="sm" justify="center">
                     <AutoColumn gap="md" style={{ width: '100%' }}>
-                        <TitleRow style={{ marginTop: '1rem', marginBottom: '1rem' }} padding={'0'}>
+                        <TitleRow style={{ marginTop: '1.8rem', marginBottom: '1.8rem' }} padding={'0'}>
                             <HideSmall>
                                 <TYPE.mediumHeader className="text"
                                     style={{ marginTop: '0.8rem', justifySelf: 'flex-start'}}

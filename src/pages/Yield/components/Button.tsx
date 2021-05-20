@@ -10,9 +10,9 @@ const FILLED = {
 }
 
 const OUTLINED = {
-    default: 'bg-opacity-20 outline-blue rounded text-xs text-blue px-2 py-1',
-    blue: 'bg-opacity-20 outline-blue rounded text-xs text-blue px-2 py-1',
-    pink: 'bg-opacity-20 outline-pink rounded text-xs text-pink px-2 py-1',
+    default: 'bg-opacity-20  rounded text-xs text-blue px-2 py-1',
+    blue: 'bg-opacity-20  rounded text-xs text-blue px-2 py-1',
+    pink: 'bg-opacity-20  rounded text-xs text-pink px-2 py-1',
     gradient: 'bg-gradient-to-r from-blue to-pink'
 }
 
@@ -41,7 +41,7 @@ function Button({
 }: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>): JSX.Element {
     return (
         <button
-            className={`${VARIANT[variant][color]} yield-button focus:outline-none focus:ring disabled:opacity-50 ${className} `}
+            className={`${VARIANT[variant][color]} yield-button focus:outline-none disabled:opacity-50 ${className} `}
             {...rest}
         >
             {children}

@@ -164,7 +164,7 @@ export default function StakeDepositPanel(props:any){
         <>
         <div>   
             <PercentContainer>
-              <PercentAvailable style={{float:'left'}}>Available: {shibaBalanceValue ? shibaBalanceValue: shibaBalanceBigInt.isLoading ? 'Loading..': 0 }</PercentAvailable> 
+              <PercentAvailable style={{float:'left'}}>Available: {shibaBalanceValue ? shibaBalanceValue: shibaBalanceBigInt.isLoading ? 'Loading...': 0 }</PercentAvailable> 
               <Percent style={{color: (activePercent === "100")?"#fea31c":"", marginRight:"20px"}} onClick={()=>{handlePercentSelect("100")}}>100%</Percent>
               <Percent style={{color: (activePercent === "75")?"#fea31c":""}} onClick={()=>{handlePercentSelect("75")}}>75%</Percent>
               <Percent style={{color: (activePercent === "50")?"#fea31c":""}} onClick={()=>{handlePercentSelect("50")}}>50%</Percent>

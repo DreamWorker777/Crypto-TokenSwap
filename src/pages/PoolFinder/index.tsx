@@ -87,7 +87,7 @@ export default function PoolFinder() {
                 <AutoColumn style={{ padding: '1rem' }} gap="md">
                     <BlueCard>
                         <AutoColumn gap="10px">
-                            <TYPE.link fontWeight={400} color="#ffb73c">
+                            <TYPE.link fontWeight={500} color=" #bbbbbd">
                                 <b>Tip:</b> Use this tool to find pairs that don&apos;t automatically appear in the
                                 interface.
                             </TYPE.link>
@@ -175,9 +175,9 @@ export default function PoolFinder() {
                             <LightCard padding="45px 10px">
                                 <AutoColumn gap="sm" justify="center">
                                     <Text textAlign="center">No pool found.</Text>
-                                    <StyledInternalLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
+                                    <StyledInternalLink style={{ color: '#ffb73c' }} to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
                                         Create pool.
-                                    </StyledInternalLink>
+                                    </StyledInternalLink >
                                 </AutoColumn>
                             </LightCard>
                         ) : pairState === PairState.INVALID ? (

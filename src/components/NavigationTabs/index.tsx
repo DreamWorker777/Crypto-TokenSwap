@@ -47,7 +47,7 @@ const StyledNavLink = styled(NavLink).attrs({
 `
 
 const ActiveText = styled.div`
-    font-weight: 500;
+    font-weight: 600;
     font-size: 20px;
 `
 
@@ -76,7 +76,7 @@ export function FindPoolTabs() {
                 {/* <HistoryLink to="/pool">
                     <StyledArrowLeft />
                 </HistoryLink> */}
-                <ActiveText>Import Pool</ActiveText>
+                <ActiveText >Import Pool</ActiveText>
                 <Settings />
             </RowBetween>
         </Tabs>

@@ -288,6 +288,11 @@ export const CustomLightSpinner = styled(Spinner)<{ size: string }>`
     width: ${({ size }) => size};
 `
 
+export const CustomWoof = styled.img`
+    width: 100%;
+    height: auto;
+`
+
 export const HideSmall = styled.span`
     ${({ theme }) => theme.mediaWidth.upToSmall`
     display: none;

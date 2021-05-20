@@ -48,7 +48,7 @@ const CardDesc = styled.p`
     margin-top: 1.4rem;
     margin-bottom: 5rem;
     font-family: 'Heebo', sans-serif !important;
-    font-weight: 600;    
+    font-weight: 800;    
 `
 const Button = styled.a<{ disabled: boolean }>`
     background-color: #383648;

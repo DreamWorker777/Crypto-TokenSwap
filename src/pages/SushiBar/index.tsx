@@ -248,22 +248,22 @@ export default function SushiBar(props:any) {
   return (
     <>
       <BurySection className="m-auto relative bury_section">
-      <CardHeading className="p-4 text-5xl">BURY</CardHeading>
+      <CardHeading className="p-4">BURY</CardHeading>
 
       {/* <CloseIcon style={{backgroundImage:"url(" + closeLogo + ")"}}/> */}
       <BackButton defaultRoute="/bury" className="back_button"/>
       <BoxContainer>
         <BoxSection>
-          <TYPE.white fontWeight={500} fontSize={"18px"} className="text">Total Value Locked</TYPE.white>
-          <TYPE.white fontWeight={700} fontSize={"21px"} className="text">$000,000,000.000</TYPE.white>
+          <TYPE.white fontWeight={800} fontSize={"18px"} className="text">Total Value Locked</TYPE.white>
+          <TYPE.white fontWeight={800} fontSize={"21px"} className="text">$000,000,000.000</TYPE.white>
         </BoxSection>
         <BoxSection>
-          <TYPE.white fontWeight={500} fontSize={"18px"} className="text">Your Portfolio</TYPE.white>
-          <TYPE.white fontWeight={700} fontSize={"21px"} className="text">$000,000,000.000</TYPE.white>
+          <TYPE.white fontWeight={800} fontSize={"18px"} className="text">Your Portfolio</TYPE.white>
+          <TYPE.white fontWeight={800} fontSize={"21px"} className="text">$000,000,000.000</TYPE.white>
         </BoxSection>
         <BoxSection>
-          <TYPE.white fontWeight={500} fontSize={"18px"} className="text">Token Price</TYPE.white>
-          <TYPE.white fontWeight={700} fontSize={"21px"} className="text">$000,000,000.000</TYPE.white>
+          <TYPE.white fontWeight={800} fontSize={"18px"} className="text">Token Price</TYPE.white>
+          <TYPE.white fontWeight={800} fontSize={"21px"} className="text">$000,000,000.000</TYPE.white>
         </BoxSection>
       </BoxContainer>
 
@@ -289,17 +289,17 @@ export default function SushiBar(props:any) {
       <ClaimContainer>
         <ClaimFirstSection>
           <div className="claimsection-1"> 
-          <TYPE.white fontWeight={500} fontSize={16} className="text">Your staked amount - $1000</TYPE.white>
-          <TYPE.white fontWeight={500} fontSize={16} className="text">Available returns -</TYPE.white>
-          <TYPE.white fontWeight={500} fontSize={16} className="text">Yearly ROI - 0,00%</TYPE.white>
-          <TYPE.white fontWeight={500} fontSize={16} className="text">Value - $0.000</TYPE.white>
+          <TYPE.white fontWeight={800} fontSize={16} className="text">Your staked amount - $1000</TYPE.white>
+          <TYPE.white fontWeight={800} fontSize={16} className="text">Available returns -</TYPE.white>
+          <TYPE.white fontWeight={800} fontSize={16} className="text">Yearly ROI - 0,00%</TYPE.white>
+          <TYPE.white fontWeight={800} fontSize={16} className="text">Value - $0.000</TYPE.white>
           </div>
         </ClaimFirstSection>
         
         <ClaimSecondSection>
         <div className="claimsection">
-          <TYPE.white fontWeight={500} fontSize={16} className="text">Pending returns - $0.000</TYPE.white>
-          <TYPE.white fontWeight={500} fontSize={16} className="text">Available date:</TYPE.white>
+          <TYPE.white fontWeight={800} fontSize={16} className="text">Pending returns - $0.000</TYPE.white>
+          <TYPE.white fontWeight={800} fontSize={16} className="text">Available date:</TYPE.white>
           <ClaimButton
           //  disabled={
           //  // TODO: write relevant condition
@@ -313,7 +313,7 @@ export default function SushiBar(props:any) {
             // setPendingTx(false)
             }}
              >
-          <TYPE.white fontWeight={500} fontSize={16} className="text">CLAIM</TYPE.white>
+          <TYPE.white fontWeight={800} fontSize={16} className="text">CLAIM</TYPE.white>
         </ClaimButton>
         </div>
         

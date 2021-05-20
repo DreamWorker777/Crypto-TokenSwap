@@ -100,7 +100,6 @@ export const StyledInternalLink = styled(Link)`
     text-decoration: none;
     cursor: pointer;
     color: '#ffb73c';
-    font-weight: 500;
 
     :hover {
         text-decoration: underline;

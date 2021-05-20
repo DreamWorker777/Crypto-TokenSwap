@@ -157,7 +157,7 @@ export default function Pool() {
                     <AutoColumn gap="md" style={{ width: '100%' }}>
                         <TitleRow style={{ marginTop: '1.8rem', marginBottom: '1.8rem' }} padding={'0'}>
                             <HideSmall>
-                                <TYPE.mediumHeader className="text"
+                                <TYPE.mediumHeader className="text font-extrabold	"
                                     style={{ marginTop: '0.8rem', justifySelf: 'flex-start'}}
                                 >
                                     Your liquidity
@@ -240,16 +240,16 @@ export default function Pool() {
                             </>
                         ) : (
                             <EmptyProposals>
-                                <TYPE.body color={theme.text3} textAlign="center" fontWeight={500} className="text">
+                                <TYPE.body color={theme.text3} textAlign="center" fontWeight={800} className="text">
                                     No liquidity found.
                                 </TYPE.body>
                             </EmptyProposals>
                         )}
 
                         <AutoColumn justify={'center'} gap="xs">
-                            <Text textAlign="center" fontSize={14} style={{ padding: '.5rem 0 .5rem 0' }} className="text">
+                            <Text textAlign="center" fontSize={14} style={{ padding: '.5rem 0 .5rem 0' }} className="text font-bold">
                                 {hasV1Liquidity ? 'Uniswap V1 liquidity found!' : "Don't see a pool you joined?"}{' '}
-                                <StyledInternalLink id="import-pool-link" className="text" to={hasV1Liquidity ? '/migrate/v1' : '/find'} style={{ color: '#ffb73c' }}>
+                                <StyledInternalLink id="import-pool-link font-bold" className="text" to={hasV1Liquidity ? '/migrate/v1' : '/find'} style={{ color: '#ffb73c' }}>
                                     {hasV1Liquidity ? 'Migrate now.' : 'Import it.'}
                                 </StyledInternalLink>
                             </Text>

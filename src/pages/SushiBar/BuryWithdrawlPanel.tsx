@@ -36,7 +36,7 @@ const PercentAvailable = styled.div`
   float:right;
   cursor: pointer;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 800;
   font-family: 'Heebo' !important;
   @media (max-width: 610px) {
     text-align: left;
@@ -52,7 +52,7 @@ const Percent = styled.div`
   float:right;
   cursor: pointer;
   font-family: 'Heebo' !important;
-  font-weight: 500;
+  font-weight: 800;
     font-size: 18px;
   @media (max-width: 500px) {
     text-align: center;

@@ -19,6 +19,7 @@ import { currencyId } from '../../utils/currencyId'
 import AppBody from '../AppBody'
 import { Dots } from '../Pool/styleds'
 import { Helmet } from 'react-helmet'
+import { BackButton } from 'kashi/components'
 
 enum Fields {
     TOKEN0 = 0,
@@ -82,7 +83,8 @@ export default function PoolFinder() {
             <Helmet>
                 <title>Find Pool | ShibaSwap</title>
             </Helmet>
-            <AppBody className="alert-container">
+            <AppBody className="alert-container relative">
+            <BackButton defaultRoute="/pool" className="back_button"/>
                 <FindPoolTabs />
                 <AutoColumn style={{ padding: '1rem' }} gap="md">
                     <BlueCard>
@@ -94,6 +96,7 @@ export default function PoolFinder() {
                         </AutoColumn>
                     </BlueCard>
                     <ButtonDropdownLight
+                    className="mt-0"
                         onClick={() => {
                             setShowSearch(true)
                             setActiveField(Fields.TOKEN0)
@@ -113,11 +116,12 @@ export default function PoolFinder() {
                         )}
                     </ButtonDropdownLight>
 
-                    <ColumnCenter>
+                    <ColumnCenter >
                         <Plus size="16" color="#888D9B" />
                     </ColumnCenter>
 
                     <ButtonDropdownLight
+                        className="mt-0"
                         onClick={() => {
                             setShowSearch(true)
                             setActiveField(Fields.TOKEN1)

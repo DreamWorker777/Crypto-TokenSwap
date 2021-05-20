@@ -248,6 +248,7 @@ button#connect-wallet {
 }
 .text{
   font-family: 'Heebo' !important;
+  font-weight: 700;
 }
 .text-gray-5000{
   color: #bbbbbd !important;
@@ -295,6 +296,19 @@ button#connect-wallet {
     margin:20px
   }
 }
+@media only screen and (max-width: 760px) {
+  .footer-section{
+    display: none !important;
+  }
+  .main-container-section{
+    margin-bottom: 0px;
+    margin-top: 1rem;
+  }
+  .nav-menu-submenu {
+    position: inherit !important;
+    top: 3rem;
+  }
+}
 @media only screen and (max-width: 974px) {
   .nav-prices,
   .nav-price-alert-btn,
@@ -307,9 +321,7 @@ button#connect-wallet {
     position: relative;
     float: right;
   }
-  .footer-section{
-    display: none !important;
-  }
+  
   button#connect-wallet {
     width: 11rem;
     padding: 0;
@@ -321,7 +333,7 @@ button#connect-wallet {
     position: relative !important;
     background-color: transparent !important;
   }
-
+ 
 }
 @media (min-width: 601px) and (max-width: 1024px) {
   .nav-prices,

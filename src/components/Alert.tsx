@@ -78,7 +78,7 @@ export default function Alert({
     const { color, icon } = TYPE[type]
     return (
         <div className={`block w-full rounded text-sm p-4 ${color} ${className}`}>
-            {title && <div className="text-2xl font-bold mb-1 text">{title}</div>}
+            {title && <div className="text-2xl font-extrabold mb-1 text">{title}</div>}
             <div className="flex items-center">
                 {showIcon && <div className="flex-shrink-0">{icon}</div>}
                 <div className={`${!showIcon ? 'ml-0' : 'ml-3'}`}>

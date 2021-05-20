@@ -480,7 +480,13 @@ export default function Swap() {
                                                     ) : null}
                                                 </AutoRow>
                                             </AutoColumn> */}
-                                            <ColumnCenter>
+                                            <ColumnCenter 
+                                                style={{cursor:'pointer'}}
+                                                onClick={() => {
+                                                    setApprovalSubmitted(false) // reset 2 step UI for approvals
+                                                    onSwitchTokens()
+                                                }}
+                                                >
                                             <img src={DownArrow} width="11" height="18" className="-m-2.5"/>
                                             </ColumnCenter>
                                             <CurrencyInputPanel

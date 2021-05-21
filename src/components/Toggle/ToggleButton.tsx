@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import DigImage from '../../assets/images/home/index.png'
 
 export interface ToggleButtonProps {
     id?: string
@@ -27,5 +28,6 @@ const StyledToggle = styled.button`
     font-weight:bold;
 `
 export default function ToggleButton({id, toggle}: ToggleButtonProps) {
-    return <StyledToggle id={id} onClick={toggle}>MODE</StyledToggle>
+    return <StyledToggle id={id} onClick={toggle}><img src={DigImage} width="40" height="40" />
+    </StyledToggle>
 }

@@ -70,12 +70,7 @@ export const ButtonPrimary = styled(Base)`
         outline: none;
         opacity: ${({ altDisabledStyle }) => (altDisabledStyle ? '0.5' : '1')};
     }
-    &:hover {
-        background-origin: border-box;
-        &::after {
-            animation: ${sheen} 0.5s forwards;
-        }
-    }
+  
 
     &::after {
         content: '';
@@ -223,7 +218,7 @@ export const ButtonOutlined = styled(Base)`
     border: 1px solid ${({ theme }) => theme.bg2};
     background-color: transparent;
     color: ${({ theme }) => theme.text1};
-
+    border-radius: 1rem;
     &:focus {
         box-shadow: 0 0 0 1px ${({ theme }) => theme.bg4};
     }
@@ -231,7 +226,7 @@ export const ButtonOutlined = styled(Base)`
         box-shadow: 0 0 0 1px ${({ theme }) => theme.bg4};
     }
     &:active {
-        background-color: ${({ theme }) => darken(0.5, theme.primary1)};
+        background-color: transparent
     }
     &:disabled {
         opacity: 50%;
@@ -355,7 +350,7 @@ export function ButtonDropdownGrey({ disabled = false, children, ...rest }: { di
 
 export function ButtonDropdownLight({ disabled = false, children, ...rest }: { disabled?: boolean } & ButtonProps) {
     return (
-        <ButtonOutlined {...rest} disabled={disabled}>
+        <ButtonOutlined {...rest} disabled={disabled} className="outline_button">
             <RowBetween>
                 <div style={{ display: 'flex', alignItems: 'center' }}>{children}</div>
                 <ChevronDown size={24} />

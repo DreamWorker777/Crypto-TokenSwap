@@ -227,6 +227,13 @@ button#connect-wallet {
   border: 2px solid rgb(213, 213, 213) !important;;
   font-weight: bold !important;
 }
+.bg_green_01{
+  border: 2px solid transparent !important;;
+}
+.yield-button.max{
+  font-size: 0.8rem !important;
+  border: 1px solid grey !important;
+}
 .back_button{
   left: -64px;
   position: absolute;
@@ -272,6 +279,9 @@ button#connect-wallet {
 .claimsection{
   margin: 20px;
   margin-left: 15px;
+}
+.outline_button{
+  border: 1px solid #d5d5d5 !important;
 }
 @media only screen and (max-width: 500px) {
   .header{
@@ -362,9 +372,6 @@ button#connect-wallet {
   }
   .dig-container {
     width: 100% !important;
-  }
-  .balance{
-    margin-top: -21px;
   }
   .currency-div{
     padding: 0 !important;

@@ -64,7 +64,7 @@ export default function Bury(props:any) {
                             </ImageDiv>
                         </Col>
                     </Row>
-                    <div className="row mt-16 mb-16">
+                    <div className="row mt-8 mb-8">
                         <div className="col-12 col-md-6 col-lg-3">
                             <VCard
                                 {...props}

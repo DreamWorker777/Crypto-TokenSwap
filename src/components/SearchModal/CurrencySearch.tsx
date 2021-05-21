@@ -179,6 +179,7 @@ export function CurrencySearch({
                 <Row>
                     <SearchInput
                         type="text"
+                        className="text italic font-extrabold"
                         id="token-search-input"
                         placeholder={t('tokenSearchPlaceholder')}
                         autoComplete="off"

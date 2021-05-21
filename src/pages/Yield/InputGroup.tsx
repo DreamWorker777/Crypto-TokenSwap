@@ -111,7 +111,7 @@ export default function InputGroup({
                             )}
                             <div className="flex items-center relative w-full mb-4">
                                 <NumericalInput
-                                    className="w-full p-3 bg-input rounded focus:ring focus:ring-blue"
+                                    className="w-full p-3 bg-input rounded"
                                     value={depositValue}
                                     onUserInput={value => {
                                         setDepositValue(value)
@@ -123,7 +123,7 @@ export default function InputGroup({
                                         onClick={() => {
                                             setDepositValue(fixedFormatting(balance.value, balance.decimals))
                                         }}
-                                        className="absolute right-4 border-0 bg-transparent p-3 rounded focus:outline-none focus:ring bg-transparent hover:bg-primary border border-low-emphesis rounded-full py-1 px-2 text-secondary text-xs font-medium whitespace-nowrap ml-3"
+                                        className="absolute right-4 border-0 bg-transparent p-3 rounded focus:outline-none bg-transparent hover:bg-primary border border-low-emphesis rounded-full py-1 px-2 text-secondary text-xs font-medium whitespace-nowrap ml-3 max"
                                     >
                                         MAX
                                     </Button>
@@ -155,7 +155,7 @@ export default function InputGroup({
                             )}
                             <div className="flex items-center relative w-full mb-4">
                                 <NumericalInput
-                                    className="w-full p-3 bg-input rounded focus:ring focus:ring-pink"
+                                    className="w-full p-3 bg-input rounded"
                                     value={withdrawValue}
                                     onUserInput={value => {
                                         setWithdrawValue(value)
@@ -167,7 +167,7 @@ export default function InputGroup({
                                         onClick={() => {
                                             setWithdrawValue(fixedFormatting(staked.value, staked.decimals))
                                         }}
-                                        className="absolute right-4 border-0 bg-transparent p-3 rounded focus:outline-none focus:ring bg-transparent hover:bg-primary border border-low-emphesis rounded-full py-1 px-2 text-secondary text-xs font-medium whitespace-nowrap ml-3"
+                                        className="absolute right-4 border-0 bg-transparent p-3 rounded focus:outline-none bg-transparent hover:bg-primary border border-low-emphesis rounded-full py-1 px-2 text-secondary text-xs font-medium whitespace-nowrap ml-3 max"
                                     >
                                         MAX
                                     </Button>

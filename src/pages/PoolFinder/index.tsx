@@ -83,7 +83,7 @@ export default function PoolFinder() {
             <Helmet>
                 <title>Find Pool | ShibaSwap</title>
             </Helmet>
-            <AppBody className="alert-container relative">
+            <AppBody className="relative m-auto fetch-container">
             <BackButton defaultRoute="/pool" className="back_button"/>
                 <FindPoolTabs />
                 <AutoColumn style={{ padding: '1rem' }} gap="md">

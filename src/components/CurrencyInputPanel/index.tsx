@@ -185,9 +185,21 @@ export default function CurrencyInputPanel({
     }, [setModalOpen])
 
     return (
-        <div id={id} style={InputGroupStyle} className={'pd-5 mb-2 ' + customStyle}>
+        <div id={id} style={InputGroupStyle} className={'pd-5 mb-2 relative ' + customStyle}>
+            {!hideInput && (
+                        <>
+            {account && (
+                                <div onClick={onMax} className="font-medium cursor-pointer text-xs text-low-emphesis balance absolute right-4">
+                                    {!hideBalance && !!currency && selectedCurrencyBalance
+                                        ? (customBalanceText ?? 'Balance: ') + selectedCurrencyBalance?.toSignificant(6)
+                                        : ' -'}
+                                </div>
+                            )}
+
+                            </>
+            )}
             <div
-                className="flex flex-col space-y-3 sm:space-y-0 sm:flex-row justify-between"
+                className="flex flex-col space-y-3 sm:space-y-0 sm:flex-row justify-between mt-1"
                 // hideInput={hideInput}
                 // cornerRadiusBottomNone={cornerRadiusBottomNone}
                 // cornerRadiusTopNone={cornerRadiusTopNone}
@@ -215,6 +227,7 @@ export default function CurrencyInputPanel({
                         </RowBetween>
                     </LabelRow>
                 )} */}
+                
                 <div
                     style={{ minWidth: '170px' }}
                     className="w-full sm:w-2/5"
@@ -333,13 +346,7 @@ export default function CurrencyInputPanel({
                                     onUserInput(val)
                                 }}
                             />
-                            {account && (
-                                <div onClick={onMax} className="font-medium cursor-pointer text-xs text-low-emphesis balance">
-                                    {!hideBalance && !!currency && selectedCurrencyBalance
-                                        ? (customBalanceText ?? 'Balance: ') + selectedCurrencyBalance?.toSignificant(6)
-                                        : ' -'}
-                                </div>
-                            )}
+                            
                         </>
                     )}
                 </div>

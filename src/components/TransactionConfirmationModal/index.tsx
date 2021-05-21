@@ -12,7 +12,7 @@ import { ButtonPrimary } from '../ButtonLegacy'
 import { AutoColumn, ColumnCenter } from '../Column'
 import Modal from '../Modal'
 import { RowBetween } from '../Row'
-import Woof from '../../assets/images/woof_icon.svg'
+import Woof from '../../assets/images/home/woof_icon.svg'
 
 const Wrapper = styled.div`
     width: 100%;

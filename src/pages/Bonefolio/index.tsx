@@ -148,7 +148,7 @@ export default function Bonefolio(props:any) {
         margin-top: 10px;
 
         @media(max-width:600px){
-            width:100%
+            width:95%
         }
     `;
 
@@ -249,14 +249,14 @@ export default function Bonefolio(props:any) {
 
 
     return(
-        <BonefolioContainer className="container my-auto pb-10 relative">
+        <BonefolioContainer className="container my-auto pb-10 relative mobile-container">
                             <BackButton defaultRoute="" className="back_button -left-11 top-8"/>
 
             <BoneSection>
                 <Row>
                 <Col>
                     <CardHeading>BONEFOLIO</CardHeading>
-                    <CardsubTitle>Every Shiba Inu needs to check their stash</CardsubTitle>
+                    <CardsubTitle className="title">Every Shiba Inu needs to check their stash</CardsubTitle>
                 </Col>
                 <Col className="mt-4 pr-3">
                 <div className="image-div">

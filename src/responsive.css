@@ -1124,15 +1124,6 @@
   border-radius: 10px;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0%, rgba(17, 20, 27, 0.33) 31%, rgba(17, 20, 27, 0.5) 100%);
 
-  @media(min-width: 350px) {
-    width: 100% !important;
-  }
-  @media (min-width:576px) {
-    width: 100% !important;
-  }
-  @media (min-width:768px) {
-    width: 100% !important;
-  }
   @media (min-width:992px) {
     width: 70% !important;
   }

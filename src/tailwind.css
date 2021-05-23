@@ -303,7 +303,14 @@ button#connect-wallet {
     top: -4rem;
   }
   .yield-card.fetch-container{
-    margin:20px
+    margin: 20px;
+    margin-top: 5rem;
+  }
+  .mobile-container,.bury-container{
+    width: 90% !important;
+  }
+  .mobile-container .title{
+    padding-left: 0.6rem;
   }
 }
 @media only screen and (max-width: 760px) {

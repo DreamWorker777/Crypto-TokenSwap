@@ -247,7 +247,7 @@ export default function SushiBar(props:any) {
 
   return (
     <>
-      <BurySection className="m-auto relative bury_section">
+      <BurySection className="m-auto relative bury_section mobile-container">
       <CardHeading className="p-4">BURY</CardHeading>
 
       {/* <CloseIcon style={{backgroundImage:"url(" + closeLogo + ")"}}/> */}

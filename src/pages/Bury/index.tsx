@@ -47,7 +47,7 @@ export default function Bury(props:any) {
     return (
         <PageWrapper gap="lg" justify="center">
             <div
-                className="container pb-5 m-auto bury-container relative"
+                className="container pb-5 m-auto bury-container relative mobile-container"
                 style={{ padding: '1rem' }}
             >
                 <InnerDiv>

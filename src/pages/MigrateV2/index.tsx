@@ -527,7 +527,7 @@ const MigrateParent = () => {
         height: 100%; 
     `
     return (
-        <PageWrapper gap="lg" justify="center">
+        <PageWrapper gap="lg" justify="center" className="mobile-container">
             <div
                 className="container pb-5 m-auto fetch-container relative"
                 style={{ padding: '1rem' }}

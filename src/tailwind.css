@@ -147,7 +147,7 @@ input:focus {
   padding: 0.2rem !important;
 }
 button#connect-wallet {
-  width: 13.688rem;
+  width: 11.688rem;
   border-radius: 25px;
   border: 3px solid #383648;
   background-color: #d5d5d5;
@@ -283,6 +283,11 @@ button#connect-wallet {
 .outline_button{
   border: 1px solid #d5d5d5 !important;
 }
+@media only screen and (max-width: 350px) {
+  .header_space{
+    margin-right: 0px;
+  }
+}
 @media only screen and (max-width: 500px) {
   .header{
     padding-left: 0 !important;
@@ -299,8 +304,8 @@ button#connect-wallet {
   #open-settings-dialog-button{
     top: 5px;
   }
-  .yield_card_mobile{
-    top: -4rem;
+  .m-auto.relative.yield_card_mobile{
+    margin-top: -72px !important;
   }
   .yield-card.fetch-container{
     margin: 20px;
@@ -310,6 +315,14 @@ button#connect-wallet {
     width: 90% !important;
   }
   .mobile-container .title{
+    padding-left: 0.8rem;
+    white-space: pre;
+  }
+  .add_liquidity{
+    margin-right: 1rem;
+  }
+  .header-mobile{
+    margin-right: -30px;
     padding-left: 0.6rem;
   }
 }
@@ -340,7 +353,7 @@ button#connect-wallet {
   }
   
   button#connect-wallet {
-    width: 11rem;
+    width: 9.8rem;
     padding: 0;
   }
   .container.my-auto {

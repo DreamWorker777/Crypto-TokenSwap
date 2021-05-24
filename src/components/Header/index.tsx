@@ -213,7 +213,7 @@ export default function Header(): JSX.Element {
                                         </div>
                                     )} */}
 
-                                    <div className="w-auto flex items-center rounded p-0.5 whitespace-nowrap text-sm font-bold cursor-pointer select-none pointer-events-auto">
+                                    <div className="w-auto flex items-center rounded p-0.5 whitespace-nowrap text-sm font-bold cursor-pointer select-none pointer-events-auto header_space">
                                         {/* {account && chainId && userEthBalance && (
                                             <>
                                                 <div className="py-2 px-3 text-primary text-bold">

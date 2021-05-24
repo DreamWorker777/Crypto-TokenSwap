@@ -155,7 +155,7 @@ const TokenBalance = ({ farm }: any) => {
                                     margin={true}
                                 />
                             </div>
-                            <div className="hidden sm:block">
+                            <div className="whitespace-pre">
                                 {farm && farm.liquidityPair.token0.symbol + '-' + farm.liquidityPair.token1.symbol}
                             </div>
                         </div>
@@ -208,7 +208,7 @@ const UserBalance = ({ farm }: any) => {
                                     margin={true}
                                 />
                             </div>
-                            <div className="hidden sm:block">
+                            <div className="whitespace-pre">
                                 {farm && farm.liquidityPair.token0.symbol + '-' + farm.liquidityPair.token1.symbol}
                             </div>
                         </div>

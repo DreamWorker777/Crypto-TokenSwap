@@ -186,7 +186,7 @@ export default function Pool() {
                                     Create a Pair
                                 </a>
                                 <a
-                                    className="text"
+                                    className="text add_liquidity"
                                     href="/add/ETH"
                                     style={{
                                         fontSize: '1rem',

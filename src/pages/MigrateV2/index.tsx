@@ -30,6 +30,7 @@ import { FACTORY_ADDRESS as SUSHI_FACTORY_ADDRESS } from '@sushiswap/sdk'
 import { FACTORY_ADDRESS as UNI_FACTORY_ADDRESS } from '@uniswap/sdk'
 import { CardHeading, Col, CardsubTitle } from '../Home/Card'
 import { BackButton } from 'kashi/components'
+import { Model } from 'echarts/core'
 
 const Border = styled.div`
     width: 100%;
@@ -143,7 +144,9 @@ const LPTokenSelect = ({ lpToken, onClick, onDismiss, isSelected, updating, isSu
 }
 
 const MigrateModeSelect = ({ state }: { state: MigrateState }) => {
-    const unsetMode = () => state.setMode(undefined)
+    const unsetMode = (mode: any) => {
+        state.setMode(mode)
+    }
 
     const items = [
         {
@@ -165,9 +168,9 @@ const MigrateModeSelect = ({ state }: { state: MigrateState }) => {
                 if (state.mode === undefined || key === state.mode)
                     acc.push(
                         <LightCardCustom key={key}>
-                            <AutoColumn gap="12px" className="relative fetch-card" onClick={() => state.setMode(key)}>
+                            <AutoColumn gap="12px" className="relative fetch-card">
                                 <RowFixed >
-                                    <AutoRow >
+                                    <AutoRow onClick={() => state.setMode(key)}>
                                         <AutoRow marginBottom="2px">
                                             <TYPE.body fontWeight={500}>{text}</TYPE.body>
                                         </AutoRow>
@@ -176,9 +179,9 @@ const MigrateModeSelect = ({ state }: { state: MigrateState }) => {
                                         </AutoRow>
                                     </AutoRow>
                                     {key === state.mode ? (
-                                        <CloseIcon onClick={unsetMode} className="absolute right-0"/>
+                                        <CloseIcon onClick={() => unsetMode(undefined)} className="absolute right-0"/>
                                     ) : (
-                                        <ChevronRight onClick={unsetMode} className="absolute right-0"/>
+                                        <ChevronRight onClick={() => state.setMode(key)} className="absolute right-0"/>
                                     )}
                                 </RowFixed>
                             </AutoColumn>

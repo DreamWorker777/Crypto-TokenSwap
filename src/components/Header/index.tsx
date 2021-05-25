@@ -98,7 +98,7 @@ export default function Header(): JSX.Element {
                             </div>
 
                             <div className="flex flex-row items-center justify-center w-full p-4 fixed left-0 bottom-0 bg-dark-1000 lg:relative lg:p-0 lg:bg-transparent header-mobile">
-                                <div className="flex items-center justify-between sm:justify-end space-x-2 w-full">
+                                <div className="flex items-center justify-between sm:justify-end space-x-2 w-full header">
                                     {TokensButton.map((t, key) => (
                                         <div className="nav-prices" key={key}>
                                             <button type="button" className="btn btn-transparent btn-round">

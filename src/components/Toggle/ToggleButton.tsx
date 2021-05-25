@@ -28,6 +28,6 @@ const StyledToggle = styled.button`
     font-weight:bold;
 `
 export default function ToggleButton({id, toggle}: ToggleButtonProps) {
-    return <StyledToggle id={id} onClick={toggle}>Mode
+    return <StyledToggle id={id} onClick={toggle}>MODE
     </StyledToggle>
 }

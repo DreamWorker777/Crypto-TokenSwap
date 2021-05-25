@@ -319,11 +319,16 @@ button#connect-wallet {
     white-space: pre;
   }
   .add_liquidity{
-    margin-right: 1rem;
+    margin-right: 1rem !important;
   }
   .header-mobile{
     margin-right: -30px;
     padding-left: 0.6rem;
+  }
+  .header-mobile .header.w-full{
+    position: absolute;
+    right: 20px;
+    width: revert !important;
   }
 }
 @media only screen and (max-width: 760px) {

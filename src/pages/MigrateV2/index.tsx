@@ -537,10 +537,9 @@ const MigrateParent = () => {
             >
                 <InnerDiv>
                 <BackButton defaultRoute="" className="back_button"/>
-                    <Row>
+                    <Row className="p-0">
                         <Col>
                             <CardHeading>FETCH</CardHeading>
-                            <CardsubTitle style={{ paddingTop: " 0.5rem"}}>Shib will retrieve your Uniswap or SushiSwap LP Tokens</CardsubTitle>
                         </Col>
                         <Col>
                             <ImageDiv>
@@ -548,6 +547,7 @@ const MigrateParent = () => {
                             </ImageDiv>
                         </Col>
                     </Row>
+                    <CardsubTitle className="subtitle -mt-2">Shib will retrieve your Uniswap or SushiSwap LP Tokens</CardsubTitle>
                 </InnerDiv>
 
                 <div className="row" style={{ paddingTop: "1rem", paddingBottom: "1rem" }}>

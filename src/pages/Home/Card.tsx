@@ -119,7 +119,7 @@ export const Card: FunctionComponent<CardProps> = ({ name, url, subTitle, desc, 
                     </ImageDiv>
                 </Col>
             </Row>
-            <CardsubTitle>{subTitle}</CardsubTitle>
+            <CardsubTitle className="sub_title">{subTitle}</CardsubTitle>
             <CardDesc>{desc}</CardDesc>
             <Button href={url} disabled={disabled}>
                 {buttonText}

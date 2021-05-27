@@ -52,11 +52,9 @@ export default function Bury(props:any) {
             >
                 <InnerDiv>
                 <BackButton defaultRoute="" className="back_button"/>
-                    <Row>
+                    <Row className="p-0">
                         <Col>
                             <CardHeading>BURY</CardHeading>
-                            <CardsubTitle style={{ paddingTop: " 0.5rem"}}>Shibas love to bury what they have found!</CardsubTitle>
-                            <div className="read-more mt-3 font-medium">Read more about swapping tokens</div>
                         </Col>
                         <Col>
                             <ImageDiv>
@@ -64,6 +62,8 @@ export default function Bury(props:any) {
                             </ImageDiv>
                         </Col>
                     </Row>
+                    <CardsubTitle className="subtitle -mt-2">Shibas love to bury what they have found!</CardsubTitle>
+                            <div className="read-more mt-3 font-medium">Read more about swapping tokens</div>
                     <div className="row mt-8 mb-8">
                         <div className="col-12 col-md-6 col-lg-3">
                             <VCard

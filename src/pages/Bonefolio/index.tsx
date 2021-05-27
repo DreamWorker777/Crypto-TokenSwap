@@ -15,7 +15,7 @@ export default function Bonefolio(props:any) {
 
     const BonefolioContainer = styled.div`
         display: inline-flex;
-        width: 70%;
+        width: 100%;
         height: auto;
         //border: 2px solid yellow;
         text-align: center
@@ -131,7 +131,7 @@ export default function Bonefolio(props:any) {
     const BarContainer = styled.div`
         width: 100%;
         height: auto;
-        margin-top:20px;
+        margin-top:3rem;
         //border: 2px solid white;
     `;
 
@@ -251,13 +251,13 @@ export default function Bonefolio(props:any) {
 
     return(
         <BonefolioContainer className="container my-auto pb-10 relative mobile-container">
-                            <BackButton defaultRoute="" className="back_button -left-11 top-8"/>
 
-            <BoneSection>
-                <Row>
+            <BoneSection className="relative">
+            <BackButton defaultRoute="" className="back_button top-4"/>
+
+                <Row className="p-0">
                 <Col>
                     <CardHeading>BONEFOLIO</CardHeading>
-                    <CardsubTitle className="title">Every Shiba Inu needs to check their stash</CardsubTitle>
                 </Col>
                 <Col className="mt-4 pr-3">
                 <div className="image-div">
@@ -265,6 +265,8 @@ export default function Bonefolio(props:any) {
                 </div>
                 </Col>
                 </Row>
+                <CardsubTitle className="title subtitle float-left">Every Shiba Inu needs to check their stash</CardsubTitle>
+
                 <BarContainer>
                     <BarSection>
                         <TitleBarContainer>
